@@ -60,26 +60,6 @@
       </tags>
   </entry>
   <entry>
-    <title>certificate</title>
-    <url>/2021/05/11/uncategorized/625f7e6bd689/</url>
-    <content><![CDATA[<h1 id="简历相关纸质材料汇总"><a href="#简历相关纸质材料汇总" class="headerlink" title="简历相关纸质材料汇总"></a>简历相关纸质材料汇总</h1><span id="more"></span>
-<h2 id="毕业设计论文发表收录"><a href="#毕业设计论文发表收录" class="headerlink" title="毕业设计论文发表收录"></a>毕业设计论文发表收录</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%E5%8F%91%E8%A1%A820210511203734.png" alt="毕业论文发表收录"></p>
-<h2 id="2019年全国大学生电子设计竞赛（TI杯）湖北省三等奖"><a href="#2019年全国大学生电子设计竞赛（TI杯）湖北省三等奖" class="headerlink" title="2019年全国大学生电子设计竞赛（TI杯）湖北省三等奖"></a>2019年全国大学生电子设计竞赛（TI杯）湖北省三等奖</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/%E7%94%B5%E5%AD%9020210511205545.jpg"></p>
-<h2 id="第十届蓝桥杯全国软件和信息技术专业人才大赛湖北赛区三等奖"><a href="#第十届蓝桥杯全国软件和信息技术专业人才大赛湖北赛区三等奖" class="headerlink" title="第十届蓝桥杯全国软件和信息技术专业人才大赛湖北赛区三等奖"></a>第十届蓝桥杯全国软件和信息技术专业人才大赛湖北赛区三等奖</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511205642.jpg"></p>
-<h2 id="第十二届全国大学生作文大赛二等奖"><a href="#第十二届全国大学生作文大赛二等奖" class="headerlink" title="第十二届全国大学生作文大赛二等奖"></a>第十二届全国大学生作文大赛二等奖</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511205800.jpg"></p>
-<h2 id="第十四届全国大学生作文大赛二等奖"><a href="#第十四届全国大学生作文大赛二等奖" class="headerlink" title="第十四届全国大学生作文大赛二等奖"></a>第十四届全国大学生作文大赛二等奖</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511205932.jpg"></p>
-<h2 id="任职证明"><a href="#任职证明" class="headerlink" title="任职证明"></a>任职证明</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511211724.jpg"></p>
-<h2 id="普通话等级证书"><a href="#普通话等级证书" class="headerlink" title="普通话等级证书"></a>普通话等级证书</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511210116.jpg"></p>
-<h2 id="教师资格证书"><a href="#教师资格证书" class="headerlink" title="教师资格证书"></a>教师资格证书</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511211818.jpg"></p>
-<h2 id="autoCAD"><a href="#autoCAD" class="headerlink" title="autoCAD"></a>autoCAD</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511210944.jpg"></p>
-<h2 id="毕业证书"><a href="#毕业证书" class="headerlink" title="毕业证书"></a>毕业证书</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511211852.jpg"></p>
-<h2 id="学位证书"><a href="#学位证书" class="headerlink" title="学位证书"></a>学位证书</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511211926.jpg"></p>
-]]></content>
-      <tags>
-        <tag>certificate</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>VUE2.X学习</title>
     <url>/2021/04/24/uncategorized/6eb6cb2ab58d/</url>
     <content><![CDATA[<h1 id="vue2-x教程学习"><a href="#vue2-x教程学习" class="headerlink" title="vue2.x教程学习"></a>vue2.x教程学习</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h3><p>Vue <strong>不支持</strong> IE8 及以下版本，因为 Vue 使用了 IE8 无法模拟的 ECMAScript 5 特性。但它支持所有<a href="https://caniuse.com/#feat=es5">兼容 ECMAScript 5 的浏览器</a>。</p>
@@ -106,6 +86,52 @@
 ]]></content>
       <tags>
         <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2021/10/11/hexo/bd5c75b8c9ae/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><span id="more"></span>
+
+<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>certificate</title>
+    <url>/2021/05/11/uncategorized/625f7e6bd689/</url>
+    <content><![CDATA[<h1 id="简历相关纸质材料汇总"><a href="#简历相关纸质材料汇总" class="headerlink" title="简历相关纸质材料汇总"></a>简历相关纸质材料汇总</h1><span id="more"></span>
+<h2 id="毕业设计论文发表收录"><a href="#毕业设计论文发表收录" class="headerlink" title="毕业设计论文发表收录"></a>毕业设计论文发表收录</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%E5%8F%91%E8%A1%A820210511203734.png" alt="毕业论文发表收录"></p>
+<h2 id="2019年全国大学生电子设计竞赛（TI杯）湖北省三等奖"><a href="#2019年全国大学生电子设计竞赛（TI杯）湖北省三等奖" class="headerlink" title="2019年全国大学生电子设计竞赛（TI杯）湖北省三等奖"></a>2019年全国大学生电子设计竞赛（TI杯）湖北省三等奖</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/%E7%94%B5%E5%AD%9020210511205545.jpg"></p>
+<h2 id="第十届蓝桥杯全国软件和信息技术专业人才大赛湖北赛区三等奖"><a href="#第十届蓝桥杯全国软件和信息技术专业人才大赛湖北赛区三等奖" class="headerlink" title="第十届蓝桥杯全国软件和信息技术专业人才大赛湖北赛区三等奖"></a>第十届蓝桥杯全国软件和信息技术专业人才大赛湖北赛区三等奖</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511205642.jpg"></p>
+<h2 id="第十二届全国大学生作文大赛二等奖"><a href="#第十二届全国大学生作文大赛二等奖" class="headerlink" title="第十二届全国大学生作文大赛二等奖"></a>第十二届全国大学生作文大赛二等奖</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511205800.jpg"></p>
+<h2 id="第十四届全国大学生作文大赛二等奖"><a href="#第十四届全国大学生作文大赛二等奖" class="headerlink" title="第十四届全国大学生作文大赛二等奖"></a>第十四届全国大学生作文大赛二等奖</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511205932.jpg"></p>
+<h2 id="任职证明"><a href="#任职证明" class="headerlink" title="任职证明"></a>任职证明</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511211724.jpg"></p>
+<h2 id="普通话等级证书"><a href="#普通话等级证书" class="headerlink" title="普通话等级证书"></a>普通话等级证书</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511210116.jpg"></p>
+<h2 id="教师资格证书"><a href="#教师资格证书" class="headerlink" title="教师资格证书"></a>教师资格证书</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511211818.jpg"></p>
+<h2 id="autoCAD"><a href="#autoCAD" class="headerlink" title="autoCAD"></a>autoCAD</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511210944.jpg"></p>
+<h2 id="毕业证书"><a href="#毕业证书" class="headerlink" title="毕业证书"></a>毕业证书</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511211852.jpg"></p>
+<h2 id="学位证书"><a href="#学位证书" class="headerlink" title="学位证书"></a>学位证书</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511211926.jpg"></p>
+]]></content>
+      <tags>
+        <tag>certificate</tag>
       </tags>
   </entry>
   <entry>
@@ -152,32 +178,6 @@ deploy:
 <li><a href="https://github.com/Molunerfinn/PicGo/releases">picgo的github链接</a></li>
 <li>picgo Windows <a href="https://pan.baidu.com/s/1y_yn9dl5aEAGHBX2c2KDPA">PicGo-Setup-2.3.0-beta.5.exe</a> 提取码：hexo</li>
 </ol>
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2021/10/11/hexo/bd5c75b8c9ae/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><span id="more"></span>
-
-<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
       <categories>
         <category>hexo</category>
@@ -249,7 +249,7 @@ v14.16.0</li>
 cmd控制台反馈如下：<pre>
 C:\Users\18827\AppData\Roaming\npm\create-react-app -> C:\Users\18827\AppData\Roaming\npm\node_modules\create-react-app\index.js</li>
 </ul>
-<p><a href="mailto:&#x2b;&#x63;&#114;&#101;&#x61;&#x74;&#101;&#45;&#114;&#x65;&#97;&#99;&#x74;&#45;&#97;&#112;&#x70;&#64;&#x34;&#46;&#x30;&#46;&#x33;">&#x2b;&#x63;&#114;&#101;&#x61;&#x74;&#101;&#45;&#114;&#x65;&#97;&#99;&#x74;&#45;&#97;&#112;&#x70;&#64;&#x34;&#46;&#x30;&#46;&#x33;</a><br>added 67 packages from 25 contributors in 22.805s<br> </pre></p>
+<p><a href="mailto:&#43;&#x63;&#114;&#x65;&#x61;&#116;&#101;&#x2d;&#114;&#101;&#97;&#99;&#116;&#x2d;&#x61;&#112;&#x70;&#64;&#x34;&#46;&#x30;&#46;&#51;">&#43;&#x63;&#114;&#x65;&#x61;&#116;&#101;&#x2d;&#114;&#101;&#97;&#99;&#116;&#x2d;&#x61;&#112;&#x70;&#64;&#x34;&#46;&#x30;&#46;&#51;</a><br>added 67 packages from 25 contributors in 22.805s<br> </pre></p>
 <h2 id="创建项目文件夹，并开启demo"><a href="#创建项目文件夹，并开启demo" class="headerlink" title="创建项目文件夹，并开启demo"></a>创建项目文件夹，并开启demo</h2><ul>
 <li><p>在电脑桌面同时按下Windows+R进入输入cmd,按enter</p>
 </li>
@@ -301,21 +301,6 @@ C:\Users\18827\AppData\Roaming\npm\create-react-app -> C:\Users\18827\AppData\Ro
       </tags>
   </entry>
   <entry>
-    <title>vue3 基础文档学习</title>
-    <url>/2021/09/23/vue3/22ee434cee21/</url>
-    <content><![CDATA[<h1 id="基础文档网址"><a href="#基础文档网址" class="headerlink" title="基础文档网址"></a>基础文档网址</h1><p><a href="https://v3.cn.vuejs.org/">vue3官方文档学习</a></p>
-<span id="more"></span>
-]]></content>
-      <categories>
-        <category>vue3</category>
-      </categories>
-      <tags>
-        <tag>TypeScript</tag>
-        <tag>vue3</tag>
-        <tag>vite</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>webpack（一）</title>
     <url>/2021/04/28/webpack/a052f112cdb6/</url>
     <content><![CDATA[<h1 id="前言—带着问题学习webpack"><a href="#前言—带着问题学习webpack" class="headerlink" title="前言—带着问题学习webpack"></a>前言—带着问题学习webpack</h1><ul>
@@ -364,6 +349,31 @@ C:\Users\18827\AppData\Roaming\npm\create-react-app -> C:\Users\18827\AppData\Ro
       </categories>
       <tags>
         <tag>webpack</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vue+elementUI后台管理系统</title>
+    <url>/2021/04/17/uncategorized/cf07c19a06d1/</url>
+    <content><![CDATA[<h1 id="关于后台管理系统开发过程中问题的解决"><a href="#关于后台管理系统开发过程中问题的解决" class="headerlink" title="关于后台管理系统开发过程中问题的解决"></a>关于后台管理系统开发过程中问题的解决</h1><h2 id="相关环境及版本号"><a href="#相关环境及版本号" class="headerlink" title="相关环境及版本号"></a>相关环境及版本号</h2><p>node -v</p>
+<span id="more"></span>
+]]></content>
+      <tags>
+        <tag>cms</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vue3 基础文档学习</title>
+    <url>/2021/09/23/vue3/22ee434cee21/</url>
+    <content><![CDATA[<h1 id="基础文档网址"><a href="#基础文档网址" class="headerlink" title="基础文档网址"></a>基础文档网址</h1><p><a href="https://v3.cn.vuejs.org/">vue3官方文档学习</a></p>
+<span id="more"></span>
+]]></content>
+      <categories>
+        <category>vue3</category>
+      </categories>
+      <tags>
+        <tag>TypeScript</tag>
+        <tag>vue3</tag>
+        <tag>vite</tag>
       </tags>
   </entry>
   <entry>
@@ -560,16 +570,6 @@ C:\Users\18827\AppData\Roaming\npm\create-react-app -> C:\Users\18827\AppData\Ro
 ]]></content>
       <tags>
         <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vue+elementUI后台管理系统</title>
-    <url>/2021/04/17/uncategorized/cf07c19a06d1/</url>
-    <content><![CDATA[<h1 id="关于后台管理系统开发过程中问题的解决"><a href="#关于后台管理系统开发过程中问题的解决" class="headerlink" title="关于后台管理系统开发过程中问题的解决"></a>关于后台管理系统开发过程中问题的解决</h1><h2 id="相关环境及版本号"><a href="#相关环境及版本号" class="headerlink" title="相关环境及版本号"></a>相关环境及版本号</h2><p>node -v</p>
-<span id="more"></span>
-]]></content>
-      <tags>
-        <tag>cms</tag>
       </tags>
   </entry>
   <entry>
