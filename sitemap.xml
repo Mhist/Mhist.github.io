@@ -179,6 +179,13 @@
   </url>
   
   <url>
+    <loc>http://wakeweb.cloud/tags/hexo/</loc>
+    <lastmod>2021-10-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://wakeweb.cloud/tags/certificate/</loc>
     <lastmod>2021-10-17</lastmod>
     <changefreq>daily</changefreq>
@@ -186,7 +193,14 @@
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/tags/hexo/</loc>
+    <loc>http://wakeweb.cloud/tags/react/</loc>
+    <lastmod>2021-10-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://wakeweb.cloud/tags/webpack/</loc>
     <lastmod>2021-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -201,20 +215,6 @@
   
   <url>
     <loc>http://wakeweb.cloud/tags/vite/</loc>
-    <lastmod>2021-10-17</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://wakeweb.cloud/tags/webpack/</loc>
-    <lastmod>2021-10-17</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://wakeweb.cloud/tags/react/</loc>
     <lastmod>2021-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -251,14 +251,14 @@
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/categories/vue3/</loc>
+    <loc>http://wakeweb.cloud/categories/webpack/</loc>
     <lastmod>2021-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/categories/webpack/</loc>
+    <loc>http://wakeweb.cloud/categories/vue3/</loc>
     <lastmod>2021-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
