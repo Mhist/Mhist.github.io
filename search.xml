@@ -1,55 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>VUE2.X学习</title>
-    <url>/2021/04/24/uncategorized/6eb6cb2ab58d/</url>
-    <content><![CDATA[<h1 id="vue2-x教程学习"><a href="#vue2-x教程学习" class="headerlink" title="vue2.x教程学习"></a>vue2.x教程学习</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h3><p>Vue <strong>不支持</strong> IE8 及以下版本，因为 Vue 使用了 IE8 无法模拟的 ECMAScript 5 特性。但它支持所有<a href="https://caniuse.com/#feat=es5">兼容 ECMAScript 5 的浏览器</a>。</p>
-<h3 id="语义化版本控制"><a href="#语义化版本控制" class="headerlink" title="语义化版本控制"></a>语义化版本控制</h3><p>Vue 在其所有项目中公布的功能和行为都遵循<a href="https://semver.org/lang/zh-CN/">语义化版本控制</a>。对于未公布的或内部暴露的行为，其变更会描述在<a href="https://github.com/vuejs/vue/releases">发布说明</a>中。</p>
-<h3 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h3><p>最新稳定版本：2.6.12<br>每个版本的更新日志见 <a href="https://github.com/vuejs/vue/releases">GitHub</a>。</p>
-<span id="more"></span>
-<h3 id="Vue-Devtools"><a href="#Vue-Devtools" class="headerlink" title="Vue Devtools"></a>Vue Devtools</h3><ul>
-<li>在使用 Vue 时，我们推荐在你的浏览器上安装 <a href="https://github.com/vuejs/vue-devtools#vue-devtools">Vue Devtools</a>。它允许你在一个更友好的界面中审查和调试 Vue 应用。</li>
-<li> 在Chrome浏览器中可以直接到Chrome网上商店搜索下载</li>
-<li> 在edge浏览器中可以打开 <a href="https://chrome.google.com/webstore/category/extensions">Chrome 扩展商店</a>，在搜索栏搜索 <strong>vue.js devtools</strong><br>选择提供方为：<a href="https://vuejs.org/">https://vuejs.org</a> 的扩展，添加成功后，进入扩展设置页面，找到 Vue.js devtools 扩展，点击详细信息，勾选允许访问文件 URL和收集错误选项.<br><img src="https://gitee.com/mhist/hexo-image/raw/master/img/VueDevToolSet-20210424164242.png" alt="vue.js devtools"><h3 id="直接用script标签引用"><a href="#直接用script标签引用" class="headerlink" title="直接用script标签引用"></a>直接用script标签引用</h3>直接下载并用 script 标签引入，Vue会被注册为全局变量。</li>
-<li>在开发环境下不要使用压缩版本，不然会失去所有常见错误的相关警告。</li>
-<li><a href="https://cn.vuejs.org/js/vue.js">开发版本</a>包含完整的警告和调试模式</li>
-<li><a href="https://cn.vuejs.org/js/vue.min.js">压缩版本/生产版本</a>删除了警告，33.30KB min+gzip<h4 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h4>对于制作原型或学习，你可以这样使用最新版本：<figure class="highlight applescript"><table><tr><td class="code"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">script</span> src=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;</span>&gt;<span class="hljs-keyword">script</span>&gt;<br></code></pre></td></tr></table></figure>
-对于生产环境，我们推荐链接到一个明确的版本号和构建文件，以避免新版本造成的不可预期的破坏：<figure class="highlight applescript"><table><tr><td class="code"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">script</span> src=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/vue@2.6.12&quot;</span>&gt;<span class="hljs-keyword">script</span>&gt;<br></code></pre></td></tr></table></figure>
-如果你使用原生 ES Modules，这里也有一个兼容 ES Module 的构建文件：<figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;module&quot;</span>&gt;</span><span class="javascript"> <span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.esm.browser.js&#x27;</span> script&gt;</span><br></code></pre></td></tr></table></figure></li>
-</ul>
-<p>你可以在 <a href="https://cdn.jsdelivr.net/npm/vue/">cdn.jsdelivr.net/npm/vue</a> 浏览 NPM 包的源代码。</p>
-<p>Vue 也可以在 <a href="https://unpkg.com/vue@2.6.12/dist/vue.js">unpkg</a> 和 <a href="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js">cdnjs</a> 上获取 (cdnjs 的版本更新可能略滞后)。</p>
-<p>请确认了解<a href="https://cn.vuejs.org/v2/guide/installation.html#%E5%AF%B9%E4%B8%8D%E5%90%8C%E6%9E%84%E5%BB%BA%E7%89%88%E6%9C%AC%E7%9A%84%E8%A7%A3%E9%87%8A">不同构建版本</a>并在你发布的站点中使用<strong>生产环境版本</strong>，把 <code>vue.js</code> 换成 <code>vue.min.js</code>。这是一个更小的构建，可以带来比开发环境下更快的速度体验。</p>
-<h3 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h3><p>在用 Vue 构建大型应用时推荐使用 NPM 安装<a href="https://cn.vuejs.org/v2/guide/installation.html#footnote-1">[1]</a>。NPM 能很好地和诸如 <a href="https://webpack.js.org/">webpack</a> 或 <a href="http://browserify.org/">Browserify</a> 模块打包器配合使用。同时 Vue 也提供配套工具来开发<a href="https://cn.vuejs.org/v2/guide/single-file-components.html">单文件组件</a>。</p>
-<figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake"><span class="hljs-comment"># 最新稳定版</span><br>$ npm <span class="hljs-keyword">install</span> vue<br></code></pre></td></tr></table></figure>
-<h2 id="命令行工具-CLI"><a href="#命令行工具-CLI" class="headerlink" title="命令行工具 (CLI)"></a><a href="https://cli.vuejs.org/zh/">命令行工具 (CLI)</a></h2><p>Vue CLI 是一个基于 Vue.js 进行快速开发的完整系统，提供：</p>
-<p>通过 @vue/cli 实现的交互式的项目脚手架。<br>通过 @vue/cli + @vue/cli-service-global 实现的零配置原型开发。<br>一个运行时依赖 (@vue/cli-service)，该依赖：<br>可升级；<br>基于 webpack 构建，并带有合理的默认配置；<br>可以通过项目内的配置文件进行配置；<br>可以通过插件进行扩展。<br>一个丰富的官方插件集合，集成了前端生态中最好的工具。<br>一套完全图形化的创建和管理 Vue.js 项目的用户界面。<br>Vue CLI 致力于将 Vue 生态中的工具基础标准化。它确保了各种构建工具能够基于智能的默认配置即可平稳衔接，这样你可以专注在撰写应用上，而不必花好几天去纠结配置的问题。与此同时，它也为每个工具提供了调整配置的灵活性，无需 eject。</p>
-]]></content>
-      <tags>
-        <tag>vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>certificate</title>
-    <url>/2021/05/11/uncategorized/625f7e6bd689/</url>
-    <content><![CDATA[<h1 id="简历相关纸质材料汇总"><a href="#简历相关纸质材料汇总" class="headerlink" title="简历相关纸质材料汇总"></a>简历相关纸质材料汇总</h1><span id="more"></span>
-<h2 id="毕业设计论文发表收录"><a href="#毕业设计论文发表收录" class="headerlink" title="毕业设计论文发表收录"></a>毕业设计论文发表收录</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%E5%8F%91%E8%A1%A820210511203734.png" alt="毕业论文发表收录"></p>
-<h2 id="2019年全国大学生电子设计竞赛（TI杯）湖北省三等奖"><a href="#2019年全国大学生电子设计竞赛（TI杯）湖北省三等奖" class="headerlink" title="2019年全国大学生电子设计竞赛（TI杯）湖北省三等奖"></a>2019年全国大学生电子设计竞赛（TI杯）湖北省三等奖</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/%E7%94%B5%E5%AD%9020210511205545.jpg"></p>
-<h2 id="第十届蓝桥杯全国软件和信息技术专业人才大赛湖北赛区三等奖"><a href="#第十届蓝桥杯全国软件和信息技术专业人才大赛湖北赛区三等奖" class="headerlink" title="第十届蓝桥杯全国软件和信息技术专业人才大赛湖北赛区三等奖"></a>第十届蓝桥杯全国软件和信息技术专业人才大赛湖北赛区三等奖</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511205642.jpg"></p>
-<h2 id="第十二届全国大学生作文大赛二等奖"><a href="#第十二届全国大学生作文大赛二等奖" class="headerlink" title="第十二届全国大学生作文大赛二等奖"></a>第十二届全国大学生作文大赛二等奖</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511205800.jpg"></p>
-<h2 id="第十四届全国大学生作文大赛二等奖"><a href="#第十四届全国大学生作文大赛二等奖" class="headerlink" title="第十四届全国大学生作文大赛二等奖"></a>第十四届全国大学生作文大赛二等奖</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511205932.jpg"></p>
-<h2 id="任职证明"><a href="#任职证明" class="headerlink" title="任职证明"></a>任职证明</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511211724.jpg"></p>
-<h2 id="普通话等级证书"><a href="#普通话等级证书" class="headerlink" title="普通话等级证书"></a>普通话等级证书</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511210116.jpg"></p>
-<h2 id="教师资格证书"><a href="#教师资格证书" class="headerlink" title="教师资格证书"></a>教师资格证书</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511211818.jpg"></p>
-<h2 id="autoCAD"><a href="#autoCAD" class="headerlink" title="autoCAD"></a>autoCAD</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511210944.jpg"></p>
-<h2 id="毕业证书"><a href="#毕业证书" class="headerlink" title="毕业证书"></a>毕业证书</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511211852.jpg"></p>
-<h2 id="学位证书"><a href="#学位证书" class="headerlink" title="学位证书"></a>学位证书</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511211926.jpg"></p>
-]]></content>
-      <tags>
-        <tag>certificate</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>TypeScript入门教程二</title>
     <url>/2021/09/26/TypeScript/4d8aa16bcb6b/</url>
     <content><![CDATA[<h1 id="typescript学习：第二部分"><a href="#typescript学习：第二部分" class="headerlink" title="typescript学习：第二部分"></a>typescript学习：第二部分</h1><p>  → <a href="http://wakeweb.cloud/2021/09/24/TypeScript/854698b90236/">第一部分跳转链接</a></p>
@@ -109,29 +60,52 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2021/10/11/hexo/bd5c75b8c9ae/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><span id="more"></span>
-
-<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+    <title>certificate</title>
+    <url>/2021/05/11/uncategorized/625f7e6bd689/</url>
+    <content><![CDATA[<h1 id="简历相关纸质材料汇总"><a href="#简历相关纸质材料汇总" class="headerlink" title="简历相关纸质材料汇总"></a>简历相关纸质材料汇总</h1><span id="more"></span>
+<h2 id="毕业设计论文发表收录"><a href="#毕业设计论文发表收录" class="headerlink" title="毕业设计论文发表收录"></a>毕业设计论文发表收录</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%E5%8F%91%E8%A1%A820210511203734.png" alt="毕业论文发表收录"></p>
+<h2 id="2019年全国大学生电子设计竞赛（TI杯）湖北省三等奖"><a href="#2019年全国大学生电子设计竞赛（TI杯）湖北省三等奖" class="headerlink" title="2019年全国大学生电子设计竞赛（TI杯）湖北省三等奖"></a>2019年全国大学生电子设计竞赛（TI杯）湖北省三等奖</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/%E7%94%B5%E5%AD%9020210511205545.jpg"></p>
+<h2 id="第十届蓝桥杯全国软件和信息技术专业人才大赛湖北赛区三等奖"><a href="#第十届蓝桥杯全国软件和信息技术专业人才大赛湖北赛区三等奖" class="headerlink" title="第十届蓝桥杯全国软件和信息技术专业人才大赛湖北赛区三等奖"></a>第十届蓝桥杯全国软件和信息技术专业人才大赛湖北赛区三等奖</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511205642.jpg"></p>
+<h2 id="第十二届全国大学生作文大赛二等奖"><a href="#第十二届全国大学生作文大赛二等奖" class="headerlink" title="第十二届全国大学生作文大赛二等奖"></a>第十二届全国大学生作文大赛二等奖</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511205800.jpg"></p>
+<h2 id="第十四届全国大学生作文大赛二等奖"><a href="#第十四届全国大学生作文大赛二等奖" class="headerlink" title="第十四届全国大学生作文大赛二等奖"></a>第十四届全国大学生作文大赛二等奖</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511205932.jpg"></p>
+<h2 id="任职证明"><a href="#任职证明" class="headerlink" title="任职证明"></a>任职证明</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511211724.jpg"></p>
+<h2 id="普通话等级证书"><a href="#普通话等级证书" class="headerlink" title="普通话等级证书"></a>普通话等级证书</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511210116.jpg"></p>
+<h2 id="教师资格证书"><a href="#教师资格证书" class="headerlink" title="教师资格证书"></a>教师资格证书</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511211818.jpg"></p>
+<h2 id="autoCAD"><a href="#autoCAD" class="headerlink" title="autoCAD"></a>autoCAD</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511210944.jpg"></p>
+<h2 id="毕业证书"><a href="#毕业证书" class="headerlink" title="毕业证书"></a>毕业证书</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511211852.jpg"></p>
+<h2 id="学位证书"><a href="#学位证书" class="headerlink" title="学位证书"></a>学位证书</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511211926.jpg"></p>
 ]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
       <tags>
-        <tag>hexo</tag>
+        <tag>certificate</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VUE2.X学习</title>
+    <url>/2021/04/24/uncategorized/6eb6cb2ab58d/</url>
+    <content><![CDATA[<h1 id="vue2-x教程学习"><a href="#vue2-x教程学习" class="headerlink" title="vue2.x教程学习"></a>vue2.x教程学习</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h3><p>Vue <strong>不支持</strong> IE8 及以下版本，因为 Vue 使用了 IE8 无法模拟的 ECMAScript 5 特性。但它支持所有<a href="https://caniuse.com/#feat=es5">兼容 ECMAScript 5 的浏览器</a>。</p>
+<h3 id="语义化版本控制"><a href="#语义化版本控制" class="headerlink" title="语义化版本控制"></a>语义化版本控制</h3><p>Vue 在其所有项目中公布的功能和行为都遵循<a href="https://semver.org/lang/zh-CN/">语义化版本控制</a>。对于未公布的或内部暴露的行为，其变更会描述在<a href="https://github.com/vuejs/vue/releases">发布说明</a>中。</p>
+<h3 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h3><p>最新稳定版本：2.6.12<br>每个版本的更新日志见 <a href="https://github.com/vuejs/vue/releases">GitHub</a>。</p>
+<span id="more"></span>
+<h3 id="Vue-Devtools"><a href="#Vue-Devtools" class="headerlink" title="Vue Devtools"></a>Vue Devtools</h3><ul>
+<li>在使用 Vue 时，我们推荐在你的浏览器上安装 <a href="https://github.com/vuejs/vue-devtools#vue-devtools">Vue Devtools</a>。它允许你在一个更友好的界面中审查和调试 Vue 应用。</li>
+<li> 在Chrome浏览器中可以直接到Chrome网上商店搜索下载</li>
+<li> 在edge浏览器中可以打开 <a href="https://chrome.google.com/webstore/category/extensions">Chrome 扩展商店</a>，在搜索栏搜索 <strong>vue.js devtools</strong><br>选择提供方为：<a href="https://vuejs.org/">https://vuejs.org</a> 的扩展，添加成功后，进入扩展设置页面，找到 Vue.js devtools 扩展，点击详细信息，勾选允许访问文件 URL和收集错误选项.<br><img src="https://gitee.com/mhist/hexo-image/raw/master/img/VueDevToolSet-20210424164242.png" alt="vue.js devtools"><h3 id="直接用script标签引用"><a href="#直接用script标签引用" class="headerlink" title="直接用script标签引用"></a>直接用script标签引用</h3>直接下载并用 script 标签引入，Vue会被注册为全局变量。</li>
+<li>在开发环境下不要使用压缩版本，不然会失去所有常见错误的相关警告。</li>
+<li><a href="https://cn.vuejs.org/js/vue.js">开发版本</a>包含完整的警告和调试模式</li>
+<li><a href="https://cn.vuejs.org/js/vue.min.js">压缩版本/生产版本</a>删除了警告，33.30KB min+gzip<h4 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h4>对于制作原型或学习，你可以这样使用最新版本：<figure class="highlight applescript"><table><tr><td class="code"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">script</span> src=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;</span>&gt;<span class="hljs-keyword">script</span>&gt;<br></code></pre></td></tr></table></figure>
+对于生产环境，我们推荐链接到一个明确的版本号和构建文件，以避免新版本造成的不可预期的破坏：<figure class="highlight applescript"><table><tr><td class="code"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">script</span> src=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/vue@2.6.12&quot;</span>&gt;<span class="hljs-keyword">script</span>&gt;<br></code></pre></td></tr></table></figure>
+如果你使用原生 ES Modules，这里也有一个兼容 ES Module 的构建文件：<figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;module&quot;</span>&gt;</span><span class="javascript"> <span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.esm.browser.js&#x27;</span> script&gt;</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<p>你可以在 <a href="https://cdn.jsdelivr.net/npm/vue/">cdn.jsdelivr.net/npm/vue</a> 浏览 NPM 包的源代码。</p>
+<p>Vue 也可以在 <a href="https://unpkg.com/vue@2.6.12/dist/vue.js">unpkg</a> 和 <a href="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js">cdnjs</a> 上获取 (cdnjs 的版本更新可能略滞后)。</p>
+<p>请确认了解<a href="https://cn.vuejs.org/v2/guide/installation.html#%E5%AF%B9%E4%B8%8D%E5%90%8C%E6%9E%84%E5%BB%BA%E7%89%88%E6%9C%AC%E7%9A%84%E8%A7%A3%E9%87%8A">不同构建版本</a>并在你发布的站点中使用<strong>生产环境版本</strong>，把 <code>vue.js</code> 换成 <code>vue.min.js</code>。这是一个更小的构建，可以带来比开发环境下更快的速度体验。</p>
+<h3 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h3><p>在用 Vue 构建大型应用时推荐使用 NPM 安装<a href="https://cn.vuejs.org/v2/guide/installation.html#footnote-1">[1]</a>。NPM 能很好地和诸如 <a href="https://webpack.js.org/">webpack</a> 或 <a href="http://browserify.org/">Browserify</a> 模块打包器配合使用。同时 Vue 也提供配套工具来开发<a href="https://cn.vuejs.org/v2/guide/single-file-components.html">单文件组件</a>。</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake"><span class="hljs-comment"># 最新稳定版</span><br>$ npm <span class="hljs-keyword">install</span> vue<br></code></pre></td></tr></table></figure>
+<h2 id="命令行工具-CLI"><a href="#命令行工具-CLI" class="headerlink" title="命令行工具 (CLI)"></a><a href="https://cli.vuejs.org/zh/">命令行工具 (CLI)</a></h2><p>Vue CLI 是一个基于 Vue.js 进行快速开发的完整系统，提供：</p>
+<p>通过 @vue/cli 实现的交互式的项目脚手架。<br>通过 @vue/cli + @vue/cli-service-global 实现的零配置原型开发。<br>一个运行时依赖 (@vue/cli-service)，该依赖：<br>可升级；<br>基于 webpack 构建，并带有合理的默认配置；<br>可以通过项目内的配置文件进行配置；<br>可以通过插件进行扩展。<br>一个丰富的官方插件集合，集成了前端生态中最好的工具。<br>一套完全图形化的创建和管理 Vue.js 项目的用户界面。<br>Vue CLI 致力于将 Vue 生态中的工具基础标准化。它确保了各种构建工具能够基于智能的默认配置即可平稳衔接，这样你可以专注在撰写应用上，而不必花好几天去纠结配置的问题。与此同时，它也为每个工具提供了调整配置的灵活性，无需 eject。</p>
+]]></content>
+      <tags>
+        <tag>vue</tag>
       </tags>
   </entry>
   <entry>
@@ -178,6 +152,32 @@ deploy:
 <li><a href="https://github.com/Molunerfinn/PicGo/releases">picgo的github链接</a></li>
 <li>picgo Windows <a href="https://pan.baidu.com/s/1y_yn9dl5aEAGHBX2c2KDPA">PicGo-Setup-2.3.0-beta.5.exe</a> 提取码：hexo</li>
 </ol>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2021/10/11/hexo/bd5c75b8c9ae/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><span id="more"></span>
+
+<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
       <categories>
         <category>hexo</category>
@@ -237,33 +237,6 @@ deploy:
       </tags>
   </entry>
   <entry>
-    <title>vue3</title>
-    <url>/2021/10/11/vue3/583a6ec9ccd6/</url>
-    <content><![CDATA[<h1 id="vue3"><a href="#vue3" class="headerlink" title="vue3"></a>vue3</h1><p>   新一代的前端框架，基于typescript开发，具有更加优越的性能和更加安全的代码机制。</p>
-<span id="more"></span>]]></content>
-      <categories>
-        <category>vue3</category>
-      </categories>
-      <tags>
-        <tag>vue3</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vue3 基础文档学习</title>
-    <url>/2021/09/23/vue3/22ee434cee21/</url>
-    <content><![CDATA[<h1 id="基础文档网址"><a href="#基础文档网址" class="headerlink" title="基础文档网址"></a>基础文档网址</h1><p><a href="https://v3.cn.vuejs.org/">vue3官方文档学习</a></p>
-<span id="more"></span>
-]]></content>
-      <categories>
-        <category>vue3</category>
-      </categories>
-      <tags>
-        <tag>TypeScript</tag>
-        <tag>vue3</tag>
-        <tag>vite</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>learn react</title>
     <url>/2021/04/24/uncategorized/c98970b16c20/</url>
     <content><![CDATA[<h1 id="react-入门"><a href="#react-入门" class="headerlink" title="react 入门"></a>react 入门</h1><h2 id="react框架基本介绍"><a href="#react框架基本介绍" class="headerlink" title="react框架基本介绍"></a>react框架基本介绍</h2><p>   <a href="https://reactjs.org/">react官方</a></p>
@@ -276,7 +249,7 @@ v14.16.0</li>
 cmd控制台反馈如下：<pre>
 C:\Users\18827\AppData\Roaming\npm\create-react-app -> C:\Users\18827\AppData\Roaming\npm\node_modules\create-react-app\index.js</li>
 </ul>
-<p><a href="mailto:&#43;&#99;&#x72;&#x65;&#x61;&#x74;&#101;&#x2d;&#114;&#x65;&#x61;&#x63;&#116;&#x2d;&#97;&#x70;&#112;&#x40;&#x34;&#46;&#x30;&#46;&#51;">&#43;&#99;&#x72;&#x65;&#x61;&#x74;&#101;&#x2d;&#114;&#x65;&#x61;&#x63;&#116;&#x2d;&#97;&#x70;&#112;&#x40;&#x34;&#46;&#x30;&#46;&#51;</a><br>added 67 packages from 25 contributors in 22.805s<br> </pre></p>
+<p><a href="mailto:&#x2b;&#x63;&#114;&#101;&#x61;&#x74;&#101;&#45;&#114;&#x65;&#97;&#99;&#x74;&#45;&#97;&#112;&#x70;&#64;&#x34;&#46;&#x30;&#46;&#x33;">&#x2b;&#x63;&#114;&#101;&#x61;&#x74;&#101;&#45;&#114;&#x65;&#97;&#99;&#x74;&#45;&#97;&#112;&#x70;&#64;&#x34;&#46;&#x30;&#46;&#x33;</a><br>added 67 packages from 25 contributors in 22.805s<br> </pre></p>
 <h2 id="创建项目文件夹，并开启demo"><a href="#创建项目文件夹，并开启demo" class="headerlink" title="创建项目文件夹，并开启demo"></a>创建项目文件夹，并开启demo</h2><ul>
 <li><p>在电脑桌面同时按下Windows+R进入输入cmd,按enter</p>
 </li>
@@ -316,6 +289,33 @@ C:\Users\18827\AppData\Roaming\npm\create-react-app -> C:\Users\18827\AppData\Ro
       </tags>
   </entry>
   <entry>
+    <title>vue3</title>
+    <url>/2021/10/11/vue3/583a6ec9ccd6/</url>
+    <content><![CDATA[<h1 id="vue3"><a href="#vue3" class="headerlink" title="vue3"></a>vue3</h1><p>   新一代的前端框架，基于typescript开发，具有更加优越的性能和更加安全的代码机制。</p>
+<span id="more"></span>]]></content>
+      <categories>
+        <category>vue3</category>
+      </categories>
+      <tags>
+        <tag>vue3</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vue3 基础文档学习</title>
+    <url>/2021/09/23/vue3/22ee434cee21/</url>
+    <content><![CDATA[<h1 id="基础文档网址"><a href="#基础文档网址" class="headerlink" title="基础文档网址"></a>基础文档网址</h1><p><a href="https://v3.cn.vuejs.org/">vue3官方文档学习</a></p>
+<span id="more"></span>
+]]></content>
+      <categories>
+        <category>vue3</category>
+      </categories>
+      <tags>
+        <tag>TypeScript</tag>
+        <tag>vue3</tag>
+        <tag>vite</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>webpack（一）</title>
     <url>/2021/04/28/webpack/a052f112cdb6/</url>
     <content><![CDATA[<h1 id="前言—带着问题学习webpack"><a href="#前言—带着问题学习webpack" class="headerlink" title="前言—带着问题学习webpack"></a>前言—带着问题学习webpack</h1><ul>
@@ -347,11 +347,17 @@ C:\Users\18827\AppData\Roaming\npm\create-react-app -> C:\Users\18827\AppData\Ro
 </ul>
 <hr>
 <h2 id="安装方式"><a href="#安装方式" class="headerlink" title="安装方式"></a>安装方式</h2><ol>
-<li><p>本地安装</p>
-</li>
-<li><p>全局安装</p>
-</li>
+<li>本地安装（推荐）<br>对于大多数项目，我们建议本地安装。这可以使我们在引入破坏式变更(breaking change)的依赖时，更容易分别升级项目。通常，webpack 通过运行一个或多个 npm scripts，会在本地 node_modules 目录中查找安装的 webpack：<figure class="highlight 1c"><table><tr><td class="code"><pre><code class="hljs 1c"><span class="hljs-string">&quot;scripts&quot;</span>: &#123;<br>    <span class="hljs-string">&quot;start&quot;</span>: <span class="hljs-string">&quot;webpack --config webpack.config.js&quot;</span><br>&#125;<br></code></pre></td></tr></table></figure>
+当你在本地安装 webpack 后，你能够从 node_modules/.bin/webpack 访问它的 bin 版本。</li>
 </ol>
+<ul>
+<li>安装最新版本<figure class="highlight q"><table><tr><td class="code"><pre><code class="hljs q">npm install --<span class="hljs-built_in">save</span>-<span class="hljs-built_in">dev</span> webpack<br></code></pre></td></tr></table></figure></li>
+<li>安装指定版本<figure class="highlight angelscript"><table><tr><td class="code"><pre><code class="hljs angelscript">npm install --save-dev <span class="hljs-symbol">webpack@<span class="hljs-keyword">&lt;version&gt;</span></span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<ol start="2">
+<li>全局安装(不推荐)</li>
+</ol>
+<p>-原因是：这会将项目中的webpack的版本锁定为全局安装时的版本，当因为开发时段和开发需求的不同而导致项目中依赖不同版本的webpack来构建时，可能会造成构建失败。</p>
 ]]></content>
       <categories>
         <category>webpack</category>
@@ -384,24 +390,6 @@ C:\Users\18827\AppData\Roaming\npm\create-react-app -> C:\Users\18827\AppData\Ro
         <tag>TypeScript</tag>
         <tag>vue3</tag>
         <tag>vite</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>我的第一篇hexo文章</title>
-    <url>/2021/04/17/uncategorized/e6d6dd533248/</url>
-    <content><![CDATA[<h2 id="阅读全文"><a href="#阅读全文" class="headerlink" title="阅读全文"></a>阅读全文</h2><span id="more"></span>]]></content>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vue+elementUI后台管理系统</title>
-    <url>/2021/04/17/uncategorized/cf07c19a06d1/</url>
-    <content><![CDATA[<h1 id="关于后台管理系统开发过程中问题的解决"><a href="#关于后台管理系统开发过程中问题的解决" class="headerlink" title="关于后台管理系统开发过程中问题的解决"></a>关于后台管理系统开发过程中问题的解决</h1><h2 id="相关环境及版本号"><a href="#相关环境及版本号" class="headerlink" title="相关环境及版本号"></a>相关环境及版本号</h2><p>node -v</p>
-<span id="more"></span>
-]]></content>
-      <tags>
-        <tag>cms</tag>
       </tags>
   </entry>
   <entry>
@@ -572,6 +560,24 @@ C:\Users\18827\AppData\Roaming\npm\create-react-app -> C:\Users\18827\AppData\Ro
 ]]></content>
       <tags>
         <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vue+elementUI后台管理系统</title>
+    <url>/2021/04/17/uncategorized/cf07c19a06d1/</url>
+    <content><![CDATA[<h1 id="关于后台管理系统开发过程中问题的解决"><a href="#关于后台管理系统开发过程中问题的解决" class="headerlink" title="关于后台管理系统开发过程中问题的解决"></a>关于后台管理系统开发过程中问题的解决</h1><h2 id="相关环境及版本号"><a href="#相关环境及版本号" class="headerlink" title="相关环境及版本号"></a>相关环境及版本号</h2><p>node -v</p>
+<span id="more"></span>
+]]></content>
+      <tags>
+        <tag>cms</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我的第一篇hexo文章</title>
+    <url>/2021/04/17/uncategorized/e6d6dd533248/</url>
+    <content><![CDATA[<h2 id="阅读全文"><a href="#阅读全文" class="headerlink" title="阅读全文"></a>阅读全文</h2><span id="more"></span>]]></content>
+      <tags>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
