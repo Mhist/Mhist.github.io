@@ -135,6 +135,56 @@
       </tags>
   </entry>
   <entry>
+    <title>hexo样式修改汇总</title>
+    <url>/2021/09/28/hexo/371af6f33ab0/</url>
+    <content><![CDATA[<h1 id="hexo样式汇总"><a href="#hexo样式汇总" class="headerlink" title="hexo样式汇总"></a>hexo样式汇总</h1><h1 id="更改超链接格式（文字颜色）"><a href="#更改超链接格式（文字颜色）" class="headerlink" title="更改超链接格式（文字颜色）"></a>更改超链接格式（文字颜色）</h1><div class="note primary modern"><p><a href="https://vonsdite.github.io/posts/13afd8d4.html">参考链接:Von</a> </p>
+</div>
+
+<h2 id="插图编号-醒目文字"><a href="#插图编号-醒目文字" class="headerlink" title="插图编号| 醒目文字"></a>插图编号| 醒目文字</h2><figure class="highlight django"><table><tr><td class="code"><pre><code class="hljs django"><span class="xml"></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">note</span> default %&#125;</span><span class="xml"> 默认样式 </span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endnote</span> %&#125;</span><span class="xml"></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">note</span> primary %&#125;</span><span class="xml"> 主要样式 </span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endnote</span> %&#125;</span><span class="xml"></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">note</span> success %&#125;</span><span class="xml"> 成功样式 </span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endnote</span> %&#125;</span><span class="xml"></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">note</span> info %&#125;</span><span class="xml"> 信息样式 </span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endnote</span> %&#125;</span><span class="xml"></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">note</span> warning %&#125;</span><span class="xml"> 警告样式  </span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endnote</span> %&#125;</span><span class="xml"></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">note</span> danger %&#125;</span><span class="xml"> 危险样式  </span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endnote</span> %&#125;</span><span class="xml"></span><br><span class="xml"></span><br><span class="xml"></span><br></code></pre></td></tr></table></figure>
+<div class="note default modern"><p>默认样式 </p>
+</div>
+<div class="note primary modern"><p>主要样式 </p>
+</div>
+<div class="note success modern"><p>成功样式 </p>
+</div>
+<div class="note info modern"><p>信息样式 </p>
+</div>
+<div class="note warning modern"><p>警告样式  </p>
+</div>
+<div class="note danger modern"><p>危险样式  </p>
+</div>
+
+
+<h2 id="使用选项卡"><a href="#使用选项卡" class="headerlink" title="使用选项卡"></a>使用选项卡</h2><figure class="highlight django"><table><tr><td class="code"><pre><code class="hljs django"><span class="hljs-template-tag">&#123;% <span class="hljs-name">tabs</span> tab,1 %&#125;</span><span class="xml"> 名字为tab，默认在第1个选项卡，如果是-1则隐藏</span><br><span class="xml"><span class="hljs-comment">&lt;!-- tab --&gt;</span></span><br><span class="xml">**选项卡 1** </span><br><span class="xml"><span class="hljs-comment">&lt;!-- endtab --&gt;</span></span><br><span class="xml"><span class="hljs-comment">&lt;!-- tab --&gt;</span></span><br><span class="xml">**选项卡 2**</span><br><span class="xml"><span class="hljs-comment">&lt;!-- endtab --&gt;</span></span><br><span class="xml"><span class="hljs-comment">&lt;!-- tab A --&gt;</span></span><br><span class="xml">**选项卡 3** 名字为A</span><br><span class="xml"><span class="hljs-comment">&lt;!-- endtab --&gt;</span></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endtabs</span> %&#125;</span><br></code></pre></td></tr></table></figure>
+<p>效果展示：</p>
+<div class="tabs" id="tab"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#tab-1">tab 1</button></li><li class="tab"><button type="button" data-href="#tab-2">tab 2</button></li><li class="tab"><button type="button" data-href="#tab-3">A</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="tab-1"><p><strong>选项卡 1</strong> </p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-2"><p><strong>选项卡 2</strong></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-3"><p><strong>选项卡 3</strong> 名字为A</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+<h2 id="自动生成目录（hexo-toc）"><a href="#自动生成目录（hexo-toc）" class="headerlink" title="自动生成目录（hexo-toc）"></a>自动生成目录（hexo-toc）</h2><p>  主题自带的配置项，生成的目录是不能够点击到文章目录自动滑动到页面指定位置的。<br>  <figure class="highlight yaml"><table><tr><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment"># Table Of Contents in the Sidebar</span><br><span class="hljs-attr">toc:</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">false</span><br><br>  <span class="hljs-comment"># Automatically add list number to toc.</span><br>  <span class="hljs-attr">number:</span> <span class="hljs-literal">true</span><br><br>  <span class="hljs-comment"># If true, all words will placed on next lines if header width longer then sidebar width.</span><br>  <span class="hljs-attr">wrap:</span> <span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure><br>  通过hexo-toc生成的目录可以实现点击调转到指定页面位置，同时可以支持目录级别选择。</p>
+<div class="note danger modern"><p><a href="https://www.dazhuanlan.com/bassd/topics/1055823">参考链接:hexo-toc，但是此链接还是无法解决目录的生成问题</a> </p>
+</div>
+<p>所以，重点是解决hexo-next主题自带的toc目录，锚点失效的原因：</p>
+<div class="note success modern"><p><a href="https://blog.csdn.net/qq_42009500/article/details/116129303?utm_medium=distribute.pc_relevant.none-task-blog-2~default~OPENSEARCH~default-8.no_search_link&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~OPENSEARCH~default-8.no_search_link">参考链接:hexo-toc锚点失效—有效解决办法</a> </p>
+</div>
+
+<p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210928152335tocPostDetails.png" alt="目录锚点失效的原因"></p>
+<p>报错文件路径: <font color=chocolate>themes/next/source/js/post-details.js</font></p>
+<figure class="highlight reasonml"><table><tr><td class="code"><pre><code class="hljs reasonml"><span class="hljs-comment">// TOC item animation navigate &amp; prevent #item selector in adress bar.</span><br>  <span class="hljs-constructor">$(&#x27;.<span class="hljs-params">post</span>-<span class="hljs-params">toc</span> <span class="hljs-params">a</span>&#x27;)</span>.on(&#x27;click&#x27;, <span class="hljs-keyword">function</span> (e) &#123;<br>    e.prevent<span class="hljs-constructor">Default()</span>;<br>    var targetSelector = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">NexT</span>.</span></span>utils.escape<span class="hljs-constructor">Selector(<span class="hljs-params">this</span>.<span class="hljs-params">getAttribute</span>(&#x27;<span class="hljs-params">href</span>&#x27;)</span>);<br><br>    &lt;!-- 添加下面这行代码, 重新解析 URL -&gt;<br>    targetSelector = decode<span class="hljs-constructor">URI(<span class="hljs-params">this</span>.<span class="hljs-params">getAttribute</span>(&#x27;<span class="hljs-params">href</span>&#x27;)</span>)<br><br>    var offset = <span class="hljs-constructor">$(<span class="hljs-params">targetSelector</span>)</span>.offset<span class="hljs-literal">()</span>.top;<br><br>    hasVelocity ?<br>      html.velocity(&#x27;stop&#x27;).velocity(&#x27;scroll&#x27;, &#123;<br>        offset: offset  + &#x27;px&#x27;,<br>        mobileHA: <span class="hljs-literal">false</span><br>      &#125;) :<br>      <span class="hljs-constructor">$(&#x27;<span class="hljs-params">html</span>, <span class="hljs-params">body</span>&#x27;)</span>.stop<span class="hljs-literal">()</span>.animate(&#123;<br>        scrollTop: offset<br>      &#125;, <span class="hljs-number">500</span>);<br>  &#125;);<br></code></pre></td></tr></table></figure>
+<p>  经过上面的处理自动生成的目录可以正常跳转了，但是会根据页面的滑动区域自适应目录的展示，这对于需要根据目录直达指定内容的访客来说，很不方便，于是在css样式中对代码进行以下修改：  修改文件目录: <font color=camel>themes/next/source/css/_common/components/sidebar/sidebar-toc.styl</font></p>
+<p>  找到如下的代码<br>  <figure class="highlight stylus"><table><tr><td class="code"><pre><code class="hljs stylus"><span class="hljs-selector-class">.post-toc</span> <span class="hljs-selector-class">.nav</span> <span class="hljs-selector-class">.nav-child</span> &#123; <span class="hljs-attribute">display</span>: none; &#125;<br></code></pre></td></tr></table></figure><br>  修改为</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><code class="hljs stylus"><span class="hljs-selector-class">.post-toc</span> <span class="hljs-selector-class">.nav</span> <span class="hljs-selector-class">.nav-child</span> &#123; <span class="hljs-attribute">display</span>: block; &#125;<br><br></code></pre></td></tr></table></figure>
+
+
+<h2 id="next主题添加代码块一键复制功能"><a href="#next主题添加代码块一键复制功能" class="headerlink" title="next主题添加代码块一键复制功能"></a>next主题添加代码块一键复制功能</h2><div class="note success modern"><p><a href="https://blog.csdn.net/Awt_FuDongLai/article/details/107466848">参考链接:hexo-next代码块复制粘贴—成功复现</a> </p>
+</div>
+
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>关于开始搭建hexo博客这件事</title>
     <url>/2021/04/20/hexo/5fcb7dadb6f9/</url>
     <content><![CDATA[<h1 id="hexo个人博客搭建"><a href="#hexo个人博客搭建" class="headerlink" title="hexo个人博客搭建"></a>hexo个人博客搭建</h1><h2 id="为什么会搭建hexo博客"><a href="#为什么会搭建hexo博客" class="headerlink" title="为什么会搭建hexo博客"></a>为什么会搭建hexo博客</h2><p>  原因：<br>    1.用于前端学习记录、且便于复习，因为经过加工一次的比外来搜索的资料来说更容易让大脑快速识别与利用。<br>    2.阿里云轻量级WordPress服务器对非在校生的优惠终止，且个人网站将于2021年5月份到期，这是我的个人WordPress博客链接 <a href="http://www.codetotoro.cn/">www.codetotoro.cn</a>，同时因为服务器类型的缘故，按照提交工单时工作人员的说法，相关的数据迁移是无法进行的，除非是继续续费。<br>    3.部署方便且相关的学习教程更多，且官方的教程及相应的主题教程很全面，同时社区活跃，搭建博客的相关配置包括hexo editor都很容易找到，最重要的是部署方便，且bug很少，即使是使用外置主题，而且配置的修改采用注释/取消注释的方式进行，方便日后修改，而不用每次都需要根据官方文档再去配置，省去了很多麻烦。<br>  <span id="more"></span></p>
@@ -187,53 +237,15 @@ deploy:
       </tags>
   </entry>
   <entry>
-    <title>hexo样式修改汇总</title>
-    <url>/2021/09/28/hexo/371af6f33ab0/</url>
-    <content><![CDATA[<h1 id="hexo样式汇总"><a href="#hexo样式汇总" class="headerlink" title="hexo样式汇总"></a>hexo样式汇总</h1><h1 id="更改超链接格式（文字颜色）"><a href="#更改超链接格式（文字颜色）" class="headerlink" title="更改超链接格式（文字颜色）"></a>更改超链接格式（文字颜色）</h1><div class="note primary modern"><p><a href="https://vonsdite.github.io/posts/13afd8d4.html">参考链接:Von</a> </p>
-</div>
-
-<h2 id="插图编号-醒目文字"><a href="#插图编号-醒目文字" class="headerlink" title="插图编号| 醒目文字"></a>插图编号| 醒目文字</h2><figure class="highlight django"><table><tr><td class="code"><pre><code class="hljs django"><span class="xml"></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">note</span> default %&#125;</span><span class="xml"> 默认样式 </span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endnote</span> %&#125;</span><span class="xml"></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">note</span> primary %&#125;</span><span class="xml"> 主要样式 </span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endnote</span> %&#125;</span><span class="xml"></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">note</span> success %&#125;</span><span class="xml"> 成功样式 </span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endnote</span> %&#125;</span><span class="xml"></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">note</span> info %&#125;</span><span class="xml"> 信息样式 </span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endnote</span> %&#125;</span><span class="xml"></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">note</span> warning %&#125;</span><span class="xml"> 警告样式  </span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endnote</span> %&#125;</span><span class="xml"></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">note</span> danger %&#125;</span><span class="xml"> 危险样式  </span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endnote</span> %&#125;</span><span class="xml"></span><br><span class="xml"></span><br><span class="xml"></span><br></code></pre></td></tr></table></figure>
-<div class="note default modern"><p>默认样式 </p>
-</div>
-<div class="note primary modern"><p>主要样式 </p>
-</div>
-<div class="note success modern"><p>成功样式 </p>
-</div>
-<div class="note info modern"><p>信息样式 </p>
-</div>
-<div class="note warning modern"><p>警告样式  </p>
-</div>
-<div class="note danger modern"><p>危险样式  </p>
-</div>
-
-
-<h2 id="使用选项卡"><a href="#使用选项卡" class="headerlink" title="使用选项卡"></a>使用选项卡</h2><figure class="highlight django"><table><tr><td class="code"><pre><code class="hljs django"><span class="hljs-template-tag">&#123;% <span class="hljs-name">tabs</span> tab,1 %&#125;</span><span class="xml"> 名字为tab，默认在第1个选项卡，如果是-1则隐藏</span><br><span class="xml"><span class="hljs-comment">&lt;!-- tab --&gt;</span></span><br><span class="xml">**选项卡 1** </span><br><span class="xml"><span class="hljs-comment">&lt;!-- endtab --&gt;</span></span><br><span class="xml"><span class="hljs-comment">&lt;!-- tab --&gt;</span></span><br><span class="xml">**选项卡 2**</span><br><span class="xml"><span class="hljs-comment">&lt;!-- endtab --&gt;</span></span><br><span class="xml"><span class="hljs-comment">&lt;!-- tab A --&gt;</span></span><br><span class="xml">**选项卡 3** 名字为A</span><br><span class="xml"><span class="hljs-comment">&lt;!-- endtab --&gt;</span></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endtabs</span> %&#125;</span><br></code></pre></td></tr></table></figure>
-<p>效果展示：</p>
-<div class="tabs" id="tab"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#tab-1">tab 1</button></li><li class="tab"><button type="button" data-href="#tab-2">tab 2</button></li><li class="tab"><button type="button" data-href="#tab-3">A</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="tab-1"><p><strong>选项卡 1</strong> </p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-2"><p><strong>选项卡 2</strong></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-3"><p><strong>选项卡 3</strong> 名字为A</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
-<h2 id="自动生成目录（hexo-toc）"><a href="#自动生成目录（hexo-toc）" class="headerlink" title="自动生成目录（hexo-toc）"></a>自动生成目录（hexo-toc）</h2><p>  主题自带的配置项，生成的目录是不能够点击到文章目录自动滑动到页面指定位置的。<br>  <figure class="highlight yaml"><table><tr><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment"># Table Of Contents in the Sidebar</span><br><span class="hljs-attr">toc:</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">false</span><br><br>  <span class="hljs-comment"># Automatically add list number to toc.</span><br>  <span class="hljs-attr">number:</span> <span class="hljs-literal">true</span><br><br>  <span class="hljs-comment"># If true, all words will placed on next lines if header width longer then sidebar width.</span><br>  <span class="hljs-attr">wrap:</span> <span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure><br>  通过hexo-toc生成的目录可以实现点击调转到指定页面位置，同时可以支持目录级别选择。</p>
-<div class="note danger modern"><p><a href="https://www.dazhuanlan.com/bassd/topics/1055823">参考链接:hexo-toc，但是此链接还是无法解决目录的生成问题</a> </p>
-</div>
-<p>所以，重点是解决hexo-next主题自带的toc目录，锚点失效的原因：</p>
-<div class="note success modern"><p><a href="https://blog.csdn.net/qq_42009500/article/details/116129303?utm_medium=distribute.pc_relevant.none-task-blog-2~default~OPENSEARCH~default-8.no_search_link&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~OPENSEARCH~default-8.no_search_link">参考链接:hexo-toc锚点失效—有效解决办法</a> </p>
-</div>
-
-<p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210928152335tocPostDetails.png" alt="目录锚点失效的原因"></p>
-<p>报错文件路径: <font color=chocolate>themes/next/source/js/post-details.js</font></p>
-<figure class="highlight reasonml"><table><tr><td class="code"><pre><code class="hljs reasonml"><span class="hljs-comment">// TOC item animation navigate &amp; prevent #item selector in adress bar.</span><br>  <span class="hljs-constructor">$(&#x27;.<span class="hljs-params">post</span>-<span class="hljs-params">toc</span> <span class="hljs-params">a</span>&#x27;)</span>.on(&#x27;click&#x27;, <span class="hljs-keyword">function</span> (e) &#123;<br>    e.prevent<span class="hljs-constructor">Default()</span>;<br>    var targetSelector = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">NexT</span>.</span></span>utils.escape<span class="hljs-constructor">Selector(<span class="hljs-params">this</span>.<span class="hljs-params">getAttribute</span>(&#x27;<span class="hljs-params">href</span>&#x27;)</span>);<br><br>    &lt;!-- 添加下面这行代码, 重新解析 URL -&gt;<br>    targetSelector = decode<span class="hljs-constructor">URI(<span class="hljs-params">this</span>.<span class="hljs-params">getAttribute</span>(&#x27;<span class="hljs-params">href</span>&#x27;)</span>)<br><br>    var offset = <span class="hljs-constructor">$(<span class="hljs-params">targetSelector</span>)</span>.offset<span class="hljs-literal">()</span>.top;<br><br>    hasVelocity ?<br>      html.velocity(&#x27;stop&#x27;).velocity(&#x27;scroll&#x27;, &#123;<br>        offset: offset  + &#x27;px&#x27;,<br>        mobileHA: <span class="hljs-literal">false</span><br>      &#125;) :<br>      <span class="hljs-constructor">$(&#x27;<span class="hljs-params">html</span>, <span class="hljs-params">body</span>&#x27;)</span>.stop<span class="hljs-literal">()</span>.animate(&#123;<br>        scrollTop: offset<br>      &#125;, <span class="hljs-number">500</span>);<br>  &#125;);<br></code></pre></td></tr></table></figure>
-<p>  经过上面的处理自动生成的目录可以正常跳转了，但是会根据页面的滑动区域自适应目录的展示，这对于需要根据目录直达指定内容的访客来说，很不方便，于是在css样式中对代码进行以下修改：  修改文件目录: <font color=camel>themes/next/source/css/_common/components/sidebar/sidebar-toc.styl</font></p>
-<p>  找到如下的代码<br>  <figure class="highlight stylus"><table><tr><td class="code"><pre><code class="hljs stylus"><span class="hljs-selector-class">.post-toc</span> <span class="hljs-selector-class">.nav</span> <span class="hljs-selector-class">.nav-child</span> &#123; <span class="hljs-attribute">display</span>: none; &#125;<br></code></pre></td></tr></table></figure><br>  修改为</p>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><code class="hljs stylus"><span class="hljs-selector-class">.post-toc</span> <span class="hljs-selector-class">.nav</span> <span class="hljs-selector-class">.nav-child</span> &#123; <span class="hljs-attribute">display</span>: block; &#125;<br><br></code></pre></td></tr></table></figure>
-
-
-<h2 id="next主题添加代码块一键复制功能"><a href="#next主题添加代码块一键复制功能" class="headerlink" title="next主题添加代码块一键复制功能"></a>next主题添加代码块一键复制功能</h2><div class="note success modern"><p><a href="https://blog.csdn.net/Awt_FuDongLai/article/details/107466848">参考链接:hexo-next代码块复制粘贴—成功复现</a> </p>
-</div>
-
-]]></content>
+    <title>vue3</title>
+    <url>/2021/10/11/vue3/583a6ec9ccd6/</url>
+    <content><![CDATA[<h1 id="vue3"><a href="#vue3" class="headerlink" title="vue3"></a>vue3</h1><p>   新一代的前端框架，基于typescript开发，具有更加优越的性能和更加安全的代码机制。</p>
+<span id="more"></span>]]></content>
       <categories>
-        <category>hexo</category>
+        <category>vue3</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
+        <tag>vue3</tag>
       </tags>
   </entry>
   <entry>
@@ -249,7 +261,7 @@ v14.16.0</li>
 cmd控制台反馈如下：<pre>
 C:\Users\18827\AppData\Roaming\npm\create-react-app -> C:\Users\18827\AppData\Roaming\npm\node_modules\create-react-app\index.js</li>
 </ul>
-<p><a href="mailto:&#x2b;&#x63;&#114;&#x65;&#97;&#116;&#x65;&#45;&#114;&#101;&#x61;&#99;&#x74;&#x2d;&#x61;&#x70;&#112;&#64;&#x34;&#x2e;&#48;&#x2e;&#51;">&#x2b;&#x63;&#114;&#x65;&#97;&#116;&#x65;&#45;&#114;&#101;&#x61;&#99;&#x74;&#x2d;&#x61;&#x70;&#112;&#64;&#x34;&#x2e;&#48;&#x2e;&#51;</a><br>added 67 packages from 25 contributors in 22.805s<br> </pre></p>
+<p><a href="mailto:&#x2b;&#x63;&#114;&#101;&#x61;&#116;&#101;&#45;&#114;&#x65;&#97;&#x63;&#x74;&#x2d;&#x61;&#x70;&#x70;&#64;&#x34;&#46;&#48;&#46;&#x33;">&#x2b;&#x63;&#114;&#101;&#x61;&#116;&#101;&#45;&#114;&#x65;&#97;&#x63;&#x74;&#x2d;&#x61;&#x70;&#x70;&#64;&#x34;&#46;&#48;&#46;&#x33;</a><br>added 67 packages from 25 contributors in 22.805s<br> </pre></p>
 <h2 id="创建项目文件夹，并开启demo"><a href="#创建项目文件夹，并开启demo" class="headerlink" title="创建项目文件夹，并开启demo"></a>创建项目文件夹，并开启demo</h2><ul>
 <li><p>在电脑桌面同时按下Windows+R进入输入cmd,按enter</p>
 </li>
@@ -383,7 +395,9 @@ C:\Users\18827\AppData\Roaming\npm\create-react-app -> C:\Users\18827\AppData\Ro
     <title>webpack基本配置（二）</title>
     <url>/2021/10/18/webpack/eb2dff5fc128/</url>
     <content><![CDATA[<h1 id="webpack基本配置"><a href="#webpack基本配置" class="headerlink" title="webpack基本配置"></a>webpack基本配置</h1><p>配置方式：</p>
-<p>1.第一种方式</p>
+<ol>
+<li>第一种方式</li>
+</ol>
 <p>通过在命令行直接指定,但是在操作的时候容易输错命令，且在需要重复重复操作时，需要再次输入很长的命令，显然是非常影响开发效率的。</p>
 <figure class="highlight jboss-cli"><table><tr><td class="code"><pre><code class="hljs jboss-cli">webpack <span class="hljs-params">--entry</span> <span class="hljs-string">./src/main.js</span> <span class="hljs-params">--output-path</span> <span class="hljs-string">./build</span><br></code></pre></td></tr></table></figure>
 
@@ -393,7 +407,9 @@ C:\Users\18827\AppData\Roaming\npm\create-react-app -> C:\Users\18827\AppData\Ro
 <p>通过在项目的<font color=chocolate>package.json</font>文件中的scripts对象中，将命令指定为相应的值y，通过在命令行，输入npm run + x 。也可以完成相应的操作，    (其中x表示y相对应的键) </p>
 <figure class="highlight ada"><table><tr><td class="code"><pre><code class="hljs ada"><span class="hljs-string">&quot;scripts&quot;</span> : &#123;<br>    <span class="hljs-string">&quot;build&quot;</span>: <span class="hljs-string">&quot;webpack --entry ./src/main.js --output-path ./build&quot;</span><br>&#125;<br></code></pre></td></tr></table></figure>
 <p>但是可以明显的考虑到，当右边的命令很长时，是非常不便于阅读和维护的。</p>
-<p>3.第三种方式</p>
+<ol start="3">
+<li>第三种方式</li>
+</ol>
 <p>通过在项目package.json统计目录新建 <font color=royalblue>webpack.config.js</font>  文件</p>
 <figure class="highlight lua"><table><tr><td class="code"><pre><code class="hljs lua"><br>const <span class="hljs-built_in">path</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;path&#x27;</span>);<br><br><span class="hljs-built_in">module</span>.exports = &#123;<br>   entry: <span class="hljs-string">&#x27;./src/main.js&#x27;</span>, //可以相对路径<br>   <span class="hljs-built_in">output</span>:&#123;<br>     filename: <span class="hljs-string">&quot;bundle.js&quot;</span>,<br>     <span class="hljs-built_in">path</span>: <span class="hljs-built_in">path</span>.resolve(__dirname,<span class="hljs-string">&quot;./build&quot;</span>)          //只能绝对绝对路径  <br>   &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
@@ -416,15 +432,21 @@ C:\Users\18827\AppData\Roaming\npm\create-react-app -> C:\Users\18827\AppData\Ro
       </tags>
   </entry>
   <entry>
-    <title>vue3</title>
-    <url>/2021/10/11/vue3/583a6ec9ccd6/</url>
-    <content><![CDATA[<h1 id="vue3"><a href="#vue3" class="headerlink" title="vue3"></a>vue3</h1><p>   新一代的前端框架，基于typescript开发，具有更加优越的性能和更加安全的代码机制。</p>
-<span id="more"></span>]]></content>
-      <categories>
-        <category>vue3</category>
-      </categories>
+    <title>vue+elementUI后台管理系统</title>
+    <url>/2021/04/17/uncategorized/cf07c19a06d1/</url>
+    <content><![CDATA[<h1 id="关于后台管理系统开发过程中问题的解决"><a href="#关于后台管理系统开发过程中问题的解决" class="headerlink" title="关于后台管理系统开发过程中问题的解决"></a>关于后台管理系统开发过程中问题的解决</h1><h2 id="相关环境及版本号"><a href="#相关环境及版本号" class="headerlink" title="相关环境及版本号"></a>相关环境及版本号</h2><p>node -v</p>
+<span id="more"></span>
+]]></content>
       <tags>
-        <tag>vue3</tag>
+        <tag>cms</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我的第一篇hexo文章</title>
+    <url>/2021/04/17/uncategorized/e6d6dd533248/</url>
+    <content><![CDATA[<h2 id="阅读全文"><a href="#阅读全文" class="headerlink" title="阅读全文"></a>阅读全文</h2><span id="more"></span>]]></content>
+      <tags>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -451,14 +473,6 @@ C:\Users\18827\AppData\Roaming\npm\create-react-app -> C:\Users\18827\AppData\Ro
         <tag>TypeScript</tag>
         <tag>vue3</tag>
         <tag>vite</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>我的第一篇hexo文章</title>
-    <url>/2021/04/17/uncategorized/e6d6dd533248/</url>
-    <content><![CDATA[<h2 id="阅读全文"><a href="#阅读全文" class="headerlink" title="阅读全文"></a>阅读全文</h2><span id="more"></span>]]></content>
-      <tags>
-        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -629,16 +643,6 @@ C:\Users\18827\AppData\Roaming\npm\create-react-app -> C:\Users\18827\AppData\Ro
 ]]></content>
       <tags>
         <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vue+elementUI后台管理系统</title>
-    <url>/2021/04/17/uncategorized/cf07c19a06d1/</url>
-    <content><![CDATA[<h1 id="关于后台管理系统开发过程中问题的解决"><a href="#关于后台管理系统开发过程中问题的解决" class="headerlink" title="关于后台管理系统开发过程中问题的解决"></a>关于后台管理系统开发过程中问题的解决</h1><h2 id="相关环境及版本号"><a href="#相关环境及版本号" class="headerlink" title="相关环境及版本号"></a>相关环境及版本号</h2><p>node -v</p>
-<span id="more"></span>
-]]></content>
-      <tags>
-        <tag>cms</tag>
       </tags>
   </entry>
   <entry>
