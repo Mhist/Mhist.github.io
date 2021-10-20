@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://wakeweb.cloud/about/index.html</loc>
+    
+    <lastmod>2021-10-20</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://wakeweb.cloud/2021/10/18/webpack/eb2dff5fc128/</loc>
     
     <lastmod>2021-10-19</lastmod>
@@ -38,13 +45,6 @@
   
   <url>
     <loc>http://wakeweb.cloud/tags/index.html</loc>
-    
-    <lastmod>2021-10-13</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wakeweb.cloud/about/index.html</loc>
     
     <lastmod>2021-10-13</lastmod>
     
@@ -165,7 +165,7 @@
 
   <url>
     <loc>http://wakeweb.cloud/</loc>
-    <lastmod>2021-10-19</lastmod>
+    <lastmod>2021-10-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -173,70 +173,70 @@
   
   <url>
     <loc>http://wakeweb.cloud/tags/TypeScript/</loc>
-    <lastmod>2021-10-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://wakeweb.cloud/tags/vue/</loc>
-    <lastmod>2021-10-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://wakeweb.cloud/tags/hexo/</loc>
-    <lastmod>2021-10-19</lastmod>
+    <lastmod>2021-10-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://wakeweb.cloud/tags/certificate/</loc>
-    <lastmod>2021-10-19</lastmod>
+    <lastmod>2021-10-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://wakeweb.cloud/tags/vue/</loc>
+    <lastmod>2021-10-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://wakeweb.cloud/tags/hexo/</loc>
+    <lastmod>2021-10-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://wakeweb.cloud/tags/react/</loc>
-    <lastmod>2021-10-19</lastmod>
+    <lastmod>2021-10-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://wakeweb.cloud/tags/vue3/</loc>
-    <lastmod>2021-10-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://wakeweb.cloud/tags/webpack/</loc>
-    <lastmod>2021-10-19</lastmod>
+    <lastmod>2021-10-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://wakeweb.cloud/tags/vite/</loc>
-    <lastmod>2021-10-19</lastmod>
+    <lastmod>2021-10-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/tags/cms/</loc>
-    <lastmod>2021-10-19</lastmod>
+    <loc>http://wakeweb.cloud/tags/webpack/</loc>
+    <lastmod>2021-10-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://wakeweb.cloud/tags/JavaScript/</loc>
-    <lastmod>2021-10-19</lastmod>
+    <lastmod>2021-10-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://wakeweb.cloud/tags/cms/</loc>
+    <lastmod>2021-10-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -245,28 +245,28 @@
   
   <url>
     <loc>http://wakeweb.cloud/categories/TypeScript/</loc>
-    <lastmod>2021-10-19</lastmod>
+    <lastmod>2021-10-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://wakeweb.cloud/categories/hexo/</loc>
-    <lastmod>2021-10-19</lastmod>
+    <lastmod>2021-10-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://wakeweb.cloud/categories/vue3/</loc>
-    <lastmod>2021-10-19</lastmod>
+    <lastmod>2021-10-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://wakeweb.cloud/categories/webpack/</loc>
-    <lastmod>2021-10-19</lastmod>
+    <lastmod>2021-10-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
