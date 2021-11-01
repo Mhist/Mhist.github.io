@@ -200,6 +200,13 @@
   </url>
   
   <url>
+    <loc>http://wakeweb.cloud/tags/TypeScript/</loc>
+    <lastmod>2021-11-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://wakeweb.cloud/tags/git/</loc>
     <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
@@ -214,21 +221,14 @@
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/tags/TypeScript/</loc>
-    <lastmod>2021-11-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://wakeweb.cloud/tags/uni-app/</loc>
-    <lastmod>2021-11-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://wakeweb.cloud/tags/vue3/</loc>
+    <lastmod>2021-11-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://wakeweb.cloud/tags/vite/</loc>
     <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -249,14 +249,14 @@
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/tags/vite/</loc>
+    <loc>http://wakeweb.cloud/tags/cms/</loc>
     <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/tags/cms/</loc>
+    <loc>http://wakeweb.cloud/tags/uni-app/</loc>
     <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -270,6 +270,13 @@
   </url>
   
 
+  
+  <url>
+    <loc>http://wakeweb.cloud/categories/TypeScript/</loc>
+    <lastmod>2021-11-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
   
   <url>
     <loc>http://wakeweb.cloud/categories/git/</loc>
@@ -286,20 +293,6 @@
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/categories/TypeScript/</loc>
-    <lastmod>2021-11-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://wakeweb.cloud/categories/uni-app/</loc>
-    <lastmod>2021-11-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://wakeweb.cloud/categories/vue3/</loc>
     <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
@@ -308,6 +301,13 @@
   
   <url>
     <loc>http://wakeweb.cloud/categories/webpack/</loc>
+    <lastmod>2021-11-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://wakeweb.cloud/categories/uni-app/</loc>
     <lastmod>2021-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
