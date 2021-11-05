@@ -186,21 +186,14 @@
 
   
   <url>
+    <loc>http://wakeweb.cloud/tags/certificate/</loc>
+    <lastmod>2021-11-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://wakeweb.cloud/tags/TypeScript/</loc>
-    <lastmod>2021-11-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://wakeweb.cloud/tags/hexo/</loc>
-    <lastmod>2021-11-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://wakeweb.cloud/tags/git/</loc>
     <lastmod>2021-11-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -214,7 +207,14 @@
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/tags/certificate/</loc>
+    <loc>http://wakeweb.cloud/tags/git/</loc>
+    <lastmod>2021-11-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://wakeweb.cloud/tags/hexo/</loc>
     <lastmod>2021-11-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -228,21 +228,14 @@
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/tags/uni-app/</loc>
-    <lastmod>2021-11-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://wakeweb.cloud/tags/node/</loc>
-    <lastmod>2021-11-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://wakeweb.cloud/tags/vue3/</loc>
+    <lastmod>2021-11-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://wakeweb.cloud/tags/uni-app/</loc>
     <lastmod>2021-11-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -256,13 +249,6 @@
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/tags/webpack/</loc>
-    <lastmod>2021-11-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://wakeweb.cloud/tags/cms/</loc>
     <lastmod>2021-11-05</lastmod>
     <changefreq>daily</changefreq>
@@ -270,7 +256,21 @@
   </url>
   
   <url>
+    <loc>http://wakeweb.cloud/tags/webpack/</loc>
+    <lastmod>2021-11-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://wakeweb.cloud/tags/JavaScript/</loc>
+    <lastmod>2021-11-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://wakeweb.cloud/tags/node/</loc>
     <lastmod>2021-11-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -286,13 +286,6 @@
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/categories/hexo/</loc>
-    <lastmod>2021-11-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://wakeweb.cloud/categories/git/</loc>
     <lastmod>2021-11-05</lastmod>
     <changefreq>daily</changefreq>
@@ -300,14 +293,7 @@
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/categories/uni-app/</loc>
-    <lastmod>2021-11-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://wakeweb.cloud/categories/node/</loc>
+    <loc>http://wakeweb.cloud/categories/hexo/</loc>
     <lastmod>2021-11-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -321,7 +307,21 @@
   </url>
   
   <url>
+    <loc>http://wakeweb.cloud/categories/uni-app/</loc>
+    <lastmod>2021-11-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://wakeweb.cloud/categories/webpack/</loc>
+    <lastmod>2021-11-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://wakeweb.cloud/categories/node/</loc>
     <lastmod>2021-11-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
