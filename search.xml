@@ -60,26 +60,6 @@
       </tags>
   </entry>
   <entry>
-    <title>certificate</title>
-    <url>/2021/05/11/uncategorized/625f7e6bd689/</url>
-    <content><![CDATA[<h1 id="简历相关纸质材料汇总"><a href="#简历相关纸质材料汇总" class="headerlink" title="简历相关纸质材料汇总"></a>简历相关纸质材料汇总</h1><span id="more"></span>
-<h2 id="毕业设计论文发表收录"><a href="#毕业设计论文发表收录" class="headerlink" title="毕业设计论文发表收录"></a>毕业设计论文发表收录</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%E5%8F%91%E8%A1%A820210511203734.png" alt="毕业论文发表收录"></p>
-<h2 id="2019年全国大学生电子设计竞赛（TI杯）湖北省三等奖"><a href="#2019年全国大学生电子设计竞赛（TI杯）湖北省三等奖" class="headerlink" title="2019年全国大学生电子设计竞赛（TI杯）湖北省三等奖"></a>2019年全国大学生电子设计竞赛（TI杯）湖北省三等奖</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/%E7%94%B5%E5%AD%9020210511205545.jpg"></p>
-<h2 id="第十届蓝桥杯全国软件和信息技术专业人才大赛湖北赛区三等奖"><a href="#第十届蓝桥杯全国软件和信息技术专业人才大赛湖北赛区三等奖" class="headerlink" title="第十届蓝桥杯全国软件和信息技术专业人才大赛湖北赛区三等奖"></a>第十届蓝桥杯全国软件和信息技术专业人才大赛湖北赛区三等奖</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511205642.jpg"></p>
-<h2 id="第十二届全国大学生作文大赛二等奖"><a href="#第十二届全国大学生作文大赛二等奖" class="headerlink" title="第十二届全国大学生作文大赛二等奖"></a>第十二届全国大学生作文大赛二等奖</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511205800.jpg"></p>
-<h2 id="第十四届全国大学生作文大赛二等奖"><a href="#第十四届全国大学生作文大赛二等奖" class="headerlink" title="第十四届全国大学生作文大赛二等奖"></a>第十四届全国大学生作文大赛二等奖</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511205932.jpg"></p>
-<h2 id="任职证明"><a href="#任职证明" class="headerlink" title="任职证明"></a>任职证明</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511211724.jpg"></p>
-<h2 id="普通话等级证书"><a href="#普通话等级证书" class="headerlink" title="普通话等级证书"></a>普通话等级证书</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511210116.jpg"></p>
-<h2 id="教师资格证书"><a href="#教师资格证书" class="headerlink" title="教师资格证书"></a>教师资格证书</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511211818.jpg"></p>
-<h2 id="autoCAD"><a href="#autoCAD" class="headerlink" title="autoCAD"></a>autoCAD</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511210944.jpg"></p>
-<h2 id="毕业证书"><a href="#毕业证书" class="headerlink" title="毕业证书"></a>毕业证书</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511211852.jpg"></p>
-<h2 id="学位证书"><a href="#学位证书" class="headerlink" title="学位证书"></a>学位证书</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511211926.jpg"></p>
-]]></content>
-      <tags>
-        <tag>certificate</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>VUE2.X学习</title>
     <url>/2021/04/24/uncategorized/6eb6cb2ab58d/</url>
     <content><![CDATA[<h1 id="vue2-x教程学习"><a href="#vue2-x教程学习" class="headerlink" title="vue2.x教程学习"></a>vue2.x教程学习</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h3><p>Vue <strong>不支持</strong> IE8 及以下版本，因为 Vue 使用了 IE8 无法模拟的 ECMAScript 5 特性。但它支持所有<a href="https://caniuse.com/#feat=es5">兼容 ECMAScript 5 的浏览器</a>。</p>
@@ -109,55 +89,49 @@
       </tags>
   </entry>
   <entry>
-    <title>关于开始搭建hexo博客这件事</title>
-    <url>/2021/04/20/hexo/5fcb7dadb6f9/</url>
-    <content><![CDATA[<h1 id="hexo个人博客搭建"><a href="#hexo个人博客搭建" class="headerlink" title="hexo个人博客搭建"></a>hexo个人博客搭建</h1><h2 id="为什么会搭建hexo博客"><a href="#为什么会搭建hexo博客" class="headerlink" title="为什么会搭建hexo博客"></a>为什么会搭建hexo博客</h2><p>  原因：<br>    1.用于前端学习记录、且便于复习，因为经过加工一次的比外来搜索的资料来说更容易让大脑快速识别与利用。<br>    2.阿里云轻量级WordPress服务器对非在校生的优惠终止，且个人网站将于2021年5月份到期，这是我的个人WordPress博客链接 <a href="http://www.codetotoro.cn/">www.codetotoro.cn</a>，同时因为服务器类型的缘故，按照提交工单时工作人员的说法，相关的数据迁移是无法进行的，除非是继续续费。<br>    3.部署方便且相关的学习教程更多，且官方的教程及相应的主题教程很全面，同时社区活跃，搭建博客的相关配置包括hexo editor都很容易找到，最重要的是部署方便，且bug很少，即使是使用外置主题，而且配置的修改采用注释/取消注释的方式进行，方便日后修改，而不用每次都需要根据官方文档再去配置，省去了很多麻烦。<br>  <span id="more"></span></p>
-<h2 id="搭建博客的相关教程"><a href="#搭建博客的相关教程" class="headerlink" title="搭建博客的相关教程"></a>搭建博客的相关教程</h2><h3 id="视频教程"><a href="#视频教程" class="headerlink" title="视频教程"></a>视频教程</h3><p>  来自哔哩哔哩up-codesheep的视频教程，讲解细致全面<br>  <a href="https://www.bilibili.com/video/BV1Yb411a7ty/?spm_id_from=333.788.recommend_more_video.0">手把手教你从0开始搭建自己的个人博客 |无坑版视频教程| hexo</a><br>  学习笔记<br>  <pre><br>  ---    #安装Nodejs<br>node -v    #查看node版本<br>npm -v    #查看npm版本<br>npm install -g cnpm --registry=<a href="http://registry.npm.taobao.org/">http://registry.npm.taobao.org</a>    #安装淘宝的cnpm 管理器<br>cnpm -v    #查看cnpm版本<br>cnpm install -g hexo-cli    #安装hexo框架<br>hexo -v    #查看hexo版本<br>mkdir blog    #创建blog目录<br>cd blog     #进入blog目录<br>sudo hexo init     #生成博客 初始化博客<br>hexo s    #启动本地博客服务<br><a href="http://localhost:4000/">http://localhost:4000/</a>    #本地访问地址<br>hexo n 我的第一篇文章 #创建新的文章<br>#返回blog目录<br>hexo clean #清理<br>hexo g #生成<br>#Github创建一个新的仓库 YourGithubName.github.io<br>#在blog目录下安装git部署插件<br>   cnpm install --save hexo-deployer-git </p>
-<hr>
-<h2 id="配置-config-yml"><a href="#配置-config-yml" class="headerlink" title="#配置_config.yml "></a>#配置_config.yml </h2><pre><code># Deployment
-## Docs: https://hexo.io/docs/deployment.html
-deploy:
-      type: git
-     repo: https://github.com/YourGithubName/YourGithubName.github.io.git
-      branch: master
-</code></pre>
-<hr>
-<p>hexo d    #部署到Github仓库里<br><a href="https://yourgithubname.github.io/">https://YourGithubName.github.io/</a>  #访问这个地址可以查看博客</p>
-<p> git clone <a href="https://github.com/litten/hexo-theme-yilia.git">https://github.com/litten/hexo-theme-yilia.git</a> themes/yilia  #下载yilia主题到本地</p>
-<p>#修改hexo根目录下的 _config.yml 文件 ： theme: yilia</p>
-<p>hexo c    #清理一下<br>hexo g    #生成<br>hexo s    #启动本地博客服务<br><a href="http://localhost:4000/">http://localhost:4000/</a>    #本地访问地址<br>hexo d    #部署到远程Github仓库<br><a href="https://yourgithubname.github.io/">https://YourGithubName.github.io/</a>  #查看博客<br>  </pre></p>
-<hr>
-<h3 id="官方文档及next主题官方文档"><a href="#官方文档及next主题官方文档" class="headerlink" title="官方文档及next主题官方文档"></a>官方文档及next主题官方文档</h3><p> 1.<a href="https://hexo.io/zh-cn/docs/">hexo文档</a><br> 2.<a href="http://theme-next.iissnan.com/getting-started.html">hexo-next主题文档</a></p>
-<h2 id="博客的后续配置"><a href="#博客的后续配置" class="headerlink" title="博客的后续配置"></a>博客的后续配置</h2><p>  博客中有很多可用于拓展的地方，暂时还有很多不太了解，但是可以满足日常的写作需求以及部署，此处用于记录对于配置方面的自己的一些理解。</p>
-<h3 id="配置-config-yml，gitee-github简单修改实现双部署"><a href="#配置-config-yml，gitee-github简单修改实现双部署" class="headerlink" title="配置_config.yml，gitee/github简单修改实现双部署"></a>配置_config.yml，gitee/github简单修改实现双部署</h3><pre><code>#配置_config.yml 
-</code></pre>
-<hr>
-<pre><code># Deployment
-## Docs: https://hexo.io/docs/deployment.html
-deploy:
-      type: git
-     repo: 
-        gitee: https://gitee.com/mhist/mhist.git
-    #https://github.com/Mhist/Mhist.github.io.git 
-    #github
-      branch: master
-</code></pre>
-<p>—–以上代码是我在实践过程中发现的一点，因为在github上是可以做到自动部署的，可是因为防火墙的原因导致访问经常失败，而gitee作为国内的github，访问速度是很快的，只是部署的时候需要手动更新，因为自动更新部署是要收费的。<br>    以上代码的使用方式是在repo中：<br>    1.部署到gitee时，按照hexo c; hexo g; hexo s; hexo d，然后到码云的位置点击更新即可。<img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210421013409-giteePagesUpdateButton.png" alt="gitee pages update button">，然后可访问域名：<a href="https://mhist.gitee.io/">https://mhist.gitee.io/</a><br>    2.部署到github时，将gitee所在行用#注释掉即可，同时取消gitee下一行的#注释，按照hexo c; hexo g; hexo s; hexo d即可。然后可访问域名：<a href="https://mhist.github.io/">https://mhist.github.io/</a></p>
-<h2 id="图床的设置"><a href="#图床的设置" class="headerlink" title="图床的设置"></a>图床的设置</h2><p>  作为使用Markdown来编辑文档的人来说，拥有一个好的图床是非常必要的。通过图床我们可以很好的管理我们的博客图片，同时能在多方正确显示。</p>
-<h3 id="图床分类"><a href="#图床分类" class="headerlink" title="图床分类"></a>图床分类</h3><p>  现在比较流行的图床有很多，包括SM.MS图床、腾讯云cos、github图床、七牛云图床、Imgur图床、阿里云COS、又拍云图床、gitee。但同时具有安全、经济、使用方便、访问高速等多种优点的解决方案还是要数基于picgo+gitee的解决方案.</p>
-<h3 id="picgo"><a href="#picgo" class="headerlink" title="picgo"></a>picgo</h3><p>  picgo是一款基于桌面端图床工具，方便我们对接本地和远程仓库，同时快速获取链接，同时支持链接的Markdown、HTML、URL、UBB、Custom等五种格式的选择，同时可以支持插件以丰富软件功能。<br>  推荐两个配置教程：</p>
-<ol>
-<li><a href="https://blog.csdn.net/disILLL/article/details/103962241?utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.control&dist_request_id=1332024.918.16189409573562535&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.control">配置教程1</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/128014135">配置教程2—插件</a></li>
-<li><a href="https://github.com/Molunerfinn/PicGo/releases">picgo的github链接</a></li>
-<li>picgo Windows <a href="https://pan.baidu.com/s/1y_yn9dl5aEAGHBX2c2KDPA">PicGo-Setup-2.3.0-beta.5.exe</a> 提取码：hexo</li>
-</ol>
+    <title>Hello World</title>
+    <url>/2021/10/11/hexo/bd5c75b8c9ae/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><span id="more"></span>
+
+<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
       <categories>
         <category>hexo</category>
       </categories>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>certificate</title>
+    <url>/2021/05/11/uncategorized/625f7e6bd689/</url>
+    <content><![CDATA[<h1 id="简历相关纸质材料汇总"><a href="#简历相关纸质材料汇总" class="headerlink" title="简历相关纸质材料汇总"></a>简历相关纸质材料汇总</h1><span id="more"></span>
+<h2 id="毕业设计论文发表收录"><a href="#毕业设计论文发表收录" class="headerlink" title="毕业设计论文发表收录"></a>毕业设计论文发表收录</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%E5%8F%91%E8%A1%A820210511203734.png" alt="毕业论文发表收录"></p>
+<h2 id="2019年全国大学生电子设计竞赛（TI杯）湖北省三等奖"><a href="#2019年全国大学生电子设计竞赛（TI杯）湖北省三等奖" class="headerlink" title="2019年全国大学生电子设计竞赛（TI杯）湖北省三等奖"></a>2019年全国大学生电子设计竞赛（TI杯）湖北省三等奖</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/%E7%94%B5%E5%AD%9020210511205545.jpg"></p>
+<h2 id="第十届蓝桥杯全国软件和信息技术专业人才大赛湖北赛区三等奖"><a href="#第十届蓝桥杯全国软件和信息技术专业人才大赛湖北赛区三等奖" class="headerlink" title="第十届蓝桥杯全国软件和信息技术专业人才大赛湖北赛区三等奖"></a>第十届蓝桥杯全国软件和信息技术专业人才大赛湖北赛区三等奖</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511205642.jpg"></p>
+<h2 id="第十二届全国大学生作文大赛二等奖"><a href="#第十二届全国大学生作文大赛二等奖" class="headerlink" title="第十二届全国大学生作文大赛二等奖"></a>第十二届全国大学生作文大赛二等奖</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511205800.jpg"></p>
+<h2 id="第十四届全国大学生作文大赛二等奖"><a href="#第十四届全国大学生作文大赛二等奖" class="headerlink" title="第十四届全国大学生作文大赛二等奖"></a>第十四届全国大学生作文大赛二等奖</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511205932.jpg"></p>
+<h2 id="任职证明"><a href="#任职证明" class="headerlink" title="任职证明"></a>任职证明</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511211724.jpg"></p>
+<h2 id="普通话等级证书"><a href="#普通话等级证书" class="headerlink" title="普通话等级证书"></a>普通话等级证书</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511210116.jpg"></p>
+<h2 id="教师资格证书"><a href="#教师资格证书" class="headerlink" title="教师资格证书"></a>教师资格证书</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511211818.jpg"></p>
+<h2 id="autoCAD"><a href="#autoCAD" class="headerlink" title="autoCAD"></a>autoCAD</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511210944.jpg"></p>
+<h2 id="毕业证书"><a href="#毕业证书" class="headerlink" title="毕业证书"></a>毕业证书</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511211852.jpg"></p>
+<h2 id="学位证书"><a href="#学位证书" class="headerlink" title="学位证书"></a>学位证书</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511211926.jpg"></p>
+]]></content>
+      <tags>
+        <tag>certificate</tag>
       </tags>
   </entry>
   <entry>
@@ -349,29 +323,77 @@ f89d8a5
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2021/10/11/hexo/bd5c75b8c9ae/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><span id="more"></span>
-
-<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+    <title>关于开始搭建hexo博客这件事</title>
+    <url>/2021/04/20/hexo/5fcb7dadb6f9/</url>
+    <content><![CDATA[<h1 id="hexo个人博客搭建"><a href="#hexo个人博客搭建" class="headerlink" title="hexo个人博客搭建"></a>hexo个人博客搭建</h1><h2 id="为什么会搭建hexo博客"><a href="#为什么会搭建hexo博客" class="headerlink" title="为什么会搭建hexo博客"></a>为什么会搭建hexo博客</h2><p>  原因：<br>    1.用于前端学习记录、且便于复习，因为经过加工一次的比外来搜索的资料来说更容易让大脑快速识别与利用。<br>    2.阿里云轻量级WordPress服务器对非在校生的优惠终止，且个人网站将于2021年5月份到期，这是我的个人WordPress博客链接 <a href="http://www.codetotoro.cn/">www.codetotoro.cn</a>，同时因为服务器类型的缘故，按照提交工单时工作人员的说法，相关的数据迁移是无法进行的，除非是继续续费。<br>    3.部署方便且相关的学习教程更多，且官方的教程及相应的主题教程很全面，同时社区活跃，搭建博客的相关配置包括hexo editor都很容易找到，最重要的是部署方便，且bug很少，即使是使用外置主题，而且配置的修改采用注释/取消注释的方式进行，方便日后修改，而不用每次都需要根据官方文档再去配置，省去了很多麻烦。<br>  <span id="more"></span></p>
+<h2 id="搭建博客的相关教程"><a href="#搭建博客的相关教程" class="headerlink" title="搭建博客的相关教程"></a>搭建博客的相关教程</h2><h3 id="视频教程"><a href="#视频教程" class="headerlink" title="视频教程"></a>视频教程</h3><p>  来自哔哩哔哩up-codesheep的视频教程，讲解细致全面<br>  <a href="https://www.bilibili.com/video/BV1Yb411a7ty/?spm_id_from=333.788.recommend_more_video.0">手把手教你从0开始搭建自己的个人博客 |无坑版视频教程| hexo</a><br>  学习笔记<br>  <pre><br>  ---    #安装Nodejs<br>node -v    #查看node版本<br>npm -v    #查看npm版本<br>npm install -g cnpm --registry=<a href="http://registry.npm.taobao.org/">http://registry.npm.taobao.org</a>    #安装淘宝的cnpm 管理器<br>cnpm -v    #查看cnpm版本<br>cnpm install -g hexo-cli    #安装hexo框架<br>hexo -v    #查看hexo版本<br>mkdir blog    #创建blog目录<br>cd blog     #进入blog目录<br>sudo hexo init     #生成博客 初始化博客<br>hexo s    #启动本地博客服务<br><a href="http://localhost:4000/">http://localhost:4000/</a>    #本地访问地址<br>hexo n 我的第一篇文章 #创建新的文章<br>#返回blog目录<br>hexo clean #清理<br>hexo g #生成<br>#Github创建一个新的仓库 YourGithubName.github.io<br>#在blog目录下安装git部署插件<br>   cnpm install --save hexo-deployer-git </p>
+<hr>
+<h2 id="配置-config-yml"><a href="#配置-config-yml" class="headerlink" title="#配置_config.yml "></a>#配置_config.yml </h2><pre><code># Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+      type: git
+     repo: https://github.com/YourGithubName/YourGithubName.github.io.git
+      branch: master
+</code></pre>
+<hr>
+<p>hexo d    #部署到Github仓库里<br><a href="https://yourgithubname.github.io/">https://YourGithubName.github.io/</a>  #访问这个地址可以查看博客</p>
+<p> git clone <a href="https://github.com/litten/hexo-theme-yilia.git">https://github.com/litten/hexo-theme-yilia.git</a> themes/yilia  #下载yilia主题到本地</p>
+<p>#修改hexo根目录下的 _config.yml 文件 ： theme: yilia</p>
+<p>hexo c    #清理一下<br>hexo g    #生成<br>hexo s    #启动本地博客服务<br><a href="http://localhost:4000/">http://localhost:4000/</a>    #本地访问地址<br>hexo d    #部署到远程Github仓库<br><a href="https://yourgithubname.github.io/">https://YourGithubName.github.io/</a>  #查看博客<br>  </pre></p>
+<hr>
+<h3 id="官方文档及next主题官方文档"><a href="#官方文档及next主题官方文档" class="headerlink" title="官方文档及next主题官方文档"></a>官方文档及next主题官方文档</h3><p> 1.<a href="https://hexo.io/zh-cn/docs/">hexo文档</a><br> 2.<a href="http://theme-next.iissnan.com/getting-started.html">hexo-next主题文档</a></p>
+<h2 id="博客的后续配置"><a href="#博客的后续配置" class="headerlink" title="博客的后续配置"></a>博客的后续配置</h2><p>  博客中有很多可用于拓展的地方，暂时还有很多不太了解，但是可以满足日常的写作需求以及部署，此处用于记录对于配置方面的自己的一些理解。</p>
+<h3 id="配置-config-yml，gitee-github简单修改实现双部署"><a href="#配置-config-yml，gitee-github简单修改实现双部署" class="headerlink" title="配置_config.yml，gitee/github简单修改实现双部署"></a>配置_config.yml，gitee/github简单修改实现双部署</h3><pre><code>#配置_config.yml 
+</code></pre>
+<hr>
+<pre><code># Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+      type: git
+     repo: 
+        gitee: https://gitee.com/mhist/mhist.git
+    #https://github.com/Mhist/Mhist.github.io.git 
+    #github
+      branch: master
+</code></pre>
+<p>—–以上代码是我在实践过程中发现的一点，因为在github上是可以做到自动部署的，可是因为防火墙的原因导致访问经常失败，而gitee作为国内的github，访问速度是很快的，只是部署的时候需要手动更新，因为自动更新部署是要收费的。<br>    以上代码的使用方式是在repo中：<br>    1.部署到gitee时，按照hexo c; hexo g; hexo s; hexo d，然后到码云的位置点击更新即可。<img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210421013409-giteePagesUpdateButton.png" alt="gitee pages update button">，然后可访问域名：<a href="https://mhist.gitee.io/">https://mhist.gitee.io/</a><br>    2.部署到github时，将gitee所在行用#注释掉即可，同时取消gitee下一行的#注释，按照hexo c; hexo g; hexo s; hexo d即可。然后可访问域名：<a href="https://mhist.github.io/">https://mhist.github.io/</a></p>
+<h2 id="图床的设置"><a href="#图床的设置" class="headerlink" title="图床的设置"></a>图床的设置</h2><p>  作为使用Markdown来编辑文档的人来说，拥有一个好的图床是非常必要的。通过图床我们可以很好的管理我们的博客图片，同时能在多方正确显示。</p>
+<h3 id="图床分类"><a href="#图床分类" class="headerlink" title="图床分类"></a>图床分类</h3><p>  现在比较流行的图床有很多，包括SM.MS图床、腾讯云cos、github图床、七牛云图床、Imgur图床、阿里云COS、又拍云图床、gitee。但同时具有安全、经济、使用方便、访问高速等多种优点的解决方案还是要数基于picgo+gitee的解决方案.</p>
+<h3 id="picgo"><a href="#picgo" class="headerlink" title="picgo"></a>picgo</h3><p>  picgo是一款基于桌面端图床工具，方便我们对接本地和远程仓库，同时快速获取链接，同时支持链接的Markdown、HTML、URL、UBB、Custom等五种格式的选择，同时可以支持插件以丰富软件功能。<br>  推荐两个配置教程：</p>
+<ol>
+<li><a href="https://blog.csdn.net/disILLL/article/details/103962241?utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.control&dist_request_id=1332024.918.16189409573562535&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.control">配置教程1</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/128014135">配置教程2—插件</a></li>
+<li><a href="https://github.com/Molunerfinn/PicGo/releases">picgo的github链接</a></li>
+<li>picgo Windows <a href="https://pan.baidu.com/s/1y_yn9dl5aEAGHBX2c2KDPA">PicGo-Setup-2.3.0-beta.5.exe</a> 提取码：hexo</li>
+</ol>
 ]]></content>
       <categories>
         <category>hexo</category>
       </categories>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>uni-app实战（一）</title>
+    <url>/2021/10/26/uni-app/4132b17f6755/</url>
+    <content><![CDATA[<h1 id="项目的构建"><a href="#项目的构建" class="headerlink" title="项目的构建"></a>项目的构建</h1><ol>
+<li>开发工具采用uni-app官方的开发工具<a href="https://www.dcloud.io/hbuilderx.html">HbuilderX</a></li>
+<li>构建项目选择基础模板</li>
+<li>引入样式库 <ul>
+<li>uni.css 官方ui库</li>
+<li>animate.css css动画库</li>
+<li>icon.css 图标库</li>
+<li>common.css 公共样式</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>uni-app</category>
+      </categories>
+      <tags>
+        <tag>uni-app</tag>
       </tags>
   </entry>
   <entry>
@@ -425,28 +447,6 @@ f89d8a5
       </tags>
   </entry>
   <entry>
-    <title>uni-app实战（一）</title>
-    <url>/2021/10/26/uni-app/4132b17f6755/</url>
-    <content><![CDATA[<h1 id="项目的构建"><a href="#项目的构建" class="headerlink" title="项目的构建"></a>项目的构建</h1><ol>
-<li>开发工具采用uni-app官方的开发工具<a href="https://www.dcloud.io/hbuilderx.html">HbuilderX</a></li>
-<li>构建项目选择基础模板</li>
-<li>引入样式库 <ul>
-<li>uni.css 官方ui库</li>
-<li>animate.css css动画库</li>
-<li>icon.css 图标库</li>
-<li>common.css 公共样式</li>
-</ul>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>uni-app</category>
-      </categories>
-      <tags>
-        <tag>uni-app</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>learn react</title>
     <url>/2021/04/24/uncategorized/c98970b16c20/</url>
     <content><![CDATA[<h1 id="react-入门"><a href="#react-入门" class="headerlink" title="react 入门"></a>react 入门</h1><h2 id="react框架基本介绍"><a href="#react框架基本介绍" class="headerlink" title="react框架基本介绍"></a>react框架基本介绍</h2><p>   <a href="https://reactjs.org/">react官方</a></p>
@@ -459,7 +459,7 @@ v14.16.0</li>
 cmd控制台反馈如下：<pre>
 C:\Users\18827\AppData\Roaming\npm\create-react-app -> C:\Users\18827\AppData\Roaming\npm\node_modules\create-react-app\index.js</li>
 </ul>
-<p><a href="mailto:&#43;&#x63;&#x72;&#x65;&#97;&#116;&#x65;&#x2d;&#x72;&#101;&#97;&#x63;&#x74;&#x2d;&#x61;&#x70;&#x70;&#64;&#52;&#46;&#48;&#46;&#x33;">&#43;&#x63;&#x72;&#x65;&#97;&#116;&#x65;&#x2d;&#x72;&#101;&#97;&#x63;&#x74;&#x2d;&#x61;&#x70;&#x70;&#64;&#52;&#46;&#48;&#46;&#x33;</a><br>added 67 packages from 25 contributors in 22.805s<br> </pre></p>
+<p><a href="mailto:&#x2b;&#99;&#x72;&#101;&#97;&#x74;&#x65;&#45;&#114;&#101;&#x61;&#x63;&#x74;&#x2d;&#97;&#112;&#112;&#64;&#x34;&#x2e;&#48;&#x2e;&#51;">&#x2b;&#99;&#x72;&#101;&#97;&#x74;&#x65;&#45;&#114;&#101;&#x61;&#x63;&#x74;&#x2d;&#97;&#112;&#112;&#64;&#x34;&#x2e;&#48;&#x2e;&#51;</a><br>added 67 packages from 25 contributors in 22.805s<br> </pre></p>
 <h2 id="创建项目文件夹，并开启demo"><a href="#创建项目文件夹，并开启demo" class="headerlink" title="创建项目文件夹，并开启demo"></a>创建项目文件夹，并开启demo</h2><ul>
 <li><p>在电脑桌面同时按下Windows+R进入输入cmd,按enter</p>
 </li>
@@ -679,6 +679,21 @@ Module {
       </tags>
   </entry>
   <entry>
+    <title>vue3 基础文档学习</title>
+    <url>/2021/09/23/vue3/22ee434cee21/</url>
+    <content><![CDATA[<h1 id="基础文档网址"><a href="#基础文档网址" class="headerlink" title="基础文档网址"></a>基础文档网址</h1><p><a href="https://v3.cn.vuejs.org/">vue3官方文档学习</a></p>
+<span id="more"></span>
+]]></content>
+      <categories>
+        <category>vue3</category>
+      </categories>
+      <tags>
+        <tag>TypeScript</tag>
+        <tag>vue3</tag>
+        <tag>vite</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>webpack基本配置（二）</title>
     <url>/2021/10/18/webpack/eb2dff5fc128/</url>
     <content><![CDATA[<h1 id="webpack基本配置-入口、出口"><a href="#webpack基本配置-入口、出口" class="headerlink" title="webpack基本配置(入口、出口)"></a>webpack基本配置(入口、出口)</h1><p>配置方式：</p>
@@ -730,7 +745,7 @@ See https://webpack.js.org/concepts#loaders
 <p>本质上，webpack loader 将所有类型的文件，转换为应用程序的依赖图（和最终的 bundle）可以直接引用的模块。</p>
 <h2 id="css-loader的安装"><a href="#css-loader的安装" class="headerlink" title="css-loader的安装"></a>css-loader的安装</h2><figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> css-loader -D<br></code></pre></td></tr></table></figure>
 
-<p>当前版本为：<font color=amber><a href="mailto:&#x63;&#115;&#115;&#x2d;&#108;&#111;&#97;&#x64;&#x65;&#114;&#64;&#54;&#x2e;&#x34;&#x2e;&#48;">&#x63;&#115;&#115;&#x2d;&#108;&#111;&#97;&#x64;&#x65;&#114;&#64;&#54;&#x2e;&#x34;&#x2e;&#48;</a></font></p>
+<p>当前版本为：<font color=amber><a href="mailto:&#99;&#115;&#x73;&#x2d;&#x6c;&#x6f;&#97;&#x64;&#x65;&#x72;&#x40;&#x36;&#46;&#52;&#x2e;&#48;">&#99;&#115;&#x73;&#x2d;&#x6c;&#x6f;&#97;&#x64;&#x65;&#x72;&#x40;&#x36;&#46;&#52;&#x2e;&#48;</a></font></p>
 <p>安装完css-loader后，在package.json的<font color=red>devDependencies</font>中即可看到对应的版本号，但是现在桥梁的材料准备好了，还需要将公路与桥梁进行以下安装处理，使得其可以稳固通行，也就是代码能够正常运行。要想达到目的，有以下几种方式：</p>
 <div class="tabs" id="tab"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#tab-1">配置方式 推荐</button></li><li class="tab"><button type="button" data-href="#tab-2">CLI方式（webpack5版本中不再使用）</button></li><li class="tab"><button type="button" data-href="#tab-3">内联方式</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="tab-1"><figure class="highlight yaml"><table><tr><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">module:</span> &#123;<br>   <span class="hljs-attr">rules:</span> [<br>     &#123;<br>       <span class="hljs-attr">test:</span> <span class="hljs-string">/\.css$/</span>,               <br>       <span class="hljs-attr">use:</span> [<br>         &#123; <span class="hljs-attr">loader:</span> <span class="hljs-string">&#x27;style-loader&#x27;</span> &#125;,<br>         &#123;<br>           <span class="hljs-attr">loader:</span> <span class="hljs-string">&#x27;css-loader&#x27;</span>,<br>           <span class="hljs-attr">options:</span> &#123;<br>             <span class="hljs-attr">modules:</span> <span class="hljs-literal">true</span><br>           &#125;<br>         &#125;<br>       ]<br>     &#125;<br>   ]<br> &#125;<br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-2"><figure class="highlight fortran"><table><tr><td class="code"><pre><code class="hljs fortran">webpack --<span class="hljs-keyword">module</span>-<span class="hljs-keyword">bind</span> jade-loader --<span class="hljs-keyword">module</span>-<span class="hljs-keyword">bind</span> <span class="hljs-string">&#x27;css=style-loader!css-loader&#x27;</span><br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-3"><p>通过loader名字和”!” 将css文件分隔开，当然也可以同时写多个 import “xxx-loader!css-loader../css/index.css”;</p>
 <figure class="highlight abnf"><table><tr><td class="code"><pre><code class="hljs abnf">import <span class="hljs-string">&quot;css-loader!../css/index.css&quot;</span><span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
@@ -740,7 +755,7 @@ See https://webpack.js.org/concepts#loaders
 <p>在前面我们已经了解到，处理css文件需要css-loader,style-loader等来处理，那么在开发过程中如果需要处理不同的文件，则需要不同的loader来实现代码功能。</p>
 <p>但是，以less文件举例子，则需要用到less工具</p>
 <figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> <span class="hljs-keyword">less</span> -D<br></code></pre></td></tr></table></figure>
-<p>当前版本：<font color=camel> <a href="mailto:&#x6c;&#101;&#115;&#x73;&#x40;&#x34;&#46;&#x31;&#46;&#x32;">&#x6c;&#101;&#115;&#x73;&#x40;&#x34;&#46;&#x31;&#46;&#x32;</a></font></p>
+<p>当前版本：<font color=camel> <a href="mailto:&#108;&#x65;&#115;&#115;&#x40;&#52;&#x2e;&#x31;&#46;&#x32;">&#108;&#x65;&#115;&#115;&#x40;&#52;&#x2e;&#x31;&#46;&#x32;</a></font></p>
 <p>安装完成后，可以通过npx来操作node_modules中的less，来进行处理：</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">npx less .<span class="hljs-regexp">/src/</span>css/component.less &gt; component.css<br></code></pre></td></tr></table></figure>
 <p>它可以将less文件转为正常的css文件</p>
@@ -748,9 +763,9 @@ See https://webpack.js.org/concepts#loaders
 
 <h1 id="less-loader"><a href="#less-loader" class="headerlink" title="less-loader"></a>less-loader</h1><p>从上面的处理过程中，我们能够体会到less工具的快捷，但是在中大型项目中，当有大量的less文件需要处理时，想要通过命令行完成less文件的转化显然是不现实的，于是可以采用less-loader来进行处理，当然<font color=seagreen>less-loader是基于less工具</font>的，所以使用less-loader时，需要保证提前安装了less工具。</p>
 <figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> <span class="hljs-keyword">less</span> -D<br></code></pre></td></tr></table></figure>
-<p>当前版本：<font color=camel> <a href="mailto:&#108;&#x65;&#115;&#x73;&#x40;&#52;&#46;&#x31;&#46;&#x32;">&#108;&#x65;&#115;&#x73;&#x40;&#52;&#46;&#x31;&#46;&#x32;</a></font></p>
+<p>当前版本：<font color=camel> <a href="mailto:&#108;&#x65;&#x73;&#115;&#x40;&#x34;&#x2e;&#49;&#46;&#x32;">&#108;&#x65;&#x73;&#115;&#x40;&#x34;&#x2e;&#49;&#46;&#x32;</a></font></p>
 <figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> <span class="hljs-keyword">less</span>-loader -D<br></code></pre></td></tr></table></figure>
-<p>当前版本： <font color=amber><a href="mailto:&#x6c;&#x65;&#115;&#115;&#x2d;&#x6c;&#111;&#97;&#100;&#x65;&#114;&#x40;&#49;&#48;&#46;&#50;&#46;&#48;">&#x6c;&#x65;&#115;&#115;&#x2d;&#x6c;&#111;&#97;&#100;&#x65;&#114;&#x40;&#49;&#48;&#46;&#50;&#46;&#48;</a></font></p>
+<p>当前版本： <font color=amber><a href="mailto:&#108;&#101;&#x73;&#115;&#45;&#108;&#x6f;&#97;&#100;&#101;&#x72;&#x40;&#49;&#x30;&#x2e;&#50;&#46;&#x30;">&#108;&#101;&#x73;&#115;&#45;&#108;&#x6f;&#97;&#100;&#101;&#x72;&#x40;&#49;&#x30;&#x2e;&#50;&#46;&#x30;</a></font></p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">module: &#123;<br>   <span class="hljs-regexp">//</span> rules数组里面都是rule对象<br>  rules: [<br>    &#123;<br>      test: <span class="hljs-regexp">/\.css$/</span>,    <span class="hljs-regexp">//</span> 匹配以css结尾的文件<br>      use: [<br>        <span class="hljs-regexp">//</span>  注意编写顺序  从下到上，从右往左，本质 从后往前<br>        &#123; loader: <span class="hljs-string">&#x27;style-loader&#x27;</span> &#125;,<br>        &#123;<br>          loader: <span class="hljs-string">&#x27;css-loader&#x27;</span>,<br>        &#125;<br>      ]<br>    &#125;,<br>    &#123;<br>      test: <span class="hljs-regexp">/\.less$/</span>,    <span class="hljs-regexp">//</span> 匹配以css结尾的文件<br>      use: [<br>        <span class="hljs-regexp">//</span>  注意编写顺序  从下到上，从右往左，本质 从后往前<br>        &#123; loader: <span class="hljs-string">&#x27;style-loader&#x27;</span> &#125;,<br>        &#123; loader: <span class="hljs-string">&#x27;css-loader&#x27;</span> &#125;,<br>        &#123;<br>          loader: <span class="hljs-string">&#x27;less-loader&#x27;</span>,<br>        &#125;<br>      ]<br>    &#125;<br>  ]<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h1 id="浏览器兼容性"><a href="#浏览器兼容性" class="headerlink" title="浏览器兼容性"></a>浏览器兼容性</h1><p>在开发中，我们会遇到浏览器的兼容性问题，不是指屏幕大小的变化适配，主要是针对于不同的浏览器所支持的特性之间的问题，比如CSS特性，js语法之间的兼容性，同时市面上存在着的浏览器，包括chrome、safari、IE、Edge、chrome for Android、UC Browser、QQ Browser等等，有着不同的市场占有率，是不是都需要兼容呢？</p>
@@ -775,13 +790,13 @@ See https://webpack.js.org/concepts#loaders
 <h2 id="使用postcss的步骤"><a href="#使用postcss的步骤" class="headerlink" title="使用postcss的步骤"></a>使用postcss的步骤</h2><p>第一步：查找postCss在构建工具中的扩展，比如webpack中的postcss-loader;<br>第二步： 选择可以添加你需要的postCss相关的插件</p>
 <p>如果是在终端直接使用，需要单独安装postcss-cli。</p>
 <figure class="highlight avrasm"><table><tr><td class="code"><pre><code class="hljs avrasm">npm i -D postcss postcss-<span class="hljs-keyword">cli</span><br></code></pre></td></tr></table></figure>
-<p><font color=chocolate>+ <a href="mailto:&#x70;&#x6f;&#115;&#116;&#x63;&#115;&#x73;&#x40;&#x38;&#46;&#51;&#46;&#57;">&#x70;&#x6f;&#115;&#116;&#x63;&#115;&#x73;&#x40;&#x38;&#46;&#51;&#46;&#57;</a></font><br><font color=yellowgreen>+ <a href="mailto:&#112;&#111;&#115;&#116;&#x63;&#115;&#x73;&#45;&#99;&#x6c;&#x69;&#x40;&#x39;&#46;&#x30;&#x2e;&#49;">&#112;&#111;&#115;&#116;&#x63;&#115;&#x73;&#45;&#99;&#x6c;&#x69;&#x40;&#x39;&#46;&#x30;&#x2e;&#49;</a></font></p>
+<p><font color=chocolate>+ <a href="mailto:&#x70;&#x6f;&#x73;&#x74;&#99;&#x73;&#x73;&#x40;&#56;&#46;&#51;&#46;&#57;">&#x70;&#x6f;&#x73;&#x74;&#99;&#x73;&#x73;&#x40;&#56;&#46;&#51;&#46;&#57;</a></font><br><font color=yellowgreen>+ <a href="mailto:&#112;&#111;&#x73;&#x74;&#99;&#115;&#x73;&#45;&#x63;&#108;&#x69;&#64;&#x39;&#46;&#x30;&#46;&#49;">&#112;&#111;&#x73;&#x74;&#99;&#115;&#x73;&#45;&#x63;&#108;&#x69;&#64;&#x39;&#46;&#x30;&#46;&#49;</a></font></p>
 <p>在css开发过程中，会写到很多属性和样式，让我们遇到不熟悉的属性的时候，不清楚需要对哪些浏览器进行适配的时候，可以到<a href="http://autoprefixer.github.io/">Autoprefixer CSS online</a>,它是一个postcss插件，可以通过它解析CSS并添加供应商前缀。</p>
 <p>自动添加前缀插件： autopreFixer</p>
 <figure class="highlight angelscript"><table><tr><td class="code"><pre><code class="hljs angelscript">npm install <span class="hljs-built_in">auto</span>prefixer -D<br></code></pre></td></tr></table></figure>
-<p>当前版本：<font color=blue><a href="mailto:&#x61;&#x75;&#x74;&#111;&#112;&#x72;&#x65;&#102;&#105;&#120;&#x65;&#x72;&#x40;&#49;&#48;&#46;&#x33;&#46;&#55;">&#x61;&#x75;&#x74;&#111;&#112;&#x72;&#x65;&#102;&#105;&#120;&#x65;&#x72;&#x40;&#49;&#48;&#46;&#x33;&#46;&#55;</a></font></p>
+<p>当前版本：<font color=blue><a href="mailto:&#97;&#117;&#116;&#111;&#x70;&#114;&#101;&#x66;&#x69;&#120;&#x65;&#x72;&#64;&#49;&#48;&#x2e;&#51;&#46;&#55;">&#97;&#117;&#116;&#111;&#x70;&#114;&#101;&#x66;&#x69;&#120;&#x65;&#x72;&#64;&#49;&#48;&#x2e;&#51;&#46;&#55;</a></font></p>
 <div class="tabs" id="tab"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#tab-1">webpack使用方式  post-cssloader</button></li><li class="tab"><button type="button" data-href="#tab-2">命令行使用方式：</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="tab-1"><figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> postcss-loader -D<br></code></pre></td></tr></table></figure>
-<p><font color=royalblue>+ <a href="mailto:&#112;&#x6f;&#115;&#116;&#x63;&#115;&#x73;&#45;&#108;&#111;&#x61;&#x64;&#x65;&#x72;&#64;&#x36;&#46;&#50;&#46;&#48;">&#112;&#x6f;&#115;&#116;&#x63;&#115;&#x73;&#45;&#108;&#111;&#x61;&#x64;&#x65;&#x72;&#64;&#x36;&#46;&#50;&#46;&#48;</a></font><br>它可以自动检测并通过postcss来进行css的自动化处理。</p>
+<p><font color=royalblue>+ <a href="mailto:&#112;&#111;&#115;&#116;&#x63;&#115;&#x73;&#45;&#x6c;&#x6f;&#97;&#100;&#101;&#114;&#x40;&#x36;&#x2e;&#50;&#x2e;&#x30;">&#112;&#111;&#115;&#116;&#x63;&#115;&#x73;&#45;&#x6c;&#x6f;&#97;&#100;&#101;&#114;&#x40;&#x36;&#x2e;&#50;&#x2e;&#x30;</a></font><br>它可以自动检测并通过postcss来进行css的自动化处理。</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">module: &#123;<br>     <span class="hljs-regexp">//</span> rules数组里面都是rule对象<br>    rules: [<br>      &#123;<br>        test: <span class="hljs-regexp">/\.css$/</span>,    <span class="hljs-regexp">//</span> 匹配以css结尾的文件<br>        use: [<br>          <span class="hljs-regexp">//</span>  注意编写顺序  从下到上，从右往左，本质 从后往前<br>          &#123; loader: <span class="hljs-string">&#x27;style-loader&#x27;</span> &#125;,<br>          &#123;<br>            loader: <span class="hljs-string">&#x27;css-loader&#x27;</span>,<br>          &#125;,<br>          &#123;<br>            loader: <span class="hljs-string">&#x27;postcss-loader&#x27;</span>,<br>            options: &#123;<br>              postcssOptions: &#123;<br>                plugins: [<br>                  require(<span class="hljs-string">&quot;autoprefixer&quot;</span>)<br>                ]<br>              &#125;<br>            &#125;<br>          &#125;<br>        ]<br>      &#125;<br>    ]<br>  &#125;<br><br></code></pre></td></tr></table></figure>
 <p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211019213331autoPreFixerExample.png" alt="自动加前缀实验"></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-2"><figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">npx postcss --use autoprefixer -o result.css .<span class="hljs-regexp">/src/</span>css/test.css<br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
 ]]></content>
@@ -790,6 +805,32 @@ See https://webpack.js.org/concepts#loaders
       </categories>
       <tags>
         <tag>webpack</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>后台管理系统vue3TsElement-plusVite</title>
+    <url>/2021/09/14/vue3/9e0f53e3c316/</url>
+    <content><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>截止目前，工作中对于需要处理的项目需求已经基本完成，在没有新的需求产生之前，项目基本的模型基本固定，所以有时间进行项目的思考与新技术的学习，在实际的开发的项目中会技术知识点的熟练度问题导致经常需要参考网上的相关例子，但是根据教程解决完业务问题后，因为整理不及时，在遇到相同问题的时候就会花费更多的精力和时间，也不利于沉淀。正好，博客系统也能都正常上线使用，采用了比较简洁的hexo-next主题，虽然界面比较朴素，但是对于写技术博客来说，已经是非常适合不过了。当然也有其他的主题，比较好看，但是因为配置next主题也花了一些时间，同时在此阶段结合谷歌浏览器lighthouse插件，也解决了一些项目的性能优化问题，包括通过<a href="https://www.jsdelivr.com/">jsdelivr</a>对图片进行CDN优化，加快访问速度等，如图<img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914162406blogRateScreen.png" alt="个人博客网站评分">，同时也提出了http/1.1 http/2等的问题，可以明显的感觉到加载速度的差异，<a href="https://http2.akamai.com/demo">加载速度对比</a>,发现对于基础知识还是有许多需要学习的地方，也就是当前来说技术知识的提升比博客页面的美观更加重要一些，所以就开始先更文章了!</p>
+<span id="more"></span>
+<h1 id="就叫它NS吧"><a href="#就叫它NS吧" class="headerlink" title="就叫它NS吧"></a>就叫它NS吧</h1><p>  在开始文章的叙述之前，总得先定一个叙述对象，它也就是前面提及的工作项目，结合项目名称，以及便于后续称呼，就叫它NS吧，这是一个后台管理系统项目，采用了当下非常流行的vue以及elementUI作为开发的基础性框架，打包工具则以gulp为主，同时包含少量的webpack配置，对于这方面的知识还是比较欠缺，当然整个项目的业务逻辑还是在摸索了几天逐渐熟悉了。<br>  随着业务量的深入以及代码量的增多，可以很容易的发现，代码变得逐渐难以管理，同时因为初期的代码规范性问题，导致代码的可读性变差，因为缺少文档，导致在日常赶需求的时候，引入的依赖，配置项等，在维护过程中，对于一些不需要的冗余代码，不方便精简，大多采用注释的方式解决，业务中遇到的主要问题是图片的处理，包括上传和保证图片的上传顺序等，还有大文件的上传，同时是订单管理中不可缺少的导出功能，如何在前端根据列实现对表格数据的筛选，还有地图数据展示与选择过程中的循环问题，对于路由权限问题需要在新项目中搭建中熟悉动态路由表以及权限处理</p>
+<h1 id="初步认识"><a href="#初步认识" class="headerlink" title="初步认识"></a>初步认识</h1><p>  问题已经大致了解了，所以在新项目的开始过程中，也算是有了“需求”，能够有效的提升学习效率了。</p>
+<h2 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h2><p>  <a href="https://vue3js.cn/docs/zh/">vue3官方中文文档</a></p>
+<p>  <a href="https://www.tslang.cn/docs/home.html">TypeScript官方文档 v3.1</a></p>
+<p>  <a href="https://vitejs.cn/">Vite官方文档</a></p>
+<p>  <a href="https://element-plus.org/#/zh-CN/component/installation">element-plus官方文档</a></p>
+<h2 id="构建基础项目"><a href="#构建基础项目" class="headerlink" title="构建基础项目"></a>构建基础项目</h2><p>跟随着vite官方教程，我们成功的运行起来了项目，同时能够感受到页面内容的快速构建和页面快速的响应式热更新带来的流畅开发体验。</p>
+<p>基础demo运行: <img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914180734vue3viteBaseDemo.png"></p>
+<p>项目运行起来的时间为：<img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914180937baseDemoRate.png"></p>
+<p>下面可以看下具体的项目结构：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914181052baseDemoStrucet.png" alt="项目基本结构"><br>同时也有一些问题，<img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914181439demoProblem.png" alt="基础vite项目bug">对于一个元素的问题，<a href="https://stackoverflow.com/questions/64867504/vue-3-the-template-root-requires-exactly-one-element-eslint-plugin-vue">尝试用div标签包裹template内的元素，一个bug可以解决</a>但是另外一个还是会有问题，经过搜索发现有帖子有相同的错误，故保存下来。<a href="https://www.jianshu.com/p/684820d0f905">vue3+eslint遇到 The template root requires exactly one element.eslintvue/no-multiple-template-root ..</a><br>经过一番折腾，还是回到原来构建时候的代码状态，原来是因为插件的问题，<a href="https://juejin.cn/post/6875713523968802829#heading-6">参考评论区</a>,具体评论为：<img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914185531veturBug.png"></p>
+]]></content>
+      <categories>
+        <category>vue3</category>
+      </categories>
+      <tags>
+        <tag>TypeScript</tag>
+        <tag>vue3</tag>
+        <tag>vite</tag>
       </tags>
   </entry>
   <entry>
@@ -866,47 +907,6 @@ See https://webpack.js.org/concepts#loaders
       </categories>
       <tags>
         <tag>webpack</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vue3 基础文档学习</title>
-    <url>/2021/09/23/vue3/22ee434cee21/</url>
-    <content><![CDATA[<h1 id="基础文档网址"><a href="#基础文档网址" class="headerlink" title="基础文档网址"></a>基础文档网址</h1><p><a href="https://v3.cn.vuejs.org/">vue3官方文档学习</a></p>
-<span id="more"></span>
-]]></content>
-      <categories>
-        <category>vue3</category>
-      </categories>
-      <tags>
-        <tag>TypeScript</tag>
-        <tag>vue3</tag>
-        <tag>vite</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>后台管理系统vue3TsElement-plusVite</title>
-    <url>/2021/09/14/vue3/9e0f53e3c316/</url>
-    <content><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>截止目前，工作中对于需要处理的项目需求已经基本完成，在没有新的需求产生之前，项目基本的模型基本固定，所以有时间进行项目的思考与新技术的学习，在实际的开发的项目中会技术知识点的熟练度问题导致经常需要参考网上的相关例子，但是根据教程解决完业务问题后，因为整理不及时，在遇到相同问题的时候就会花费更多的精力和时间，也不利于沉淀。正好，博客系统也能都正常上线使用，采用了比较简洁的hexo-next主题，虽然界面比较朴素，但是对于写技术博客来说，已经是非常适合不过了。当然也有其他的主题，比较好看，但是因为配置next主题也花了一些时间，同时在此阶段结合谷歌浏览器lighthouse插件，也解决了一些项目的性能优化问题，包括通过<a href="https://www.jsdelivr.com/">jsdelivr</a>对图片进行CDN优化，加快访问速度等，如图<img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914162406blogRateScreen.png" alt="个人博客网站评分">，同时也提出了http/1.1 http/2等的问题，可以明显的感觉到加载速度的差异，<a href="https://http2.akamai.com/demo">加载速度对比</a>,发现对于基础知识还是有许多需要学习的地方，也就是当前来说技术知识的提升比博客页面的美观更加重要一些，所以就开始先更文章了!</p>
-<span id="more"></span>
-<h1 id="就叫它NS吧"><a href="#就叫它NS吧" class="headerlink" title="就叫它NS吧"></a>就叫它NS吧</h1><p>  在开始文章的叙述之前，总得先定一个叙述对象，它也就是前面提及的工作项目，结合项目名称，以及便于后续称呼，就叫它NS吧，这是一个后台管理系统项目，采用了当下非常流行的vue以及elementUI作为开发的基础性框架，打包工具则以gulp为主，同时包含少量的webpack配置，对于这方面的知识还是比较欠缺，当然整个项目的业务逻辑还是在摸索了几天逐渐熟悉了。<br>  随着业务量的深入以及代码量的增多，可以很容易的发现，代码变得逐渐难以管理，同时因为初期的代码规范性问题，导致代码的可读性变差，因为缺少文档，导致在日常赶需求的时候，引入的依赖，配置项等，在维护过程中，对于一些不需要的冗余代码，不方便精简，大多采用注释的方式解决，业务中遇到的主要问题是图片的处理，包括上传和保证图片的上传顺序等，还有大文件的上传，同时是订单管理中不可缺少的导出功能，如何在前端根据列实现对表格数据的筛选，还有地图数据展示与选择过程中的循环问题，对于路由权限问题需要在新项目中搭建中熟悉动态路由表以及权限处理</p>
-<h1 id="初步认识"><a href="#初步认识" class="headerlink" title="初步认识"></a>初步认识</h1><p>  问题已经大致了解了，所以在新项目的开始过程中，也算是有了“需求”，能够有效的提升学习效率了。</p>
-<h2 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h2><p>  <a href="https://vue3js.cn/docs/zh/">vue3官方中文文档</a></p>
-<p>  <a href="https://www.tslang.cn/docs/home.html">TypeScript官方文档 v3.1</a></p>
-<p>  <a href="https://vitejs.cn/">Vite官方文档</a></p>
-<p>  <a href="https://element-plus.org/#/zh-CN/component/installation">element-plus官方文档</a></p>
-<h2 id="构建基础项目"><a href="#构建基础项目" class="headerlink" title="构建基础项目"></a>构建基础项目</h2><p>跟随着vite官方教程，我们成功的运行起来了项目，同时能够感受到页面内容的快速构建和页面快速的响应式热更新带来的流畅开发体验。</p>
-<p>基础demo运行: <img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914180734vue3viteBaseDemo.png"></p>
-<p>项目运行起来的时间为：<img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914180937baseDemoRate.png"></p>
-<p>下面可以看下具体的项目结构：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914181052baseDemoStrucet.png" alt="项目基本结构"><br>同时也有一些问题，<img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914181439demoProblem.png" alt="基础vite项目bug">对于一个元素的问题，<a href="https://stackoverflow.com/questions/64867504/vue-3-the-template-root-requires-exactly-one-element-eslint-plugin-vue">尝试用div标签包裹template内的元素，一个bug可以解决</a>但是另外一个还是会有问题，经过搜索发现有帖子有相同的错误，故保存下来。<a href="https://www.jianshu.com/p/684820d0f905">vue3+eslint遇到 The template root requires exactly one element.eslintvue/no-multiple-template-root ..</a><br>经过一番折腾，还是回到原来构建时候的代码状态，原来是因为插件的问题，<a href="https://juejin.cn/post/6875713523968802829#heading-6">参考评论区</a>,具体评论为：<img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914185531veturBug.png"></p>
-]]></content>
-      <categories>
-        <category>vue3</category>
-      </categories>
-      <tags>
-        <tag>TypeScript</tag>
-        <tag>vue3</tag>
-        <tag>vite</tag>
       </tags>
   </entry>
   <entry>
