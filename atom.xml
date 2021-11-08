@@ -6,7 +6,7 @@
   <link href="http://wakeweb.cloud/atom.xml" rel="self"/>
   
   <link href="http://wakeweb.cloud/"/>
-  <updated>2021-11-07T10:00:27.436Z</updated>
+  <updated>2021-11-08T10:02:27.791Z</updated>
   <id>http://wakeweb.cloud/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>开发自己的脚手架工具</title>
+    <link href="http://wakeweb.cloud/2021/11/08/mhist-cli/f848dc5a8054/"/>
+    <id>http://wakeweb.cloud/2021/11/08/mhist-cli/f848dc5a8054/</id>
+    <published>2021-11-08T09:59:51.000Z</published>
+    <updated>2021-11-08T10:02:27.791Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;入口文件和基本配置文件&quot;&gt;&lt;a href=&quot;#入口文件和基本配置文件&quot; class=&quot;headerlink&quot; title=&quot;入口文件和基本配置文件&quot;&gt;&lt;/a&gt;入口文件和基本配置文件&lt;/h1&gt;&lt;p&gt;___learn-cli&lt;br&gt;  </summary>
+        
+      
+    
+    
+    
+    <category term="mhist-cli" scheme="http://wakeweb.cloud/categories/mhist-cli/"/>
+    
+    
+    <category term="mhist-cli" scheme="http://wakeweb.cloud/tags/mhist-cli/"/>
+    
+  </entry>
+  
+  <entry>
     <title>node常见内置模块</title>
     <link href="http://wakeweb.cloud/2021/11/07/node/41601c7205c1/"/>
     <id>http://wakeweb.cloud/2021/11/07/node/41601c7205c1/</id>
     <published>2021-11-07T02:33:15.000Z</published>
-    <updated>2021-11-07T10:00:27.436Z</updated>
+    <updated>2021-11-07T10:25:59.214Z</updated>
     
     
       
@@ -416,7 +441,7 @@ v14.16.0&lt;/li&gt;
 cmd控制台反馈如下：&lt;pre&gt;
 C:\Users\18827\AppData\Roaming\npm\create-react-app -&gt; C:\Users\18827\AppData\Roaming\npm\node_modules\create-react-app\index.js&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;a href=&quot;mailto:&amp;#x2b;&amp;#99;&amp;#x72;&amp;#x65;&amp;#x61;&amp;#116;&amp;#101;&amp;#45;&amp;#x72;&amp;#x65;&amp;#97;&amp;#99;&amp;#116;&amp;#45;&amp;#x61;&amp;#112;&amp;#112;&amp;#x40;&amp;#52;&amp;#x2e;&amp;#x30;&amp;#x2e;&amp;#x33;&quot;&gt;&amp;#x2b;&amp;#99;&amp;#x72;&amp;#x65;&amp;#x61;&amp;#116;&amp;#101;&amp;#45;&amp;#x72;&amp;#x65;&amp;#97;&amp;#99;&amp;#116;&amp;#45;&amp;#x61;&amp;#112;&amp;#112;&amp;#x40;&amp;#52;&amp;#x2e;&amp;#x30;&amp;#x2e;&amp;#x33;&lt;/a&gt;&lt;br&gt;added 67 packages from 25 contributors in 22.805s&lt;br&gt; &lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;mailto:&amp;#x2b;&amp;#x63;&amp;#x72;&amp;#x65;&amp;#97;&amp;#x74;&amp;#101;&amp;#x2d;&amp;#114;&amp;#101;&amp;#97;&amp;#x63;&amp;#x74;&amp;#45;&amp;#x61;&amp;#112;&amp;#x70;&amp;#x40;&amp;#52;&amp;#46;&amp;#x30;&amp;#46;&amp;#51;&quot;&gt;&amp;#x2b;&amp;#x63;&amp;#x72;&amp;#x65;&amp;#97;&amp;#x74;&amp;#101;&amp;#x2d;&amp;#114;&amp;#101;&amp;#97;&amp;#x63;&amp;#x74;&amp;#45;&amp;#x61;&amp;#112;&amp;#x70;&amp;#x40;&amp;#52;&amp;#46;&amp;#x30;&amp;#46;&amp;#51;&lt;/a&gt;&lt;br&gt;added 67 packages from 25 contributors in 22.805s&lt;br&gt; &lt;/pre&gt;&lt;/p&gt;
 &lt;h2 id=&quot;创建项目文件夹，并开启demo&quot;&gt;&lt;a href=&quot;#创建项目文件夹，并开启demo&quot; class=&quot;headerlink&quot; title=&quot;创建项目文件夹，并开启demo&quot;&gt;&lt;/a&gt;创建项目文件夹，并开启demo&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;在电脑桌面同时按下Windows+R进入输入cmd,按enter&lt;/p&gt;
 &lt;/li&gt;
@@ -453,23 +478,6 @@ C:\Users\18827\AppData\Roaming\npm\create-react-app -&gt; C:\Users\18827\AppData
     
     
     <category term="hexo" scheme="http://wakeweb.cloud/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vue+elementUI后台管理系统</title>
-    <link href="http://wakeweb.cloud/2021/04/17/uncategorized/cf07c19a06d1/"/>
-    <id>http://wakeweb.cloud/2021/04/17/uncategorized/cf07c19a06d1/</id>
-    <published>2021-04-17T08:54:41.000Z</published>
-    <updated>2021-10-13T06:42:59.359Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;关于后台管理系统开发过程中问题的解决&quot;&gt;&lt;a href=&quot;#关于后台管理系统开发过程中问题的解决&quot; class=&quot;headerlink&quot; title=&quot;关于后台管理系统开发过程中问题的解决&quot;&gt;&lt;/a&gt;关于后台管理系统开发过程中问题的解决&lt;/h1&gt;&lt;h2 id=&quot;相关环境及版本号&quot;&gt;&lt;a href=&quot;#相关环境及版本号&quot; class=&quot;headerlink&quot; title=&quot;相关环境及版本号&quot;&gt;&lt;/a&gt;相关环境及版本号&lt;/h2&gt;&lt;p&gt;node -v&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="cms" scheme="http://wakeweb.cloud/tags/cms/"/>
     
   </entry>
   
