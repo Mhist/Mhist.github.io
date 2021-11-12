@@ -6,7 +6,7 @@
   <link href="http://wakeweb.cloud/atom.xml" rel="self"/>
   
   <link href="http://wakeweb.cloud/"/>
-  <updated>2021-11-09T12:19:26.063Z</updated>
+  <updated>2021-11-12T03:50:20.075Z</updated>
   <id>http://wakeweb.cloud/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mysql</title>
+    <link href="http://wakeweb.cloud/2021/11/12/mysql/ab03683a0789/"/>
+    <id>http://wakeweb.cloud/2021/11/12/mysql/ab03683a0789/</id>
+    <published>2021-11-12T02:13:58.000Z</published>
+    <updated>2021-11-12T03:50:20.075Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;mysql下载地址&quot;&gt;&lt;a href=&quot;#mysql下载地址&quot; class=&quot;headerlink&quot; title=&quot;mysql下载地址&quot;&gt;&lt;/a&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="mysql" scheme="http://wakeweb.cloud/categories/mysql/"/>
+    
+    
+    <category term="mysql" scheme="http://wakeweb.cloud/tags/mysql/"/>
+    
+  </entry>
   
   <entry>
     <title>开发自己的脚手架工具</title>
@@ -441,7 +466,7 @@ v14.16.0&lt;/li&gt;
 cmd控制台反馈如下：&lt;pre&gt;
 C:\Users\18827\AppData\Roaming\npm\create-react-app -&gt; C:\Users\18827\AppData\Roaming\npm\node_modules\create-react-app\index.js&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;a href=&quot;mailto:&amp;#43;&amp;#99;&amp;#x72;&amp;#101;&amp;#x61;&amp;#116;&amp;#x65;&amp;#45;&amp;#114;&amp;#101;&amp;#97;&amp;#x63;&amp;#116;&amp;#45;&amp;#x61;&amp;#112;&amp;#112;&amp;#64;&amp;#x34;&amp;#46;&amp;#48;&amp;#x2e;&amp;#51;&quot;&gt;&amp;#43;&amp;#99;&amp;#x72;&amp;#101;&amp;#x61;&amp;#116;&amp;#x65;&amp;#45;&amp;#114;&amp;#101;&amp;#97;&amp;#x63;&amp;#116;&amp;#45;&amp;#x61;&amp;#112;&amp;#112;&amp;#64;&amp;#x34;&amp;#46;&amp;#48;&amp;#x2e;&amp;#51;&lt;/a&gt;&lt;br&gt;added 67 packages from 25 contributors in 22.805s&lt;br&gt; &lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;mailto:&amp;#43;&amp;#99;&amp;#114;&amp;#101;&amp;#97;&amp;#x74;&amp;#x65;&amp;#45;&amp;#114;&amp;#x65;&amp;#97;&amp;#99;&amp;#x74;&amp;#45;&amp;#97;&amp;#x70;&amp;#112;&amp;#64;&amp;#x34;&amp;#46;&amp;#48;&amp;#x2e;&amp;#51;&quot;&gt;&amp;#43;&amp;#99;&amp;#114;&amp;#101;&amp;#97;&amp;#x74;&amp;#x65;&amp;#45;&amp;#114;&amp;#x65;&amp;#97;&amp;#99;&amp;#x74;&amp;#45;&amp;#97;&amp;#x70;&amp;#112;&amp;#64;&amp;#x34;&amp;#46;&amp;#48;&amp;#x2e;&amp;#51;&lt;/a&gt;&lt;br&gt;added 67 packages from 25 contributors in 22.805s&lt;br&gt; &lt;/pre&gt;&lt;/p&gt;
 &lt;h2 id=&quot;创建项目文件夹，并开启demo&quot;&gt;&lt;a href=&quot;#创建项目文件夹，并开启demo&quot; class=&quot;headerlink&quot; title=&quot;创建项目文件夹，并开启demo&quot;&gt;&lt;/a&gt;创建项目文件夹，并开启demo&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;在电脑桌面同时按下Windows+R进入输入cmd,按enter&lt;/p&gt;
 &lt;/li&gt;
@@ -459,25 +484,6 @@ C:\Users\18827\AppData\Roaming\npm\create-react-app -&gt; C:\Users\18827\AppData
     
     
     <category term="react" scheme="http://wakeweb.cloud/tags/react/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于开始搭建hexo博客这件事</title>
-    <link href="http://wakeweb.cloud/2021/04/20/hexo/5fcb7dadb6f9/"/>
-    <id>http://wakeweb.cloud/2021/04/20/hexo/5fcb7dadb6f9/</id>
-    <published>2021-04-20T11:18:35.000Z</published>
-    <updated>2021-10-11T10:05:32.325Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;hexo个人博客搭建&quot;&gt;&lt;a href=&quot;#hexo个人博客搭建&quot; class=&quot;headerlink&quot; title=&quot;hexo个人博客搭建&quot;&gt;&lt;/a&gt;hexo个人博客搭建&lt;/h1&gt;&lt;h2 id=&quot;为什么会搭建hexo博客&quot;&gt;&lt;a href=&quot;#为什么会搭建hexo博客&quot; class=&quot;headerlink&quot; title=&quot;为什么会搭建hexo博客&quot;&gt;&lt;/a&gt;为什么会搭建hexo博客&lt;/h2&gt;&lt;p&gt;  原因：&lt;br&gt;    1.用于前端学习记录、且便于复习，因为经过加工一次的比外来搜索的资料来说更容易让大脑快速识别与利用。&lt;br&gt;    2.阿里云轻量级WordPress服务器对非在校生的优惠终止，且个人网站将于2021年5月份到期，这是我的个人WordPress博客链接 &lt;a href=&quot;http://www.codetotoro.cn/&quot;&gt;www.codetotoro.cn&lt;/a&gt;，同时因为服务器类型的缘故，按照提交工单时工作人员的说法，相关的数据迁移是无法进行的，除非是继续续费。&lt;br&gt;    3.部署方便且相关的学习教程更多，且官方的教程及相应的主题教程很全面，同时社区活跃，搭建博客的相关配置包括hexo editor都很容易找到，最重要的是部署方便，且bug很少，即使是使用外置主题，而且配置的修改采用注释/取消注释的方式进行，方便日后修改，而不用每次都需要根据官方文档再去配置，省去了很多麻烦。&lt;br&gt;</summary>
-    
-    
-    
-    <category term="hexo" scheme="http://wakeweb.cloud/categories/hexo/"/>
-    
-    
-    <category term="hexo" scheme="http://wakeweb.cloud/tags/hexo/"/>
     
   </entry>
   

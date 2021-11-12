@@ -1,6 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>VUE2.X学习</title>
+    <url>/2021/04/24/uncategorized/6eb6cb2ab58d/</url>
+    <content><![CDATA[<h1 id="vue2-x教程学习"><a href="#vue2-x教程学习" class="headerlink" title="vue2.x教程学习"></a>vue2.x教程学习</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h3><p>Vue <strong>不支持</strong> IE8 及以下版本，因为 Vue 使用了 IE8 无法模拟的 ECMAScript 5 特性。但它支持所有<a href="https://caniuse.com/#feat=es5">兼容 ECMAScript 5 的浏览器</a>。</p>
+<h3 id="语义化版本控制"><a href="#语义化版本控制" class="headerlink" title="语义化版本控制"></a>语义化版本控制</h3><p>Vue 在其所有项目中公布的功能和行为都遵循<a href="https://semver.org/lang/zh-CN/">语义化版本控制</a>。对于未公布的或内部暴露的行为，其变更会描述在<a href="https://github.com/vuejs/vue/releases">发布说明</a>中。</p>
+<h3 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h3><p>最新稳定版本：2.6.12<br>每个版本的更新日志见 <a href="https://github.com/vuejs/vue/releases">GitHub</a>。</p>
+<span id="more"></span>
+<h3 id="Vue-Devtools"><a href="#Vue-Devtools" class="headerlink" title="Vue Devtools"></a>Vue Devtools</h3><ul>
+<li>在使用 Vue 时，我们推荐在你的浏览器上安装 <a href="https://github.com/vuejs/vue-devtools#vue-devtools">Vue Devtools</a>。它允许你在一个更友好的界面中审查和调试 Vue 应用。</li>
+<li> 在Chrome浏览器中可以直接到Chrome网上商店搜索下载</li>
+<li> 在edge浏览器中可以打开 <a href="https://chrome.google.com/webstore/category/extensions">Chrome 扩展商店</a>，在搜索栏搜索 <strong>vue.js devtools</strong><br>选择提供方为：<a href="https://vuejs.org/">https://vuejs.org</a> 的扩展，添加成功后，进入扩展设置页面，找到 Vue.js devtools 扩展，点击详细信息，勾选允许访问文件 URL和收集错误选项.<br><img src="https://gitee.com/mhist/hexo-image/raw/master/img/VueDevToolSet-20210424164242.png" alt="vue.js devtools"><h3 id="直接用script标签引用"><a href="#直接用script标签引用" class="headerlink" title="直接用script标签引用"></a>直接用script标签引用</h3>直接下载并用 script 标签引入，Vue会被注册为全局变量。</li>
+<li>在开发环境下不要使用压缩版本，不然会失去所有常见错误的相关警告。</li>
+<li><a href="https://cn.vuejs.org/js/vue.js">开发版本</a>包含完整的警告和调试模式</li>
+<li><a href="https://cn.vuejs.org/js/vue.min.js">压缩版本/生产版本</a>删除了警告，33.30KB min+gzip<h4 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h4>对于制作原型或学习，你可以这样使用最新版本：<figure class="highlight applescript"><table><tr><td class="code"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">script</span> src=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;</span>&gt;<span class="hljs-keyword">script</span>&gt;<br></code></pre></td></tr></table></figure>
+对于生产环境，我们推荐链接到一个明确的版本号和构建文件，以避免新版本造成的不可预期的破坏：<figure class="highlight applescript"><table><tr><td class="code"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">script</span> src=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/vue@2.6.12&quot;</span>&gt;<span class="hljs-keyword">script</span>&gt;<br></code></pre></td></tr></table></figure>
+如果你使用原生 ES Modules，这里也有一个兼容 ES Module 的构建文件：<figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;module&quot;</span>&gt;</span><span class="javascript"> <span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.esm.browser.js&#x27;</span> script&gt;</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<p>你可以在 <a href="https://cdn.jsdelivr.net/npm/vue/">cdn.jsdelivr.net/npm/vue</a> 浏览 NPM 包的源代码。</p>
+<p>Vue 也可以在 <a href="https://unpkg.com/vue@2.6.12/dist/vue.js">unpkg</a> 和 <a href="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js">cdnjs</a> 上获取 (cdnjs 的版本更新可能略滞后)。</p>
+<p>请确认了解<a href="https://cn.vuejs.org/v2/guide/installation.html#%E5%AF%B9%E4%B8%8D%E5%90%8C%E6%9E%84%E5%BB%BA%E7%89%88%E6%9C%AC%E7%9A%84%E8%A7%A3%E9%87%8A">不同构建版本</a>并在你发布的站点中使用<strong>生产环境版本</strong>，把 <code>vue.js</code> 换成 <code>vue.min.js</code>。这是一个更小的构建，可以带来比开发环境下更快的速度体验。</p>
+<h3 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h3><p>在用 Vue 构建大型应用时推荐使用 NPM 安装<a href="https://cn.vuejs.org/v2/guide/installation.html#footnote-1">[1]</a>。NPM 能很好地和诸如 <a href="https://webpack.js.org/">webpack</a> 或 <a href="http://browserify.org/">Browserify</a> 模块打包器配合使用。同时 Vue 也提供配套工具来开发<a href="https://cn.vuejs.org/v2/guide/single-file-components.html">单文件组件</a>。</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake"><span class="hljs-comment"># 最新稳定版</span><br>$ npm <span class="hljs-keyword">install</span> vue<br></code></pre></td></tr></table></figure>
+<h2 id="命令行工具-CLI"><a href="#命令行工具-CLI" class="headerlink" title="命令行工具 (CLI)"></a><a href="https://cli.vuejs.org/zh/">命令行工具 (CLI)</a></h2><p>Vue CLI 是一个基于 Vue.js 进行快速开发的完整系统，提供：</p>
+<p>通过 @vue/cli 实现的交互式的项目脚手架。<br>通过 @vue/cli + @vue/cli-service-global 实现的零配置原型开发。<br>一个运行时依赖 (@vue/cli-service)，该依赖：<br>可升级；<br>基于 webpack 构建，并带有合理的默认配置；<br>可以通过项目内的配置文件进行配置；<br>可以通过插件进行扩展。<br>一个丰富的官方插件集合，集成了前端生态中最好的工具。<br>一套完全图形化的创建和管理 Vue.js 项目的用户界面。<br>Vue CLI 致力于将 Vue 生态中的工具基础标准化。它确保了各种构建工具能够基于智能的默认配置即可平稳衔接，这样你可以专注在撰写应用上，而不必花好几天去纠结配置的问题。与此同时，它也为每个工具提供了调整配置的灵活性，无需 eject。</p>
+]]></content>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>certificate</title>
+    <url>/2021/05/11/uncategorized/625f7e6bd689/</url>
+    <content><![CDATA[<h1 id="简历相关纸质材料汇总"><a href="#简历相关纸质材料汇总" class="headerlink" title="简历相关纸质材料汇总"></a>简历相关纸质材料汇总</h1><span id="more"></span>
+<h2 id="毕业设计论文发表收录"><a href="#毕业设计论文发表收录" class="headerlink" title="毕业设计论文发表收录"></a>毕业设计论文发表收录</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%E5%8F%91%E8%A1%A820210511203734.png" alt="毕业论文发表收录"></p>
+<h2 id="2019年全国大学生电子设计竞赛（TI杯）湖北省三等奖"><a href="#2019年全国大学生电子设计竞赛（TI杯）湖北省三等奖" class="headerlink" title="2019年全国大学生电子设计竞赛（TI杯）湖北省三等奖"></a>2019年全国大学生电子设计竞赛（TI杯）湖北省三等奖</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/%E7%94%B5%E5%AD%9020210511205545.jpg"></p>
+<h2 id="第十届蓝桥杯全国软件和信息技术专业人才大赛湖北赛区三等奖"><a href="#第十届蓝桥杯全国软件和信息技术专业人才大赛湖北赛区三等奖" class="headerlink" title="第十届蓝桥杯全国软件和信息技术专业人才大赛湖北赛区三等奖"></a>第十届蓝桥杯全国软件和信息技术专业人才大赛湖北赛区三等奖</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511205642.jpg"></p>
+<h2 id="第十二届全国大学生作文大赛二等奖"><a href="#第十二届全国大学生作文大赛二等奖" class="headerlink" title="第十二届全国大学生作文大赛二等奖"></a>第十二届全国大学生作文大赛二等奖</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511205800.jpg"></p>
+<h2 id="第十四届全国大学生作文大赛二等奖"><a href="#第十四届全国大学生作文大赛二等奖" class="headerlink" title="第十四届全国大学生作文大赛二等奖"></a>第十四届全国大学生作文大赛二等奖</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511205932.jpg"></p>
+<h2 id="任职证明"><a href="#任职证明" class="headerlink" title="任职证明"></a>任职证明</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511211724.jpg"></p>
+<h2 id="普通话等级证书"><a href="#普通话等级证书" class="headerlink" title="普通话等级证书"></a>普通话等级证书</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511210116.jpg"></p>
+<h2 id="教师资格证书"><a href="#教师资格证书" class="headerlink" title="教师资格证书"></a>教师资格证书</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511211818.jpg"></p>
+<h2 id="autoCAD"><a href="#autoCAD" class="headerlink" title="autoCAD"></a>autoCAD</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511210944.jpg"></p>
+<h2 id="毕业证书"><a href="#毕业证书" class="headerlink" title="毕业证书"></a>毕业证书</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511211852.jpg"></p>
+<h2 id="学位证书"><a href="#学位证书" class="headerlink" title="学位证书"></a>学位证书</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511211926.jpg"></p>
+]]></content>
+      <tags>
+        <tag>certificate</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>TypeScript入门教程二</title>
     <url>/2021/09/26/TypeScript/4d8aa16bcb6b/</url>
     <content><![CDATA[<h1 id="typescript学习：第二部分"><a href="#typescript学习：第二部分" class="headerlink" title="typescript学习：第二部分"></a>typescript学习：第二部分</h1><p>  → <a href="http://wakeweb.cloud/2021/09/24/TypeScript/854698b90236/">第一部分跳转链接</a></p>
@@ -57,55 +106,6 @@
       </categories>
       <tags>
         <tag>TypeScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>certificate</title>
-    <url>/2021/05/11/uncategorized/625f7e6bd689/</url>
-    <content><![CDATA[<h1 id="简历相关纸质材料汇总"><a href="#简历相关纸质材料汇总" class="headerlink" title="简历相关纸质材料汇总"></a>简历相关纸质材料汇总</h1><span id="more"></span>
-<h2 id="毕业设计论文发表收录"><a href="#毕业设计论文发表收录" class="headerlink" title="毕业设计论文发表收录"></a>毕业设计论文发表收录</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%E5%8F%91%E8%A1%A820210511203734.png" alt="毕业论文发表收录"></p>
-<h2 id="2019年全国大学生电子设计竞赛（TI杯）湖北省三等奖"><a href="#2019年全国大学生电子设计竞赛（TI杯）湖北省三等奖" class="headerlink" title="2019年全国大学生电子设计竞赛（TI杯）湖北省三等奖"></a>2019年全国大学生电子设计竞赛（TI杯）湖北省三等奖</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/%E7%94%B5%E5%AD%9020210511205545.jpg"></p>
-<h2 id="第十届蓝桥杯全国软件和信息技术专业人才大赛湖北赛区三等奖"><a href="#第十届蓝桥杯全国软件和信息技术专业人才大赛湖北赛区三等奖" class="headerlink" title="第十届蓝桥杯全国软件和信息技术专业人才大赛湖北赛区三等奖"></a>第十届蓝桥杯全国软件和信息技术专业人才大赛湖北赛区三等奖</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511205642.jpg"></p>
-<h2 id="第十二届全国大学生作文大赛二等奖"><a href="#第十二届全国大学生作文大赛二等奖" class="headerlink" title="第十二届全国大学生作文大赛二等奖"></a>第十二届全国大学生作文大赛二等奖</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511205800.jpg"></p>
-<h2 id="第十四届全国大学生作文大赛二等奖"><a href="#第十四届全国大学生作文大赛二等奖" class="headerlink" title="第十四届全国大学生作文大赛二等奖"></a>第十四届全国大学生作文大赛二等奖</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511205932.jpg"></p>
-<h2 id="任职证明"><a href="#任职证明" class="headerlink" title="任职证明"></a>任职证明</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511211724.jpg"></p>
-<h2 id="普通话等级证书"><a href="#普通话等级证书" class="headerlink" title="普通话等级证书"></a>普通话等级证书</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511210116.jpg"></p>
-<h2 id="教师资格证书"><a href="#教师资格证书" class="headerlink" title="教师资格证书"></a>教师资格证书</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511211818.jpg"></p>
-<h2 id="autoCAD"><a href="#autoCAD" class="headerlink" title="autoCAD"></a>autoCAD</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511210944.jpg"></p>
-<h2 id="毕业证书"><a href="#毕业证书" class="headerlink" title="毕业证书"></a>毕业证书</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511211852.jpg"></p>
-<h2 id="学位证书"><a href="#学位证书" class="headerlink" title="学位证书"></a>学位证书</h2><p><img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210511211926.jpg"></p>
-]]></content>
-      <tags>
-        <tag>certificate</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>VUE2.X学习</title>
-    <url>/2021/04/24/uncategorized/6eb6cb2ab58d/</url>
-    <content><![CDATA[<h1 id="vue2-x教程学习"><a href="#vue2-x教程学习" class="headerlink" title="vue2.x教程学习"></a>vue2.x教程学习</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h3><p>Vue <strong>不支持</strong> IE8 及以下版本，因为 Vue 使用了 IE8 无法模拟的 ECMAScript 5 特性。但它支持所有<a href="https://caniuse.com/#feat=es5">兼容 ECMAScript 5 的浏览器</a>。</p>
-<h3 id="语义化版本控制"><a href="#语义化版本控制" class="headerlink" title="语义化版本控制"></a>语义化版本控制</h3><p>Vue 在其所有项目中公布的功能和行为都遵循<a href="https://semver.org/lang/zh-CN/">语义化版本控制</a>。对于未公布的或内部暴露的行为，其变更会描述在<a href="https://github.com/vuejs/vue/releases">发布说明</a>中。</p>
-<h3 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h3><p>最新稳定版本：2.6.12<br>每个版本的更新日志见 <a href="https://github.com/vuejs/vue/releases">GitHub</a>。</p>
-<span id="more"></span>
-<h3 id="Vue-Devtools"><a href="#Vue-Devtools" class="headerlink" title="Vue Devtools"></a>Vue Devtools</h3><ul>
-<li>在使用 Vue 时，我们推荐在你的浏览器上安装 <a href="https://github.com/vuejs/vue-devtools#vue-devtools">Vue Devtools</a>。它允许你在一个更友好的界面中审查和调试 Vue 应用。</li>
-<li> 在Chrome浏览器中可以直接到Chrome网上商店搜索下载</li>
-<li> 在edge浏览器中可以打开 <a href="https://chrome.google.com/webstore/category/extensions">Chrome 扩展商店</a>，在搜索栏搜索 <strong>vue.js devtools</strong><br>选择提供方为：<a href="https://vuejs.org/">https://vuejs.org</a> 的扩展，添加成功后，进入扩展设置页面，找到 Vue.js devtools 扩展，点击详细信息，勾选允许访问文件 URL和收集错误选项.<br><img src="https://gitee.com/mhist/hexo-image/raw/master/img/VueDevToolSet-20210424164242.png" alt="vue.js devtools"><h3 id="直接用script标签引用"><a href="#直接用script标签引用" class="headerlink" title="直接用script标签引用"></a>直接用script标签引用</h3>直接下载并用 script 标签引入，Vue会被注册为全局变量。</li>
-<li>在开发环境下不要使用压缩版本，不然会失去所有常见错误的相关警告。</li>
-<li><a href="https://cn.vuejs.org/js/vue.js">开发版本</a>包含完整的警告和调试模式</li>
-<li><a href="https://cn.vuejs.org/js/vue.min.js">压缩版本/生产版本</a>删除了警告，33.30KB min+gzip<h4 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h4>对于制作原型或学习，你可以这样使用最新版本：<figure class="highlight applescript"><table><tr><td class="code"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">script</span> src=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;</span>&gt;<span class="hljs-keyword">script</span>&gt;<br></code></pre></td></tr></table></figure>
-对于生产环境，我们推荐链接到一个明确的版本号和构建文件，以避免新版本造成的不可预期的破坏：<figure class="highlight applescript"><table><tr><td class="code"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">script</span> src=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/vue@2.6.12&quot;</span>&gt;<span class="hljs-keyword">script</span>&gt;<br></code></pre></td></tr></table></figure>
-如果你使用原生 ES Modules，这里也有一个兼容 ES Module 的构建文件：<figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;module&quot;</span>&gt;</span><span class="javascript"> <span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.esm.browser.js&#x27;</span> script&gt;</span><br></code></pre></td></tr></table></figure></li>
-</ul>
-<p>你可以在 <a href="https://cdn.jsdelivr.net/npm/vue/">cdn.jsdelivr.net/npm/vue</a> 浏览 NPM 包的源代码。</p>
-<p>Vue 也可以在 <a href="https://unpkg.com/vue@2.6.12/dist/vue.js">unpkg</a> 和 <a href="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js">cdnjs</a> 上获取 (cdnjs 的版本更新可能略滞后)。</p>
-<p>请确认了解<a href="https://cn.vuejs.org/v2/guide/installation.html#%E5%AF%B9%E4%B8%8D%E5%90%8C%E6%9E%84%E5%BB%BA%E7%89%88%E6%9C%AC%E7%9A%84%E8%A7%A3%E9%87%8A">不同构建版本</a>并在你发布的站点中使用<strong>生产环境版本</strong>，把 <code>vue.js</code> 换成 <code>vue.min.js</code>。这是一个更小的构建，可以带来比开发环境下更快的速度体验。</p>
-<h3 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h3><p>在用 Vue 构建大型应用时推荐使用 NPM 安装<a href="https://cn.vuejs.org/v2/guide/installation.html#footnote-1">[1]</a>。NPM 能很好地和诸如 <a href="https://webpack.js.org/">webpack</a> 或 <a href="http://browserify.org/">Browserify</a> 模块打包器配合使用。同时 Vue 也提供配套工具来开发<a href="https://cn.vuejs.org/v2/guide/single-file-components.html">单文件组件</a>。</p>
-<figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake"><span class="hljs-comment"># 最新稳定版</span><br>$ npm <span class="hljs-keyword">install</span> vue<br></code></pre></td></tr></table></figure>
-<h2 id="命令行工具-CLI"><a href="#命令行工具-CLI" class="headerlink" title="命令行工具 (CLI)"></a><a href="https://cli.vuejs.org/zh/">命令行工具 (CLI)</a></h2><p>Vue CLI 是一个基于 Vue.js 进行快速开发的完整系统，提供：</p>
-<p>通过 @vue/cli 实现的交互式的项目脚手架。<br>通过 @vue/cli + @vue/cli-service-global 实现的零配置原型开发。<br>一个运行时依赖 (@vue/cli-service)，该依赖：<br>可升级；<br>基于 webpack 构建，并带有合理的默认配置；<br>可以通过项目内的配置文件进行配置；<br>可以通过插件进行扩展。<br>一个丰富的官方插件集合，集成了前端生态中最好的工具。<br>一套完全图形化的创建和管理 Vue.js 项目的用户界面。<br>Vue CLI 致力于将 Vue 生态中的工具基础标准化。它确保了各种构建工具能够基于智能的默认配置即可平稳衔接，这样你可以专注在撰写应用上，而不必花好几天去纠结配置的问题。与此同时，它也为每个工具提供了调整配置的灵活性，无需 eject。</p>
-]]></content>
-      <tags>
-        <tag>vue</tag>
       </tags>
   </entry>
   <entry>
@@ -297,49 +297,23 @@ f89d8a5
       </tags>
   </entry>
   <entry>
-    <title>关于开始搭建hexo博客这件事</title>
-    <url>/2021/04/20/hexo/5fcb7dadb6f9/</url>
-    <content><![CDATA[<h1 id="hexo个人博客搭建"><a href="#hexo个人博客搭建" class="headerlink" title="hexo个人博客搭建"></a>hexo个人博客搭建</h1><h2 id="为什么会搭建hexo博客"><a href="#为什么会搭建hexo博客" class="headerlink" title="为什么会搭建hexo博客"></a>为什么会搭建hexo博客</h2><p>  原因：<br>    1.用于前端学习记录、且便于复习，因为经过加工一次的比外来搜索的资料来说更容易让大脑快速识别与利用。<br>    2.阿里云轻量级WordPress服务器对非在校生的优惠终止，且个人网站将于2021年5月份到期，这是我的个人WordPress博客链接 <a href="http://www.codetotoro.cn/">www.codetotoro.cn</a>，同时因为服务器类型的缘故，按照提交工单时工作人员的说法，相关的数据迁移是无法进行的，除非是继续续费。<br>    3.部署方便且相关的学习教程更多，且官方的教程及相应的主题教程很全面，同时社区活跃，搭建博客的相关配置包括hexo editor都很容易找到，最重要的是部署方便，且bug很少，即使是使用外置主题，而且配置的修改采用注释/取消注释的方式进行，方便日后修改，而不用每次都需要根据官方文档再去配置，省去了很多麻烦。<br>  <span id="more"></span></p>
-<h2 id="搭建博客的相关教程"><a href="#搭建博客的相关教程" class="headerlink" title="搭建博客的相关教程"></a>搭建博客的相关教程</h2><h3 id="视频教程"><a href="#视频教程" class="headerlink" title="视频教程"></a>视频教程</h3><p>  来自哔哩哔哩up-codesheep的视频教程，讲解细致全面<br>  <a href="https://www.bilibili.com/video/BV1Yb411a7ty/?spm_id_from=333.788.recommend_more_video.0">手把手教你从0开始搭建自己的个人博客 |无坑版视频教程| hexo</a><br>  学习笔记<br>  <pre><br>  ---    #安装Nodejs<br>node -v    #查看node版本<br>npm -v    #查看npm版本<br>npm install -g cnpm --registry=<a href="http://registry.npm.taobao.org/">http://registry.npm.taobao.org</a>    #安装淘宝的cnpm 管理器<br>cnpm -v    #查看cnpm版本<br>cnpm install -g hexo-cli    #安装hexo框架<br>hexo -v    #查看hexo版本<br>mkdir blog    #创建blog目录<br>cd blog     #进入blog目录<br>sudo hexo init     #生成博客 初始化博客<br>hexo s    #启动本地博客服务<br><a href="http://localhost:4000/">http://localhost:4000/</a>    #本地访问地址<br>hexo n 我的第一篇文章 #创建新的文章<br>#返回blog目录<br>hexo clean #清理<br>hexo g #生成<br>#Github创建一个新的仓库 YourGithubName.github.io<br>#在blog目录下安装git部署插件<br>   cnpm install --save hexo-deployer-git </p>
-<hr>
-<h2 id="配置-config-yml"><a href="#配置-config-yml" class="headerlink" title="#配置_config.yml "></a>#配置_config.yml </h2><pre><code># Deployment
-## Docs: https://hexo.io/docs/deployment.html
-deploy:
-      type: git
-     repo: https://github.com/YourGithubName/YourGithubName.github.io.git
-      branch: master
-</code></pre>
-<hr>
-<p>hexo d    #部署到Github仓库里<br><a href="https://yourgithubname.github.io/">https://YourGithubName.github.io/</a>  #访问这个地址可以查看博客</p>
-<p> git clone <a href="https://github.com/litten/hexo-theme-yilia.git">https://github.com/litten/hexo-theme-yilia.git</a> themes/yilia  #下载yilia主题到本地</p>
-<p>#修改hexo根目录下的 _config.yml 文件 ： theme: yilia</p>
-<p>hexo c    #清理一下<br>hexo g    #生成<br>hexo s    #启动本地博客服务<br><a href="http://localhost:4000/">http://localhost:4000/</a>    #本地访问地址<br>hexo d    #部署到远程Github仓库<br><a href="https://yourgithubname.github.io/">https://YourGithubName.github.io/</a>  #查看博客<br>  </pre></p>
-<hr>
-<h3 id="官方文档及next主题官方文档"><a href="#官方文档及next主题官方文档" class="headerlink" title="官方文档及next主题官方文档"></a>官方文档及next主题官方文档</h3><p> 1.<a href="https://hexo.io/zh-cn/docs/">hexo文档</a><br> 2.<a href="http://theme-next.iissnan.com/getting-started.html">hexo-next主题文档</a></p>
-<h2 id="博客的后续配置"><a href="#博客的后续配置" class="headerlink" title="博客的后续配置"></a>博客的后续配置</h2><p>  博客中有很多可用于拓展的地方，暂时还有很多不太了解，但是可以满足日常的写作需求以及部署，此处用于记录对于配置方面的自己的一些理解。</p>
-<h3 id="配置-config-yml，gitee-github简单修改实现双部署"><a href="#配置-config-yml，gitee-github简单修改实现双部署" class="headerlink" title="配置_config.yml，gitee/github简单修改实现双部署"></a>配置_config.yml，gitee/github简单修改实现双部署</h3><pre><code>#配置_config.yml 
-</code></pre>
-<hr>
-<pre><code># Deployment
-## Docs: https://hexo.io/docs/deployment.html
-deploy:
-      type: git
-     repo: 
-        gitee: https://gitee.com/mhist/mhist.git
-    #https://github.com/Mhist/Mhist.github.io.git 
-    #github
-      branch: master
-</code></pre>
-<p>—–以上代码是我在实践过程中发现的一点，因为在github上是可以做到自动部署的，可是因为防火墙的原因导致访问经常失败，而gitee作为国内的github，访问速度是很快的，只是部署的时候需要手动更新，因为自动更新部署是要收费的。<br>    以上代码的使用方式是在repo中：<br>    1.部署到gitee时，按照hexo c; hexo g; hexo s; hexo d，然后到码云的位置点击更新即可。<img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210421013409-giteePagesUpdateButton.png" alt="gitee pages update button">，然后可访问域名：<a href="https://mhist.gitee.io/">https://mhist.gitee.io/</a><br>    2.部署到github时，将gitee所在行用#注释掉即可，同时取消gitee下一行的#注释，按照hexo c; hexo g; hexo s; hexo d即可。然后可访问域名：<a href="https://mhist.github.io/">https://mhist.github.io/</a></p>
-<h2 id="图床的设置"><a href="#图床的设置" class="headerlink" title="图床的设置"></a>图床的设置</h2><p>  作为使用Markdown来编辑文档的人来说，拥有一个好的图床是非常必要的。通过图床我们可以很好的管理我们的博客图片，同时能在多方正确显示。</p>
-<h3 id="图床分类"><a href="#图床分类" class="headerlink" title="图床分类"></a>图床分类</h3><p>  现在比较流行的图床有很多，包括SM.MS图床、腾讯云cos、github图床、七牛云图床、Imgur图床、阿里云COS、又拍云图床、gitee。但同时具有安全、经济、使用方便、访问高速等多种优点的解决方案还是要数基于picgo+gitee的解决方案.</p>
-<h3 id="picgo"><a href="#picgo" class="headerlink" title="picgo"></a>picgo</h3><p>  picgo是一款基于桌面端图床工具，方便我们对接本地和远程仓库，同时快速获取链接，同时支持链接的Markdown、HTML、URL、UBB、Custom等五种格式的选择，同时可以支持插件以丰富软件功能。<br>  推荐两个配置教程：</p>
-<ol>
-<li><a href="https://blog.csdn.net/disILLL/article/details/103962241?utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.control&dist_request_id=1332024.918.16189409573562535&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.control">配置教程1</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/128014135">配置教程2—插件</a></li>
-<li><a href="https://github.com/Molunerfinn/PicGo/releases">picgo的github链接</a></li>
-<li>picgo Windows <a href="https://pan.baidu.com/s/1y_yn9dl5aEAGHBX2c2KDPA">PicGo-Setup-2.3.0-beta.5.exe</a> 提取码：hexo</li>
-</ol>
+    <title>Hello World</title>
+    <url>/2021/10/11/hexo/bd5c75b8c9ae/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><span id="more"></span>
+
+<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
       <categories>
         <category>hexo</category>
@@ -399,32 +373,6 @@ deploy:
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2021/10/11/hexo/bd5c75b8c9ae/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><span id="more"></span>
-
-<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>learn react</title>
     <url>/2021/04/24/uncategorized/c98970b16c20/</url>
     <content><![CDATA[<h1 id="react-入门"><a href="#react-入门" class="headerlink" title="react 入门"></a>react 入门</h1><h2 id="react框架基本介绍"><a href="#react框架基本介绍" class="headerlink" title="react框架基本介绍"></a>react框架基本介绍</h2><p>   <a href="https://reactjs.org/">react官方</a></p>
@@ -437,7 +385,7 @@ v14.16.0</li>
 cmd控制台反馈如下：<pre>
 C:\Users\18827\AppData\Roaming\npm\create-react-app -> C:\Users\18827\AppData\Roaming\npm\node_modules\create-react-app\index.js</li>
 </ul>
-<p><a href="mailto:&#43;&#99;&#x72;&#101;&#x61;&#116;&#x65;&#45;&#114;&#101;&#97;&#x63;&#116;&#45;&#x61;&#112;&#112;&#64;&#x34;&#46;&#48;&#x2e;&#51;">&#43;&#99;&#x72;&#101;&#x61;&#116;&#x65;&#45;&#114;&#101;&#97;&#x63;&#116;&#45;&#x61;&#112;&#112;&#64;&#x34;&#46;&#48;&#x2e;&#51;</a><br>added 67 packages from 25 contributors in 22.805s<br> </pre></p>
+<p><a href="mailto:&#43;&#99;&#114;&#101;&#97;&#x74;&#x65;&#45;&#114;&#x65;&#97;&#99;&#x74;&#45;&#97;&#x70;&#112;&#64;&#x34;&#46;&#48;&#x2e;&#51;">&#43;&#99;&#114;&#101;&#97;&#x74;&#x65;&#45;&#114;&#x65;&#97;&#99;&#x74;&#45;&#97;&#x70;&#112;&#64;&#x34;&#46;&#48;&#x2e;&#51;</a><br>added 67 packages from 25 contributors in 22.805s<br> </pre></p>
 <h2 id="创建项目文件夹，并开启demo"><a href="#创建项目文件夹，并开启demo" class="headerlink" title="创建项目文件夹，并开启demo"></a>创建项目文件夹，并开启demo</h2><ul>
 <li><p>在电脑桌面同时按下Windows+R进入输入cmd,按enter</p>
 </li>
@@ -474,6 +422,222 @@ C:\Users\18827\AppData\Roaming\npm\create-react-app -> C:\Users\18827\AppData\Ro
 ]]></content>
       <tags>
         <tag>react</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mysql</title>
+    <url>/2021/11/12/mysql/ab03683a0789/</url>
+    <content><![CDATA[<h1 id="mysql下载地址"><a href="#mysql下载地址" class="headerlink" title="mysql下载地址"></a><a href="https://dev.mysql.com/downloads/file/?id=508936">mysql下载地址</a></h1><h1 id="mysql管理"><a href="#mysql管理" class="headerlink" title="mysql管理"></a>mysql管理</h1><ol>
+<li>可以使用命令行工具管理MySQL数据库（命令mysql和mysqladmin），也可以从MySQL的网站下载图形管理工具MySQL Workbench[12][13]。</li>
+<li>Navicat是一套专为MySQL设计的强大数据库管理及开发工具。它可以用于任何版本的MySQL数据库，并支持大部分MySQL的功能，包括触发器、索引、查看等。</li>
+<li>phpMyAdmin是由PHP写成的MySQL数据库系统管理程序，让管理者可用Web接口管理MySQL数据库。借由此Web接口可以成为一个简易方式输入繁杂SQL语法的较佳途径，尤其要处理大量资料的导入及导出更为方便。其中一个更大的优势在于由于phpMyAdmin跟其他PHP程序一样在网页服务器上执行，但是您可以在任何地方使用这些程序产生的HTML页面，也就是于远程管理你的MySQL数据库。使用phpMyAdmin您就可以方便的创建、修改、删除数据库及资料表。</li>
+<li>phpMyBackupPro[14]也是由PHP写成的，可以通过Web接口创建和管理数据库。它可以创建伪cronjobs，可以用来自动在某个时间或周期备份MySQL数据库。</li>
+</ol>
+<h1 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h1><p>用于解决mysql命令无法使用的问题。</p>
+<p>如何判断呢？ 首先打开终端，在命令行输入： mysql –version</p>
+<p>此时会提示 “MySQL”不是内部或外部命令，也不是可运行的程序或批处理文件，那么就是需要添加环境变量了。</p>
+<p>在Windows系统中找到环境变量的设置，找到path,在其中添加</p>
+<figure class="highlight taggerscript"><table><tr><td class="code"><pre><code class="hljs taggerscript">C:<span class="hljs-symbol">\P</span>rogram Files<span class="hljs-symbol">\M</span>ySQL<span class="hljs-symbol">\M</span>ySQL Server 8.0<span class="hljs-symbol">\b</span>in<br></code></pre></td></tr></table></figure>
+<p>这是你安装mysql的位置，复制地址到环境变量中，然后输入mysql –version进行确认。</p>
+<pre>C:\Windows\system32>mysql --version
+mysql  Ver 8.0.27 for Win64 on x86_64 (MySQL Community Server - GPL)</pre>
+
+
+<h1 id="连接MySQL"><a href="#连接MySQL" class="headerlink" title="连接MySQL"></a>连接MySQL</h1><ol>
+<li>mysql -uroot -p密码</li>
+<li>mysql -uroot -p<br>回车后会显示Enter password，输入即可，更加安全。</li>
+</ol>
+<h1 id="默认数据库"><a href="#默认数据库" class="headerlink" title="默认数据库"></a>默认数据库</h1><p>sql语句规范常用形式为大写，此时是为了方便阅读。</p>
+<p>连接后输入语句：show databases;注意不要忘了”;”</p>
+<pre>mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+6 rows in set (0.01 sec)</pre>
+
+<h1 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h1><figure class="highlight n1ql"><table><tr><td class="code"><pre><code class="hljs n1ql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">database</span> coderhub;<br></code></pre></td></tr></table></figure>
+
+<p>coderhub是自拟的数据库名称。</p>
+<pre>mysql> create database coderhub;
+Query OK, 1 row affected (0.01 sec)</pre>
+
+
+<h1 id="查看当前所在数据库"><a href="#查看当前所在数据库" class="headerlink" title="查看当前所在数据库"></a>查看当前所在数据库</h1><figure class="highlight csharp"><table><tr><td class="code"><pre><code class="hljs csharp"><span class="hljs-function"><span class="hljs-keyword">select</span> <span class="hljs-title">database</span>(<span class="hljs-params"></span>)</span>;<br><br></code></pre></td></tr></table></figure>
+<p>表示现在没有使用任何数据库</p>
+<pre>mysql> select database();
++------------+
+| database() |
++------------+
+| NULL       |
++------------+
+1 row in set (0.00 sec)</pre>
+
+<h1 id="选择（指定）要使用的的数据库"><a href="#选择（指定）要使用的的数据库" class="headerlink" title="选择（指定）要使用的的数据库"></a>选择（指定）要使用的的数据库</h1><figure class="highlight abnf"><table><tr><td class="code"><pre><code class="hljs abnf">use coderhub<span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure>
+<p>use + 数据库名称</p>
+<pre>mysql> use coderhub;
+Database changed</pre>
+
+<p>选择玩数据库后，再次查看当前在使用的数据库，发现刚才的NUll值，已经变为自定义的coderhub了。</p>
+<pre>mysql> select database();
++------------+
+| database() |
++------------+
+| coderhub   |
++------------+
+1 row in set (0.00 sec)</pre>
+
+<h1 id="查表"><a href="#查表" class="headerlink" title="查表"></a>查表</h1><figure class="highlight pgsql"><table><tr><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">show</span> <span class="hljs-keyword">tables</span>;<br></code></pre></td></tr></table></figure>
+<pre>mysql> show tables;
+Empty set (0.01 sec)
+</pre>
+
+<h1 id="建表"><a href="#建表" class="headerlink" title="建表"></a>建表</h1><pre>mysql> create table users(
+    -> name varchar(10),
+    -> age int,
+    -> height double);
+Query OK, 0 rows affected (0.05 sec)</pre>
+
+<p>其中users是表名，name,age,height是字段名，后面分别对应的是各自的字段类型。</p>
+<h1 id="显示表"><a href="#显示表" class="headerlink" title="显示表"></a>显示表</h1><figure class="highlight pgsql"><table><tr><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">show</span> <span class="hljs-keyword">tables</span>;<br></code></pre></td></tr></table></figure>
+
+<pre>mysql> show tables;
++--------------------+
+| Tables_in_coderhub |
++--------------------+
+| users              |
++--------------------+
+1 row in set (0.00 sec)
+</pre>
+
+<h1 id="再建表"><a href="#再建表" class="headerlink" title="再建表"></a>再建表</h1><pre>
+mysql> create table moment(title varchar(20), content varchar(512));
+Query OK, 0 rows affected (0.02 sec)
+</pre>
+
+<pre>mysql> show tables;
++--------------------+
+| Tables_in_coderhub |
++--------------------+
+| moment             |
+| users              |
++--------------------+
+2 rows in set (0.00 sec)
+</pre>
+
+<h1 id="查看表数据"><a href="#查看表数据" class="headerlink" title="查看表数据"></a>查看表数据</h1><figure class="highlight axapta"><table><tr><td class="code"><pre><code class="hljs axapta"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> users;<br></code></pre></td></tr></table></figure>
+<p>users是表名。</p>
+<pre>
+mysql> select * from users;
+Empty set (0.01 sec)
+</pre>
+
+<h1 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h1><figure class="highlight apache"><table><tr><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">mysql</span>&gt; insert into users (name,age,height) value (&#x27;coder&#x27;,<span class="hljs-number">18</span>,<span class="hljs-number">1</span>.<span class="hljs-number">88</span>);<br><span class="hljs-attribute">Query</span> OK, <span class="hljs-number">1</span> row affected (<span class="hljs-number">0</span>.<span class="hljs-number">00</span> sec)<br></code></pre></td></tr></table></figure>
+
+<pre>mysql> insert into users (name,age,height) value ('coder',18,1.88);
+Query OK, 1 row affected (0.00 sec)
+</pre>
+
+<p>插入三条这样的数据，后使用</p>
+<figure class="highlight axapta"><table><tr><td class="code"><pre><code class="hljs axapta"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> users;<br></code></pre></td></tr></table></figure>
+<pre>mysql> select * from users;
++---------+------+--------+
+| name    | age  | height |
++---------+------+--------+
+| coder   |   18 |   1.88 |
+| xiaobai |   19 |      2 |
+| xiaohu  |   23 |   1.78 |
++---------+------+--------+
+3 rows in set (0.00 sec)</pre>]]></content>
+      <categories>
+        <category>mysql</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>node常见内置模块</title>
+    <url>/2021/11/07/node/41601c7205c1/</url>
+    <content><![CDATA[<h1 id="path模块"><a href="#path模块" class="headerlink" title="path模块"></a><a href="http://nodejs.cn/learn/the-nodejs-path-module">path模块</a></h1><p>主要对路径和文件相关的进行处理。</p>
+<p>在开发过程中，我们可以用字符串拼接的方式来指定路径，但是考虑到不同操作系统对于路径分隔符的差异，可能导致的兼容性问题，我们采用path模块中的resolve方法来对路径进行处理，它会根据操作系统，来指定适配的路径分隔符。</p>
+<pre>
+const path = require('path');
+
+const basePath = 'User/why';
+const filename = 'abc.txt';
+
+const filepath = path.resolve(basePath, filename)
+
+console.log(filepath)
+
+</pre>
+
+<pre>
+PS C:\Users\starry\Desktop\total\node\04_node内置模块\02_path> node 01_路径的演练.js   
+C:\Users\starry\Desktop\total\node\04_node内置模块\02_path\User\why\abc.txt
+</pre>
+
+
+<h2 id="可以采用同步、异步、promise方式来加载文件信息。"><a href="#可以采用同步、异步、promise方式来加载文件信息。" class="headerlink" title="可以采用同步、异步、promise方式来加载文件信息。"></a>可以采用同步、异步、promise方式来加载文件信息。</h2><figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">const fs = require(<span class="hljs-string">&#x27;fs&#x27;</span>);<br>const filepath = <span class="hljs-string">&#x27;./abc.txt&#x27;</span>;<br><span class="hljs-regexp">//</span> 案例 读取文件信息   同步方式<br><br><br><span class="hljs-regexp">//</span> const info = fs.statSync(filepath);<br><br><span class="hljs-regexp">//</span> console.log(info);<br><span class="hljs-regexp">//</span> console.log(<span class="hljs-string">&#x27;后续执行的代码&#x27;</span>)<br><br><span class="hljs-regexp">//</span> 方式二  异步操作<br><br><span class="hljs-regexp">//</span> fs.stat(filepath, (err,info) =&gt; &#123;<br><span class="hljs-regexp">//</span>     <span class="hljs-keyword">if</span>(err) &#123;<br><span class="hljs-regexp">//</span>         console.log(err);<br><span class="hljs-regexp">//</span>         return;<br><span class="hljs-regexp">//</span>     &#125;<br><span class="hljs-regexp">//</span>     console.log(info);<br><span class="hljs-regexp">//</span> &#125;)<br><span class="hljs-regexp">//</span> console.log(<span class="hljs-string">&quot;后续需要执行的代码&quot;</span>);<br><br><br><span class="hljs-regexp">//</span> 方式三  promise<br><br>fs.promises.stat(filepath).then(info =&gt; &#123;<br>    console.log(info);<br>&#125;).catch(err =&gt; &#123;<br>    console.log(err)<br>&#125;)<br><br>console.log(<span class="hljs-string">&quot;后面需要执行的代码&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>第一种方式因为同步会阻塞，会先打印info信息，后两种方式则会先打印 <font color=red>后续需要执行的代码</font> 这一段内容。</p>
+<h2 id="文件描述符"><a href="#文件描述符" class="headerlink" title="文件描述符"></a>文件描述符</h2><p>在node的文件系统中可以通过传递文件描述符，来对文件进行操作。</p>
+<pre>
+// 文件描述符
+fs.open("./abc.txt",(err, fd) => {
+    if(err){
+        console.log(err);
+        return;
+    }
+   // 通过描述符去获取文件的信息
+
+fs.fstat( fd , (err,info) => {
+    if(err){
+        console.log(err);
+        return;
+    }
+    console.log(info);
+    
+})
+})
+
+</pre>
+<p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211107165552FSinfo.png" alt="文件信息"></p>
+<h2 id="文件的读写"><a href="#文件的读写" class="headerlink" title="文件的读写"></a>文件的读写</h2><pre>const fs = require('fs')
+
+const content = "你好啊，前端程序员";
+const filePath = "./abc.txt";
+fs.writeFile(filePath, content, (err) => {
+    console.log(err)
+})
+
+
+fs.readFile(filePath, {encoding: 'utf-8'}, (err, data) => {
+    console.log(data);
+});</pre>
+
+<h2 id="文件夹的操作"><a href="#文件夹的操作" class="headerlink" title="文件夹的操作"></a>文件夹的操作</h2><ol>
+<li>创建文件夹</li>
+<li>读取文件夹中的所有文件夹</li>
+<li>文件夹的命名</li>
+</ol>
+<p><a href="http://nodejs.cn/learn/working-with-folders-in-nodejs/#%E6%A3%80%E6%9F%A5%E6%96%87%E4%BB%B6%E5%A4%B9%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8">文件夹的相关操作</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211107175920fileMoreName.png"></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;fs&#x27;</span>);<br><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;path&#x27;</span>);<br><span class="hljs-keyword">const</span> dirname = <span class="hljs-string">&#x27;./why&#x27;</span><br><span class="hljs-comment">// try &#123;</span><br><span class="hljs-comment">//   if (!fs.existsSync(dirname)) &#123;</span><br><span class="hljs-comment">//     fs.mkdirSync(dirname);</span><br><span class="hljs-comment">//   &#125;</span><br><span class="hljs-comment">// &#125; catch (err) &#123;</span><br><span class="hljs-comment">//   console.error(err)</span><br><span class="hljs-comment">// &#125;</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getFiles</span>(<span class="hljs-params">dirname</span>) </span>&#123;<br>    fs.readdir(dirname, &#123;<span class="hljs-attr">withFileTypes</span>: <span class="hljs-literal">true</span>&#125;, <span class="hljs-function">(<span class="hljs-params">err, files</span>) =&gt;</span> &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> file <span class="hljs-keyword">of</span> files) &#123;<br>            <span class="hljs-keyword">if</span>(file.isDirectory())&#123;<br>                <span class="hljs-keyword">const</span> filepath = path.resolve(dirname,file.name);<br>                getFiles(filepath);<br>            &#125;<br>            <span class="hljs-keyword">else</span> &#123;<br>                <span class="hljs-built_in">console</span>.log(file.name);<br>            &#125;<br>        &#125;<br>    &#125;)<br>&#125;<br>getFiles(dirname);<br><br><br></code></pre></td></tr></table></figure>
+
+<h1 id="事件触发器"><a href="#事件触发器" class="headerlink" title="事件触发器"></a><a href="http://nodejs.cn/api/events.html">事件触发器</a></h1>]]></content>
+      <categories>
+        <category>node</category>
+      </categories>
+      <tags>
+        <tag>node</tag>
       </tags>
   </entry>
   <entry>
@@ -709,81 +873,18 @@ export default foo;</pre>
       </tags>
   </entry>
   <entry>
-    <title>node常见内置模块</title>
-    <url>/2021/11/07/node/41601c7205c1/</url>
-    <content><![CDATA[<h1 id="path模块"><a href="#path模块" class="headerlink" title="path模块"></a><a href="http://nodejs.cn/learn/the-nodejs-path-module">path模块</a></h1><p>主要对路径和文件相关的进行处理。</p>
-<p>在开发过程中，我们可以用字符串拼接的方式来指定路径，但是考虑到不同操作系统对于路径分隔符的差异，可能导致的兼容性问题，我们采用path模块中的resolve方法来对路径进行处理，它会根据操作系统，来指定适配的路径分隔符。</p>
-<pre>
-const path = require('path');
-
-const basePath = 'User/why';
-const filename = 'abc.txt';
-
-const filepath = path.resolve(basePath, filename)
-
-console.log(filepath)
-
-</pre>
-
-<pre>
-PS C:\Users\starry\Desktop\total\node\04_node内置模块\02_path> node 01_路径的演练.js   
-C:\Users\starry\Desktop\total\node\04_node内置模块\02_path\User\why\abc.txt
-</pre>
-
-
-<h2 id="可以采用同步、异步、promise方式来加载文件信息。"><a href="#可以采用同步、异步、promise方式来加载文件信息。" class="headerlink" title="可以采用同步、异步、promise方式来加载文件信息。"></a>可以采用同步、异步、promise方式来加载文件信息。</h2><figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">const fs = require(<span class="hljs-string">&#x27;fs&#x27;</span>);<br>const filepath = <span class="hljs-string">&#x27;./abc.txt&#x27;</span>;<br><span class="hljs-regexp">//</span> 案例 读取文件信息   同步方式<br><br><br><span class="hljs-regexp">//</span> const info = fs.statSync(filepath);<br><br><span class="hljs-regexp">//</span> console.log(info);<br><span class="hljs-regexp">//</span> console.log(<span class="hljs-string">&#x27;后续执行的代码&#x27;</span>)<br><br><span class="hljs-regexp">//</span> 方式二  异步操作<br><br><span class="hljs-regexp">//</span> fs.stat(filepath, (err,info) =&gt; &#123;<br><span class="hljs-regexp">//</span>     <span class="hljs-keyword">if</span>(err) &#123;<br><span class="hljs-regexp">//</span>         console.log(err);<br><span class="hljs-regexp">//</span>         return;<br><span class="hljs-regexp">//</span>     &#125;<br><span class="hljs-regexp">//</span>     console.log(info);<br><span class="hljs-regexp">//</span> &#125;)<br><span class="hljs-regexp">//</span> console.log(<span class="hljs-string">&quot;后续需要执行的代码&quot;</span>);<br><br><br><span class="hljs-regexp">//</span> 方式三  promise<br><br>fs.promises.stat(filepath).then(info =&gt; &#123;<br>    console.log(info);<br>&#125;).catch(err =&gt; &#123;<br>    console.log(err)<br>&#125;)<br><br>console.log(<span class="hljs-string">&quot;后面需要执行的代码&quot;</span>)<br></code></pre></td></tr></table></figure>
-
-<p>第一种方式因为同步会阻塞，会先打印info信息，后两种方式则会先打印 <font color=red>后续需要执行的代码</font> 这一段内容。</p>
-<h2 id="文件描述符"><a href="#文件描述符" class="headerlink" title="文件描述符"></a>文件描述符</h2><p>在node的文件系统中可以通过传递文件描述符，来对文件进行操作。</p>
-<pre>
-// 文件描述符
-fs.open("./abc.txt",(err, fd) => {
-    if(err){
-        console.log(err);
-        return;
-    }
-   // 通过描述符去获取文件的信息
-
-fs.fstat( fd , (err,info) => {
-    if(err){
-        console.log(err);
-        return;
-    }
-    console.log(info);
-    
-})
-})
-
-</pre>
-<p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211107165552FSinfo.png" alt="文件信息"></p>
-<h2 id="文件的读写"><a href="#文件的读写" class="headerlink" title="文件的读写"></a>文件的读写</h2><pre>const fs = require('fs')
-
-const content = "你好啊，前端程序员";
-const filePath = "./abc.txt";
-fs.writeFile(filePath, content, (err) => {
-    console.log(err)
-})
-
-
-fs.readFile(filePath, {encoding: 'utf-8'}, (err, data) => {
-    console.log(data);
-});</pre>
-
-<h2 id="文件夹的操作"><a href="#文件夹的操作" class="headerlink" title="文件夹的操作"></a>文件夹的操作</h2><ol>
-<li>创建文件夹</li>
-<li>读取文件夹中的所有文件夹</li>
-<li>文件夹的命名</li>
-</ol>
-<p><a href="http://nodejs.cn/learn/working-with-folders-in-nodejs/#%E6%A3%80%E6%9F%A5%E6%96%87%E4%BB%B6%E5%A4%B9%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8">文件夹的相关操作</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211107175920fileMoreName.png"></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;fs&#x27;</span>);<br><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;path&#x27;</span>);<br><span class="hljs-keyword">const</span> dirname = <span class="hljs-string">&#x27;./why&#x27;</span><br><span class="hljs-comment">// try &#123;</span><br><span class="hljs-comment">//   if (!fs.existsSync(dirname)) &#123;</span><br><span class="hljs-comment">//     fs.mkdirSync(dirname);</span><br><span class="hljs-comment">//   &#125;</span><br><span class="hljs-comment">// &#125; catch (err) &#123;</span><br><span class="hljs-comment">//   console.error(err)</span><br><span class="hljs-comment">// &#125;</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getFiles</span>(<span class="hljs-params">dirname</span>) </span>&#123;<br>    fs.readdir(dirname, &#123;<span class="hljs-attr">withFileTypes</span>: <span class="hljs-literal">true</span>&#125;, <span class="hljs-function">(<span class="hljs-params">err, files</span>) =&gt;</span> &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> file <span class="hljs-keyword">of</span> files) &#123;<br>            <span class="hljs-keyword">if</span>(file.isDirectory())&#123;<br>                <span class="hljs-keyword">const</span> filepath = path.resolve(dirname,file.name);<br>                getFiles(filepath);<br>            &#125;<br>            <span class="hljs-keyword">else</span> &#123;<br>                <span class="hljs-built_in">console</span>.log(file.name);<br>            &#125;<br>        &#125;<br>    &#125;)<br>&#125;<br>getFiles(dirname);<br><br><br></code></pre></td></tr></table></figure>
-
-<h1 id="事件触发器"><a href="#事件触发器" class="headerlink" title="事件触发器"></a><a href="http://nodejs.cn/api/events.html">事件触发器</a></h1>]]></content>
+    <title>vue3 基础文档学习</title>
+    <url>/2021/09/23/vue3/22ee434cee21/</url>
+    <content><![CDATA[<h1 id="基础文档网址"><a href="#基础文档网址" class="headerlink" title="基础文档网址"></a>基础文档网址</h1><p><a href="https://v3.cn.vuejs.org/">vue3官方文档学习</a></p>
+<span id="more"></span>
+]]></content>
       <categories>
-        <category>node</category>
+        <category>vue3</category>
       </categories>
       <tags>
-        <tag>node</tag>
+        <tag>TypeScript</tag>
+        <tag>vue3</tag>
+        <tag>vite</tag>
       </tags>
   </entry>
   <entry>
@@ -809,21 +910,6 @@ fs.readFile(filePath, {encoding: 'utf-8'}, (err, data) => {
       </tags>
   </entry>
   <entry>
-    <title>vue3 基础文档学习</title>
-    <url>/2021/09/23/vue3/22ee434cee21/</url>
-    <content><![CDATA[<h1 id="基础文档网址"><a href="#基础文档网址" class="headerlink" title="基础文档网址"></a>基础文档网址</h1><p><a href="https://v3.cn.vuejs.org/">vue3官方文档学习</a></p>
-<span id="more"></span>
-]]></content>
-      <categories>
-        <category>vue3</category>
-      </categories>
-      <tags>
-        <tag>TypeScript</tag>
-        <tag>vue3</tag>
-        <tag>vite</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>vue3</title>
     <url>/2021/10/11/vue3/583a6ec9ccd6/</url>
     <content><![CDATA[<h1 id="vue3"><a href="#vue3" class="headerlink" title="vue3"></a>vue3</h1><p>   新一代的前端框架，基于typescript开发，具有更加优越的性能和更加安全的代码机制。</p>
@@ -833,6 +919,58 @@ fs.readFile(filePath, {encoding: 'utf-8'}, (err, data) => {
       </categories>
       <tags>
         <tag>vue3</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于开始搭建hexo博客这件事</title>
+    <url>/2021/04/20/hexo/5fcb7dadb6f9/</url>
+    <content><![CDATA[<h1 id="hexo个人博客搭建"><a href="#hexo个人博客搭建" class="headerlink" title="hexo个人博客搭建"></a>hexo个人博客搭建</h1><h2 id="为什么会搭建hexo博客"><a href="#为什么会搭建hexo博客" class="headerlink" title="为什么会搭建hexo博客"></a>为什么会搭建hexo博客</h2><p>  原因：<br>    1.用于前端学习记录、且便于复习，因为经过加工一次的比外来搜索的资料来说更容易让大脑快速识别与利用。<br>    2.阿里云轻量级WordPress服务器对非在校生的优惠终止，且个人网站将于2021年5月份到期，这是我的个人WordPress博客链接 <a href="http://www.codetotoro.cn/">www.codetotoro.cn</a>，同时因为服务器类型的缘故，按照提交工单时工作人员的说法，相关的数据迁移是无法进行的，除非是继续续费。<br>    3.部署方便且相关的学习教程更多，且官方的教程及相应的主题教程很全面，同时社区活跃，搭建博客的相关配置包括hexo editor都很容易找到，最重要的是部署方便，且bug很少，即使是使用外置主题，而且配置的修改采用注释/取消注释的方式进行，方便日后修改，而不用每次都需要根据官方文档再去配置，省去了很多麻烦。<br>  <span id="more"></span></p>
+<h2 id="搭建博客的相关教程"><a href="#搭建博客的相关教程" class="headerlink" title="搭建博客的相关教程"></a>搭建博客的相关教程</h2><h3 id="视频教程"><a href="#视频教程" class="headerlink" title="视频教程"></a>视频教程</h3><p>  来自哔哩哔哩up-codesheep的视频教程，讲解细致全面<br>  <a href="https://www.bilibili.com/video/BV1Yb411a7ty/?spm_id_from=333.788.recommend_more_video.0">手把手教你从0开始搭建自己的个人博客 |无坑版视频教程| hexo</a><br>  学习笔记<br>  <pre><br>  ---    #安装Nodejs<br>node -v    #查看node版本<br>npm -v    #查看npm版本<br>npm install -g cnpm --registry=<a href="http://registry.npm.taobao.org/">http://registry.npm.taobao.org</a>    #安装淘宝的cnpm 管理器<br>cnpm -v    #查看cnpm版本<br>cnpm install -g hexo-cli    #安装hexo框架<br>hexo -v    #查看hexo版本<br>mkdir blog    #创建blog目录<br>cd blog     #进入blog目录<br>sudo hexo init     #生成博客 初始化博客<br>hexo s    #启动本地博客服务<br><a href="http://localhost:4000/">http://localhost:4000/</a>    #本地访问地址<br>hexo n 我的第一篇文章 #创建新的文章<br>#返回blog目录<br>hexo clean #清理<br>hexo g #生成<br>#Github创建一个新的仓库 YourGithubName.github.io<br>#在blog目录下安装git部署插件<br>   cnpm install --save hexo-deployer-git </p>
+<hr>
+<h2 id="配置-config-yml"><a href="#配置-config-yml" class="headerlink" title="#配置_config.yml "></a>#配置_config.yml </h2><pre><code># Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+      type: git
+     repo: https://github.com/YourGithubName/YourGithubName.github.io.git
+      branch: master
+</code></pre>
+<hr>
+<p>hexo d    #部署到Github仓库里<br><a href="https://yourgithubname.github.io/">https://YourGithubName.github.io/</a>  #访问这个地址可以查看博客</p>
+<p> git clone <a href="https://github.com/litten/hexo-theme-yilia.git">https://github.com/litten/hexo-theme-yilia.git</a> themes/yilia  #下载yilia主题到本地</p>
+<p>#修改hexo根目录下的 _config.yml 文件 ： theme: yilia</p>
+<p>hexo c    #清理一下<br>hexo g    #生成<br>hexo s    #启动本地博客服务<br><a href="http://localhost:4000/">http://localhost:4000/</a>    #本地访问地址<br>hexo d    #部署到远程Github仓库<br><a href="https://yourgithubname.github.io/">https://YourGithubName.github.io/</a>  #查看博客<br>  </pre></p>
+<hr>
+<h3 id="官方文档及next主题官方文档"><a href="#官方文档及next主题官方文档" class="headerlink" title="官方文档及next主题官方文档"></a>官方文档及next主题官方文档</h3><p> 1.<a href="https://hexo.io/zh-cn/docs/">hexo文档</a><br> 2.<a href="http://theme-next.iissnan.com/getting-started.html">hexo-next主题文档</a></p>
+<h2 id="博客的后续配置"><a href="#博客的后续配置" class="headerlink" title="博客的后续配置"></a>博客的后续配置</h2><p>  博客中有很多可用于拓展的地方，暂时还有很多不太了解，但是可以满足日常的写作需求以及部署，此处用于记录对于配置方面的自己的一些理解。</p>
+<h3 id="配置-config-yml，gitee-github简单修改实现双部署"><a href="#配置-config-yml，gitee-github简单修改实现双部署" class="headerlink" title="配置_config.yml，gitee/github简单修改实现双部署"></a>配置_config.yml，gitee/github简单修改实现双部署</h3><pre><code>#配置_config.yml 
+</code></pre>
+<hr>
+<pre><code># Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+      type: git
+     repo: 
+        gitee: https://gitee.com/mhist/mhist.git
+    #https://github.com/Mhist/Mhist.github.io.git 
+    #github
+      branch: master
+</code></pre>
+<p>—–以上代码是我在实践过程中发现的一点，因为在github上是可以做到自动部署的，可是因为防火墙的原因导致访问经常失败，而gitee作为国内的github，访问速度是很快的，只是部署的时候需要手动更新，因为自动更新部署是要收费的。<br>    以上代码的使用方式是在repo中：<br>    1.部署到gitee时，按照hexo c; hexo g; hexo s; hexo d，然后到码云的位置点击更新即可。<img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210421013409-giteePagesUpdateButton.png" alt="gitee pages update button">，然后可访问域名：<a href="https://mhist.gitee.io/">https://mhist.gitee.io/</a><br>    2.部署到github时，将gitee所在行用#注释掉即可，同时取消gitee下一行的#注释，按照hexo c; hexo g; hexo s; hexo d即可。然后可访问域名：<a href="https://mhist.github.io/">https://mhist.github.io/</a></p>
+<h2 id="图床的设置"><a href="#图床的设置" class="headerlink" title="图床的设置"></a>图床的设置</h2><p>  作为使用Markdown来编辑文档的人来说，拥有一个好的图床是非常必要的。通过图床我们可以很好的管理我们的博客图片，同时能在多方正确显示。</p>
+<h3 id="图床分类"><a href="#图床分类" class="headerlink" title="图床分类"></a>图床分类</h3><p>  现在比较流行的图床有很多，包括SM.MS图床、腾讯云cos、github图床、七牛云图床、Imgur图床、阿里云COS、又拍云图床、gitee。但同时具有安全、经济、使用方便、访问高速等多种优点的解决方案还是要数基于picgo+gitee的解决方案.</p>
+<h3 id="picgo"><a href="#picgo" class="headerlink" title="picgo"></a>picgo</h3><p>  picgo是一款基于桌面端图床工具，方便我们对接本地和远程仓库，同时快速获取链接，同时支持链接的Markdown、HTML、URL、UBB、Custom等五种格式的选择，同时可以支持插件以丰富软件功能。<br>  推荐两个配置教程：</p>
+<ol>
+<li><a href="https://blog.csdn.net/disILLL/article/details/103962241?utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.control&dist_request_id=1332024.918.16189409573562535&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.control">配置教程1</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/128014135">配置教程2—插件</a></li>
+<li><a href="https://github.com/Molunerfinn/PicGo/releases">picgo的github链接</a></li>
+<li>picgo Windows <a href="https://pan.baidu.com/s/1y_yn9dl5aEAGHBX2c2KDPA">PicGo-Setup-2.3.0-beta.5.exe</a> 提取码：hexo</li>
+</ol>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -887,7 +1025,7 @@ See https://webpack.js.org/concepts#loaders
 <p>本质上，webpack loader 将所有类型的文件，转换为应用程序的依赖图（和最终的 bundle）可以直接引用的模块。</p>
 <h2 id="css-loader的安装"><a href="#css-loader的安装" class="headerlink" title="css-loader的安装"></a>css-loader的安装</h2><figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> css-loader -D<br></code></pre></td></tr></table></figure>
 
-<p>当前版本为：<font color=amber><a href="mailto:&#x63;&#x73;&#115;&#x2d;&#108;&#111;&#x61;&#100;&#x65;&#114;&#64;&#54;&#x2e;&#52;&#x2e;&#48;">&#x63;&#x73;&#115;&#x2d;&#108;&#111;&#x61;&#100;&#x65;&#114;&#64;&#54;&#x2e;&#52;&#x2e;&#48;</a></font></p>
+<p>当前版本为：<font color=amber><a href="mailto:&#99;&#115;&#115;&#x2d;&#108;&#x6f;&#97;&#100;&#101;&#x72;&#x40;&#x36;&#46;&#52;&#x2e;&#48;">&#99;&#115;&#115;&#x2d;&#108;&#x6f;&#97;&#100;&#101;&#x72;&#x40;&#x36;&#46;&#52;&#x2e;&#48;</a></font></p>
 <p>安装完css-loader后，在package.json的<font color=red>devDependencies</font>中即可看到对应的版本号，但是现在桥梁的材料准备好了，还需要将公路与桥梁进行以下安装处理，使得其可以稳固通行，也就是代码能够正常运行。要想达到目的，有以下几种方式：</p>
 <div class="tabs" id="tab"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#tab-1">配置方式 推荐</button></li><li class="tab"><button type="button" data-href="#tab-2">CLI方式（webpack5版本中不再使用）</button></li><li class="tab"><button type="button" data-href="#tab-3">内联方式</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="tab-1"><figure class="highlight yaml"><table><tr><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">module:</span> &#123;<br>   <span class="hljs-attr">rules:</span> [<br>     &#123;<br>       <span class="hljs-attr">test:</span> <span class="hljs-string">/\.css$/</span>,               <br>       <span class="hljs-attr">use:</span> [<br>         &#123; <span class="hljs-attr">loader:</span> <span class="hljs-string">&#x27;style-loader&#x27;</span> &#125;,<br>         &#123;<br>           <span class="hljs-attr">loader:</span> <span class="hljs-string">&#x27;css-loader&#x27;</span>,<br>           <span class="hljs-attr">options:</span> &#123;<br>             <span class="hljs-attr">modules:</span> <span class="hljs-literal">true</span><br>           &#125;<br>         &#125;<br>       ]<br>     &#125;<br>   ]<br> &#125;<br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-2"><figure class="highlight fortran"><table><tr><td class="code"><pre><code class="hljs fortran">webpack --<span class="hljs-keyword">module</span>-<span class="hljs-keyword">bind</span> jade-loader --<span class="hljs-keyword">module</span>-<span class="hljs-keyword">bind</span> <span class="hljs-string">&#x27;css=style-loader!css-loader&#x27;</span><br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-3"><p>通过loader名字和”!” 将css文件分隔开，当然也可以同时写多个 import “xxx-loader!css-loader../css/index.css”;</p>
 <figure class="highlight abnf"><table><tr><td class="code"><pre><code class="hljs abnf">import <span class="hljs-string">&quot;css-loader!../css/index.css&quot;</span><span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
@@ -897,7 +1035,7 @@ See https://webpack.js.org/concepts#loaders
 <p>在前面我们已经了解到，处理css文件需要css-loader,style-loader等来处理，那么在开发过程中如果需要处理不同的文件，则需要不同的loader来实现代码功能。</p>
 <p>但是，以less文件举例子，则需要用到less工具</p>
 <figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> <span class="hljs-keyword">less</span> -D<br></code></pre></td></tr></table></figure>
-<p>当前版本：<font color=camel> <a href="mailto:&#x6c;&#x65;&#x73;&#115;&#64;&#52;&#x2e;&#49;&#x2e;&#50;">&#x6c;&#x65;&#x73;&#115;&#64;&#52;&#x2e;&#49;&#x2e;&#50;</a></font></p>
+<p>当前版本：<font color=camel> <a href="mailto:&#x6c;&#x65;&#x73;&#115;&#x40;&#52;&#46;&#x31;&#x2e;&#50;">&#x6c;&#x65;&#x73;&#115;&#x40;&#52;&#46;&#x31;&#x2e;&#50;</a></font></p>
 <p>安装完成后，可以通过npx来操作node_modules中的less，来进行处理：</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">npx less .<span class="hljs-regexp">/src/</span>css/component.less &gt; component.css<br></code></pre></td></tr></table></figure>
 <p>它可以将less文件转为正常的css文件</p>
@@ -905,9 +1043,9 @@ See https://webpack.js.org/concepts#loaders
 
 <h1 id="less-loader"><a href="#less-loader" class="headerlink" title="less-loader"></a>less-loader</h1><p>从上面的处理过程中，我们能够体会到less工具的快捷，但是在中大型项目中，当有大量的less文件需要处理时，想要通过命令行完成less文件的转化显然是不现实的，于是可以采用less-loader来进行处理，当然<font color=seagreen>less-loader是基于less工具</font>的，所以使用less-loader时，需要保证提前安装了less工具。</p>
 <figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> <span class="hljs-keyword">less</span> -D<br></code></pre></td></tr></table></figure>
-<p>当前版本：<font color=camel> <a href="mailto:&#108;&#101;&#x73;&#x73;&#x40;&#52;&#x2e;&#49;&#46;&#x32;">&#108;&#101;&#x73;&#x73;&#x40;&#52;&#x2e;&#49;&#46;&#x32;</a></font></p>
+<p>当前版本：<font color=camel> <a href="mailto:&#108;&#101;&#115;&#x73;&#64;&#x34;&#x2e;&#49;&#x2e;&#50;">&#108;&#101;&#115;&#x73;&#64;&#x34;&#x2e;&#49;&#x2e;&#50;</a></font></p>
 <figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> <span class="hljs-keyword">less</span>-loader -D<br></code></pre></td></tr></table></figure>
-<p>当前版本： <font color=amber><a href="mailto:&#x6c;&#101;&#x73;&#115;&#x2d;&#108;&#111;&#x61;&#x64;&#x65;&#x72;&#64;&#x31;&#x30;&#46;&#x32;&#x2e;&#x30;">&#x6c;&#101;&#x73;&#115;&#x2d;&#108;&#111;&#x61;&#x64;&#x65;&#x72;&#64;&#x31;&#x30;&#46;&#x32;&#x2e;&#x30;</a></font></p>
+<p>当前版本： <font color=amber><a href="mailto:&#108;&#x65;&#x73;&#115;&#x2d;&#x6c;&#x6f;&#97;&#100;&#101;&#x72;&#64;&#49;&#48;&#46;&#50;&#x2e;&#48;">&#108;&#x65;&#x73;&#115;&#x2d;&#x6c;&#x6f;&#97;&#100;&#101;&#x72;&#64;&#49;&#48;&#46;&#50;&#x2e;&#48;</a></font></p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">module: &#123;<br>   <span class="hljs-regexp">//</span> rules数组里面都是rule对象<br>  rules: [<br>    &#123;<br>      test: <span class="hljs-regexp">/\.css$/</span>,    <span class="hljs-regexp">//</span> 匹配以css结尾的文件<br>      use: [<br>        <span class="hljs-regexp">//</span>  注意编写顺序  从下到上，从右往左，本质 从后往前<br>        &#123; loader: <span class="hljs-string">&#x27;style-loader&#x27;</span> &#125;,<br>        &#123;<br>          loader: <span class="hljs-string">&#x27;css-loader&#x27;</span>,<br>        &#125;<br>      ]<br>    &#125;,<br>    &#123;<br>      test: <span class="hljs-regexp">/\.less$/</span>,    <span class="hljs-regexp">//</span> 匹配以css结尾的文件<br>      use: [<br>        <span class="hljs-regexp">//</span>  注意编写顺序  从下到上，从右往左，本质 从后往前<br>        &#123; loader: <span class="hljs-string">&#x27;style-loader&#x27;</span> &#125;,<br>        &#123; loader: <span class="hljs-string">&#x27;css-loader&#x27;</span> &#125;,<br>        &#123;<br>          loader: <span class="hljs-string">&#x27;less-loader&#x27;</span>,<br>        &#125;<br>      ]<br>    &#125;<br>  ]<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h1 id="浏览器兼容性"><a href="#浏览器兼容性" class="headerlink" title="浏览器兼容性"></a>浏览器兼容性</h1><p>在开发中，我们会遇到浏览器的兼容性问题，不是指屏幕大小的变化适配，主要是针对于不同的浏览器所支持的特性之间的问题，比如CSS特性，js语法之间的兼容性，同时市面上存在着的浏览器，包括chrome、safari、IE、Edge、chrome for Android、UC Browser、QQ Browser等等，有着不同的市场占有率，是不是都需要兼容呢？</p>
@@ -932,13 +1070,13 @@ See https://webpack.js.org/concepts#loaders
 <h2 id="使用postcss的步骤"><a href="#使用postcss的步骤" class="headerlink" title="使用postcss的步骤"></a>使用postcss的步骤</h2><p>第一步：查找postCss在构建工具中的扩展，比如webpack中的postcss-loader;<br>第二步： 选择可以添加你需要的postCss相关的插件</p>
 <p>如果是在终端直接使用，需要单独安装postcss-cli。</p>
 <figure class="highlight avrasm"><table><tr><td class="code"><pre><code class="hljs avrasm">npm i -D postcss postcss-<span class="hljs-keyword">cli</span><br></code></pre></td></tr></table></figure>
-<p><font color=chocolate>+ <a href="mailto:&#x70;&#x6f;&#x73;&#x74;&#99;&#115;&#115;&#64;&#x38;&#46;&#51;&#46;&#x39;">&#x70;&#x6f;&#x73;&#x74;&#99;&#115;&#115;&#64;&#x38;&#46;&#51;&#46;&#x39;</a></font><br><font color=yellowgreen>+ <a href="mailto:&#112;&#x6f;&#x73;&#116;&#x63;&#115;&#x73;&#45;&#99;&#x6c;&#x69;&#x40;&#57;&#x2e;&#48;&#x2e;&#x31;">&#112;&#x6f;&#x73;&#116;&#x63;&#115;&#x73;&#45;&#99;&#x6c;&#x69;&#x40;&#57;&#x2e;&#48;&#x2e;&#x31;</a></font></p>
+<p><font color=chocolate>+ <a href="mailto:&#112;&#111;&#x73;&#116;&#99;&#x73;&#x73;&#64;&#56;&#x2e;&#51;&#x2e;&#x39;">&#112;&#111;&#x73;&#116;&#99;&#x73;&#x73;&#64;&#56;&#x2e;&#51;&#x2e;&#x39;</a></font><br><font color=yellowgreen>+ <a href="mailto:&#x70;&#x6f;&#x73;&#116;&#x63;&#x73;&#115;&#x2d;&#x63;&#x6c;&#105;&#x40;&#x39;&#x2e;&#48;&#46;&#x31;">&#x70;&#x6f;&#x73;&#116;&#x63;&#x73;&#115;&#x2d;&#x63;&#x6c;&#105;&#x40;&#x39;&#x2e;&#48;&#46;&#x31;</a></font></p>
 <p>在css开发过程中，会写到很多属性和样式，让我们遇到不熟悉的属性的时候，不清楚需要对哪些浏览器进行适配的时候，可以到<a href="http://autoprefixer.github.io/">Autoprefixer CSS online</a>,它是一个postcss插件，可以通过它解析CSS并添加供应商前缀。</p>
 <p>自动添加前缀插件： autopreFixer</p>
 <figure class="highlight angelscript"><table><tr><td class="code"><pre><code class="hljs angelscript">npm install <span class="hljs-built_in">auto</span>prefixer -D<br></code></pre></td></tr></table></figure>
-<p>当前版本：<font color=blue><a href="mailto:&#97;&#x75;&#x74;&#x6f;&#112;&#114;&#101;&#102;&#x69;&#120;&#x65;&#x72;&#64;&#x31;&#x30;&#x2e;&#x33;&#x2e;&#x37;">&#97;&#x75;&#x74;&#x6f;&#112;&#114;&#101;&#102;&#x69;&#120;&#x65;&#x72;&#64;&#x31;&#x30;&#x2e;&#x33;&#x2e;&#x37;</a></font></p>
+<p>当前版本：<font color=blue><a href="mailto:&#x61;&#117;&#x74;&#x6f;&#x70;&#x72;&#x65;&#x66;&#x69;&#120;&#101;&#x72;&#x40;&#49;&#x30;&#x2e;&#x33;&#x2e;&#x37;">&#x61;&#117;&#x74;&#x6f;&#x70;&#x72;&#x65;&#x66;&#x69;&#120;&#101;&#x72;&#x40;&#49;&#x30;&#x2e;&#x33;&#x2e;&#x37;</a></font></p>
 <div class="tabs" id="tab"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#tab-1">webpack使用方式  post-cssloader</button></li><li class="tab"><button type="button" data-href="#tab-2">命令行使用方式：</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="tab-1"><figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> postcss-loader -D<br></code></pre></td></tr></table></figure>
-<p><font color=royalblue>+ <a href="mailto:&#112;&#111;&#115;&#116;&#x63;&#115;&#115;&#x2d;&#108;&#x6f;&#97;&#x64;&#x65;&#114;&#64;&#54;&#x2e;&#50;&#x2e;&#x30;">&#112;&#111;&#115;&#116;&#x63;&#115;&#115;&#x2d;&#108;&#x6f;&#97;&#x64;&#x65;&#114;&#64;&#54;&#x2e;&#50;&#x2e;&#x30;</a></font><br>它可以自动检测并通过postcss来进行css的自动化处理。</p>
+<p><font color=royalblue>+ <a href="mailto:&#x70;&#111;&#115;&#116;&#x63;&#115;&#115;&#x2d;&#x6c;&#111;&#97;&#x64;&#x65;&#114;&#64;&#x36;&#46;&#x32;&#x2e;&#48;">&#x70;&#111;&#115;&#116;&#x63;&#115;&#115;&#x2d;&#x6c;&#111;&#97;&#x64;&#x65;&#114;&#64;&#x36;&#46;&#x32;&#x2e;&#48;</a></font><br>它可以自动检测并通过postcss来进行css的自动化处理。</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">module: &#123;<br>     <span class="hljs-regexp">//</span> rules数组里面都是rule对象<br>    rules: [<br>      &#123;<br>        test: <span class="hljs-regexp">/\.css$/</span>,    <span class="hljs-regexp">//</span> 匹配以css结尾的文件<br>        use: [<br>          <span class="hljs-regexp">//</span>  注意编写顺序  从下到上，从右往左，本质 从后往前<br>          &#123; loader: <span class="hljs-string">&#x27;style-loader&#x27;</span> &#125;,<br>          &#123;<br>            loader: <span class="hljs-string">&#x27;css-loader&#x27;</span>,<br>          &#125;,<br>          &#123;<br>            loader: <span class="hljs-string">&#x27;postcss-loader&#x27;</span>,<br>            options: &#123;<br>              postcssOptions: &#123;<br>                plugins: [<br>                  require(<span class="hljs-string">&quot;autoprefixer&quot;</span>)<br>                ]<br>              &#125;<br>            &#125;<br>          &#125;<br>        ]<br>      &#125;<br>    ]<br>  &#125;<br><br></code></pre></td></tr></table></figure>
 <p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211019213331autoPreFixerExample.png" alt="自动加前缀实验"></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-2"><figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">npx postcss --use autoprefixer -o result.css .<span class="hljs-regexp">/src/</span>css/test.css<br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
 ]]></content>
@@ -1023,6 +1161,32 @@ See https://webpack.js.org/concepts#loaders
       </categories>
       <tags>
         <tag>webpack</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>后台管理系统vue3TsElement-plusVite</title>
+    <url>/2021/09/14/vue3/9e0f53e3c316/</url>
+    <content><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>截止目前，工作中对于需要处理的项目需求已经基本完成，在没有新的需求产生之前，项目基本的模型基本固定，所以有时间进行项目的思考与新技术的学习，在实际的开发的项目中会技术知识点的熟练度问题导致经常需要参考网上的相关例子，但是根据教程解决完业务问题后，因为整理不及时，在遇到相同问题的时候就会花费更多的精力和时间，也不利于沉淀。正好，博客系统也能都正常上线使用，采用了比较简洁的hexo-next主题，虽然界面比较朴素，但是对于写技术博客来说，已经是非常适合不过了。当然也有其他的主题，比较好看，但是因为配置next主题也花了一些时间，同时在此阶段结合谷歌浏览器lighthouse插件，也解决了一些项目的性能优化问题，包括通过<a href="https://www.jsdelivr.com/">jsdelivr</a>对图片进行CDN优化，加快访问速度等，如图<img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914162406blogRateScreen.png" alt="个人博客网站评分">，同时也提出了http/1.1 http/2等的问题，可以明显的感觉到加载速度的差异，<a href="https://http2.akamai.com/demo">加载速度对比</a>,发现对于基础知识还是有许多需要学习的地方，也就是当前来说技术知识的提升比博客页面的美观更加重要一些，所以就开始先更文章了!</p>
+<span id="more"></span>
+<h1 id="就叫它NS吧"><a href="#就叫它NS吧" class="headerlink" title="就叫它NS吧"></a>就叫它NS吧</h1><p>  在开始文章的叙述之前，总得先定一个叙述对象，它也就是前面提及的工作项目，结合项目名称，以及便于后续称呼，就叫它NS吧，这是一个后台管理系统项目，采用了当下非常流行的vue以及elementUI作为开发的基础性框架，打包工具则以gulp为主，同时包含少量的webpack配置，对于这方面的知识还是比较欠缺，当然整个项目的业务逻辑还是在摸索了几天逐渐熟悉了。<br>  随着业务量的深入以及代码量的增多，可以很容易的发现，代码变得逐渐难以管理，同时因为初期的代码规范性问题，导致代码的可读性变差，因为缺少文档，导致在日常赶需求的时候，引入的依赖，配置项等，在维护过程中，对于一些不需要的冗余代码，不方便精简，大多采用注释的方式解决，业务中遇到的主要问题是图片的处理，包括上传和保证图片的上传顺序等，还有大文件的上传，同时是订单管理中不可缺少的导出功能，如何在前端根据列实现对表格数据的筛选，还有地图数据展示与选择过程中的循环问题，对于路由权限问题需要在新项目中搭建中熟悉动态路由表以及权限处理</p>
+<h1 id="初步认识"><a href="#初步认识" class="headerlink" title="初步认识"></a>初步认识</h1><p>  问题已经大致了解了，所以在新项目的开始过程中，也算是有了“需求”，能够有效的提升学习效率了。</p>
+<h2 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h2><p>  <a href="https://vue3js.cn/docs/zh/">vue3官方中文文档</a></p>
+<p>  <a href="https://www.tslang.cn/docs/home.html">TypeScript官方文档 v3.1</a></p>
+<p>  <a href="https://vitejs.cn/">Vite官方文档</a></p>
+<p>  <a href="https://element-plus.org/#/zh-CN/component/installation">element-plus官方文档</a></p>
+<h2 id="构建基础项目"><a href="#构建基础项目" class="headerlink" title="构建基础项目"></a>构建基础项目</h2><p>跟随着vite官方教程，我们成功的运行起来了项目，同时能够感受到页面内容的快速构建和页面快速的响应式热更新带来的流畅开发体验。</p>
+<p>基础demo运行: <img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914180734vue3viteBaseDemo.png"></p>
+<p>项目运行起来的时间为：<img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914180937baseDemoRate.png"></p>
+<p>下面可以看下具体的项目结构：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914181052baseDemoStrucet.png" alt="项目基本结构"><br>同时也有一些问题，<img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914181439demoProblem.png" alt="基础vite项目bug">对于一个元素的问题，<a href="https://stackoverflow.com/questions/64867504/vue-3-the-template-root-requires-exactly-one-element-eslint-plugin-vue">尝试用div标签包裹template内的元素，一个bug可以解决</a>但是另外一个还是会有问题，经过搜索发现有帖子有相同的错误，故保存下来。<a href="https://www.jianshu.com/p/684820d0f905">vue3+eslint遇到 The template root requires exactly one element.eslintvue/no-multiple-template-root ..</a><br>经过一番折腾，还是回到原来构建时候的代码状态，原来是因为插件的问题，<a href="https://juejin.cn/post/6875713523968802829#heading-6">参考评论区</a>,具体评论为：<img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914185531veturBug.png"></p>
+]]></content>
+      <categories>
+        <category>vue3</category>
+      </categories>
+      <tags>
+        <tag>TypeScript</tag>
+        <tag>vue3</tag>
+        <tag>vite</tag>
       </tags>
   </entry>
   <entry>
@@ -1193,32 +1357,6 @@ See https://webpack.js.org/concepts#loaders
 ]]></content>
       <tags>
         <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>后台管理系统vue3TsElement-plusVite</title>
-    <url>/2021/09/14/vue3/9e0f53e3c316/</url>
-    <content><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>截止目前，工作中对于需要处理的项目需求已经基本完成，在没有新的需求产生之前，项目基本的模型基本固定，所以有时间进行项目的思考与新技术的学习，在实际的开发的项目中会技术知识点的熟练度问题导致经常需要参考网上的相关例子，但是根据教程解决完业务问题后，因为整理不及时，在遇到相同问题的时候就会花费更多的精力和时间，也不利于沉淀。正好，博客系统也能都正常上线使用，采用了比较简洁的hexo-next主题，虽然界面比较朴素，但是对于写技术博客来说，已经是非常适合不过了。当然也有其他的主题，比较好看，但是因为配置next主题也花了一些时间，同时在此阶段结合谷歌浏览器lighthouse插件，也解决了一些项目的性能优化问题，包括通过<a href="https://www.jsdelivr.com/">jsdelivr</a>对图片进行CDN优化，加快访问速度等，如图<img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914162406blogRateScreen.png" alt="个人博客网站评分">，同时也提出了http/1.1 http/2等的问题，可以明显的感觉到加载速度的差异，<a href="https://http2.akamai.com/demo">加载速度对比</a>,发现对于基础知识还是有许多需要学习的地方，也就是当前来说技术知识的提升比博客页面的美观更加重要一些，所以就开始先更文章了!</p>
-<span id="more"></span>
-<h1 id="就叫它NS吧"><a href="#就叫它NS吧" class="headerlink" title="就叫它NS吧"></a>就叫它NS吧</h1><p>  在开始文章的叙述之前，总得先定一个叙述对象，它也就是前面提及的工作项目，结合项目名称，以及便于后续称呼，就叫它NS吧，这是一个后台管理系统项目，采用了当下非常流行的vue以及elementUI作为开发的基础性框架，打包工具则以gulp为主，同时包含少量的webpack配置，对于这方面的知识还是比较欠缺，当然整个项目的业务逻辑还是在摸索了几天逐渐熟悉了。<br>  随着业务量的深入以及代码量的增多，可以很容易的发现，代码变得逐渐难以管理，同时因为初期的代码规范性问题，导致代码的可读性变差，因为缺少文档，导致在日常赶需求的时候，引入的依赖，配置项等，在维护过程中，对于一些不需要的冗余代码，不方便精简，大多采用注释的方式解决，业务中遇到的主要问题是图片的处理，包括上传和保证图片的上传顺序等，还有大文件的上传，同时是订单管理中不可缺少的导出功能，如何在前端根据列实现对表格数据的筛选，还有地图数据展示与选择过程中的循环问题，对于路由权限问题需要在新项目中搭建中熟悉动态路由表以及权限处理</p>
-<h1 id="初步认识"><a href="#初步认识" class="headerlink" title="初步认识"></a>初步认识</h1><p>  问题已经大致了解了，所以在新项目的开始过程中，也算是有了“需求”，能够有效的提升学习效率了。</p>
-<h2 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h2><p>  <a href="https://vue3js.cn/docs/zh/">vue3官方中文文档</a></p>
-<p>  <a href="https://www.tslang.cn/docs/home.html">TypeScript官方文档 v3.1</a></p>
-<p>  <a href="https://vitejs.cn/">Vite官方文档</a></p>
-<p>  <a href="https://element-plus.org/#/zh-CN/component/installation">element-plus官方文档</a></p>
-<h2 id="构建基础项目"><a href="#构建基础项目" class="headerlink" title="构建基础项目"></a>构建基础项目</h2><p>跟随着vite官方教程，我们成功的运行起来了项目，同时能够感受到页面内容的快速构建和页面快速的响应式热更新带来的流畅开发体验。</p>
-<p>基础demo运行: <img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914180734vue3viteBaseDemo.png"></p>
-<p>项目运行起来的时间为：<img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914180937baseDemoRate.png"></p>
-<p>下面可以看下具体的项目结构：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914181052baseDemoStrucet.png" alt="项目基本结构"><br>同时也有一些问题，<img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914181439demoProblem.png" alt="基础vite项目bug">对于一个元素的问题，<a href="https://stackoverflow.com/questions/64867504/vue-3-the-template-root-requires-exactly-one-element-eslint-plugin-vue">尝试用div标签包裹template内的元素，一个bug可以解决</a>但是另外一个还是会有问题，经过搜索发现有帖子有相同的错误，故保存下来。<a href="https://www.jianshu.com/p/684820d0f905">vue3+eslint遇到 The template root requires exactly one element.eslintvue/no-multiple-template-root ..</a><br>经过一番折腾，还是回到原来构建时候的代码状态，原来是因为插件的问题，<a href="https://juejin.cn/post/6875713523968802829#heading-6">参考评论区</a>,具体评论为：<img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914185531veturBug.png"></p>
-]]></content>
-      <categories>
-        <category>vue3</category>
-      </categories>
-      <tags>
-        <tag>TypeScript</tag>
-        <tag>vue3</tag>
-        <tag>vite</tag>
       </tags>
   </entry>
   <entry>
