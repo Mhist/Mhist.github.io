@@ -6,7 +6,7 @@
   <link href="http://wakeweb.cloud/atom.xml" rel="self"/>
   
   <link href="http://wakeweb.cloud/"/>
-  <updated>2021-11-12T03:50:20.075Z</updated>
+  <updated>2021-11-12T10:39:27.583Z</updated>
   <id>http://wakeweb.cloud/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mysql-语句</title>
+    <link href="http://wakeweb.cloud/2021/11/12/mysql/de9d27f5d5d1/"/>
+    <id>http://wakeweb.cloud/2021/11/12/mysql/de9d27f5d5d1/</id>
+    <published>2021-11-12T04:22:30.000Z</published>
+    <updated>2021-11-12T10:39:27.583Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;终端操作缺陷&quot;&gt;&lt;a href=&quot;#终端操作缺陷&quot; class=&quot;headerlink&quot; title=&quot;终端操作缺陷&quot;&gt;&lt;/a&gt;终端操作缺陷&lt;/h1&gt;&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="mysql" scheme="http://wakeweb.cloud/categories/mysql/"/>
+    
+    
+    <category term="mysql" scheme="http://wakeweb.cloud/tags/mysql/"/>
+    
+  </entry>
   
   <entry>
     <title>mysql</title>
@@ -445,45 +470,6 @@
     
     
     <category term="vue" scheme="http://wakeweb.cloud/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>learn react</title>
-    <link href="http://wakeweb.cloud/2021/04/24/uncategorized/c98970b16c20/"/>
-    <id>http://wakeweb.cloud/2021/04/24/uncategorized/c98970b16c20/</id>
-    <published>2021-04-24T03:07:47.000Z</published>
-    <updated>2021-10-11T10:05:12.491Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;react-入门&quot;&gt;&lt;a href=&quot;#react-入门&quot; class=&quot;headerlink&quot; title=&quot;react 入门&quot;&gt;&lt;/a&gt;react 入门&lt;/h1&gt;&lt;h2 id=&quot;react框架基本介绍&quot;&gt;&lt;a href=&quot;#react框架基本介绍&quot; class=&quot;headerlink&quot; title=&quot;react框架基本介绍&quot;&gt;&lt;/a&gt;react框架基本介绍&lt;/h2&gt;&lt;p&gt;   &lt;a href=&quot;https://reactjs.org/&quot;&gt;react官方&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;开发环境及脚手架安装&quot;&gt;&lt;a href=&quot;#开发环境及脚手架安装&quot; class=&quot;headerlink&quot; title=&quot;开发环境及脚手架安装&quot;&gt;&lt;/a&gt;开发环境及脚手架安装&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;查看node版本&lt;figure class=&quot;highlight crmsh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;code class=&quot;hljs crmsh&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;node&lt;/span&gt; &lt;span class=&quot;hljs-title&quot;&gt;-v&lt;/span&gt;&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-v14.16.0&lt;/li&gt;
-&lt;li&gt;查看npm版本&lt;figure class=&quot;highlight crmsh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;code class=&quot;hljs crmsh&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;node&lt;/span&gt; &lt;span class=&quot;hljs-title&quot;&gt;-v&lt;/span&gt;&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-6.14.11&lt;/li&gt;
-&lt;li&gt;安装脚手架&lt;figure class=&quot;highlight cmake&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;code class=&quot;hljs cmake&quot;&gt;npm &lt;span class=&quot;hljs-keyword&quot;&gt;install&lt;/span&gt; -g create-react-app&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-cmd控制台反馈如下：&lt;pre&gt;
-C:\Users\18827\AppData\Roaming\npm\create-react-app -&gt; C:\Users\18827\AppData\Roaming\npm\node_modules\create-react-app\index.js&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;a href=&quot;mailto:&amp;#43;&amp;#99;&amp;#114;&amp;#101;&amp;#97;&amp;#x74;&amp;#x65;&amp;#45;&amp;#114;&amp;#x65;&amp;#97;&amp;#99;&amp;#x74;&amp;#45;&amp;#97;&amp;#x70;&amp;#112;&amp;#64;&amp;#x34;&amp;#46;&amp;#48;&amp;#x2e;&amp;#51;&quot;&gt;&amp;#43;&amp;#99;&amp;#114;&amp;#101;&amp;#97;&amp;#x74;&amp;#x65;&amp;#45;&amp;#114;&amp;#x65;&amp;#97;&amp;#99;&amp;#x74;&amp;#45;&amp;#97;&amp;#x70;&amp;#112;&amp;#64;&amp;#x34;&amp;#46;&amp;#48;&amp;#x2e;&amp;#51;&lt;/a&gt;&lt;br&gt;added 67 packages from 25 contributors in 22.805s&lt;br&gt; &lt;/pre&gt;&lt;/p&gt;
-&lt;h2 id=&quot;创建项目文件夹，并开启demo&quot;&gt;&lt;a href=&quot;#创建项目文件夹，并开启demo&quot; class=&quot;headerlink&quot; title=&quot;创建项目文件夹，并开启demo&quot;&gt;&lt;/a&gt;创建项目文件夹，并开启demo&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;在电脑桌面同时按下Windows+R进入输入cmd,按enter&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;进入某个盘   例如  M:&lt;/p&gt;
-&lt;figure class=&quot;highlight avrasm&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;code class=&quot;hljs avrasm&quot;&gt;&lt;span class=&quot;hljs-symbol&quot;&gt;m:&lt;/span&gt;&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;创建文件夹&lt;/p&gt;
-   &lt;figure class=&quot;highlight arduino&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;code class=&quot;hljs arduino&quot;&gt;mkdir ReactDemo&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;进入文件夹  &lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;code class=&quot;hljs bash&quot;&gt;&lt;span class=&quot;hljs-built_in&quot;&gt;cd&lt;/span&gt; ReactDemo&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;创建demo01&lt;/p&gt;
-&lt;figure class=&quot;highlight dsconfig&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;code class=&quot;hljs dsconfig&quot;&gt;&lt;span class=&quot;hljs-built_in&quot;&gt;create-react-app&lt;/span&gt; &lt;span class=&quot;hljs-string&quot;&gt;demo01&lt;/span&gt;&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;控制台反馈&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="react" scheme="http://wakeweb.cloud/tags/react/"/>
     
   </entry>
   

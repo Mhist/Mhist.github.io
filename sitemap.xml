@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://wakeweb.cloud/2021/11/12/mysql/de9d27f5d5d1/</loc>
+    
+    <lastmod>2021-11-12</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://wakeweb.cloud/2021/11/12/mysql/ab03683a0789/</loc>
     
     <lastmod>2021-11-12</lastmod>
@@ -207,20 +214,6 @@
 
   
   <url>
-    <loc>http://wakeweb.cloud/tags/vue/</loc>
-    <lastmod>2021-11-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://wakeweb.cloud/tags/certificate/</loc>
-    <lastmod>2021-11-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://wakeweb.cloud/tags/TypeScript/</loc>
     <lastmod>2021-11-12</lastmod>
     <changefreq>daily</changefreq>
@@ -228,7 +221,7 @@
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/tags/git/</loc>
+    <loc>http://wakeweb.cloud/tags/vue/</loc>
     <lastmod>2021-11-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -242,7 +235,7 @@
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/tags/react/</loc>
+    <loc>http://wakeweb.cloud/tags/certificate/</loc>
     <lastmod>2021-11-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -250,6 +243,20 @@
   
   <url>
     <loc>http://wakeweb.cloud/tags/mysql/</loc>
+    <lastmod>2021-11-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://wakeweb.cloud/tags/git/</loc>
+    <lastmod>2021-11-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://wakeweb.cloud/tags/react/</loc>
     <lastmod>2021-11-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -291,13 +298,6 @@
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/tags/JavaScript/</loc>
-    <lastmod>2021-11-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://wakeweb.cloud/tags/cms/</loc>
     <lastmod>2021-11-12</lastmod>
     <changefreq>daily</changefreq>
@@ -306,6 +306,13 @@
   
   <url>
     <loc>http://wakeweb.cloud/tags/mhist-cli/</loc>
+    <lastmod>2021-11-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://wakeweb.cloud/tags/JavaScript/</loc>
     <lastmod>2021-11-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -321,13 +328,6 @@
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/categories/git/</loc>
-    <lastmod>2021-11-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://wakeweb.cloud/categories/hexo/</loc>
     <lastmod>2021-11-12</lastmod>
     <changefreq>daily</changefreq>
@@ -336,6 +336,13 @@
   
   <url>
     <loc>http://wakeweb.cloud/categories/mysql/</loc>
+    <lastmod>2021-11-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://wakeweb.cloud/categories/git/</loc>
     <lastmod>2021-11-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
