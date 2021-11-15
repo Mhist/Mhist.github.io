@@ -60,35 +60,6 @@
       </tags>
   </entry>
   <entry>
-    <title>VUE2.X学习</title>
-    <url>/2021/04/24/uncategorized/6eb6cb2ab58d/</url>
-    <content><![CDATA[<h1 id="vue2-x教程学习"><a href="#vue2-x教程学习" class="headerlink" title="vue2.x教程学习"></a>vue2.x教程学习</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h3><p>Vue <strong>不支持</strong> IE8 及以下版本，因为 Vue 使用了 IE8 无法模拟的 ECMAScript 5 特性。但它支持所有<a href="https://caniuse.com/#feat=es5">兼容 ECMAScript 5 的浏览器</a>。</p>
-<h3 id="语义化版本控制"><a href="#语义化版本控制" class="headerlink" title="语义化版本控制"></a>语义化版本控制</h3><p>Vue 在其所有项目中公布的功能和行为都遵循<a href="https://semver.org/lang/zh-CN/">语义化版本控制</a>。对于未公布的或内部暴露的行为，其变更会描述在<a href="https://github.com/vuejs/vue/releases">发布说明</a>中。</p>
-<h3 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h3><p>最新稳定版本：2.6.12<br>每个版本的更新日志见 <a href="https://github.com/vuejs/vue/releases">GitHub</a>。</p>
-<span id="more"></span>
-<h3 id="Vue-Devtools"><a href="#Vue-Devtools" class="headerlink" title="Vue Devtools"></a>Vue Devtools</h3><ul>
-<li>在使用 Vue 时，我们推荐在你的浏览器上安装 <a href="https://github.com/vuejs/vue-devtools#vue-devtools">Vue Devtools</a>。它允许你在一个更友好的界面中审查和调试 Vue 应用。</li>
-<li> 在Chrome浏览器中可以直接到Chrome网上商店搜索下载</li>
-<li> 在edge浏览器中可以打开 <a href="https://chrome.google.com/webstore/category/extensions">Chrome 扩展商店</a>，在搜索栏搜索 <strong>vue.js devtools</strong><br>选择提供方为：<a href="https://vuejs.org/">https://vuejs.org</a> 的扩展，添加成功后，进入扩展设置页面，找到 Vue.js devtools 扩展，点击详细信息，勾选允许访问文件 URL和收集错误选项.<br><img src="https://gitee.com/mhist/hexo-image/raw/master/img/VueDevToolSet-20210424164242.png" alt="vue.js devtools"><h3 id="直接用script标签引用"><a href="#直接用script标签引用" class="headerlink" title="直接用script标签引用"></a>直接用script标签引用</h3>直接下载并用 script 标签引入，Vue会被注册为全局变量。</li>
-<li>在开发环境下不要使用压缩版本，不然会失去所有常见错误的相关警告。</li>
-<li><a href="https://cn.vuejs.org/js/vue.js">开发版本</a>包含完整的警告和调试模式</li>
-<li><a href="https://cn.vuejs.org/js/vue.min.js">压缩版本/生产版本</a>删除了警告，33.30KB min+gzip<h4 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h4>对于制作原型或学习，你可以这样使用最新版本：<figure class="highlight applescript"><table><tr><td class="code"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">script</span> src=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;</span>&gt;<span class="hljs-keyword">script</span>&gt;<br></code></pre></td></tr></table></figure>
-对于生产环境，我们推荐链接到一个明确的版本号和构建文件，以避免新版本造成的不可预期的破坏：<figure class="highlight applescript"><table><tr><td class="code"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">script</span> src=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/vue@2.6.12&quot;</span>&gt;<span class="hljs-keyword">script</span>&gt;<br></code></pre></td></tr></table></figure>
-如果你使用原生 ES Modules，这里也有一个兼容 ES Module 的构建文件：<figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;module&quot;</span>&gt;</span><span class="javascript"> <span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.esm.browser.js&#x27;</span> script&gt;</span><br></code></pre></td></tr></table></figure></li>
-</ul>
-<p>你可以在 <a href="https://cdn.jsdelivr.net/npm/vue/">cdn.jsdelivr.net/npm/vue</a> 浏览 NPM 包的源代码。</p>
-<p>Vue 也可以在 <a href="https://unpkg.com/vue@2.6.12/dist/vue.js">unpkg</a> 和 <a href="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js">cdnjs</a> 上获取 (cdnjs 的版本更新可能略滞后)。</p>
-<p>请确认了解<a href="https://cn.vuejs.org/v2/guide/installation.html#%E5%AF%B9%E4%B8%8D%E5%90%8C%E6%9E%84%E5%BB%BA%E7%89%88%E6%9C%AC%E7%9A%84%E8%A7%A3%E9%87%8A">不同构建版本</a>并在你发布的站点中使用<strong>生产环境版本</strong>，把 <code>vue.js</code> 换成 <code>vue.min.js</code>。这是一个更小的构建，可以带来比开发环境下更快的速度体验。</p>
-<h3 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h3><p>在用 Vue 构建大型应用时推荐使用 NPM 安装<a href="https://cn.vuejs.org/v2/guide/installation.html#footnote-1">[1]</a>。NPM 能很好地和诸如 <a href="https://webpack.js.org/">webpack</a> 或 <a href="http://browserify.org/">Browserify</a> 模块打包器配合使用。同时 Vue 也提供配套工具来开发<a href="https://cn.vuejs.org/v2/guide/single-file-components.html">单文件组件</a>。</p>
-<figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake"><span class="hljs-comment"># 最新稳定版</span><br>$ npm <span class="hljs-keyword">install</span> vue<br></code></pre></td></tr></table></figure>
-<h2 id="命令行工具-CLI"><a href="#命令行工具-CLI" class="headerlink" title="命令行工具 (CLI)"></a><a href="https://cli.vuejs.org/zh/">命令行工具 (CLI)</a></h2><p>Vue CLI 是一个基于 Vue.js 进行快速开发的完整系统，提供：</p>
-<p>通过 @vue/cli 实现的交互式的项目脚手架。<br>通过 @vue/cli + @vue/cli-service-global 实现的零配置原型开发。<br>一个运行时依赖 (@vue/cli-service)，该依赖：<br>可升级；<br>基于 webpack 构建，并带有合理的默认配置；<br>可以通过项目内的配置文件进行配置；<br>可以通过插件进行扩展。<br>一个丰富的官方插件集合，集成了前端生态中最好的工具。<br>一套完全图形化的创建和管理 Vue.js 项目的用户界面。<br>Vue CLI 致力于将 Vue 生态中的工具基础标准化。它确保了各种构建工具能够基于智能的默认配置即可平稳衔接，这样你可以专注在撰写应用上，而不必花好几天去纠结配置的问题。与此同时，它也为每个工具提供了调整配置的灵活性，无需 eject。</p>
-]]></content>
-      <tags>
-        <tag>vue</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>关于开始搭建hexo博客这件事</title>
     <url>/2021/04/20/hexo/5fcb7dadb6f9/</url>
     <content><![CDATA[<h1 id="hexo个人博客搭建"><a href="#hexo个人博客搭建" class="headerlink" title="hexo个人博客搭建"></a>hexo个人博客搭建</h1><h2 id="为什么会搭建hexo博客"><a href="#为什么会搭建hexo博客" class="headerlink" title="为什么会搭建hexo博客"></a>为什么会搭建hexo博客</h2><p>  原因：<br>    1.用于前端学习记录、且便于复习，因为经过加工一次的比外来搜索的资料来说更容易让大脑快速识别与利用。<br>    2.阿里云轻量级WordPress服务器对非在校生的优惠终止，且个人网站将于2021年5月份到期，这是我的个人WordPress博客链接 <a href="http://www.codetotoro.cn/">www.codetotoro.cn</a>，同时因为服务器类型的缘故，按照提交工单时工作人员的说法，相关的数据迁移是无法进行的，除非是继续续费。<br>    3.部署方便且相关的学习教程更多，且官方的教程及相应的主题教程很全面，同时社区活跃，搭建博客的相关配置包括hexo editor都很容易找到，最重要的是部署方便，且bug很少，即使是使用外置主题，而且配置的修改采用注释/取消注释的方式进行，方便日后修改，而不用每次都需要根据官方文档再去配置，省去了很多麻烦。<br>  <span id="more"></span></p>
@@ -132,32 +103,6 @@ deploy:
 <li><a href="https://github.com/Molunerfinn/PicGo/releases">picgo的github链接</a></li>
 <li>picgo Windows <a href="https://pan.baidu.com/s/1y_yn9dl5aEAGHBX2c2KDPA">PicGo-Setup-2.3.0-beta.5.exe</a> 提取码：hexo</li>
 </ol>
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2021/10/11/hexo/bd5c75b8c9ae/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><span id="more"></span>
-
-<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
       <categories>
         <category>hexo</category>
@@ -355,6 +300,61 @@ f89d8a5
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/2021/10/11/hexo/bd5c75b8c9ae/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><span id="more"></span>
+
+<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VUE2.X学习</title>
+    <url>/2021/04/24/uncategorized/6eb6cb2ab58d/</url>
+    <content><![CDATA[<h1 id="vue2-x教程学习"><a href="#vue2-x教程学习" class="headerlink" title="vue2.x教程学习"></a>vue2.x教程学习</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h3><p>Vue <strong>不支持</strong> IE8 及以下版本，因为 Vue 使用了 IE8 无法模拟的 ECMAScript 5 特性。但它支持所有<a href="https://caniuse.com/#feat=es5">兼容 ECMAScript 5 的浏览器</a>。</p>
+<h3 id="语义化版本控制"><a href="#语义化版本控制" class="headerlink" title="语义化版本控制"></a>语义化版本控制</h3><p>Vue 在其所有项目中公布的功能和行为都遵循<a href="https://semver.org/lang/zh-CN/">语义化版本控制</a>。对于未公布的或内部暴露的行为，其变更会描述在<a href="https://github.com/vuejs/vue/releases">发布说明</a>中。</p>
+<h3 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h3><p>最新稳定版本：2.6.12<br>每个版本的更新日志见 <a href="https://github.com/vuejs/vue/releases">GitHub</a>。</p>
+<span id="more"></span>
+<h3 id="Vue-Devtools"><a href="#Vue-Devtools" class="headerlink" title="Vue Devtools"></a>Vue Devtools</h3><ul>
+<li>在使用 Vue 时，我们推荐在你的浏览器上安装 <a href="https://github.com/vuejs/vue-devtools#vue-devtools">Vue Devtools</a>。它允许你在一个更友好的界面中审查和调试 Vue 应用。</li>
+<li> 在Chrome浏览器中可以直接到Chrome网上商店搜索下载</li>
+<li> 在edge浏览器中可以打开 <a href="https://chrome.google.com/webstore/category/extensions">Chrome 扩展商店</a>，在搜索栏搜索 <strong>vue.js devtools</strong><br>选择提供方为：<a href="https://vuejs.org/">https://vuejs.org</a> 的扩展，添加成功后，进入扩展设置页面，找到 Vue.js devtools 扩展，点击详细信息，勾选允许访问文件 URL和收集错误选项.<br><img src="https://gitee.com/mhist/hexo-image/raw/master/img/VueDevToolSet-20210424164242.png" alt="vue.js devtools"><h3 id="直接用script标签引用"><a href="#直接用script标签引用" class="headerlink" title="直接用script标签引用"></a>直接用script标签引用</h3>直接下载并用 script 标签引入，Vue会被注册为全局变量。</li>
+<li>在开发环境下不要使用压缩版本，不然会失去所有常见错误的相关警告。</li>
+<li><a href="https://cn.vuejs.org/js/vue.js">开发版本</a>包含完整的警告和调试模式</li>
+<li><a href="https://cn.vuejs.org/js/vue.min.js">压缩版本/生产版本</a>删除了警告，33.30KB min+gzip<h4 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h4>对于制作原型或学习，你可以这样使用最新版本：<figure class="highlight applescript"><table><tr><td class="code"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">script</span> src=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;</span>&gt;<span class="hljs-keyword">script</span>&gt;<br></code></pre></td></tr></table></figure>
+对于生产环境，我们推荐链接到一个明确的版本号和构建文件，以避免新版本造成的不可预期的破坏：<figure class="highlight applescript"><table><tr><td class="code"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">script</span> src=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/vue@2.6.12&quot;</span>&gt;<span class="hljs-keyword">script</span>&gt;<br></code></pre></td></tr></table></figure>
+如果你使用原生 ES Modules，这里也有一个兼容 ES Module 的构建文件：<figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;module&quot;</span>&gt;</span><span class="javascript"> <span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.esm.browser.js&#x27;</span> script&gt;</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<p>你可以在 <a href="https://cdn.jsdelivr.net/npm/vue/">cdn.jsdelivr.net/npm/vue</a> 浏览 NPM 包的源代码。</p>
+<p>Vue 也可以在 <a href="https://unpkg.com/vue@2.6.12/dist/vue.js">unpkg</a> 和 <a href="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js">cdnjs</a> 上获取 (cdnjs 的版本更新可能略滞后)。</p>
+<p>请确认了解<a href="https://cn.vuejs.org/v2/guide/installation.html#%E5%AF%B9%E4%B8%8D%E5%90%8C%E6%9E%84%E5%BB%BA%E7%89%88%E6%9C%AC%E7%9A%84%E8%A7%A3%E9%87%8A">不同构建版本</a>并在你发布的站点中使用<strong>生产环境版本</strong>，把 <code>vue.js</code> 换成 <code>vue.min.js</code>。这是一个更小的构建，可以带来比开发环境下更快的速度体验。</p>
+<h3 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h3><p>在用 Vue 构建大型应用时推荐使用 NPM 安装<a href="https://cn.vuejs.org/v2/guide/installation.html#footnote-1">[1]</a>。NPM 能很好地和诸如 <a href="https://webpack.js.org/">webpack</a> 或 <a href="http://browserify.org/">Browserify</a> 模块打包器配合使用。同时 Vue 也提供配套工具来开发<a href="https://cn.vuejs.org/v2/guide/single-file-components.html">单文件组件</a>。</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake"><span class="hljs-comment"># 最新稳定版</span><br>$ npm <span class="hljs-keyword">install</span> vue<br></code></pre></td></tr></table></figure>
+<h2 id="命令行工具-CLI"><a href="#命令行工具-CLI" class="headerlink" title="命令行工具 (CLI)"></a><a href="https://cli.vuejs.org/zh/">命令行工具 (CLI)</a></h2><p>Vue CLI 是一个基于 Vue.js 进行快速开发的完整系统，提供：</p>
+<p>通过 @vue/cli 实现的交互式的项目脚手架。<br>通过 @vue/cli + @vue/cli-service-global 实现的零配置原型开发。<br>一个运行时依赖 (@vue/cli-service)，该依赖：<br>可升级；<br>基于 webpack 构建，并带有合理的默认配置；<br>可以通过项目内的配置文件进行配置；<br>可以通过插件进行扩展。<br>一个丰富的官方插件集合，集成了前端生态中最好的工具。<br>一套完全图形化的创建和管理 Vue.js 项目的用户界面。<br>Vue CLI 致力于将 Vue 生态中的工具基础标准化。它确保了各种构建工具能够基于智能的默认配置即可平稳衔接，这样你可以专注在撰写应用上，而不必花好几天去纠结配置的问题。与此同时，它也为每个工具提供了调整配置的灵活性，无需 eject。</p>
+]]></content>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo样式修改汇总</title>
     <url>/2021/09/28/hexo/371af6f33ab0/</url>
     <content><![CDATA[<h1 id="hexo样式汇总"><a href="#hexo样式汇总" class="headerlink" title="hexo样式汇总"></a>hexo样式汇总</h1><h1 id="更改超链接格式（文字颜色）"><a href="#更改超链接格式（文字颜色）" class="headerlink" title="更改超链接格式（文字颜色）"></a>更改超链接格式（文字颜色）</h1><div class="note primary modern"><p><a href="https://vonsdite.github.io/posts/13afd8d4.html">参考链接:Von</a> </p>
@@ -417,7 +417,7 @@ v14.16.0</li>
 cmd控制台反馈如下：<pre>
 C:\Users\18827\AppData\Roaming\npm\create-react-app -> C:\Users\18827\AppData\Roaming\npm\node_modules\create-react-app\index.js</li>
 </ul>
-<p><a href="mailto:&#x2b;&#99;&#x72;&#x65;&#97;&#116;&#101;&#45;&#x72;&#x65;&#x61;&#x63;&#116;&#45;&#x61;&#112;&#x70;&#x40;&#x34;&#x2e;&#x30;&#46;&#51;">&#x2b;&#99;&#x72;&#x65;&#97;&#116;&#101;&#45;&#x72;&#x65;&#x61;&#x63;&#116;&#45;&#x61;&#112;&#x70;&#x40;&#x34;&#x2e;&#x30;&#46;&#51;</a><br>added 67 packages from 25 contributors in 22.805s<br> </pre></p>
+<p><a href="mailto:&#x2b;&#99;&#x72;&#101;&#97;&#x74;&#x65;&#x2d;&#x72;&#x65;&#x61;&#x63;&#x74;&#x2d;&#x61;&#x70;&#x70;&#x40;&#x34;&#46;&#x30;&#x2e;&#x33;">&#x2b;&#99;&#x72;&#101;&#97;&#x74;&#x65;&#x2d;&#x72;&#x65;&#x61;&#x63;&#x74;&#x2d;&#x61;&#x70;&#x70;&#x40;&#x34;&#46;&#x30;&#x2e;&#x33;</a><br>added 67 packages from 25 contributors in 22.805s<br> </pre></p>
 <h2 id="创建项目文件夹，并开启demo"><a href="#创建项目文件夹，并开启demo" class="headerlink" title="创建项目文件夹，并开启demo"></a>创建项目文件夹，并开启demo</h2><ul>
 <li><p>在电脑桌面同时按下Windows+R进入输入cmd,按enter</p>
 </li>
@@ -454,6 +454,70 @@ C:\Users\18827\AppData\Roaming\npm\create-react-app -> C:\Users\18827\AppData\Ro
 ]]></content>
       <tags>
         <tag>react</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mysql-多表</title>
+    <url>/2021/11/14/mysql/6220192bee46/</url>
+    <content><![CDATA[<h1 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h1><pre>
+# 1.聚合函数的使用        所有数据当作一组
+# 求所有手机的价格的总和
+SELECT SUM(price) FROM `product`;
+# 求所有华为手机的价格的总和
+SELECT SUM(price) FROM `product` WHERE brand = '华为'；
+# 求所有华为手机的平均价格
+SELECT AVG(price) FROM `product` WHERE brand = '华为'；
+# 求手机的最高价格
+SELECT MAX(price) FROM `product`；
+SELECT MIN(price) FROM `product`；
+
+# 1.求华为手机的个数
+SELECT COUNT(*) FROM `product` WHERE brand = '华为';
+SELECT COUNT(*) FROM `product` WHERE brand = '苹果';    
+SELECT COUNT(url) FROM `product` WHERE brand = '苹果';
+
+
+SELECT COUNT(price) FROM `product`;
+SELECT COUNT(DISTINCT price) FROM `product`;   #多个相同的价格只计算入一个
+
+# 2. GROUP BY 分组： 华为、苹果、小米、vivo各自一组
+SELECT brand , AVG(price),COUNT(*),AVG(score) FROM `product` GROUP BY brand;
+
+# 3. 在上条的基础上加上：平均价格>2000d的手机 HAVING的使用
+SELECT brand , AVG(price)  avgprice ,COUNT(*),AVG(score) FROM `product` GROUP BY brand HAVING avgprice > 2000 ;
+
+
+# 分组后查结果用having，它作用于GGROUP BY，分组前查询结果用WHERE,WHERE作用于表
+
+# 4.评分大于7.5的手机的平均价格
+SELECT AVG(price) FROM `product` WHERE score > 7.5;
+
+# 5.求所有手机 评分7.5以上,然后按照品牌分类，求出各自的平均价格
+SELECT brand,AVG(price) FROM `product` WHERE score > 7.5 GROUP BY brand;
+</pre>
+
+<h2 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h2><p>我们如果是希望在查询到产品时，显示对应的品牌的相关信息，因为数据是存放在两张表中，所以这个时候就需要进行多表查询。</p>
+<p>如果我们直接通过查询语句希望在多张表中查询到数据，这个时候是什么效果呢？</p>
+<p>例如：现在又两张表</p>
+<figure class="highlight n1ql"><table><tr><td class="code"><pre><code class="hljs n1ql"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-symbol">`product`</span>, <span class="hljs-symbol">`brand`</span>;<br></code></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211114171128moreTableQuery.png" alt="多表查询"></p>
+<p>可见，在这样子进行多表查询时，其数据量是两表数量的乘积，笛卡尔乘积。</p>
+<figure class="highlight n1ql"><table><tr><td class="code"><pre><code class="hljs n1ql"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-symbol">`product`</span>, <span class="hljs-symbol">`brand`</span> <span class="hljs-keyword">WHERE</span> product.brand_id = brand.id;<br></code></pre></td></tr></table></figure>
+
+<p>真实开发中，常用连接 join的方式，进行多表之间的连接  sql-join</p>
+<ol>
+<li>左连接</li>
+<li>右连接</li>
+<li>内连接</li>
+<li>全连接</li>
+</ol>
+<p>具体语句可参考 <a href="https://www.runoob.com/sql/sql-join.html">菜鸟教程</a></p>
+]]></content>
+      <categories>
+        <category>mysql</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -595,67 +659,81 @@ Query OK, 1 row affected (0.00 sec)
       </tags>
   </entry>
   <entry>
-    <title>mysql-多表</title>
-    <url>/2021/11/14/mysql/6220192bee46/</url>
-    <content><![CDATA[<h1 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h1><pre>
-# 1.聚合函数的使用        所有数据当作一组
-# 求所有手机的价格的总和
-SELECT SUM(price) FROM `product`;
-# 求所有华为手机的价格的总和
-SELECT SUM(price) FROM `product` WHERE brand = '华为'；
-# 求所有华为手机的平均价格
-SELECT AVG(price) FROM `product` WHERE brand = '华为'；
-# 求手机的最高价格
-SELECT MAX(price) FROM `product`；
-SELECT MIN(price) FROM `product`；
+    <title>node常见内置模块</title>
+    <url>/2021/11/07/node/41601c7205c1/</url>
+    <content><![CDATA[<h1 id="path模块"><a href="#path模块" class="headerlink" title="path模块"></a><a href="http://nodejs.cn/learn/the-nodejs-path-module">path模块</a></h1><p>主要对路径和文件相关的进行处理。</p>
+<p>在开发过程中，我们可以用字符串拼接的方式来指定路径，但是考虑到不同操作系统对于路径分隔符的差异，可能导致的兼容性问题，我们采用path模块中的resolve方法来对路径进行处理，它会根据操作系统，来指定适配的路径分隔符。</p>
+<pre>
+const path = require('path');
 
-# 1.求华为手机的个数
-SELECT COUNT(*) FROM `product` WHERE brand = '华为';
-SELECT COUNT(*) FROM `product` WHERE brand = '苹果';    
-SELECT COUNT(url) FROM `product` WHERE brand = '苹果';
+const basePath = 'User/why';
+const filename = 'abc.txt';
 
+const filepath = path.resolve(basePath, filename)
 
-SELECT COUNT(price) FROM `product`;
-SELECT COUNT(DISTINCT price) FROM `product`;   #多个相同的价格只计算入一个
+console.log(filepath)
 
-# 2. GROUP BY 分组： 华为、苹果、小米、vivo各自一组
-SELECT brand , AVG(price),COUNT(*),AVG(score) FROM `product` GROUP BY brand;
-
-# 3. 在上条的基础上加上：平均价格>2000d的手机 HAVING的使用
-SELECT brand , AVG(price)  avgprice ,COUNT(*),AVG(score) FROM `product` GROUP BY brand HAVING avgprice > 2000 ;
-
-
-# 分组后查结果用having，它作用于GGROUP BY，分组前查询结果用WHERE,WHERE作用于表
-
-# 4.评分大于7.5的手机的平均价格
-SELECT AVG(price) FROM `product` WHERE score > 7.5;
-
-# 5.求所有手机 评分7.5以上,然后按照品牌分类，求出各自的平均价格
-SELECT brand,AVG(price) FROM `product` WHERE score > 7.5 GROUP BY brand;
 </pre>
 
-<h2 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h2><p>我们如果是希望在查询到产品时，显示对应的品牌的相关信息，因为数据是存放在两张表中，所以这个时候就需要进行多表查询。</p>
-<p>如果我们直接通过查询语句希望在多张表中查询到数据，这个时候是什么效果呢？</p>
-<p>例如：现在又两张表</p>
-<figure class="highlight n1ql"><table><tr><td class="code"><pre><code class="hljs n1ql"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-symbol">`product`</span>, <span class="hljs-symbol">`brand`</span>;<br></code></pre></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211114171128moreTableQuery.png" alt="多表查询"></p>
-<p>可见，在这样子进行多表查询时，其数据量是两表数量的乘积，笛卡尔乘积。</p>
-<figure class="highlight n1ql"><table><tr><td class="code"><pre><code class="hljs n1ql"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-symbol">`product`</span>, <span class="hljs-symbol">`brand`</span> <span class="hljs-keyword">WHERE</span> product.brand_id = brand.id;<br></code></pre></td></tr></table></figure>
+<pre>
+PS C:\Users\starry\Desktop\total\node\04_node内置模块\02_path> node 01_路径的演练.js   
+C:\Users\starry\Desktop\total\node\04_node内置模块\02_path\User\why\abc.txt
+</pre>
 
-<p>真实开发中，常用连接 join的方式，进行多表之间的连接  sql-join</p>
-<ol>
-<li>左连接</li>
-<li>右连接</li>
-<li>内连接</li>
-<li>全连接</li>
+
+<h2 id="可以采用同步、异步、promise方式来加载文件信息。"><a href="#可以采用同步、异步、promise方式来加载文件信息。" class="headerlink" title="可以采用同步、异步、promise方式来加载文件信息。"></a>可以采用同步、异步、promise方式来加载文件信息。</h2><figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">const fs = require(<span class="hljs-string">&#x27;fs&#x27;</span>);<br>const filepath = <span class="hljs-string">&#x27;./abc.txt&#x27;</span>;<br><span class="hljs-regexp">//</span> 案例 读取文件信息   同步方式<br><br><br><span class="hljs-regexp">//</span> const info = fs.statSync(filepath);<br><br><span class="hljs-regexp">//</span> console.log(info);<br><span class="hljs-regexp">//</span> console.log(<span class="hljs-string">&#x27;后续执行的代码&#x27;</span>)<br><br><span class="hljs-regexp">//</span> 方式二  异步操作<br><br><span class="hljs-regexp">//</span> fs.stat(filepath, (err,info) =&gt; &#123;<br><span class="hljs-regexp">//</span>     <span class="hljs-keyword">if</span>(err) &#123;<br><span class="hljs-regexp">//</span>         console.log(err);<br><span class="hljs-regexp">//</span>         return;<br><span class="hljs-regexp">//</span>     &#125;<br><span class="hljs-regexp">//</span>     console.log(info);<br><span class="hljs-regexp">//</span> &#125;)<br><span class="hljs-regexp">//</span> console.log(<span class="hljs-string">&quot;后续需要执行的代码&quot;</span>);<br><br><br><span class="hljs-regexp">//</span> 方式三  promise<br><br>fs.promises.stat(filepath).then(info =&gt; &#123;<br>    console.log(info);<br>&#125;).catch(err =&gt; &#123;<br>    console.log(err)<br>&#125;)<br><br>console.log(<span class="hljs-string">&quot;后面需要执行的代码&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>第一种方式因为同步会阻塞，会先打印info信息，后两种方式则会先打印 <font color=red>后续需要执行的代码</font> 这一段内容。</p>
+<h2 id="文件描述符"><a href="#文件描述符" class="headerlink" title="文件描述符"></a>文件描述符</h2><p>在node的文件系统中可以通过传递文件描述符，来对文件进行操作。</p>
+<pre>
+// 文件描述符
+fs.open("./abc.txt",(err, fd) => {
+    if(err){
+        console.log(err);
+        return;
+    }
+   // 通过描述符去获取文件的信息
+
+fs.fstat( fd , (err,info) => {
+    if(err){
+        console.log(err);
+        return;
+    }
+    console.log(info);
+    
+})
+})
+
+</pre>
+<p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211107165552FSinfo.png" alt="文件信息"></p>
+<h2 id="文件的读写"><a href="#文件的读写" class="headerlink" title="文件的读写"></a>文件的读写</h2><pre>const fs = require('fs')
+
+const content = "你好啊，前端程序员";
+const filePath = "./abc.txt";
+fs.writeFile(filePath, content, (err) => {
+    console.log(err)
+})
+
+
+fs.readFile(filePath, {encoding: 'utf-8'}, (err, data) => {
+    console.log(data);
+});</pre>
+
+<h2 id="文件夹的操作"><a href="#文件夹的操作" class="headerlink" title="文件夹的操作"></a>文件夹的操作</h2><ol>
+<li>创建文件夹</li>
+<li>读取文件夹中的所有文件夹</li>
+<li>文件夹的命名</li>
 </ol>
-<p>具体语句可参考 <a href="https://www.runoob.com/sql/sql-join.html">菜鸟教程</a></p>
-]]></content>
+<p><a href="http://nodejs.cn/learn/working-with-folders-in-nodejs/#%E6%A3%80%E6%9F%A5%E6%96%87%E4%BB%B6%E5%A4%B9%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8">文件夹的相关操作</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211107175920fileMoreName.png"></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;fs&#x27;</span>);<br><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;path&#x27;</span>);<br><span class="hljs-keyword">const</span> dirname = <span class="hljs-string">&#x27;./why&#x27;</span><br><span class="hljs-comment">// try &#123;</span><br><span class="hljs-comment">//   if (!fs.existsSync(dirname)) &#123;</span><br><span class="hljs-comment">//     fs.mkdirSync(dirname);</span><br><span class="hljs-comment">//   &#125;</span><br><span class="hljs-comment">// &#125; catch (err) &#123;</span><br><span class="hljs-comment">//   console.error(err)</span><br><span class="hljs-comment">// &#125;</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getFiles</span>(<span class="hljs-params">dirname</span>) </span>&#123;<br>    fs.readdir(dirname, &#123;<span class="hljs-attr">withFileTypes</span>: <span class="hljs-literal">true</span>&#125;, <span class="hljs-function">(<span class="hljs-params">err, files</span>) =&gt;</span> &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> file <span class="hljs-keyword">of</span> files) &#123;<br>            <span class="hljs-keyword">if</span>(file.isDirectory())&#123;<br>                <span class="hljs-keyword">const</span> filepath = path.resolve(dirname,file.name);<br>                getFiles(filepath);<br>            &#125;<br>            <span class="hljs-keyword">else</span> &#123;<br>                <span class="hljs-built_in">console</span>.log(file.name);<br>            &#125;<br>        &#125;<br>    &#125;)<br>&#125;<br>getFiles(dirname);<br><br><br></code></pre></td></tr></table></figure>
+
+<h1 id="事件触发器"><a href="#事件触发器" class="headerlink" title="事件触发器"></a><a href="http://nodejs.cn/api/events.html">事件触发器</a></h1>]]></content>
       <categories>
-        <category>mysql</category>
+        <category>node</category>
       </categories>
       <tags>
-        <tag>mysql</tag>
+        <tag>node</tag>
       </tags>
   </entry>
   <entry>
@@ -920,106 +998,6 @@ ALTER TABLE `user` DROP `age`;
       </tags>
   </entry>
   <entry>
-    <title>node常见内置模块</title>
-    <url>/2021/11/07/node/41601c7205c1/</url>
-    <content><![CDATA[<h1 id="path模块"><a href="#path模块" class="headerlink" title="path模块"></a><a href="http://nodejs.cn/learn/the-nodejs-path-module">path模块</a></h1><p>主要对路径和文件相关的进行处理。</p>
-<p>在开发过程中，我们可以用字符串拼接的方式来指定路径，但是考虑到不同操作系统对于路径分隔符的差异，可能导致的兼容性问题，我们采用path模块中的resolve方法来对路径进行处理，它会根据操作系统，来指定适配的路径分隔符。</p>
-<pre>
-const path = require('path');
-
-const basePath = 'User/why';
-const filename = 'abc.txt';
-
-const filepath = path.resolve(basePath, filename)
-
-console.log(filepath)
-
-</pre>
-
-<pre>
-PS C:\Users\starry\Desktop\total\node\04_node内置模块\02_path> node 01_路径的演练.js   
-C:\Users\starry\Desktop\total\node\04_node内置模块\02_path\User\why\abc.txt
-</pre>
-
-
-<h2 id="可以采用同步、异步、promise方式来加载文件信息。"><a href="#可以采用同步、异步、promise方式来加载文件信息。" class="headerlink" title="可以采用同步、异步、promise方式来加载文件信息。"></a>可以采用同步、异步、promise方式来加载文件信息。</h2><figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">const fs = require(<span class="hljs-string">&#x27;fs&#x27;</span>);<br>const filepath = <span class="hljs-string">&#x27;./abc.txt&#x27;</span>;<br><span class="hljs-regexp">//</span> 案例 读取文件信息   同步方式<br><br><br><span class="hljs-regexp">//</span> const info = fs.statSync(filepath);<br><br><span class="hljs-regexp">//</span> console.log(info);<br><span class="hljs-regexp">//</span> console.log(<span class="hljs-string">&#x27;后续执行的代码&#x27;</span>)<br><br><span class="hljs-regexp">//</span> 方式二  异步操作<br><br><span class="hljs-regexp">//</span> fs.stat(filepath, (err,info) =&gt; &#123;<br><span class="hljs-regexp">//</span>     <span class="hljs-keyword">if</span>(err) &#123;<br><span class="hljs-regexp">//</span>         console.log(err);<br><span class="hljs-regexp">//</span>         return;<br><span class="hljs-regexp">//</span>     &#125;<br><span class="hljs-regexp">//</span>     console.log(info);<br><span class="hljs-regexp">//</span> &#125;)<br><span class="hljs-regexp">//</span> console.log(<span class="hljs-string">&quot;后续需要执行的代码&quot;</span>);<br><br><br><span class="hljs-regexp">//</span> 方式三  promise<br><br>fs.promises.stat(filepath).then(info =&gt; &#123;<br>    console.log(info);<br>&#125;).catch(err =&gt; &#123;<br>    console.log(err)<br>&#125;)<br><br>console.log(<span class="hljs-string">&quot;后面需要执行的代码&quot;</span>)<br></code></pre></td></tr></table></figure>
-
-<p>第一种方式因为同步会阻塞，会先打印info信息，后两种方式则会先打印 <font color=red>后续需要执行的代码</font> 这一段内容。</p>
-<h2 id="文件描述符"><a href="#文件描述符" class="headerlink" title="文件描述符"></a>文件描述符</h2><p>在node的文件系统中可以通过传递文件描述符，来对文件进行操作。</p>
-<pre>
-// 文件描述符
-fs.open("./abc.txt",(err, fd) => {
-    if(err){
-        console.log(err);
-        return;
-    }
-   // 通过描述符去获取文件的信息
-
-fs.fstat( fd , (err,info) => {
-    if(err){
-        console.log(err);
-        return;
-    }
-    console.log(info);
-    
-})
-})
-
-</pre>
-<p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211107165552FSinfo.png" alt="文件信息"></p>
-<h2 id="文件的读写"><a href="#文件的读写" class="headerlink" title="文件的读写"></a>文件的读写</h2><pre>const fs = require('fs')
-
-const content = "你好啊，前端程序员";
-const filePath = "./abc.txt";
-fs.writeFile(filePath, content, (err) => {
-    console.log(err)
-})
-
-
-fs.readFile(filePath, {encoding: 'utf-8'}, (err, data) => {
-    console.log(data);
-});</pre>
-
-<h2 id="文件夹的操作"><a href="#文件夹的操作" class="headerlink" title="文件夹的操作"></a>文件夹的操作</h2><ol>
-<li>创建文件夹</li>
-<li>读取文件夹中的所有文件夹</li>
-<li>文件夹的命名</li>
-</ol>
-<p><a href="http://nodejs.cn/learn/working-with-folders-in-nodejs/#%E6%A3%80%E6%9F%A5%E6%96%87%E4%BB%B6%E5%A4%B9%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8">文件夹的相关操作</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211107175920fileMoreName.png"></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;fs&#x27;</span>);<br><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;path&#x27;</span>);<br><span class="hljs-keyword">const</span> dirname = <span class="hljs-string">&#x27;./why&#x27;</span><br><span class="hljs-comment">// try &#123;</span><br><span class="hljs-comment">//   if (!fs.existsSync(dirname)) &#123;</span><br><span class="hljs-comment">//     fs.mkdirSync(dirname);</span><br><span class="hljs-comment">//   &#125;</span><br><span class="hljs-comment">// &#125; catch (err) &#123;</span><br><span class="hljs-comment">//   console.error(err)</span><br><span class="hljs-comment">// &#125;</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getFiles</span>(<span class="hljs-params">dirname</span>) </span>&#123;<br>    fs.readdir(dirname, &#123;<span class="hljs-attr">withFileTypes</span>: <span class="hljs-literal">true</span>&#125;, <span class="hljs-function">(<span class="hljs-params">err, files</span>) =&gt;</span> &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> file <span class="hljs-keyword">of</span> files) &#123;<br>            <span class="hljs-keyword">if</span>(file.isDirectory())&#123;<br>                <span class="hljs-keyword">const</span> filepath = path.resolve(dirname,file.name);<br>                getFiles(filepath);<br>            &#125;<br>            <span class="hljs-keyword">else</span> &#123;<br>                <span class="hljs-built_in">console</span>.log(file.name);<br>            &#125;<br>        &#125;<br>    &#125;)<br>&#125;<br>getFiles(dirname);<br><br><br></code></pre></td></tr></table></figure>
-
-<h1 id="事件触发器"><a href="#事件触发器" class="headerlink" title="事件触发器"></a><a href="http://nodejs.cn/api/events.html">事件触发器</a></h1>]]></content>
-      <categories>
-        <category>node</category>
-      </categories>
-      <tags>
-        <tag>node</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>uni-app实战（一）</title>
-    <url>/2021/10/26/uni-app/4132b17f6755/</url>
-    <content><![CDATA[<h1 id="项目的构建"><a href="#项目的构建" class="headerlink" title="项目的构建"></a>项目的构建</h1><ol>
-<li>开发工具采用uni-app官方的开发工具<a href="https://www.dcloud.io/hbuilderx.html">HbuilderX</a></li>
-<li>构建项目选择基础模板</li>
-<li>引入样式库 <ul>
-<li>uni.css 官方ui库</li>
-<li>animate.css css动画库</li>
-<li>icon.css 图标库</li>
-<li>common.css 公共样式</li>
-</ul>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>uni-app</category>
-      </categories>
-      <tags>
-        <tag>uni-app</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>node学习</title>
     <url>/2021/11/05/node/d7430acb4af2/</url>
     <content><![CDATA[<h1 id="什么是node"><a href="#什么是node" class="headerlink" title="什么是node"></a>什么是node</h1><p>“Node全称NodeJS，是一个基于Chrome V8引擎的JavaScript运行环境；一个让JavaScript 运行在服务端的开发平台，它让JavaScript成为与PHP、Python、Perl等服务端语言平起平坐的脚本语言。”</p>
@@ -1252,6 +1230,28 @@ export default foo;</pre>
       </tags>
   </entry>
   <entry>
+    <title>uni-app实战（一）</title>
+    <url>/2021/10/26/uni-app/4132b17f6755/</url>
+    <content><![CDATA[<h1 id="项目的构建"><a href="#项目的构建" class="headerlink" title="项目的构建"></a>项目的构建</h1><ol>
+<li>开发工具采用uni-app官方的开发工具<a href="https://www.dcloud.io/hbuilderx.html">HbuilderX</a></li>
+<li>构建项目选择基础模板</li>
+<li>引入样式库 <ul>
+<li>uni.css 官方ui库</li>
+<li>animate.css css动画库</li>
+<li>icon.css 图标库</li>
+<li>common.css 公共样式</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>uni-app</category>
+      </categories>
+      <tags>
+        <tag>uni-app</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>vue3</title>
     <url>/2021/10/11/vue3/583a6ec9ccd6/</url>
     <content><![CDATA[<h1 id="vue3"><a href="#vue3" class="headerlink" title="vue3"></a>vue3</h1><p>   新一代的前端框架，基于typescript开发，具有更加优越的性能和更加安全的代码机制。</p>
@@ -1261,6 +1261,21 @@ export default foo;</pre>
       </categories>
       <tags>
         <tag>vue3</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vue3 基础文档学习</title>
+    <url>/2021/09/23/vue3/22ee434cee21/</url>
+    <content><![CDATA[<h1 id="基础文档网址"><a href="#基础文档网址" class="headerlink" title="基础文档网址"></a>基础文档网址</h1><p><a href="https://v3.cn.vuejs.org/">vue3官方文档学习</a></p>
+<span id="more"></span>
+]]></content>
+      <categories>
+        <category>vue3</category>
+      </categories>
+      <tags>
+        <tag>TypeScript</tag>
+        <tag>vue3</tag>
+        <tag>vite</tag>
       </tags>
   </entry>
   <entry>
@@ -1315,7 +1330,7 @@ See https://webpack.js.org/concepts#loaders
 <p>本质上，webpack loader 将所有类型的文件，转换为应用程序的依赖图（和最终的 bundle）可以直接引用的模块。</p>
 <h2 id="css-loader的安装"><a href="#css-loader的安装" class="headerlink" title="css-loader的安装"></a>css-loader的安装</h2><figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> css-loader -D<br></code></pre></td></tr></table></figure>
 
-<p>当前版本为：<font color=amber><a href="mailto:&#x63;&#115;&#115;&#45;&#x6c;&#x6f;&#x61;&#x64;&#x65;&#x72;&#64;&#x36;&#x2e;&#x34;&#46;&#x30;">&#x63;&#115;&#115;&#45;&#x6c;&#x6f;&#x61;&#x64;&#x65;&#x72;&#64;&#x36;&#x2e;&#x34;&#46;&#x30;</a></font></p>
+<p>当前版本为：<font color=amber><a href="mailto:&#x63;&#x73;&#x73;&#x2d;&#x6c;&#x6f;&#x61;&#x64;&#101;&#114;&#64;&#x36;&#46;&#52;&#x2e;&#x30;">&#x63;&#x73;&#x73;&#x2d;&#x6c;&#x6f;&#x61;&#x64;&#101;&#114;&#64;&#x36;&#46;&#52;&#x2e;&#x30;</a></font></p>
 <p>安装完css-loader后，在package.json的<font color=red>devDependencies</font>中即可看到对应的版本号，但是现在桥梁的材料准备好了，还需要将公路与桥梁进行以下安装处理，使得其可以稳固通行，也就是代码能够正常运行。要想达到目的，有以下几种方式：</p>
 <div class="tabs" id="tab"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#tab-1">配置方式 推荐</button></li><li class="tab"><button type="button" data-href="#tab-2">CLI方式（webpack5版本中不再使用）</button></li><li class="tab"><button type="button" data-href="#tab-3">内联方式</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="tab-1"><figure class="highlight yaml"><table><tr><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">module:</span> &#123;<br>   <span class="hljs-attr">rules:</span> [<br>     &#123;<br>       <span class="hljs-attr">test:</span> <span class="hljs-string">/\.css$/</span>,               <br>       <span class="hljs-attr">use:</span> [<br>         &#123; <span class="hljs-attr">loader:</span> <span class="hljs-string">&#x27;style-loader&#x27;</span> &#125;,<br>         &#123;<br>           <span class="hljs-attr">loader:</span> <span class="hljs-string">&#x27;css-loader&#x27;</span>,<br>           <span class="hljs-attr">options:</span> &#123;<br>             <span class="hljs-attr">modules:</span> <span class="hljs-literal">true</span><br>           &#125;<br>         &#125;<br>       ]<br>     &#125;<br>   ]<br> &#125;<br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-2"><figure class="highlight fortran"><table><tr><td class="code"><pre><code class="hljs fortran">webpack --<span class="hljs-keyword">module</span>-<span class="hljs-keyword">bind</span> jade-loader --<span class="hljs-keyword">module</span>-<span class="hljs-keyword">bind</span> <span class="hljs-string">&#x27;css=style-loader!css-loader&#x27;</span><br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-3"><p>通过loader名字和”!” 将css文件分隔开，当然也可以同时写多个 import “xxx-loader!css-loader../css/index.css”;</p>
 <figure class="highlight abnf"><table><tr><td class="code"><pre><code class="hljs abnf">import <span class="hljs-string">&quot;css-loader!../css/index.css&quot;</span><span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
@@ -1325,7 +1340,7 @@ See https://webpack.js.org/concepts#loaders
 <p>在前面我们已经了解到，处理css文件需要css-loader,style-loader等来处理，那么在开发过程中如果需要处理不同的文件，则需要不同的loader来实现代码功能。</p>
 <p>但是，以less文件举例子，则需要用到less工具</p>
 <figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> <span class="hljs-keyword">less</span> -D<br></code></pre></td></tr></table></figure>
-<p>当前版本：<font color=camel> <a href="mailto:&#108;&#101;&#115;&#x73;&#64;&#x34;&#x2e;&#x31;&#46;&#50;">&#108;&#101;&#115;&#x73;&#64;&#x34;&#x2e;&#x31;&#46;&#50;</a></font></p>
+<p>当前版本：<font color=camel> <a href="mailto:&#x6c;&#101;&#115;&#x73;&#x40;&#52;&#46;&#49;&#46;&#50;">&#x6c;&#101;&#115;&#x73;&#x40;&#52;&#46;&#49;&#46;&#50;</a></font></p>
 <p>安装完成后，可以通过npx来操作node_modules中的less，来进行处理：</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">npx less .<span class="hljs-regexp">/src/</span>css/component.less &gt; component.css<br></code></pre></td></tr></table></figure>
 <p>它可以将less文件转为正常的css文件</p>
@@ -1333,9 +1348,9 @@ See https://webpack.js.org/concepts#loaders
 
 <h1 id="less-loader"><a href="#less-loader" class="headerlink" title="less-loader"></a>less-loader</h1><p>从上面的处理过程中，我们能够体会到less工具的快捷，但是在中大型项目中，当有大量的less文件需要处理时，想要通过命令行完成less文件的转化显然是不现实的，于是可以采用less-loader来进行处理，当然<font color=seagreen>less-loader是基于less工具</font>的，所以使用less-loader时，需要保证提前安装了less工具。</p>
 <figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> <span class="hljs-keyword">less</span> -D<br></code></pre></td></tr></table></figure>
-<p>当前版本：<font color=camel> <a href="mailto:&#108;&#x65;&#115;&#115;&#x40;&#52;&#46;&#x31;&#x2e;&#x32;">&#108;&#x65;&#115;&#115;&#x40;&#52;&#46;&#x31;&#x2e;&#x32;</a></font></p>
+<p>当前版本：<font color=camel> <a href="mailto:&#x6c;&#x65;&#x73;&#x73;&#x40;&#x34;&#46;&#49;&#x2e;&#x32;">&#x6c;&#x65;&#x73;&#x73;&#x40;&#x34;&#46;&#49;&#x2e;&#x32;</a></font></p>
 <figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> <span class="hljs-keyword">less</span>-loader -D<br></code></pre></td></tr></table></figure>
-<p>当前版本： <font color=amber><a href="mailto:&#x6c;&#101;&#115;&#115;&#x2d;&#108;&#111;&#97;&#x64;&#x65;&#114;&#64;&#49;&#48;&#46;&#x32;&#x2e;&#48;">&#x6c;&#101;&#115;&#115;&#x2d;&#108;&#111;&#97;&#x64;&#x65;&#114;&#64;&#49;&#48;&#46;&#x32;&#x2e;&#48;</a></font></p>
+<p>当前版本： <font color=amber><a href="mailto:&#x6c;&#x65;&#x73;&#115;&#x2d;&#x6c;&#x6f;&#x61;&#100;&#x65;&#x72;&#x40;&#x31;&#x30;&#46;&#x32;&#x2e;&#x30;">&#x6c;&#x65;&#x73;&#115;&#x2d;&#x6c;&#x6f;&#x61;&#100;&#x65;&#x72;&#x40;&#x31;&#x30;&#46;&#x32;&#x2e;&#x30;</a></font></p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">module: &#123;<br>   <span class="hljs-regexp">//</span> rules数组里面都是rule对象<br>  rules: [<br>    &#123;<br>      test: <span class="hljs-regexp">/\.css$/</span>,    <span class="hljs-regexp">//</span> 匹配以css结尾的文件<br>      use: [<br>        <span class="hljs-regexp">//</span>  注意编写顺序  从下到上，从右往左，本质 从后往前<br>        &#123; loader: <span class="hljs-string">&#x27;style-loader&#x27;</span> &#125;,<br>        &#123;<br>          loader: <span class="hljs-string">&#x27;css-loader&#x27;</span>,<br>        &#125;<br>      ]<br>    &#125;,<br>    &#123;<br>      test: <span class="hljs-regexp">/\.less$/</span>,    <span class="hljs-regexp">//</span> 匹配以css结尾的文件<br>      use: [<br>        <span class="hljs-regexp">//</span>  注意编写顺序  从下到上，从右往左，本质 从后往前<br>        &#123; loader: <span class="hljs-string">&#x27;style-loader&#x27;</span> &#125;,<br>        &#123; loader: <span class="hljs-string">&#x27;css-loader&#x27;</span> &#125;,<br>        &#123;<br>          loader: <span class="hljs-string">&#x27;less-loader&#x27;</span>,<br>        &#125;<br>      ]<br>    &#125;<br>  ]<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h1 id="浏览器兼容性"><a href="#浏览器兼容性" class="headerlink" title="浏览器兼容性"></a>浏览器兼容性</h1><p>在开发中，我们会遇到浏览器的兼容性问题，不是指屏幕大小的变化适配，主要是针对于不同的浏览器所支持的特性之间的问题，比如CSS特性，js语法之间的兼容性，同时市面上存在着的浏览器，包括chrome、safari、IE、Edge、chrome for Android、UC Browser、QQ Browser等等，有着不同的市场占有率，是不是都需要兼容呢？</p>
@@ -1360,13 +1375,13 @@ See https://webpack.js.org/concepts#loaders
 <h2 id="使用postcss的步骤"><a href="#使用postcss的步骤" class="headerlink" title="使用postcss的步骤"></a>使用postcss的步骤</h2><p>第一步：查找postCss在构建工具中的扩展，比如webpack中的postcss-loader;<br>第二步： 选择可以添加你需要的postCss相关的插件</p>
 <p>如果是在终端直接使用，需要单独安装postcss-cli。</p>
 <figure class="highlight avrasm"><table><tr><td class="code"><pre><code class="hljs avrasm">npm i -D postcss postcss-<span class="hljs-keyword">cli</span><br></code></pre></td></tr></table></figure>
-<p><font color=chocolate>+ <a href="mailto:&#112;&#111;&#x73;&#116;&#99;&#x73;&#x73;&#64;&#x38;&#x2e;&#51;&#x2e;&#57;">&#112;&#111;&#x73;&#116;&#99;&#x73;&#x73;&#64;&#x38;&#x2e;&#51;&#x2e;&#57;</a></font><br><font color=yellowgreen>+ <a href="mailto:&#112;&#x6f;&#x73;&#116;&#99;&#x73;&#115;&#x2d;&#99;&#108;&#105;&#x40;&#57;&#46;&#x30;&#46;&#49;">&#112;&#x6f;&#x73;&#116;&#99;&#x73;&#115;&#x2d;&#99;&#108;&#105;&#x40;&#57;&#46;&#x30;&#46;&#49;</a></font></p>
+<p><font color=chocolate>+ <a href="mailto:&#x70;&#111;&#x73;&#x74;&#x63;&#x73;&#115;&#x40;&#56;&#46;&#x33;&#x2e;&#57;">&#x70;&#111;&#x73;&#x74;&#x63;&#x73;&#115;&#x40;&#56;&#46;&#x33;&#x2e;&#57;</a></font><br><font color=yellowgreen>+ <a href="mailto:&#x70;&#111;&#x73;&#x74;&#x63;&#x73;&#x73;&#45;&#99;&#x6c;&#x69;&#64;&#57;&#46;&#x30;&#x2e;&#x31;">&#x70;&#111;&#x73;&#x74;&#x63;&#x73;&#x73;&#45;&#99;&#x6c;&#x69;&#64;&#57;&#46;&#x30;&#x2e;&#x31;</a></font></p>
 <p>在css开发过程中，会写到很多属性和样式，让我们遇到不熟悉的属性的时候，不清楚需要对哪些浏览器进行适配的时候，可以到<a href="http://autoprefixer.github.io/">Autoprefixer CSS online</a>,它是一个postcss插件，可以通过它解析CSS并添加供应商前缀。</p>
 <p>自动添加前缀插件： autopreFixer</p>
 <figure class="highlight angelscript"><table><tr><td class="code"><pre><code class="hljs angelscript">npm install <span class="hljs-built_in">auto</span>prefixer -D<br></code></pre></td></tr></table></figure>
-<p>当前版本：<font color=blue><a href="mailto:&#97;&#x75;&#x74;&#111;&#112;&#114;&#x65;&#x66;&#105;&#120;&#x65;&#x72;&#64;&#49;&#48;&#x2e;&#51;&#x2e;&#55;">&#97;&#x75;&#x74;&#111;&#112;&#114;&#x65;&#x66;&#105;&#120;&#x65;&#x72;&#64;&#49;&#48;&#x2e;&#51;&#x2e;&#55;</a></font></p>
+<p>当前版本：<font color=blue><a href="mailto:&#x61;&#x75;&#116;&#111;&#112;&#x72;&#101;&#102;&#x69;&#120;&#101;&#114;&#64;&#49;&#x30;&#x2e;&#51;&#x2e;&#55;">&#x61;&#x75;&#116;&#111;&#112;&#x72;&#101;&#102;&#x69;&#120;&#101;&#114;&#64;&#49;&#x30;&#x2e;&#51;&#x2e;&#55;</a></font></p>
 <div class="tabs" id="tab"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#tab-1">webpack使用方式  post-cssloader</button></li><li class="tab"><button type="button" data-href="#tab-2">命令行使用方式：</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="tab-1"><figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> postcss-loader -D<br></code></pre></td></tr></table></figure>
-<p><font color=royalblue>+ <a href="mailto:&#x70;&#x6f;&#x73;&#x74;&#99;&#115;&#115;&#45;&#x6c;&#111;&#x61;&#x64;&#101;&#114;&#x40;&#x36;&#46;&#50;&#x2e;&#x30;">&#x70;&#x6f;&#x73;&#x74;&#99;&#115;&#115;&#45;&#x6c;&#111;&#x61;&#x64;&#101;&#114;&#x40;&#x36;&#46;&#50;&#x2e;&#x30;</a></font><br>它可以自动检测并通过postcss来进行css的自动化处理。</p>
+<p><font color=royalblue>+ <a href="mailto:&#112;&#111;&#x73;&#x74;&#x63;&#115;&#x73;&#x2d;&#108;&#111;&#x61;&#100;&#101;&#x72;&#x40;&#x36;&#46;&#50;&#x2e;&#x30;">&#112;&#111;&#x73;&#x74;&#x63;&#115;&#x73;&#x2d;&#108;&#111;&#x61;&#100;&#101;&#x72;&#x40;&#x36;&#46;&#50;&#x2e;&#x30;</a></font><br>它可以自动检测并通过postcss来进行css的自动化处理。</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">module: &#123;<br>     <span class="hljs-regexp">//</span> rules数组里面都是rule对象<br>    rules: [<br>      &#123;<br>        test: <span class="hljs-regexp">/\.css$/</span>,    <span class="hljs-regexp">//</span> 匹配以css结尾的文件<br>        use: [<br>          <span class="hljs-regexp">//</span>  注意编写顺序  从下到上，从右往左，本质 从后往前<br>          &#123; loader: <span class="hljs-string">&#x27;style-loader&#x27;</span> &#125;,<br>          &#123;<br>            loader: <span class="hljs-string">&#x27;css-loader&#x27;</span>,<br>          &#125;,<br>          &#123;<br>            loader: <span class="hljs-string">&#x27;postcss-loader&#x27;</span>,<br>            options: &#123;<br>              postcssOptions: &#123;<br>                plugins: [<br>                  require(<span class="hljs-string">&quot;autoprefixer&quot;</span>)<br>                ]<br>              &#125;<br>            &#125;<br>          &#125;<br>        ]<br>      &#125;<br>    ]<br>  &#125;<br><br></code></pre></td></tr></table></figure>
 <p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211019213331autoPreFixerExample.png" alt="自动加前缀实验"></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-2"><figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">npx postcss --use autoprefixer -o result.css .<span class="hljs-regexp">/src/</span>css/test.css<br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
 ]]></content>
@@ -1451,21 +1466,6 @@ See https://webpack.js.org/concepts#loaders
       </categories>
       <tags>
         <tag>webpack</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vue3 基础文档学习</title>
-    <url>/2021/09/23/vue3/22ee434cee21/</url>
-    <content><![CDATA[<h1 id="基础文档网址"><a href="#基础文档网址" class="headerlink" title="基础文档网址"></a>基础文档网址</h1><p><a href="https://v3.cn.vuejs.org/">vue3官方文档学习</a></p>
-<span id="more"></span>
-]]></content>
-      <categories>
-        <category>vue3</category>
-      </categories>
-      <tags>
-        <tag>TypeScript</tag>
-        <tag>vue3</tag>
-        <tag>vite</tag>
       </tags>
   </entry>
   <entry>
