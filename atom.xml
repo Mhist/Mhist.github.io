@@ -6,7 +6,7 @@
   <link href="http://wakeweb.cloud/atom.xml" rel="self"/>
   
   <link href="http://wakeweb.cloud/"/>
-  <updated>2021-11-14T13:50:32.790Z</updated>
+  <updated>2021-11-15T09:08:46.816Z</updated>
   <id>http://wakeweb.cloud/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>有趣的前端游戏</title>
+    <link href="http://wakeweb.cloud/2021/11/15/web-fun/fcf961257c62/"/>
+    <id>http://wakeweb.cloud/2021/11/15/web-fun/fcf961257c62/</id>
+    <published>2021-11-15T09:07:32.000Z</published>
+    <updated>2021-11-15T09:08:46.816Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;有趣的前端资源&quot;&gt;&lt;a href=&quot;#有趣的前端资源&quot; class=&quot;headerlink&quot; title=&quot;有趣的前端资源&quot;&gt;&lt;/a&gt;有趣的前端资源&lt;/h1&gt;&lt;p&gt;[1]&lt;br&gt;Flex Box 冒险游戏: &lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="web-fun" scheme="http://wakeweb.cloud/categories/web-fun/"/>
+    
+    
+    <category term="web-fun" scheme="http://wakeweb.cloud/tags/web-fun/"/>
+    
+  </entry>
   
   <entry>
     <title>mysql-多表</title>
@@ -454,31 +479,6 @@ SELECT</summary>
     
     
     <category term="JavaScript" scheme="http://wakeweb.cloud/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>webpack（一）</title>
-    <link href="http://wakeweb.cloud/2021/04/28/webpack/a052f112cdb6/"/>
-    <id>http://wakeweb.cloud/2021/04/28/webpack/a052f112cdb6/</id>
-    <published>2021-04-28T08:42:13.000Z</published>
-    <updated>2021-10-17T08:35:46.067Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;网络问题影响提交&quot;&gt;&lt;a href=&quot;#网络问题影响提交&quot; class=&quot;headerlink&quot; title=&quot;网络问题影响提交&quot;&gt;&lt;/a&gt;网络问题影响提交&lt;/h1&gt;&lt;p&gt;问题1：fatal: unable to access ‘&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="webpack" scheme="http://wakeweb.cloud/categories/webpack/"/>
-    
-    
-    <category term="webpack" scheme="http://wakeweb.cloud/tags/webpack/"/>
     
   </entry>
   
