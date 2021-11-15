@@ -445,23 +445,6 @@ SELECT</summary>
   </entry>
   
   <entry>
-    <title>certificate</title>
-    <link href="http://wakeweb.cloud/2021/05/11/uncategorized/625f7e6bd689/"/>
-    <id>http://wakeweb.cloud/2021/05/11/uncategorized/625f7e6bd689/</id>
-    <published>2021-05-11T13:46:14.000Z</published>
-    <updated>2021-10-11T10:05:44.791Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;简历相关纸质材料汇总&quot;&gt;&lt;a href=&quot;#简历相关纸质材料汇总&quot; class=&quot;headerlink&quot; title=&quot;简历相关纸质材料汇总&quot;&gt;&lt;/a&gt;简历相关纸质材料汇总&lt;/h1&gt;</summary>
-    
-    
-    
-    
-    <category term="certificate" scheme="http://wakeweb.cloud/tags/certificate/"/>
-    
-  </entry>
-  
-  <entry>
     <title>基本引用类型-date</title>
     <link href="http://wakeweb.cloud/2021/05/03/uncategorized/37be020c9cae/"/>
     <id>http://wakeweb.cloud/2021/05/03/uncategorized/37be020c9cae/</id>
@@ -479,6 +462,31 @@ SELECT</summary>
     
     
     <category term="JavaScript" scheme="http://wakeweb.cloud/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>webpack（一）</title>
+    <link href="http://wakeweb.cloud/2021/04/28/webpack/a052f112cdb6/"/>
+    <id>http://wakeweb.cloud/2021/04/28/webpack/a052f112cdb6/</id>
+    <published>2021-04-28T08:42:13.000Z</published>
+    <updated>2021-10-17T08:35:46.067Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;网络问题影响提交&quot;&gt;&lt;a href=&quot;#网络问题影响提交&quot; class=&quot;headerlink&quot; title=&quot;网络问题影响提交&quot;&gt;&lt;/a&gt;网络问题影响提交&lt;/h1&gt;&lt;p&gt;问题1：fatal: unable to access ‘&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="webpack" scheme="http://wakeweb.cloud/categories/webpack/"/>
+    
+    
+    <category term="webpack" scheme="http://wakeweb.cloud/tags/webpack/"/>
     
   </entry>
   
