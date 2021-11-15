@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://wakeweb.cloud/links/index.html</loc>
+    
+    <lastmod>2021-11-15</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://wakeweb.cloud/links/linklist.json</loc>
     
     <lastmod>2021-11-15</lastmod>
@@ -96,13 +103,6 @@
     <loc>http://wakeweb.cloud/2021/04/28/webpack/a052f112cdb6/</loc>
     
     <lastmod>2021-10-17</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wakeweb.cloud/links/index.html</loc>
-    
-    <lastmod>2021-10-14</lastmod>
     
   </url>
   
@@ -221,14 +221,7 @@
 
   
   <url>
-    <loc>http://wakeweb.cloud/tags/TypeScript/</loc>
-    <lastmod>2021-11-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://wakeweb.cloud/tags/hexo/</loc>
+    <loc>http://wakeweb.cloud/tags/vue/</loc>
     <lastmod>2021-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -242,7 +235,14 @@
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/tags/vue/</loc>
+    <loc>http://wakeweb.cloud/tags/TypeScript/</loc>
+    <lastmod>2021-11-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://wakeweb.cloud/tags/hexo/</loc>
     <lastmod>2021-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -284,14 +284,14 @@
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/tags/vite/</loc>
+    <loc>http://wakeweb.cloud/tags/webpack/</loc>
     <lastmod>2021-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/tags/webpack/</loc>
+    <loc>http://wakeweb.cloud/tags/vite/</loc>
     <lastmod>2021-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -305,14 +305,14 @@
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/tags/JavaScript/</loc>
+    <loc>http://wakeweb.cloud/tags/mhist-cli/</loc>
     <lastmod>2021-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/tags/mhist-cli/</loc>
+    <loc>http://wakeweb.cloud/tags/JavaScript/</loc>
     <lastmod>2021-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -328,6 +328,13 @@
 
   
   <url>
+    <loc>http://wakeweb.cloud/categories/git/</loc>
+    <lastmod>2021-11-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://wakeweb.cloud/categories/TypeScript/</loc>
     <lastmod>2021-11-15</lastmod>
     <changefreq>daily</changefreq>
@@ -336,13 +343,6 @@
   
   <url>
     <loc>http://wakeweb.cloud/categories/hexo/</loc>
-    <lastmod>2021-11-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://wakeweb.cloud/categories/git/</loc>
     <lastmod>2021-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
