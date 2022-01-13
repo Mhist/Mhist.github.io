@@ -417,7 +417,7 @@ v14.16.0</li>
 cmd控制台反馈如下：<pre>
 C:\Users\18827\AppData\Roaming\npm\create-react-app -> C:\Users\18827\AppData\Roaming\npm\node_modules\create-react-app\index.js</li>
 </ul>
-<p><a href="mailto:&#x2b;&#99;&#114;&#101;&#x61;&#x74;&#101;&#x2d;&#114;&#101;&#x61;&#99;&#116;&#x2d;&#97;&#x70;&#x70;&#64;&#52;&#x2e;&#48;&#46;&#51;">&#x2b;&#99;&#114;&#101;&#x61;&#x74;&#101;&#x2d;&#114;&#101;&#x61;&#99;&#116;&#x2d;&#97;&#x70;&#x70;&#64;&#52;&#x2e;&#48;&#46;&#51;</a><br>added 67 packages from 25 contributors in 22.805s<br> </pre></p>
+<p><a href="mailto:&#x2b;&#x63;&#114;&#x65;&#x61;&#x74;&#x65;&#45;&#x72;&#x65;&#x61;&#99;&#116;&#x2d;&#x61;&#x70;&#x70;&#64;&#52;&#46;&#48;&#x2e;&#51;">&#x2b;&#x63;&#114;&#x65;&#x61;&#x74;&#x65;&#45;&#x72;&#x65;&#x61;&#99;&#116;&#x2d;&#x61;&#x70;&#x70;&#64;&#52;&#46;&#48;&#x2e;&#51;</a><br>added 67 packages from 25 contributors in 22.805s<br> </pre></p>
 <h2 id="创建项目文件夹，并开启demo"><a href="#创建项目文件夹，并开启demo" class="headerlink" title="创建项目文件夹，并开启demo"></a>创建项目文件夹，并开启demo</h2><ul>
 <li><p>在电脑桌面同时按下Windows+R进入输入cmd,按enter</p>
 </li>
@@ -454,6 +454,208 @@ C:\Users\18827\AppData\Roaming\npm\create-react-app -> C:\Users\18827\AppData\Ro
 ]]></content>
       <tags>
         <tag>react</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mysql-多表</title>
+    <url>/2021/11/14/mysql/6220192bee46/</url>
+    <content><![CDATA[<h1 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h1><pre>
+# 1.聚合函数的使用        所有数据当作一组
+# 求所有手机的价格的总和
+SELECT SUM(price) FROM `product`;
+# 求所有华为手机的价格的总和
+SELECT SUM(price) FROM `product` WHERE brand = '华为'；
+# 求所有华为手机的平均价格
+SELECT AVG(price) FROM `product` WHERE brand = '华为'；
+# 求手机的最高价格
+SELECT MAX(price) FROM `product`；
+SELECT MIN(price) FROM `product`；
+
+# 1.求华为手机的个数
+SELECT COUNT(*) FROM `product` WHERE brand = '华为';
+SELECT COUNT(*) FROM `product` WHERE brand = '苹果';    
+SELECT COUNT(url) FROM `product` WHERE brand = '苹果';
+
+
+SELECT COUNT(price) FROM `product`;
+SELECT COUNT(DISTINCT price) FROM `product`;   #多个相同的价格只计算入一个
+
+# 2. GROUP BY 分组： 华为、苹果、小米、vivo各自一组
+SELECT brand , AVG(price),COUNT(*),AVG(score) FROM `product` GROUP BY brand;
+
+# 3. 在上条的基础上加上：平均价格>2000d的手机 HAVING的使用
+SELECT brand , AVG(price)  avgprice ,COUNT(*),AVG(score) FROM `product` GROUP BY brand HAVING avgprice > 2000 ;
+
+
+# 分组后查结果用having，它作用于GGROUP BY，分组前查询结果用WHERE,WHERE作用于表
+
+# 4.评分大于7.5的手机的平均价格
+SELECT AVG(price) FROM `product` WHERE score > 7.5;
+
+# 5.求所有手机 评分7.5以上,然后按照品牌分类，求出各自的平均价格
+SELECT brand,AVG(price) FROM `product` WHERE score > 7.5 GROUP BY brand;
+</pre>
+
+<h2 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h2><p>我们如果是希望在查询到产品时，显示对应的品牌的相关信息，因为数据是存放在两张表中，所以这个时候就需要进行多表查询。</p>
+<p>如果我们直接通过查询语句希望在多张表中查询到数据，这个时候是什么效果呢？</p>
+<p>例如：现在又两张表</p>
+<figure class="highlight n1ql"><table><tr><td class="code"><pre><code class="hljs n1ql"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-symbol">`product`</span>, <span class="hljs-symbol">`brand`</span>;<br></code></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211114171128moreTableQuery.png" alt="多表查询"></p>
+<p>可见，在这样子进行多表查询时，其数据量是两表数量的乘积，笛卡尔乘积。</p>
+<figure class="highlight n1ql"><table><tr><td class="code"><pre><code class="hljs n1ql"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-symbol">`product`</span>, <span class="hljs-symbol">`brand`</span> <span class="hljs-keyword">WHERE</span> product.brand_id = brand.id;<br></code></pre></td></tr></table></figure>
+
+<p>真实开发中，常用连接 join的方式，进行多表之间的连接  sql-join</p>
+<ol>
+<li>左连接</li>
+<li>右连接</li>
+<li>内连接</li>
+<li>全连接</li>
+</ol>
+<p>具体语句可参考 <a href="https://www.runoob.com/sql/sql-join.html">菜鸟教程</a></p>
+]]></content>
+      <categories>
+        <category>mysql</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mysql</title>
+    <url>/2021/11/12/mysql/ab03683a0789/</url>
+    <content><![CDATA[<h1 id="mysql下载地址"><a href="#mysql下载地址" class="headerlink" title="mysql下载地址"></a><a href="https://dev.mysql.com/downloads/file/?id=508936">mysql下载地址</a></h1><h1 id="mysql管理"><a href="#mysql管理" class="headerlink" title="mysql管理"></a>mysql管理</h1><ol>
+<li>可以使用命令行工具管理MySQL数据库（命令mysql和mysqladmin），也可以从MySQL的网站下载图形管理工具MySQL Workbench[12][13]。</li>
+<li>Navicat是一套专为MySQL设计的强大数据库管理及开发工具。它可以用于任何版本的MySQL数据库，并支持大部分MySQL的功能，包括触发器、索引、查看等。</li>
+<li>phpMyAdmin是由PHP写成的MySQL数据库系统管理程序，让管理者可用Web接口管理MySQL数据库。借由此Web接口可以成为一个简易方式输入繁杂SQL语法的较佳途径，尤其要处理大量资料的导入及导出更为方便。其中一个更大的优势在于由于phpMyAdmin跟其他PHP程序一样在网页服务器上执行，但是您可以在任何地方使用这些程序产生的HTML页面，也就是于远程管理你的MySQL数据库。使用phpMyAdmin您就可以方便的创建、修改、删除数据库及资料表。</li>
+<li>phpMyBackupPro[14]也是由PHP写成的，可以通过Web接口创建和管理数据库。它可以创建伪cronjobs，可以用来自动在某个时间或周期备份MySQL数据库。</li>
+</ol>
+<h1 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h1><p>用于解决mysql命令无法使用的问题。</p>
+<p>如何判断呢？ 首先打开终端，在命令行输入： mysql –version</p>
+<p>此时会提示 “MySQL”不是内部或外部命令，也不是可运行的程序或批处理文件，那么就是需要添加环境变量了。</p>
+<p>在Windows系统中找到环境变量的设置，找到path,在其中添加</p>
+<figure class="highlight taggerscript"><table><tr><td class="code"><pre><code class="hljs taggerscript">C:<span class="hljs-symbol">\P</span>rogram Files<span class="hljs-symbol">\M</span>ySQL<span class="hljs-symbol">\M</span>ySQL Server 8.0<span class="hljs-symbol">\b</span>in<br></code></pre></td></tr></table></figure>
+<p>这是你安装mysql的位置，复制地址到环境变量中，然后输入mysql –version进行确认。</p>
+<pre>C:\Windows\system32>mysql --version
+mysql  Ver 8.0.27 for Win64 on x86_64 (MySQL Community Server - GPL)</pre>
+
+
+<h1 id="连接MySQL"><a href="#连接MySQL" class="headerlink" title="连接MySQL"></a>连接MySQL</h1><ol>
+<li>mysql -uroot -p密码</li>
+<li>mysql -uroot -p<br>回车后会显示Enter password，输入即可，更加安全。</li>
+</ol>
+<h1 id="默认数据库"><a href="#默认数据库" class="headerlink" title="默认数据库"></a>默认数据库</h1><p>sql语句规范常用形式为大写，此时是为了方便阅读。</p>
+<p>连接后输入语句：show databases;注意不要忘了”;”</p>
+<pre>mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+6 rows in set (0.01 sec)</pre>
+
+<h1 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h1><figure class="highlight n1ql"><table><tr><td class="code"><pre><code class="hljs n1ql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">database</span> coderhub;<br></code></pre></td></tr></table></figure>
+
+<p>coderhub是自拟的数据库名称。</p>
+<pre>mysql> create database coderhub;
+Query OK, 1 row affected (0.01 sec)</pre>
+
+
+<h1 id="查看当前所在数据库"><a href="#查看当前所在数据库" class="headerlink" title="查看当前所在数据库"></a>查看当前所在数据库</h1><figure class="highlight csharp"><table><tr><td class="code"><pre><code class="hljs csharp"><span class="hljs-function"><span class="hljs-keyword">select</span> <span class="hljs-title">database</span>(<span class="hljs-params"></span>)</span>;<br><br></code></pre></td></tr></table></figure>
+<p>表示现在没有使用任何数据库</p>
+<pre>mysql> select database();
++------------+
+| database() |
++------------+
+| NULL       |
++------------+
+1 row in set (0.00 sec)</pre>
+
+<h1 id="选择（指定）要使用的的数据库"><a href="#选择（指定）要使用的的数据库" class="headerlink" title="选择（指定）要使用的的数据库"></a>选择（指定）要使用的的数据库</h1><figure class="highlight abnf"><table><tr><td class="code"><pre><code class="hljs abnf">use coderhub<span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure>
+<p>use + 数据库名称</p>
+<pre>mysql> use coderhub;
+Database changed</pre>
+
+<p>选择玩数据库后，再次查看当前在使用的数据库，发现刚才的NUll值，已经变为自定义的coderhub了。</p>
+<pre>mysql> select database();
++------------+
+| database() |
++------------+
+| coderhub   |
++------------+
+1 row in set (0.00 sec)</pre>
+
+<h1 id="查表"><a href="#查表" class="headerlink" title="查表"></a>查表</h1><figure class="highlight pgsql"><table><tr><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">show</span> <span class="hljs-keyword">tables</span>;<br></code></pre></td></tr></table></figure>
+<pre>mysql> show tables;
+Empty set (0.01 sec)
+</pre>
+
+<h1 id="建表"><a href="#建表" class="headerlink" title="建表"></a>建表</h1><pre>mysql> create table users(
+    -> name varchar(10),
+    -> age int,
+    -> height double);
+Query OK, 0 rows affected (0.05 sec)</pre>
+
+<p>其中users是表名，name,age,height是字段名，后面分别对应的是各自的字段类型。</p>
+<h1 id="显示表"><a href="#显示表" class="headerlink" title="显示表"></a>显示表</h1><figure class="highlight pgsql"><table><tr><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">show</span> <span class="hljs-keyword">tables</span>;<br></code></pre></td></tr></table></figure>
+
+<pre>mysql> show tables;
++--------------------+
+| Tables_in_coderhub |
++--------------------+
+| users              |
++--------------------+
+1 row in set (0.00 sec)
+</pre>
+
+<h1 id="再建表"><a href="#再建表" class="headerlink" title="再建表"></a>再建表</h1><pre>
+mysql> create table moment(title varchar(20), content varchar(512));
+Query OK, 0 rows affected (0.02 sec)
+</pre>
+
+<pre>mysql> show tables;
++--------------------+
+| Tables_in_coderhub |
++--------------------+
+| moment             |
+| users              |
++--------------------+
+2 rows in set (0.00 sec)
+</pre>
+
+<h1 id="查看表数据"><a href="#查看表数据" class="headerlink" title="查看表数据"></a>查看表数据</h1><figure class="highlight axapta"><table><tr><td class="code"><pre><code class="hljs axapta"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> users;<br></code></pre></td></tr></table></figure>
+<p>users是表名。</p>
+<pre>
+mysql> select * from users;
+Empty set (0.01 sec)
+</pre>
+
+<h1 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h1><figure class="highlight apache"><table><tr><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">mysql</span>&gt; insert into users (name,age,height) value (&#x27;coder&#x27;,<span class="hljs-number">18</span>,<span class="hljs-number">1</span>.<span class="hljs-number">88</span>);<br><span class="hljs-attribute">Query</span> OK, <span class="hljs-number">1</span> row affected (<span class="hljs-number">0</span>.<span class="hljs-number">00</span> sec)<br></code></pre></td></tr></table></figure>
+
+<pre>mysql> insert into users (name,age,height) value ('coder',18,1.88);
+Query OK, 1 row affected (0.00 sec)
+</pre>
+
+<p>插入三条这样的数据，后使用</p>
+<figure class="highlight axapta"><table><tr><td class="code"><pre><code class="hljs axapta"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> users;<br></code></pre></td></tr></table></figure>
+<pre>mysql> select * from users;
++---------+------+--------+
+| name    | age  | height |
++---------+------+--------+
+| coder   |   18 |   1.88 |
+| xiaobai |   19 |      2 |
+| xiaohu  |   23 |   1.78 |
++---------+------+--------+
+3 rows in set (0.00 sec)</pre>]]></content>
+      <categories>
+        <category>mysql</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -715,223 +917,6 @@ ALTER TABLE `user` DROP `age`;
       </categories>
       <tags>
         <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>mysql-多表</title>
-    <url>/2021/11/14/mysql/6220192bee46/</url>
-    <content><![CDATA[<h1 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h1><pre>
-# 1.聚合函数的使用        所有数据当作一组
-# 求所有手机的价格的总和
-SELECT SUM(price) FROM `product`;
-# 求所有华为手机的价格的总和
-SELECT SUM(price) FROM `product` WHERE brand = '华为'；
-# 求所有华为手机的平均价格
-SELECT AVG(price) FROM `product` WHERE brand = '华为'；
-# 求手机的最高价格
-SELECT MAX(price) FROM `product`；
-SELECT MIN(price) FROM `product`；
-
-# 1.求华为手机的个数
-SELECT COUNT(*) FROM `product` WHERE brand = '华为';
-SELECT COUNT(*) FROM `product` WHERE brand = '苹果';    
-SELECT COUNT(url) FROM `product` WHERE brand = '苹果';
-
-
-SELECT COUNT(price) FROM `product`;
-SELECT COUNT(DISTINCT price) FROM `product`;   #多个相同的价格只计算入一个
-
-# 2. GROUP BY 分组： 华为、苹果、小米、vivo各自一组
-SELECT brand , AVG(price),COUNT(*),AVG(score) FROM `product` GROUP BY brand;
-
-# 3. 在上条的基础上加上：平均价格>2000d的手机 HAVING的使用
-SELECT brand , AVG(price)  avgprice ,COUNT(*),AVG(score) FROM `product` GROUP BY brand HAVING avgprice > 2000 ;
-
-
-# 分组后查结果用having，它作用于GGROUP BY，分组前查询结果用WHERE,WHERE作用于表
-
-# 4.评分大于7.5的手机的平均价格
-SELECT AVG(price) FROM `product` WHERE score > 7.5;
-
-# 5.求所有手机 评分7.5以上,然后按照品牌分类，求出各自的平均价格
-SELECT brand,AVG(price) FROM `product` WHERE score > 7.5 GROUP BY brand;
-</pre>
-
-<h2 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h2><p>我们如果是希望在查询到产品时，显示对应的品牌的相关信息，因为数据是存放在两张表中，所以这个时候就需要进行多表查询。</p>
-<p>如果我们直接通过查询语句希望在多张表中查询到数据，这个时候是什么效果呢？</p>
-<p>例如：现在又两张表</p>
-<figure class="highlight n1ql"><table><tr><td class="code"><pre><code class="hljs n1ql"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-symbol">`product`</span>, <span class="hljs-symbol">`brand`</span>;<br></code></pre></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211114171128moreTableQuery.png" alt="多表查询"></p>
-<p>可见，在这样子进行多表查询时，其数据量是两表数量的乘积，笛卡尔乘积。</p>
-<figure class="highlight n1ql"><table><tr><td class="code"><pre><code class="hljs n1ql"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-symbol">`product`</span>, <span class="hljs-symbol">`brand`</span> <span class="hljs-keyword">WHERE</span> product.brand_id = brand.id;<br></code></pre></td></tr></table></figure>
-
-<p>真实开发中，常用连接 join的方式，进行多表之间的连接  sql-join</p>
-<ol>
-<li>左连接</li>
-<li>右连接</li>
-<li>内连接</li>
-<li>全连接</li>
-</ol>
-<p>具体语句可参考 <a href="https://www.runoob.com/sql/sql-join.html">菜鸟教程</a></p>
-]]></content>
-      <categories>
-        <category>mysql</category>
-      </categories>
-      <tags>
-        <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>mysql</title>
-    <url>/2021/11/12/mysql/ab03683a0789/</url>
-    <content><![CDATA[<h1 id="mysql下载地址"><a href="#mysql下载地址" class="headerlink" title="mysql下载地址"></a><a href="https://dev.mysql.com/downloads/file/?id=508936">mysql下载地址</a></h1><h1 id="mysql管理"><a href="#mysql管理" class="headerlink" title="mysql管理"></a>mysql管理</h1><ol>
-<li>可以使用命令行工具管理MySQL数据库（命令mysql和mysqladmin），也可以从MySQL的网站下载图形管理工具MySQL Workbench[12][13]。</li>
-<li>Navicat是一套专为MySQL设计的强大数据库管理及开发工具。它可以用于任何版本的MySQL数据库，并支持大部分MySQL的功能，包括触发器、索引、查看等。</li>
-<li>phpMyAdmin是由PHP写成的MySQL数据库系统管理程序，让管理者可用Web接口管理MySQL数据库。借由此Web接口可以成为一个简易方式输入繁杂SQL语法的较佳途径，尤其要处理大量资料的导入及导出更为方便。其中一个更大的优势在于由于phpMyAdmin跟其他PHP程序一样在网页服务器上执行，但是您可以在任何地方使用这些程序产生的HTML页面，也就是于远程管理你的MySQL数据库。使用phpMyAdmin您就可以方便的创建、修改、删除数据库及资料表。</li>
-<li>phpMyBackupPro[14]也是由PHP写成的，可以通过Web接口创建和管理数据库。它可以创建伪cronjobs，可以用来自动在某个时间或周期备份MySQL数据库。</li>
-</ol>
-<h1 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h1><p>用于解决mysql命令无法使用的问题。</p>
-<p>如何判断呢？ 首先打开终端，在命令行输入： mysql –version</p>
-<p>此时会提示 “MySQL”不是内部或外部命令，也不是可运行的程序或批处理文件，那么就是需要添加环境变量了。</p>
-<p>在Windows系统中找到环境变量的设置，找到path,在其中添加</p>
-<figure class="highlight taggerscript"><table><tr><td class="code"><pre><code class="hljs taggerscript">C:<span class="hljs-symbol">\P</span>rogram Files<span class="hljs-symbol">\M</span>ySQL<span class="hljs-symbol">\M</span>ySQL Server 8.0<span class="hljs-symbol">\b</span>in<br></code></pre></td></tr></table></figure>
-<p>这是你安装mysql的位置，复制地址到环境变量中，然后输入mysql –version进行确认。</p>
-<pre>C:\Windows\system32>mysql --version
-mysql  Ver 8.0.27 for Win64 on x86_64 (MySQL Community Server - GPL)</pre>
-
-
-<h1 id="连接MySQL"><a href="#连接MySQL" class="headerlink" title="连接MySQL"></a>连接MySQL</h1><ol>
-<li>mysql -uroot -p密码</li>
-<li>mysql -uroot -p<br>回车后会显示Enter password，输入即可，更加安全。</li>
-</ol>
-<h1 id="默认数据库"><a href="#默认数据库" class="headerlink" title="默认数据库"></a>默认数据库</h1><p>sql语句规范常用形式为大写，此时是为了方便阅读。</p>
-<p>连接后输入语句：show databases;注意不要忘了”;”</p>
-<pre>mysql> show databases;
-+--------------------+
-| Database           |
-+--------------------+
-| information_schema |
-| mysql              |
-| performance_schema |
-| sakila             |
-| sys                |
-| world              |
-+--------------------+
-6 rows in set (0.01 sec)</pre>
-
-<h1 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h1><figure class="highlight n1ql"><table><tr><td class="code"><pre><code class="hljs n1ql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">database</span> coderhub;<br></code></pre></td></tr></table></figure>
-
-<p>coderhub是自拟的数据库名称。</p>
-<pre>mysql> create database coderhub;
-Query OK, 1 row affected (0.01 sec)</pre>
-
-
-<h1 id="查看当前所在数据库"><a href="#查看当前所在数据库" class="headerlink" title="查看当前所在数据库"></a>查看当前所在数据库</h1><figure class="highlight csharp"><table><tr><td class="code"><pre><code class="hljs csharp"><span class="hljs-function"><span class="hljs-keyword">select</span> <span class="hljs-title">database</span>(<span class="hljs-params"></span>)</span>;<br><br></code></pre></td></tr></table></figure>
-<p>表示现在没有使用任何数据库</p>
-<pre>mysql> select database();
-+------------+
-| database() |
-+------------+
-| NULL       |
-+------------+
-1 row in set (0.00 sec)</pre>
-
-<h1 id="选择（指定）要使用的的数据库"><a href="#选择（指定）要使用的的数据库" class="headerlink" title="选择（指定）要使用的的数据库"></a>选择（指定）要使用的的数据库</h1><figure class="highlight abnf"><table><tr><td class="code"><pre><code class="hljs abnf">use coderhub<span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure>
-<p>use + 数据库名称</p>
-<pre>mysql> use coderhub;
-Database changed</pre>
-
-<p>选择玩数据库后，再次查看当前在使用的数据库，发现刚才的NUll值，已经变为自定义的coderhub了。</p>
-<pre>mysql> select database();
-+------------+
-| database() |
-+------------+
-| coderhub   |
-+------------+
-1 row in set (0.00 sec)</pre>
-
-<h1 id="查表"><a href="#查表" class="headerlink" title="查表"></a>查表</h1><figure class="highlight pgsql"><table><tr><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">show</span> <span class="hljs-keyword">tables</span>;<br></code></pre></td></tr></table></figure>
-<pre>mysql> show tables;
-Empty set (0.01 sec)
-</pre>
-
-<h1 id="建表"><a href="#建表" class="headerlink" title="建表"></a>建表</h1><pre>mysql> create table users(
-    -> name varchar(10),
-    -> age int,
-    -> height double);
-Query OK, 0 rows affected (0.05 sec)</pre>
-
-<p>其中users是表名，name,age,height是字段名，后面分别对应的是各自的字段类型。</p>
-<h1 id="显示表"><a href="#显示表" class="headerlink" title="显示表"></a>显示表</h1><figure class="highlight pgsql"><table><tr><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">show</span> <span class="hljs-keyword">tables</span>;<br></code></pre></td></tr></table></figure>
-
-<pre>mysql> show tables;
-+--------------------+
-| Tables_in_coderhub |
-+--------------------+
-| users              |
-+--------------------+
-1 row in set (0.00 sec)
-</pre>
-
-<h1 id="再建表"><a href="#再建表" class="headerlink" title="再建表"></a>再建表</h1><pre>
-mysql> create table moment(title varchar(20), content varchar(512));
-Query OK, 0 rows affected (0.02 sec)
-</pre>
-
-<pre>mysql> show tables;
-+--------------------+
-| Tables_in_coderhub |
-+--------------------+
-| moment             |
-| users              |
-+--------------------+
-2 rows in set (0.00 sec)
-</pre>
-
-<h1 id="查看表数据"><a href="#查看表数据" class="headerlink" title="查看表数据"></a>查看表数据</h1><figure class="highlight axapta"><table><tr><td class="code"><pre><code class="hljs axapta"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> users;<br></code></pre></td></tr></table></figure>
-<p>users是表名。</p>
-<pre>
-mysql> select * from users;
-Empty set (0.01 sec)
-</pre>
-
-<h1 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h1><figure class="highlight apache"><table><tr><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">mysql</span>&gt; insert into users (name,age,height) value (&#x27;coder&#x27;,<span class="hljs-number">18</span>,<span class="hljs-number">1</span>.<span class="hljs-number">88</span>);<br><span class="hljs-attribute">Query</span> OK, <span class="hljs-number">1</span> row affected (<span class="hljs-number">0</span>.<span class="hljs-number">00</span> sec)<br></code></pre></td></tr></table></figure>
-
-<pre>mysql> insert into users (name,age,height) value ('coder',18,1.88);
-Query OK, 1 row affected (0.00 sec)
-</pre>
-
-<p>插入三条这样的数据，后使用</p>
-<figure class="highlight axapta"><table><tr><td class="code"><pre><code class="hljs axapta"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> users;<br></code></pre></td></tr></table></figure>
-<pre>mysql> select * from users;
-+---------+------+--------+
-| name    | age  | height |
-+---------+------+--------+
-| coder   |   18 |   1.88 |
-| xiaobai |   19 |      2 |
-| xiaohu  |   23 |   1.78 |
-+---------+------+--------+
-3 rows in set (0.00 sec)</pre>]]></content>
-      <categories>
-        <category>mysql</category>
-      </categories>
-      <tags>
-        <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vue3 基础文档学习</title>
-    <url>/2021/09/23/vue3/22ee434cee21/</url>
-    <content><![CDATA[<h1 id="基础文档网址"><a href="#基础文档网址" class="headerlink" title="基础文档网址"></a>基础文档网址</h1><p><a href="https://v3.cn.vuejs.org/">vue3官方文档学习</a></p>
-<span id="more"></span>
-]]></content>
-      <categories>
-        <category>vue3</category>
-      </categories>
-      <tags>
-        <tag>TypeScript</tag>
-        <tag>vue3</tag>
-        <tag>vite</tag>
       </tags>
   </entry>
   <entry>
@@ -1245,18 +1230,6 @@ export default foo;</pre>
       </tags>
   </entry>
   <entry>
-    <title>vue3</title>
-    <url>/2021/10/11/vue3/583a6ec9ccd6/</url>
-    <content><![CDATA[<h1 id="vue3"><a href="#vue3" class="headerlink" title="vue3"></a>vue3</h1><p>   新一代的前端框架，基于typescript开发，具有更加优越的性能和更加安全的代码机制。</p>
-<span id="more"></span>]]></content>
-      <categories>
-        <category>vue3</category>
-      </categories>
-      <tags>
-        <tag>vue3</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>uni-app实战（一）</title>
     <url>/2021/10/26/uni-app/4132b17f6755/</url>
     <content><![CDATA[<h1 id="项目的构建"><a href="#项目的构建" class="headerlink" title="项目的构建"></a>项目的构建</h1><ol>
@@ -1276,6 +1249,33 @@ export default foo;</pre>
       </categories>
       <tags>
         <tag>uni-app</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vue3</title>
+    <url>/2021/10/11/vue3/583a6ec9ccd6/</url>
+    <content><![CDATA[<h1 id="vue3"><a href="#vue3" class="headerlink" title="vue3"></a>vue3</h1><p>   新一代的前端框架，基于typescript开发，具有更加优越的性能和更加安全的代码机制。</p>
+<span id="more"></span>]]></content>
+      <categories>
+        <category>vue3</category>
+      </categories>
+      <tags>
+        <tag>vue3</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vue3 基础文档学习</title>
+    <url>/2021/09/23/vue3/22ee434cee21/</url>
+    <content><![CDATA[<h1 id="基础文档网址"><a href="#基础文档网址" class="headerlink" title="基础文档网址"></a>基础文档网址</h1><p><a href="https://v3.cn.vuejs.org/">vue3官方文档学习</a></p>
+<span id="more"></span>
+]]></content>
+      <categories>
+        <category>vue3</category>
+      </categories>
+      <tags>
+        <tag>TypeScript</tag>
+        <tag>vue3</tag>
+        <tag>vite</tag>
       </tags>
   </entry>
   <entry>
@@ -1330,7 +1330,7 @@ See https://webpack.js.org/concepts#loaders
 <p>本质上，webpack loader 将所有类型的文件，转换为应用程序的依赖图（和最终的 bundle）可以直接引用的模块。</p>
 <h2 id="css-loader的安装"><a href="#css-loader的安装" class="headerlink" title="css-loader的安装"></a>css-loader的安装</h2><figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> css-loader -D<br></code></pre></td></tr></table></figure>
 
-<p>当前版本为：<font color=amber><a href="mailto:&#99;&#x73;&#115;&#x2d;&#108;&#x6f;&#97;&#x64;&#101;&#114;&#64;&#54;&#x2e;&#x34;&#46;&#48;">&#99;&#x73;&#115;&#x2d;&#108;&#x6f;&#97;&#x64;&#101;&#114;&#64;&#54;&#x2e;&#x34;&#46;&#48;</a></font></p>
+<p>当前版本为：<font color=amber><a href="mailto:&#99;&#x73;&#115;&#45;&#x6c;&#111;&#x61;&#100;&#x65;&#x72;&#64;&#54;&#46;&#52;&#46;&#48;">&#99;&#x73;&#115;&#45;&#x6c;&#111;&#x61;&#100;&#x65;&#x72;&#64;&#54;&#46;&#52;&#46;&#48;</a></font></p>
 <p>安装完css-loader后，在package.json的<font color=red>devDependencies</font>中即可看到对应的版本号，但是现在桥梁的材料准备好了，还需要将公路与桥梁进行以下安装处理，使得其可以稳固通行，也就是代码能够正常运行。要想达到目的，有以下几种方式：</p>
 <div class="tabs" id="tab"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#tab-1">配置方式 推荐</button></li><li class="tab"><button type="button" data-href="#tab-2">CLI方式（webpack5版本中不再使用）</button></li><li class="tab"><button type="button" data-href="#tab-3">内联方式</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="tab-1"><figure class="highlight yaml"><table><tr><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">module:</span> &#123;<br>   <span class="hljs-attr">rules:</span> [<br>     &#123;<br>       <span class="hljs-attr">test:</span> <span class="hljs-string">/\.css$/</span>,               <br>       <span class="hljs-attr">use:</span> [<br>         &#123; <span class="hljs-attr">loader:</span> <span class="hljs-string">&#x27;style-loader&#x27;</span> &#125;,<br>         &#123;<br>           <span class="hljs-attr">loader:</span> <span class="hljs-string">&#x27;css-loader&#x27;</span>,<br>           <span class="hljs-attr">options:</span> &#123;<br>             <span class="hljs-attr">modules:</span> <span class="hljs-literal">true</span><br>           &#125;<br>         &#125;<br>       ]<br>     &#125;<br>   ]<br> &#125;<br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-2"><figure class="highlight fortran"><table><tr><td class="code"><pre><code class="hljs fortran">webpack --<span class="hljs-keyword">module</span>-<span class="hljs-keyword">bind</span> jade-loader --<span class="hljs-keyword">module</span>-<span class="hljs-keyword">bind</span> <span class="hljs-string">&#x27;css=style-loader!css-loader&#x27;</span><br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-3"><p>通过loader名字和”!” 将css文件分隔开，当然也可以同时写多个 import “xxx-loader!css-loader../css/index.css”;</p>
 <figure class="highlight abnf"><table><tr><td class="code"><pre><code class="hljs abnf">import <span class="hljs-string">&quot;css-loader!../css/index.css&quot;</span><span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
@@ -1340,7 +1340,7 @@ See https://webpack.js.org/concepts#loaders
 <p>在前面我们已经了解到，处理css文件需要css-loader,style-loader等来处理，那么在开发过程中如果需要处理不同的文件，则需要不同的loader来实现代码功能。</p>
 <p>但是，以less文件举例子，则需要用到less工具</p>
 <figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> <span class="hljs-keyword">less</span> -D<br></code></pre></td></tr></table></figure>
-<p>当前版本：<font color=camel> <a href="mailto:&#x6c;&#101;&#x73;&#115;&#x40;&#52;&#x2e;&#49;&#x2e;&#50;">&#x6c;&#101;&#x73;&#115;&#x40;&#52;&#x2e;&#49;&#x2e;&#50;</a></font></p>
+<p>当前版本：<font color=camel> <a href="mailto:&#108;&#101;&#115;&#x73;&#x40;&#52;&#x2e;&#x31;&#x2e;&#x32;">&#108;&#101;&#115;&#x73;&#x40;&#52;&#x2e;&#x31;&#x2e;&#x32;</a></font></p>
 <p>安装完成后，可以通过npx来操作node_modules中的less，来进行处理：</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">npx less .<span class="hljs-regexp">/src/</span>css/component.less &gt; component.css<br></code></pre></td></tr></table></figure>
 <p>它可以将less文件转为正常的css文件</p>
@@ -1348,9 +1348,9 @@ See https://webpack.js.org/concepts#loaders
 
 <h1 id="less-loader"><a href="#less-loader" class="headerlink" title="less-loader"></a>less-loader</h1><p>从上面的处理过程中，我们能够体会到less工具的快捷，但是在中大型项目中，当有大量的less文件需要处理时，想要通过命令行完成less文件的转化显然是不现实的，于是可以采用less-loader来进行处理，当然<font color=seagreen>less-loader是基于less工具</font>的，所以使用less-loader时，需要保证提前安装了less工具。</p>
 <figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> <span class="hljs-keyword">less</span> -D<br></code></pre></td></tr></table></figure>
-<p>当前版本：<font color=camel> <a href="mailto:&#108;&#x65;&#x73;&#x73;&#64;&#52;&#x2e;&#49;&#46;&#x32;">&#108;&#x65;&#x73;&#x73;&#64;&#52;&#x2e;&#49;&#46;&#x32;</a></font></p>
+<p>当前版本：<font color=camel> <a href="mailto:&#x6c;&#x65;&#115;&#x73;&#x40;&#52;&#46;&#49;&#46;&#x32;">&#x6c;&#x65;&#115;&#x73;&#x40;&#52;&#46;&#49;&#46;&#x32;</a></font></p>
 <figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> <span class="hljs-keyword">less</span>-loader -D<br></code></pre></td></tr></table></figure>
-<p>当前版本： <font color=amber><a href="mailto:&#x6c;&#101;&#x73;&#115;&#x2d;&#x6c;&#x6f;&#97;&#100;&#x65;&#x72;&#x40;&#x31;&#x30;&#46;&#x32;&#x2e;&#x30;">&#x6c;&#101;&#x73;&#115;&#x2d;&#x6c;&#x6f;&#97;&#100;&#x65;&#x72;&#x40;&#x31;&#x30;&#46;&#x32;&#x2e;&#x30;</a></font></p>
+<p>当前版本： <font color=amber><a href="mailto:&#x6c;&#x65;&#115;&#x73;&#x2d;&#x6c;&#111;&#x61;&#x64;&#x65;&#x72;&#64;&#49;&#x30;&#46;&#x32;&#x2e;&#48;">&#x6c;&#x65;&#115;&#x73;&#x2d;&#x6c;&#111;&#x61;&#x64;&#x65;&#x72;&#64;&#49;&#x30;&#46;&#x32;&#x2e;&#48;</a></font></p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">module: &#123;<br>   <span class="hljs-regexp">//</span> rules数组里面都是rule对象<br>  rules: [<br>    &#123;<br>      test: <span class="hljs-regexp">/\.css$/</span>,    <span class="hljs-regexp">//</span> 匹配以css结尾的文件<br>      use: [<br>        <span class="hljs-regexp">//</span>  注意编写顺序  从下到上，从右往左，本质 从后往前<br>        &#123; loader: <span class="hljs-string">&#x27;style-loader&#x27;</span> &#125;,<br>        &#123;<br>          loader: <span class="hljs-string">&#x27;css-loader&#x27;</span>,<br>        &#125;<br>      ]<br>    &#125;,<br>    &#123;<br>      test: <span class="hljs-regexp">/\.less$/</span>,    <span class="hljs-regexp">//</span> 匹配以css结尾的文件<br>      use: [<br>        <span class="hljs-regexp">//</span>  注意编写顺序  从下到上，从右往左，本质 从后往前<br>        &#123; loader: <span class="hljs-string">&#x27;style-loader&#x27;</span> &#125;,<br>        &#123; loader: <span class="hljs-string">&#x27;css-loader&#x27;</span> &#125;,<br>        &#123;<br>          loader: <span class="hljs-string">&#x27;less-loader&#x27;</span>,<br>        &#125;<br>      ]<br>    &#125;<br>  ]<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h1 id="浏览器兼容性"><a href="#浏览器兼容性" class="headerlink" title="浏览器兼容性"></a>浏览器兼容性</h1><p>在开发中，我们会遇到浏览器的兼容性问题，不是指屏幕大小的变化适配，主要是针对于不同的浏览器所支持的特性之间的问题，比如CSS特性，js语法之间的兼容性，同时市面上存在着的浏览器，包括chrome、safari、IE、Edge、chrome for Android、UC Browser、QQ Browser等等，有着不同的市场占有率，是不是都需要兼容呢？</p>
@@ -1375,13 +1375,13 @@ See https://webpack.js.org/concepts#loaders
 <h2 id="使用postcss的步骤"><a href="#使用postcss的步骤" class="headerlink" title="使用postcss的步骤"></a>使用postcss的步骤</h2><p>第一步：查找postCss在构建工具中的扩展，比如webpack中的postcss-loader;<br>第二步： 选择可以添加你需要的postCss相关的插件</p>
 <p>如果是在终端直接使用，需要单独安装postcss-cli。</p>
 <figure class="highlight avrasm"><table><tr><td class="code"><pre><code class="hljs avrasm">npm i -D postcss postcss-<span class="hljs-keyword">cli</span><br></code></pre></td></tr></table></figure>
-<p><font color=chocolate>+ <a href="mailto:&#x70;&#x6f;&#115;&#116;&#x63;&#x73;&#115;&#64;&#x38;&#x2e;&#x33;&#46;&#57;">&#x70;&#x6f;&#115;&#116;&#x63;&#x73;&#115;&#64;&#x38;&#x2e;&#x33;&#46;&#57;</a></font><br><font color=yellowgreen>+ <a href="mailto:&#x70;&#x6f;&#x73;&#116;&#99;&#115;&#x73;&#x2d;&#99;&#108;&#105;&#64;&#57;&#x2e;&#48;&#46;&#49;">&#x70;&#x6f;&#x73;&#116;&#99;&#115;&#x73;&#x2d;&#99;&#108;&#105;&#64;&#57;&#x2e;&#48;&#46;&#49;</a></font></p>
+<p><font color=chocolate>+ <a href="mailto:&#x70;&#111;&#115;&#x74;&#99;&#115;&#x73;&#64;&#56;&#46;&#51;&#46;&#x39;">&#x70;&#111;&#115;&#x74;&#99;&#115;&#x73;&#64;&#56;&#46;&#51;&#46;&#x39;</a></font><br><font color=yellowgreen>+ <a href="mailto:&#112;&#111;&#x73;&#116;&#99;&#x73;&#115;&#45;&#99;&#x6c;&#x69;&#64;&#57;&#46;&#48;&#x2e;&#x31;">&#112;&#111;&#x73;&#116;&#99;&#x73;&#115;&#45;&#99;&#x6c;&#x69;&#64;&#57;&#46;&#48;&#x2e;&#x31;</a></font></p>
 <p>在css开发过程中，会写到很多属性和样式，让我们遇到不熟悉的属性的时候，不清楚需要对哪些浏览器进行适配的时候，可以到<a href="http://autoprefixer.github.io/">Autoprefixer CSS online</a>,它是一个postcss插件，可以通过它解析CSS并添加供应商前缀。</p>
 <p>自动添加前缀插件： autopreFixer</p>
 <figure class="highlight angelscript"><table><tr><td class="code"><pre><code class="hljs angelscript">npm install <span class="hljs-built_in">auto</span>prefixer -D<br></code></pre></td></tr></table></figure>
-<p>当前版本：<font color=blue><a href="mailto:&#97;&#x75;&#116;&#x6f;&#x70;&#114;&#x65;&#102;&#105;&#x78;&#101;&#114;&#64;&#x31;&#x30;&#x2e;&#x33;&#46;&#x37;">&#97;&#x75;&#116;&#x6f;&#x70;&#114;&#x65;&#102;&#105;&#x78;&#101;&#114;&#64;&#x31;&#x30;&#x2e;&#x33;&#46;&#x37;</a></font></p>
+<p>当前版本：<font color=blue><a href="mailto:&#97;&#117;&#116;&#x6f;&#112;&#114;&#101;&#x66;&#105;&#120;&#x65;&#114;&#64;&#49;&#x30;&#46;&#x33;&#x2e;&#55;">&#97;&#117;&#116;&#x6f;&#112;&#114;&#101;&#x66;&#105;&#120;&#x65;&#114;&#64;&#49;&#x30;&#46;&#x33;&#x2e;&#55;</a></font></p>
 <div class="tabs" id="tab"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#tab-1">webpack使用方式  post-cssloader</button></li><li class="tab"><button type="button" data-href="#tab-2">命令行使用方式：</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="tab-1"><figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> postcss-loader -D<br></code></pre></td></tr></table></figure>
-<p><font color=royalblue>+ <a href="mailto:&#x70;&#x6f;&#x73;&#116;&#99;&#115;&#x73;&#45;&#108;&#111;&#97;&#100;&#x65;&#114;&#64;&#54;&#46;&#50;&#x2e;&#48;">&#x70;&#x6f;&#x73;&#116;&#99;&#115;&#x73;&#45;&#108;&#111;&#97;&#100;&#x65;&#114;&#64;&#54;&#46;&#50;&#x2e;&#48;</a></font><br>它可以自动检测并通过postcss来进行css的自动化处理。</p>
+<p><font color=royalblue>+ <a href="mailto:&#x70;&#x6f;&#x73;&#116;&#x63;&#115;&#115;&#45;&#108;&#111;&#x61;&#100;&#x65;&#x72;&#x40;&#54;&#46;&#50;&#46;&#x30;">&#x70;&#x6f;&#x73;&#116;&#x63;&#115;&#115;&#45;&#108;&#111;&#x61;&#100;&#x65;&#x72;&#x40;&#54;&#46;&#50;&#46;&#x30;</a></font><br>它可以自动检测并通过postcss来进行css的自动化处理。</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">module: &#123;<br>     <span class="hljs-regexp">//</span> rules数组里面都是rule对象<br>    rules: [<br>      &#123;<br>        test: <span class="hljs-regexp">/\.css$/</span>,    <span class="hljs-regexp">//</span> 匹配以css结尾的文件<br>        use: [<br>          <span class="hljs-regexp">//</span>  注意编写顺序  从下到上，从右往左，本质 从后往前<br>          &#123; loader: <span class="hljs-string">&#x27;style-loader&#x27;</span> &#125;,<br>          &#123;<br>            loader: <span class="hljs-string">&#x27;css-loader&#x27;</span>,<br>          &#125;,<br>          &#123;<br>            loader: <span class="hljs-string">&#x27;postcss-loader&#x27;</span>,<br>            options: &#123;<br>              postcssOptions: &#123;<br>                plugins: [<br>                  require(<span class="hljs-string">&quot;autoprefixer&quot;</span>)<br>                ]<br>              &#125;<br>            &#125;<br>          &#125;<br>        ]<br>      &#125;<br>    ]<br>  &#125;<br><br></code></pre></td></tr></table></figure>
 <p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211019213331autoPreFixerExample.png" alt="自动加前缀实验"></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-2"><figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">npx postcss --use autoprefixer -o result.css .<span class="hljs-regexp">/src/</span>css/test.css<br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
 ]]></content>
@@ -1393,13 +1393,79 @@ See https://webpack.js.org/concepts#loaders
       </tags>
   </entry>
   <entry>
-    <title>vue+elementUI后台管理系统</title>
-    <url>/2021/04/17/uncategorized/cf07c19a06d1/</url>
-    <content><![CDATA[<h1 id="关于后台管理系统开发过程中问题的解决"><a href="#关于后台管理系统开发过程中问题的解决" class="headerlink" title="关于后台管理系统开发过程中问题的解决"></a>关于后台管理系统开发过程中问题的解决</h1><h2 id="相关环境及版本号"><a href="#相关环境及版本号" class="headerlink" title="相关环境及版本号"></a>相关环境及版本号</h2><p>node -v</p>
-<span id="more"></span>
+    <title>webpack（一）</title>
+    <url>/2021/04/28/webpack/a052f112cdb6/</url>
+    <content><![CDATA[<h1 id="网络问题影响提交"><a href="#网络问题影响提交" class="headerlink" title="网络问题影响提交"></a>网络问题影响提交</h1><p>问题1：fatal: unable to access ‘<a href="https://github.com/Mhist/Mhist.github.io.git/&#39;">https://github.com/Mhist/Mhist.github.io.git/&#39;</a>: OpenSSL SSL_read: Connection was reset, errno 10054</p>
+<figure class="highlight tcl"><table><tr><td class="code"><pre><code class="hljs tcl">git config --<span class="hljs-keyword">global</span> <span class="hljs-keyword">http</span>.sslVerify <span class="hljs-string">&quot;false&quot;</span><br></code></pre></td></tr></table></figure>
+<p>问题2 ：Failed to connect to github.com port 443: Timed out</p>
+<figure class="highlight tcl"><table><tr><td class="code"><pre><code class="hljs tcl">git config --<span class="hljs-keyword">global</span> --<span class="hljs-keyword">unset</span> <span class="hljs-keyword">http</span>.proxy<br></code></pre></td></tr></table></figure>
+
+<h1 id="前言—带着问题学习webpack"><a href="#前言—带着问题学习webpack" class="headerlink" title="前言—带着问题学习webpack"></a>前言—带着问题学习webpack</h1><ul>
+<li>1.什么是webpack?</li>
+<li>2.为什么要学习webpack?</li>
+<li>3.webpack有哪些基本概念，应该怎么高效学习webpack?</li>
+</ul>
+<h1 id="webpack基本概念"><a href="#webpack基本概念" class="headerlink" title="webpack基本概念"></a>webpack基本概念</h1><ul>
+<li><a href="https://www.webpackjs.com/">webpack中文官网</a></li>
+<li><a href="https://createapp.dev/webpack/no-library">webpack在线配置</a></li>
+</ul>
+<p>  在官网中，给出了webpack的基本解释，也就是网页的打包工具。它能够将项目的文件资源、图片、样式、脚本等通过 webpack 递归地构建一个依赖关系图(dependency graph)，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 bundle（包）。</p>
+<h1 id="学习webpack有什么作用"><a href="#学习webpack有什么作用" class="headerlink" title="学习webpack有什么作用"></a>学习webpack有什么作用</h1><ol>
+<li>给某些目录结构起别名</li>
+<li>让项目支持sass、less等预处理器</li>
+<li>添加配置让项目支持TypeScript</li>
+<li>安装性能分析工具</li>
+<li>使用Gzip压缩代码</li>
+<li>引用cdn的资源</li>
+<li>公共代码的抽取</li>
+<li>编写定制化的loader和plugin</li>
+<li>其他定制化配置，使得模块化开发和高级特性在低级浏览器也能正常显示</li>
+</ol>
+<h1 id="webpack的安装"><a href="#webpack的安装" class="headerlink" title="webpack的安装"></a>webpack的安装</h1><p>最新版本为：<img src="https://img.shields.io/npm/v/webpack.svg?label=webpack&style=flat-square&maxAge=3600" alt="webpack最新版本"></p>
+<ul>
+<li>依赖node环境，最低的node版本要求 <strong>v10.13.0</strong></li>
+<li>博主当前node版本：v14.16.1 </li>
+<li><a href="https://nodejs.org/en/">node官网及版本，最新稳定版本 v14.18.1</a></li>
+</ul>
+<hr>
+<h2 id="安装方式"><a href="#安装方式" class="headerlink" title="安装方式"></a>安装方式</h2><p>1.本地安装（推荐）</p>
+<ul>
+<li>对于大多数项目，我们建议本地安装。这可以使我们在引入破坏式变更(breaking change)的依赖时，更容易分别升级项目。通常，webpack 通过运行一个或多个 npm scripts，会在本地 node_modules 目录中查找安装的 webpack：</li>
+<li>方式1<figure class="highlight 1c"><table><tr><td class="code"><pre><code class="hljs 1c"><span class="hljs-string">&quot;scripts&quot;</span>: &#123;<br>    <span class="hljs-string">&quot;start&quot;</span>: <span class="hljs-string">&quot;webpack --config webpack.config.js&quot;</span><br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li>方式2<figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">.<span class="hljs-regexp">/node_modules/</span>.bin/webpack <br></code></pre></td></tr></table></figure></li>
+<li>方式3<br>或者使用npx,它可以直接访问node_modules中的命令<figure class="highlight ebnf"><table><tr><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">npx webpack</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<p>当你在本地安装 webpack 后，你能够从 node_modules/.bin/webpack 访问它的 bin 版本。</p>
+<ul>
+<li>安装最新版本<figure class="highlight q"><table><tr><td class="code"><pre><code class="hljs q">npm install --<span class="hljs-built_in">save</span>-<span class="hljs-built_in">dev</span> webpack<br></code></pre></td></tr></table></figure></li>
+<li>安装指定版本<figure class="highlight angelscript"><table><tr><td class="code"><pre><code class="hljs angelscript">npm install --save-dev <span class="hljs-symbol">webpack@<span class="hljs-keyword">&lt;version&gt;</span></span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<p>2.全局安装(不推荐)</p>
+<figure class="highlight coffeescript"><table><tr><td class="code"><pre><code class="hljs coffeescript"><span class="hljs-built_in">npm</span> install --<span class="hljs-built_in">global</span> webpack<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>原因是：这会将项目中的webpack的版本锁定为全局安装时的版本，当因为开发时段和开发需求的不同而导致项目中依赖不同版本的webpack来构建时，可能会造成构建失败。</li>
+</ul>
+<h2 id="WEBPACK-CLI"><a href="#WEBPACK-CLI" class="headerlink" title="WEBPACK-CLI"></a>WEBPACK-CLI</h2><p> 对于webpack4可能需要安装webpack-cli,提供一下命令：</p>
+<ul>
+<li>全局安装</li>
+</ul>
+<figure class="highlight avrasm"><table><tr><td class="code"><pre><code class="hljs avrasm">npm install webpack-<span class="hljs-keyword">cli</span> -g<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>本地安装</li>
+</ul>
+<figure class="highlight avrasm"><table><tr><td class="code"><pre><code class="hljs avrasm">npm install webpack-<span class="hljs-keyword">cli</span> -D<br></code></pre></td></tr></table></figure>
+
+
+
+
 ]]></content>
+      <categories>
+        <category>webpack</category>
+      </categories>
       <tags>
-        <tag>cms</tag>
+        <tag>webpack</tag>
       </tags>
   </entry>
   <entry>
@@ -1426,6 +1492,16 @@ See https://webpack.js.org/concepts#loaders
         <tag>TypeScript</tag>
         <tag>vue3</tag>
         <tag>vite</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vue+elementUI后台管理系统</title>
+    <url>/2021/04/17/uncategorized/cf07c19a06d1/</url>
+    <content><![CDATA[<h1 id="关于后台管理系统开发过程中问题的解决"><a href="#关于后台管理系统开发过程中问题的解决" class="headerlink" title="关于后台管理系统开发过程中问题的解决"></a>关于后台管理系统开发过程中问题的解决</h1><h2 id="相关环境及版本号"><a href="#相关环境及版本号" class="headerlink" title="相关环境及版本号"></a>相关环境及版本号</h2><p>node -v</p>
+<span id="more"></span>
+]]></content>
+      <tags>
+        <tag>cms</tag>
       </tags>
   </entry>
   <entry>
@@ -1599,79 +1675,42 @@ See https://webpack.js.org/concepts#loaders
       </tags>
   </entry>
   <entry>
-    <title>webpack（一）</title>
-    <url>/2021/04/28/webpack/a052f112cdb6/</url>
-    <content><![CDATA[<h1 id="网络问题影响提交"><a href="#网络问题影响提交" class="headerlink" title="网络问题影响提交"></a>网络问题影响提交</h1><p>问题1：fatal: unable to access ‘<a href="https://github.com/Mhist/Mhist.github.io.git/&#39;">https://github.com/Mhist/Mhist.github.io.git/&#39;</a>: OpenSSL SSL_read: Connection was reset, errno 10054</p>
-<figure class="highlight tcl"><table><tr><td class="code"><pre><code class="hljs tcl">git config --<span class="hljs-keyword">global</span> <span class="hljs-keyword">http</span>.sslVerify <span class="hljs-string">&quot;false&quot;</span><br></code></pre></td></tr></table></figure>
-<p>问题2 ：Failed to connect to github.com port 443: Timed out</p>
-<figure class="highlight tcl"><table><tr><td class="code"><pre><code class="hljs tcl">git config --<span class="hljs-keyword">global</span> --<span class="hljs-keyword">unset</span> <span class="hljs-keyword">http</span>.proxy<br></code></pre></td></tr></table></figure>
-
-<h1 id="前言—带着问题学习webpack"><a href="#前言—带着问题学习webpack" class="headerlink" title="前言—带着问题学习webpack"></a>前言—带着问题学习webpack</h1><ul>
-<li>1.什么是webpack?</li>
-<li>2.为什么要学习webpack?</li>
-<li>3.webpack有哪些基本概念，应该怎么高效学习webpack?</li>
-</ul>
-<h1 id="webpack基本概念"><a href="#webpack基本概念" class="headerlink" title="webpack基本概念"></a>webpack基本概念</h1><ul>
-<li><a href="https://www.webpackjs.com/">webpack中文官网</a></li>
-<li><a href="https://createapp.dev/webpack/no-library">webpack在线配置</a></li>
-</ul>
-<p>  在官网中，给出了webpack的基本解释，也就是网页的打包工具。它能够将项目的文件资源、图片、样式、脚本等通过 webpack 递归地构建一个依赖关系图(dependency graph)，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 bundle（包）。</p>
-<h1 id="学习webpack有什么作用"><a href="#学习webpack有什么作用" class="headerlink" title="学习webpack有什么作用"></a>学习webpack有什么作用</h1><ol>
-<li>给某些目录结构起别名</li>
-<li>让项目支持sass、less等预处理器</li>
-<li>添加配置让项目支持TypeScript</li>
-<li>安装性能分析工具</li>
-<li>使用Gzip压缩代码</li>
-<li>引用cdn的资源</li>
-<li>公共代码的抽取</li>
-<li>编写定制化的loader和plugin</li>
-<li>其他定制化配置，使得模块化开发和高级特性在低级浏览器也能正常显示</li>
-</ol>
-<h1 id="webpack的安装"><a href="#webpack的安装" class="headerlink" title="webpack的安装"></a>webpack的安装</h1><p>最新版本为：<img src="https://img.shields.io/npm/v/webpack.svg?label=webpack&style=flat-square&maxAge=3600" alt="webpack最新版本"></p>
-<ul>
-<li>依赖node环境，最低的node版本要求 <strong>v10.13.0</strong></li>
-<li>博主当前node版本：v14.16.1 </li>
-<li><a href="https://nodejs.org/en/">node官网及版本，最新稳定版本 v14.18.1</a></li>
-</ul>
-<hr>
-<h2 id="安装方式"><a href="#安装方式" class="headerlink" title="安装方式"></a>安装方式</h2><p>1.本地安装（推荐）</p>
-<ul>
-<li>对于大多数项目，我们建议本地安装。这可以使我们在引入破坏式变更(breaking change)的依赖时，更容易分别升级项目。通常，webpack 通过运行一个或多个 npm scripts，会在本地 node_modules 目录中查找安装的 webpack：</li>
-<li>方式1<figure class="highlight 1c"><table><tr><td class="code"><pre><code class="hljs 1c"><span class="hljs-string">&quot;scripts&quot;</span>: &#123;<br>    <span class="hljs-string">&quot;start&quot;</span>: <span class="hljs-string">&quot;webpack --config webpack.config.js&quot;</span><br>&#125;<br></code></pre></td></tr></table></figure></li>
-<li>方式2<figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">.<span class="hljs-regexp">/node_modules/</span>.bin/webpack <br></code></pre></td></tr></table></figure></li>
-<li>方式3<br>或者使用npx,它可以直接访问node_modules中的命令<figure class="highlight ebnf"><table><tr><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">npx webpack</span><br></code></pre></td></tr></table></figure></li>
-</ul>
-<p>当你在本地安装 webpack 后，你能够从 node_modules/.bin/webpack 访问它的 bin 版本。</p>
-<ul>
-<li>安装最新版本<figure class="highlight q"><table><tr><td class="code"><pre><code class="hljs q">npm install --<span class="hljs-built_in">save</span>-<span class="hljs-built_in">dev</span> webpack<br></code></pre></td></tr></table></figure></li>
-<li>安装指定版本<figure class="highlight angelscript"><table><tr><td class="code"><pre><code class="hljs angelscript">npm install --save-dev <span class="hljs-symbol">webpack@<span class="hljs-keyword">&lt;version&gt;</span></span><br></code></pre></td></tr></table></figure></li>
-</ul>
-<p>2.全局安装(不推荐)</p>
-<figure class="highlight coffeescript"><table><tr><td class="code"><pre><code class="hljs coffeescript"><span class="hljs-built_in">npm</span> install --<span class="hljs-built_in">global</span> webpack<br></code></pre></td></tr></table></figure>
-
-<ul>
-<li>原因是：这会将项目中的webpack的版本锁定为全局安装时的版本，当因为开发时段和开发需求的不同而导致项目中依赖不同版本的webpack来构建时，可能会造成构建失败。</li>
-</ul>
-<h2 id="WEBPACK-CLI"><a href="#WEBPACK-CLI" class="headerlink" title="WEBPACK-CLI"></a>WEBPACK-CLI</h2><p> 对于webpack4可能需要安装webpack-cli,提供一下命令：</p>
-<ul>
-<li>全局安装</li>
-</ul>
-<figure class="highlight avrasm"><table><tr><td class="code"><pre><code class="hljs avrasm">npm install webpack-<span class="hljs-keyword">cli</span> -g<br></code></pre></td></tr></table></figure>
-
-<ul>
-<li>本地安装</li>
-</ul>
-<figure class="highlight avrasm"><table><tr><td class="code"><pre><code class="hljs avrasm">npm install webpack-<span class="hljs-keyword">cli</span> -D<br></code></pre></td></tr></table></figure>
-
-
-
-
+    <title>有趣的前端游戏</title>
+    <url>/2021/11/15/web-fun/fcf961257c62/</url>
+    <content><![CDATA[<h1 id="有趣的前端资源"><a href="#有趣的前端资源" class="headerlink" title="有趣的前端资源"></a>有趣的前端资源</h1><p>[1]<br>Flex Box 冒险游戏: <a href="https://codingfantasy.com/games/flexboxadventure">https://codingfantasy.com/games/flexboxadventure</a></p>
+<p>[2]<br>Flexbox 格子骑士: <a href="https://knightsoftheflexboxtable.com/">https://knightsoftheflexboxtable.com/</a></p>
+<p>[3]<br>Flex Box 青蛙: <a href="https://flexboxfroggy.com/">https://flexboxfroggy.com/</a></p>
+<p>[4]<br>Flex Box 打僵尸: <a href="https://geddski.teachable.com/p/flexbox-zombies">https://geddski.teachable.com/p/flexbox-zombies</a></p>
+<p>[5]<br>Flex Box 保卫战: <a href="http://www.flexboxdefense.com/">http://www.flexboxdefense.com/</a></p>
+<p>[6]<br>Flex语法操纵台: <a href="https://the-echoplex.net/flexyboxes/">https://the-echoplex.net/flexyboxes/</a></p>
+<p>[7]<br>Grid 花园: <a href="https://cssgridgarden.com/">https://cssgridgarden.com/</a></p>
+<p>[8]<br>CSS Grid 备忘清单: <a href="https://alialaa.github.io/css-grid-cheat-sheet/">https://alialaa.github.io/css-grid-cheat-sheet/</a></p>
+<p>[9]<br>Grid 攻击: <a href="https://codingfantasy.com/games/css-grid-attack">https://codingfantasy.com/games/css-grid-attack</a></p>
+<p>[10]<br>CSS 选择器备忘清单: <a href="https://frontend30.com/css-selectors-cheatsheet/">https://frontend30.com/css-selectors-cheatsheet/</a></p>
+<p>[11]<br>CSS 动画: <a href="https://css-animations.io/">https://css-animations.io/</a></p>
+<p>[12]<br>混合滤镜: <a href="https://ilyashubin.github.io/FilterBlend/">https://ilyashubin.github.io/FilterBlend/</a></p>
+<p>[13]<br>CSS晚餐: <a href="https://flukeout.github.io/">https://flukeout.github.io/</a></p>
+<p>[14]<br>TypeScript 练习: <a href="https://typescript-exercises.github.io/">https://typescript-exercises.github.io/</a></p>
+<p>[15]<br>设计模式游戏: <a href="https://designpatternsgame.com/">https://designpatternsgame.com/</a></p>
+<p>[16]<br>React 教程: <a href="https://react-tutorial.app/">https://react-tutorial.app/</a></p>
+<p>[17]<br>Untrusted: <a href="https://alexnisnevich.github.io/untrusted/">https://alexnisnevich.github.io/untrusted/</a></p>
+<p>[18]<br>Promisees: <a href="https://bevacqua.github.io/promisees/">https://bevacqua.github.io/promisees/</a></p>
+<p>[19]<br>JSchallenger: <a href="https://www.jschallenger.com/">https://www.jschallenger.com/</a></p>
+<p>[20]<br>Service Workies: <a href="https://serviceworkies.com/">https://serviceworkies.com/</a></p>
+<p>[21]<br>Git分支学习: <a href="https://learngitbranching.js.org/">https://learngitbranching.js.org/</a></p>
+<p>[22]<br>Select Star SQL: <a href="https://selectstarsql.com/">https://selectstarsql.com/</a></p>
+<p>[23]<br>Select Star SQL: <a href="https://selectstarsql.com/">https://selectstarsql.com/</a></p>
+<p>[24]<br>SQL警察局: <a href="https://sqlpd.com/">https://sqlpd.com/</a></p>
+<p>[25]<br>CodinGame: <a href="https://www.codingame.com/">https://www.codingame.com/</a></p>
+<p>[26]<br>CodinGame: <a href="https://www.codingame.com/">https://www.codingame.com/</a></p>
+<p>[27]<br>正则填字游戏: <a href="https://regexcrossword.com/">https://regexcrossword.com/</a></p>
+<p>[28]<br>RegexOne: <a href="https://regexone.com/">https://regexone.com/</a></p>
 ]]></content>
       <categories>
-        <category>webpack</category>
+        <category>web-fun</category>
       </categories>
       <tags>
-        <tag>webpack</tag>
+        <tag>web-fun</tag>
       </tags>
   </entry>
   <entry>
@@ -1729,45 +1768,6 @@ Emitted 'error' event on ChildProcess instance at:
       </categories>
       <tags>
         <tag>mhist-cli</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>有趣的前端游戏</title>
-    <url>/2021/11/15/web-fun/fcf961257c62/</url>
-    <content><![CDATA[<h1 id="有趣的前端资源"><a href="#有趣的前端资源" class="headerlink" title="有趣的前端资源"></a>有趣的前端资源</h1><p>[1]<br>Flex Box 冒险游戏: <a href="https://codingfantasy.com/games/flexboxadventure">https://codingfantasy.com/games/flexboxadventure</a></p>
-<p>[2]<br>Flexbox 格子骑士: <a href="https://knightsoftheflexboxtable.com/">https://knightsoftheflexboxtable.com/</a></p>
-<p>[3]<br>Flex Box 青蛙: <a href="https://flexboxfroggy.com/">https://flexboxfroggy.com/</a></p>
-<p>[4]<br>Flex Box 打僵尸: <a href="https://geddski.teachable.com/p/flexbox-zombies">https://geddski.teachable.com/p/flexbox-zombies</a></p>
-<p>[5]<br>Flex Box 保卫战: <a href="http://www.flexboxdefense.com/">http://www.flexboxdefense.com/</a></p>
-<p>[6]<br>Flex语法操纵台: <a href="https://the-echoplex.net/flexyboxes/">https://the-echoplex.net/flexyboxes/</a></p>
-<p>[7]<br>Grid 花园: <a href="https://cssgridgarden.com/">https://cssgridgarden.com/</a></p>
-<p>[8]<br>CSS Grid 备忘清单: <a href="https://alialaa.github.io/css-grid-cheat-sheet/">https://alialaa.github.io/css-grid-cheat-sheet/</a></p>
-<p>[9]<br>Grid 攻击: <a href="https://codingfantasy.com/games/css-grid-attack">https://codingfantasy.com/games/css-grid-attack</a></p>
-<p>[10]<br>CSS 选择器备忘清单: <a href="https://frontend30.com/css-selectors-cheatsheet/">https://frontend30.com/css-selectors-cheatsheet/</a></p>
-<p>[11]<br>CSS 动画: <a href="https://css-animations.io/">https://css-animations.io/</a></p>
-<p>[12]<br>混合滤镜: <a href="https://ilyashubin.github.io/FilterBlend/">https://ilyashubin.github.io/FilterBlend/</a></p>
-<p>[13]<br>CSS晚餐: <a href="https://flukeout.github.io/">https://flukeout.github.io/</a></p>
-<p>[14]<br>TypeScript 练习: <a href="https://typescript-exercises.github.io/">https://typescript-exercises.github.io/</a></p>
-<p>[15]<br>设计模式游戏: <a href="https://designpatternsgame.com/">https://designpatternsgame.com/</a></p>
-<p>[16]<br>React 教程: <a href="https://react-tutorial.app/">https://react-tutorial.app/</a></p>
-<p>[17]<br>Untrusted: <a href="https://alexnisnevich.github.io/untrusted/">https://alexnisnevich.github.io/untrusted/</a></p>
-<p>[18]<br>Promisees: <a href="https://bevacqua.github.io/promisees/">https://bevacqua.github.io/promisees/</a></p>
-<p>[19]<br>JSchallenger: <a href="https://www.jschallenger.com/">https://www.jschallenger.com/</a></p>
-<p>[20]<br>Service Workies: <a href="https://serviceworkies.com/">https://serviceworkies.com/</a></p>
-<p>[21]<br>Git分支学习: <a href="https://learngitbranching.js.org/">https://learngitbranching.js.org/</a></p>
-<p>[22]<br>Select Star SQL: <a href="https://selectstarsql.com/">https://selectstarsql.com/</a></p>
-<p>[23]<br>Select Star SQL: <a href="https://selectstarsql.com/">https://selectstarsql.com/</a></p>
-<p>[24]<br>SQL警察局: <a href="https://sqlpd.com/">https://sqlpd.com/</a></p>
-<p>[25]<br>CodinGame: <a href="https://www.codingame.com/">https://www.codingame.com/</a></p>
-<p>[26]<br>CodinGame: <a href="https://www.codingame.com/">https://www.codingame.com/</a></p>
-<p>[27]<br>正则填字游戏: <a href="https://regexcrossword.com/">https://regexcrossword.com/</a></p>
-<p>[28]<br>RegexOne: <a href="https://regexone.com/">https://regexone.com/</a></p>
-]]></content>
-      <categories>
-        <category>web-fun</category>
-      </categories>
-      <tags>
-        <tag>web-fun</tag>
       </tags>
   </entry>
   <entry>

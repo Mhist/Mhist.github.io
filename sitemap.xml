@@ -263,20 +263,6 @@
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/tags/vue3/</loc>
-    <lastmod>2022-01-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://wakeweb.cloud/tags/vite/</loc>
-    <lastmod>2022-01-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://wakeweb.cloud/tags/node/</loc>
     <lastmod>2022-01-13</lastmod>
     <changefreq>daily</changefreq>
@@ -285,6 +271,20 @@
   
   <url>
     <loc>http://wakeweb.cloud/tags/uni-app/</loc>
+    <lastmod>2022-01-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://wakeweb.cloud/tags/vue3/</loc>
+    <lastmod>2022-01-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://wakeweb.cloud/tags/vite/</loc>
     <lastmod>2022-01-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -312,14 +312,14 @@
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/tags/mhist-cli/</loc>
+    <loc>http://wakeweb.cloud/tags/web-fun/</loc>
     <lastmod>2022-01-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/tags/web-fun/</loc>
+    <loc>http://wakeweb.cloud/tags/mhist-cli/</loc>
     <lastmod>2022-01-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -356,13 +356,6 @@
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/categories/vue3/</loc>
-    <lastmod>2022-01-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://wakeweb.cloud/categories/node/</loc>
     <lastmod>2022-01-13</lastmod>
     <changefreq>daily</changefreq>
@@ -377,6 +370,13 @@
   </url>
   
   <url>
+    <loc>http://wakeweb.cloud/categories/vue3/</loc>
+    <lastmod>2022-01-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://wakeweb.cloud/categories/webpack/</loc>
     <lastmod>2022-01-13</lastmod>
     <changefreq>daily</changefreq>
@@ -384,14 +384,14 @@
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/categories/mhist-cli/</loc>
+    <loc>http://wakeweb.cloud/categories/web-fun/</loc>
     <lastmod>2022-01-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/categories/web-fun/</loc>
+    <loc>http://wakeweb.cloud/categories/mhist-cli/</loc>
     <lastmod>2022-01-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
