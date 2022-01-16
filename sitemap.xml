@@ -235,14 +235,14 @@
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/tags/git/</loc>
+    <loc>http://wakeweb.cloud/tags/hexo/</loc>
     <lastmod>2022-01-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/tags/hexo/</loc>
+    <loc>http://wakeweb.cloud/tags/git/</loc>
     <lastmod>2022-01-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -284,14 +284,14 @@
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/tags/vite/</loc>
+    <loc>http://wakeweb.cloud/tags/webpack/</loc>
     <lastmod>2022-01-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/tags/webpack/</loc>
+    <loc>http://wakeweb.cloud/tags/vite/</loc>
     <lastmod>2022-01-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -335,14 +335,14 @@
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/categories/git/</loc>
+    <loc>http://wakeweb.cloud/categories/hexo/</loc>
     <lastmod>2022-01-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/categories/hexo/</loc>
+    <loc>http://wakeweb.cloud/categories/git/</loc>
     <lastmod>2022-01-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
