@@ -221,13 +221,6 @@
 
   
   <url>
-    <loc>http://wakeweb.cloud/tags/git/</loc>
-    <lastmod>2022-02-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://wakeweb.cloud/tags/TypeScript/</loc>
     <lastmod>2022-02-19</lastmod>
     <changefreq>daily</changefreq>
@@ -242,6 +235,13 @@
   </url>
   
   <url>
+    <loc>http://wakeweb.cloud/tags/git/</loc>
+    <lastmod>2022-02-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://wakeweb.cloud/tags/hexo/</loc>
     <lastmod>2022-02-19</lastmod>
     <changefreq>daily</changefreq>
@@ -249,14 +249,14 @@
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/tags/react/</loc>
+    <loc>http://wakeweb.cloud/tags/mysql/</loc>
     <lastmod>2022-02-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/tags/mysql/</loc>
+    <loc>http://wakeweb.cloud/tags/react/</loc>
     <lastmod>2022-02-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -298,13 +298,6 @@
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/tags/JavaScript/</loc>
-    <lastmod>2022-02-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://wakeweb.cloud/tags/cms/</loc>
     <lastmod>2022-02-19</lastmod>
     <changefreq>daily</changefreq>
@@ -312,7 +305,7 @@
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/tags/web-fun/</loc>
+    <loc>http://wakeweb.cloud/tags/JavaScript/</loc>
     <lastmod>2022-02-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -325,17 +318,24 @@
     <priority>0.6</priority>
   </url>
   
+  <url>
+    <loc>http://wakeweb.cloud/tags/web-fun/</loc>
+    <lastmod>2022-02-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
 
   
   <url>
-    <loc>http://wakeweb.cloud/categories/git/</loc>
+    <loc>http://wakeweb.cloud/categories/TypeScript/</loc>
     <lastmod>2022-02-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/categories/TypeScript/</loc>
+    <loc>http://wakeweb.cloud/categories/git/</loc>
     <lastmod>2022-02-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -384,14 +384,14 @@
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/categories/web-fun/</loc>
+    <loc>http://wakeweb.cloud/categories/mhist-cli/</loc>
     <lastmod>2022-02-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/categories/mhist-cli/</loc>
+    <loc>http://wakeweb.cloud/categories/web-fun/</loc>
     <lastmod>2022-02-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
