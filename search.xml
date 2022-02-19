@@ -475,23 +475,47 @@ f89d8a5
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2021/10/11/hexo/bd5c75b8c9ae/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><span id="more"></span>
+    <title>hexo样式修改汇总</title>
+    <url>/2021/09/28/hexo/371af6f33ab0/</url>
+    <content><![CDATA[<h1 id="hexo样式汇总"><a href="#hexo样式汇总" class="headerlink" title="hexo样式汇总"></a>hexo样式汇总</h1><h1 id="更改超链接格式（文字颜色）"><a href="#更改超链接格式（文字颜色）" class="headerlink" title="更改超链接格式（文字颜色）"></a>更改超链接格式（文字颜色）</h1><div class="note primary modern"><p><a href="https://vonsdite.github.io/posts/13afd8d4.html">参考链接:Von</a> </p>
+</div>
 
-<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
+<h2 id="插图编号-醒目文字"><a href="#插图编号-醒目文字" class="headerlink" title="插图编号| 醒目文字"></a>插图编号| 醒目文字</h2><figure class="highlight django"><table><tr><td class="code"><pre><code class="hljs django"><span class="xml"></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">note</span> default %&#125;</span><span class="xml"> 默认样式 </span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endnote</span> %&#125;</span><span class="xml"></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">note</span> primary %&#125;</span><span class="xml"> 主要样式 </span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endnote</span> %&#125;</span><span class="xml"></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">note</span> success %&#125;</span><span class="xml"> 成功样式 </span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endnote</span> %&#125;</span><span class="xml"></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">note</span> info %&#125;</span><span class="xml"> 信息样式 </span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endnote</span> %&#125;</span><span class="xml"></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">note</span> warning %&#125;</span><span class="xml"> 警告样式  </span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endnote</span> %&#125;</span><span class="xml"></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">note</span> danger %&#125;</span><span class="xml"> 危险样式  </span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endnote</span> %&#125;</span><span class="xml"></span><br><span class="xml"></span><br><span class="xml"></span><br></code></pre></td></tr></table></figure>
+<div class="note default modern"><p>默认样式 </p>
+</div>
+<div class="note primary modern"><p>主要样式 </p>
+</div>
+<div class="note success modern"><p>成功样式 </p>
+</div>
+<div class="note info modern"><p>信息样式 </p>
+</div>
+<div class="note warning modern"><p>警告样式  </p>
+</div>
+<div class="note danger modern"><p>危险样式  </p>
+</div>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
+<h2 id="使用选项卡"><a href="#使用选项卡" class="headerlink" title="使用选项卡"></a>使用选项卡</h2><figure class="highlight django"><table><tr><td class="code"><pre><code class="hljs django"><span class="hljs-template-tag">&#123;% <span class="hljs-name">tabs</span> tab,1 %&#125;</span><span class="xml"> 名字为tab，默认在第1个选项卡，如果是-1则隐藏</span><br><span class="xml"><span class="hljs-comment">&lt;!-- tab --&gt;</span></span><br><span class="xml">**选项卡 1** </span><br><span class="xml"><span class="hljs-comment">&lt;!-- endtab --&gt;</span></span><br><span class="xml"><span class="hljs-comment">&lt;!-- tab --&gt;</span></span><br><span class="xml">**选项卡 2**</span><br><span class="xml"><span class="hljs-comment">&lt;!-- endtab --&gt;</span></span><br><span class="xml"><span class="hljs-comment">&lt;!-- tab A --&gt;</span></span><br><span class="xml">**选项卡 3** 名字为A</span><br><span class="xml"><span class="hljs-comment">&lt;!-- endtab --&gt;</span></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endtabs</span> %&#125;</span><br></code></pre></td></tr></table></figure>
+<p>效果展示：</p>
+<div class="tabs" id="tab"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#tab-1">tab 1</button></li><li class="tab"><button type="button" data-href="#tab-2">tab 2</button></li><li class="tab"><button type="button" data-href="#tab-3">A</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="tab-1"><p><strong>选项卡 1</strong> </p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-2"><p><strong>选项卡 2</strong></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-3"><p><strong>选项卡 3</strong> 名字为A</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+<h2 id="自动生成目录（hexo-toc）"><a href="#自动生成目录（hexo-toc）" class="headerlink" title="自动生成目录（hexo-toc）"></a>自动生成目录（hexo-toc）</h2><p>  主题自带的配置项，生成的目录是不能够点击到文章目录自动滑动到页面指定位置的。<br>  <figure class="highlight yaml"><table><tr><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment"># Table Of Contents in the Sidebar</span><br><span class="hljs-attr">toc:</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">false</span><br><br>  <span class="hljs-comment"># Automatically add list number to toc.</span><br>  <span class="hljs-attr">number:</span> <span class="hljs-literal">true</span><br><br>  <span class="hljs-comment"># If true, all words will placed on next lines if header width longer then sidebar width.</span><br>  <span class="hljs-attr">wrap:</span> <span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure><br>  通过hexo-toc生成的目录可以实现点击调转到指定页面位置，同时可以支持目录级别选择。</p>
+<div class="note danger modern"><p><a href="https://www.dazhuanlan.com/bassd/topics/1055823">参考链接:hexo-toc，但是此链接还是无法解决目录的生成问题</a> </p>
+</div>
+<p>所以，重点是解决hexo-next主题自带的toc目录，锚点失效的原因：</p>
+<div class="note success modern"><p><a href="https://blog.csdn.net/qq_42009500/article/details/116129303?utm_medium=distribute.pc_relevant.none-task-blog-2~default~OPENSEARCH~default-8.no_search_link&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~OPENSEARCH~default-8.no_search_link">参考链接:hexo-toc锚点失效—有效解决办法</a> </p>
+</div>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210928152335tocPostDetails.png" alt="目录锚点失效的原因"></p>
+<p>报错文件路径: <font color=chocolate>themes/next/source/js/post-details.js</font></p>
+<figure class="highlight reasonml"><table><tr><td class="code"><pre><code class="hljs reasonml"><span class="hljs-comment">// TOC item animation navigate &amp; prevent #item selector in adress bar.</span><br>  <span class="hljs-constructor">$(&#x27;.<span class="hljs-params">post</span>-<span class="hljs-params">toc</span> <span class="hljs-params">a</span>&#x27;)</span>.on(&#x27;click&#x27;, <span class="hljs-keyword">function</span> (e) &#123;<br>    e.prevent<span class="hljs-constructor">Default()</span>;<br>    var targetSelector = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">NexT</span>.</span></span>utils.escape<span class="hljs-constructor">Selector(<span class="hljs-params">this</span>.<span class="hljs-params">getAttribute</span>(&#x27;<span class="hljs-params">href</span>&#x27;)</span>);<br><br>    &lt;!-- 添加下面这行代码, 重新解析 URL -&gt;<br>    targetSelector = decode<span class="hljs-constructor">URI(<span class="hljs-params">this</span>.<span class="hljs-params">getAttribute</span>(&#x27;<span class="hljs-params">href</span>&#x27;)</span>)<br><br>    var offset = <span class="hljs-constructor">$(<span class="hljs-params">targetSelector</span>)</span>.offset<span class="hljs-literal">()</span>.top;<br><br>    hasVelocity ?<br>      html.velocity(&#x27;stop&#x27;).velocity(&#x27;scroll&#x27;, &#123;<br>        offset: offset  + &#x27;px&#x27;,<br>        mobileHA: <span class="hljs-literal">false</span><br>      &#125;) :<br>      <span class="hljs-constructor">$(&#x27;<span class="hljs-params">html</span>, <span class="hljs-params">body</span>&#x27;)</span>.stop<span class="hljs-literal">()</span>.animate(&#123;<br>        scrollTop: offset<br>      &#125;, <span class="hljs-number">500</span>);<br>  &#125;);<br></code></pre></td></tr></table></figure>
+<p>  经过上面的处理自动生成的目录可以正常跳转了，但是会根据页面的滑动区域自适应目录的展示，这对于需要根据目录直达指定内容的访客来说，很不方便，于是在css样式中对代码进行以下修改：  修改文件目录: <font color=camel>themes/next/source/css/_common/components/sidebar/sidebar-toc.styl</font></p>
+<p>  找到如下的代码<br>  <figure class="highlight stylus"><table><tr><td class="code"><pre><code class="hljs stylus"><span class="hljs-selector-class">.post-toc</span> <span class="hljs-selector-class">.nav</span> <span class="hljs-selector-class">.nav-child</span> &#123; <span class="hljs-attribute">display</span>: none; &#125;<br></code></pre></td></tr></table></figure><br>  修改为</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><code class="hljs stylus"><span class="hljs-selector-class">.post-toc</span> <span class="hljs-selector-class">.nav</span> <span class="hljs-selector-class">.nav-child</span> &#123; <span class="hljs-attribute">display</span>: block; &#125;<br><br></code></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+<h2 id="next主题添加代码块一键复制功能"><a href="#next主题添加代码块一键复制功能" class="headerlink" title="next主题添加代码块一键复制功能"></a>next主题添加代码块一键复制功能</h2><div class="note success modern"><p><a href="https://blog.csdn.net/Awt_FuDongLai/article/details/107466848">参考链接:hexo-next代码块复制粘贴—成功复现</a> </p>
+</div>
+
 ]]></content>
       <categories>
         <category>hexo</category>
@@ -553,56 +577,6 @@ deploy:
       </tags>
   </entry>
   <entry>
-    <title>hexo样式修改汇总</title>
-    <url>/2021/09/28/hexo/371af6f33ab0/</url>
-    <content><![CDATA[<h1 id="hexo样式汇总"><a href="#hexo样式汇总" class="headerlink" title="hexo样式汇总"></a>hexo样式汇总</h1><h1 id="更改超链接格式（文字颜色）"><a href="#更改超链接格式（文字颜色）" class="headerlink" title="更改超链接格式（文字颜色）"></a>更改超链接格式（文字颜色）</h1><div class="note primary modern"><p><a href="https://vonsdite.github.io/posts/13afd8d4.html">参考链接:Von</a> </p>
-</div>
-
-<h2 id="插图编号-醒目文字"><a href="#插图编号-醒目文字" class="headerlink" title="插图编号| 醒目文字"></a>插图编号| 醒目文字</h2><figure class="highlight django"><table><tr><td class="code"><pre><code class="hljs django"><span class="xml"></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">note</span> default %&#125;</span><span class="xml"> 默认样式 </span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endnote</span> %&#125;</span><span class="xml"></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">note</span> primary %&#125;</span><span class="xml"> 主要样式 </span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endnote</span> %&#125;</span><span class="xml"></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">note</span> success %&#125;</span><span class="xml"> 成功样式 </span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endnote</span> %&#125;</span><span class="xml"></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">note</span> info %&#125;</span><span class="xml"> 信息样式 </span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endnote</span> %&#125;</span><span class="xml"></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">note</span> warning %&#125;</span><span class="xml"> 警告样式  </span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endnote</span> %&#125;</span><span class="xml"></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">note</span> danger %&#125;</span><span class="xml"> 危险样式  </span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endnote</span> %&#125;</span><span class="xml"></span><br><span class="xml"></span><br><span class="xml"></span><br></code></pre></td></tr></table></figure>
-<div class="note default modern"><p>默认样式 </p>
-</div>
-<div class="note primary modern"><p>主要样式 </p>
-</div>
-<div class="note success modern"><p>成功样式 </p>
-</div>
-<div class="note info modern"><p>信息样式 </p>
-</div>
-<div class="note warning modern"><p>警告样式  </p>
-</div>
-<div class="note danger modern"><p>危险样式  </p>
-</div>
-
-
-<h2 id="使用选项卡"><a href="#使用选项卡" class="headerlink" title="使用选项卡"></a>使用选项卡</h2><figure class="highlight django"><table><tr><td class="code"><pre><code class="hljs django"><span class="hljs-template-tag">&#123;% <span class="hljs-name">tabs</span> tab,1 %&#125;</span><span class="xml"> 名字为tab，默认在第1个选项卡，如果是-1则隐藏</span><br><span class="xml"><span class="hljs-comment">&lt;!-- tab --&gt;</span></span><br><span class="xml">**选项卡 1** </span><br><span class="xml"><span class="hljs-comment">&lt;!-- endtab --&gt;</span></span><br><span class="xml"><span class="hljs-comment">&lt;!-- tab --&gt;</span></span><br><span class="xml">**选项卡 2**</span><br><span class="xml"><span class="hljs-comment">&lt;!-- endtab --&gt;</span></span><br><span class="xml"><span class="hljs-comment">&lt;!-- tab A --&gt;</span></span><br><span class="xml">**选项卡 3** 名字为A</span><br><span class="xml"><span class="hljs-comment">&lt;!-- endtab --&gt;</span></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endtabs</span> %&#125;</span><br></code></pre></td></tr></table></figure>
-<p>效果展示：</p>
-<div class="tabs" id="tab"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#tab-1">tab 1</button></li><li class="tab"><button type="button" data-href="#tab-2">tab 2</button></li><li class="tab"><button type="button" data-href="#tab-3">A</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="tab-1"><p><strong>选项卡 1</strong> </p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-2"><p><strong>选项卡 2</strong></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-3"><p><strong>选项卡 3</strong> 名字为A</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
-<h2 id="自动生成目录（hexo-toc）"><a href="#自动生成目录（hexo-toc）" class="headerlink" title="自动生成目录（hexo-toc）"></a>自动生成目录（hexo-toc）</h2><p>  主题自带的配置项，生成的目录是不能够点击到文章目录自动滑动到页面指定位置的。<br>  <figure class="highlight yaml"><table><tr><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment"># Table Of Contents in the Sidebar</span><br><span class="hljs-attr">toc:</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">false</span><br><br>  <span class="hljs-comment"># Automatically add list number to toc.</span><br>  <span class="hljs-attr">number:</span> <span class="hljs-literal">true</span><br><br>  <span class="hljs-comment"># If true, all words will placed on next lines if header width longer then sidebar width.</span><br>  <span class="hljs-attr">wrap:</span> <span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure><br>  通过hexo-toc生成的目录可以实现点击调转到指定页面位置，同时可以支持目录级别选择。</p>
-<div class="note danger modern"><p><a href="https://www.dazhuanlan.com/bassd/topics/1055823">参考链接:hexo-toc，但是此链接还是无法解决目录的生成问题</a> </p>
-</div>
-<p>所以，重点是解决hexo-next主题自带的toc目录，锚点失效的原因：</p>
-<div class="note success modern"><p><a href="https://blog.csdn.net/qq_42009500/article/details/116129303?utm_medium=distribute.pc_relevant.none-task-blog-2~default~OPENSEARCH~default-8.no_search_link&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~OPENSEARCH~default-8.no_search_link">参考链接:hexo-toc锚点失效—有效解决办法</a> </p>
-</div>
-
-<p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210928152335tocPostDetails.png" alt="目录锚点失效的原因"></p>
-<p>报错文件路径: <font color=chocolate>themes/next/source/js/post-details.js</font></p>
-<figure class="highlight reasonml"><table><tr><td class="code"><pre><code class="hljs reasonml"><span class="hljs-comment">// TOC item animation navigate &amp; prevent #item selector in adress bar.</span><br>  <span class="hljs-constructor">$(&#x27;.<span class="hljs-params">post</span>-<span class="hljs-params">toc</span> <span class="hljs-params">a</span>&#x27;)</span>.on(&#x27;click&#x27;, <span class="hljs-keyword">function</span> (e) &#123;<br>    e.prevent<span class="hljs-constructor">Default()</span>;<br>    var targetSelector = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">NexT</span>.</span></span>utils.escape<span class="hljs-constructor">Selector(<span class="hljs-params">this</span>.<span class="hljs-params">getAttribute</span>(&#x27;<span class="hljs-params">href</span>&#x27;)</span>);<br><br>    &lt;!-- 添加下面这行代码, 重新解析 URL -&gt;<br>    targetSelector = decode<span class="hljs-constructor">URI(<span class="hljs-params">this</span>.<span class="hljs-params">getAttribute</span>(&#x27;<span class="hljs-params">href</span>&#x27;)</span>)<br><br>    var offset = <span class="hljs-constructor">$(<span class="hljs-params">targetSelector</span>)</span>.offset<span class="hljs-literal">()</span>.top;<br><br>    hasVelocity ?<br>      html.velocity(&#x27;stop&#x27;).velocity(&#x27;scroll&#x27;, &#123;<br>        offset: offset  + &#x27;px&#x27;,<br>        mobileHA: <span class="hljs-literal">false</span><br>      &#125;) :<br>      <span class="hljs-constructor">$(&#x27;<span class="hljs-params">html</span>, <span class="hljs-params">body</span>&#x27;)</span>.stop<span class="hljs-literal">()</span>.animate(&#123;<br>        scrollTop: offset<br>      &#125;, <span class="hljs-number">500</span>);<br>  &#125;);<br></code></pre></td></tr></table></figure>
-<p>  经过上面的处理自动生成的目录可以正常跳转了，但是会根据页面的滑动区域自适应目录的展示，这对于需要根据目录直达指定内容的访客来说，很不方便，于是在css样式中对代码进行以下修改：  修改文件目录: <font color=camel>themes/next/source/css/_common/components/sidebar/sidebar-toc.styl</font></p>
-<p>  找到如下的代码<br>  <figure class="highlight stylus"><table><tr><td class="code"><pre><code class="hljs stylus"><span class="hljs-selector-class">.post-toc</span> <span class="hljs-selector-class">.nav</span> <span class="hljs-selector-class">.nav-child</span> &#123; <span class="hljs-attribute">display</span>: none; &#125;<br></code></pre></td></tr></table></figure><br>  修改为</p>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><code class="hljs stylus"><span class="hljs-selector-class">.post-toc</span> <span class="hljs-selector-class">.nav</span> <span class="hljs-selector-class">.nav-child</span> &#123; <span class="hljs-attribute">display</span>: block; &#125;<br><br></code></pre></td></tr></table></figure>
-
-
-<h2 id="next主题添加代码块一键复制功能"><a href="#next主题添加代码块一键复制功能" class="headerlink" title="next主题添加代码块一键复制功能"></a>next主题添加代码块一键复制功能</h2><div class="note success modern"><p><a href="https://blog.csdn.net/Awt_FuDongLai/article/details/107466848">参考链接:hexo-next代码块复制粘贴—成功复现</a> </p>
-</div>
-
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>learn react</title>
     <url>/2021/04/24/uncategorized/c98970b16c20/</url>
     <content><![CDATA[<h1 id="react-入门"><a href="#react-入门" class="headerlink" title="react 入门"></a>react 入门</h1><h2 id="react框架基本介绍"><a href="#react框架基本介绍" class="headerlink" title="react框架基本介绍"></a>react框架基本介绍</h2><p>   <a href="https://reactjs.org/">react官方</a></p>
@@ -615,7 +589,7 @@ v14.16.0</li>
 cmd控制台反馈如下：<pre>
 C:\Users\18827\AppData\Roaming\npm\create-react-app -> C:\Users\18827\AppData\Roaming\npm\node_modules\create-react-app\index.js</li>
 </ul>
-<p><a href="mailto:&#43;&#x63;&#x72;&#101;&#97;&#x74;&#101;&#45;&#114;&#x65;&#x61;&#99;&#x74;&#45;&#x61;&#112;&#x70;&#64;&#x34;&#46;&#x30;&#46;&#x33;">&#43;&#x63;&#x72;&#101;&#97;&#x74;&#101;&#45;&#114;&#x65;&#x61;&#99;&#x74;&#45;&#x61;&#112;&#x70;&#64;&#x34;&#46;&#x30;&#46;&#x33;</a><br>added 67 packages from 25 contributors in 22.805s<br> </pre></p>
+<p><a href="mailto:&#x2b;&#x63;&#114;&#101;&#x61;&#x74;&#101;&#45;&#x72;&#101;&#x61;&#99;&#116;&#x2d;&#97;&#x70;&#x70;&#x40;&#52;&#x2e;&#48;&#x2e;&#x33;">&#x2b;&#x63;&#114;&#101;&#x61;&#x74;&#101;&#45;&#x72;&#101;&#x61;&#99;&#116;&#x2d;&#97;&#x70;&#x70;&#x40;&#52;&#x2e;&#48;&#x2e;&#x33;</a><br>added 67 packages from 25 contributors in 22.805s<br> </pre></p>
 <h2 id="创建项目文件夹，并开启demo"><a href="#创建项目文件夹，并开启demo" class="headerlink" title="创建项目文件夹，并开启demo"></a>创建项目文件夹，并开启demo</h2><ul>
 <li><p>在电脑桌面同时按下Windows+R进入输入cmd,按enter</p>
 </li>
@@ -652,6 +626,32 @@ C:\Users\18827\AppData\Roaming\npm\create-react-app -> C:\Users\18827\AppData\Ro
 ]]></content>
       <tags>
         <tag>react</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2021/10/11/hexo/bd5c75b8c9ae/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><span id="more"></span>
+
+<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -854,350 +854,6 @@ Query OK, 1 row affected (0.00 sec)
       </categories>
       <tags>
         <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>node学习</title>
-    <url>/2021/11/05/node/d7430acb4af2/</url>
-    <content><![CDATA[<h1 id="什么是node"><a href="#什么是node" class="headerlink" title="什么是node"></a>什么是node</h1><p>“Node全称NodeJS，是一个基于Chrome V8引擎的JavaScript运行环境；一个让JavaScript 运行在服务端的开发平台，它让JavaScript成为与PHP、Python、Perl等服务端语言平起平坐的脚本语言。”</p>
-<h1 id="node版本管理工具"><a href="#node版本管理工具" class="headerlink" title="node版本管理工具"></a>node版本管理工具</h1><p><strong>NVM</strong>  <a href="https://github.com/coreybutler/nvm-windows/releases">下载链接</a> 选择<font color=red>nvm-setup.zip</font>下载解压即可运行可执行文件<br><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211105192106-nvm-url.png" alt="nvm url"></p>
-<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><ol>
-<li><p>nvm list 是查找本电脑上所有的node版本</p>
-<ul>
-<li>nvm list 查看已经安装的版本</li>
-<li>nvm list installed 查看已经安装的版本</li>
-<li>nvm list available 查看网络可以安装的版本</li>
-</ul>
-</li>
-<li><p>nvm install 安装最新版本nvm</p>
-</li>
-<li><p>nvm use <version> ## 切换使用指定的版本node</p>
-</li>
-<li><p>nvm ls 列出所有版本</p>
-</li>
-<li><p>nvm current显示当前版本</p>
-</li>
-<li><p>nvm alias <name> <version> ## 给不同的版本号添加别名</p>
-</li>
-<li><p>nvm unalias <name> ## 删除已定义的别名</p>
-</li>
-<li><p>nvm reinstall-packages <version> ## 在当前版本node环境下，重新全局安装指定版本号的npm包</p>
-</li>
-<li><p>nvm on 打开nodejs控制</p>
-</li>
-<li><p>nvm off 关闭nodejs控制</p>
-</li>
-<li><p>nvm proxy 查看设置与代理</p>
-</li>
-<li><p>nvm node_mirror [url] 设置或者查看setting.txt中的node_mirror，如果不设置的默认是 <a href="https://nodejs.org/dist/">https://nodejs.org/dist/</a><br>　　nvm npm_mirror [url] 设置或者查看setting.txt中的npm_mirror,如果不设置的话默认的是： <a href="https://github.com/npm/npm/archive/">https://github.com/npm/npm/archive/</a>.</p>
-</li>
-<li><p>nvm uninstall <version> 卸载制定的版本</p>
-</li>
-<li><p>nvm use [version] [arch] 切换制定的node版本和位数</p>
-</li>
-<li><p>nvm root [path] 设置和查看root路径</p>
-</li>
-<li><p>nvm version 查看当前的版本</p>
-</li>
-</ol>
-<h1 id="node程序传递参数"><a href="#node程序传递参数" class="headerlink" title="node程序传递参数"></a>node程序传递参数</h1><p>在终端可以通过node运行js文件，一般命令为<font color=chocolate>node 文件名.js</font> ，但是在有些情况下需要传递参数的时候可以在该命令后添加相关参数，则参数会传递到程序内部。那么怎么获取呢？可以使用全局对象 process（进程）</p>
-<p>在控制终端输入命令</p>
-<figure class="highlight crmsh"><table><tr><td class="code"><pre><code class="hljs crmsh"><span class="hljs-keyword">node</span> <span class="hljs-title">index</span>.js 简单点<br></code></pre></td></tr></table></figure>
-<p>效果图如下：<br><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211105204044nodeSendParams.png" alt="node传递参数"></p>
-<h1 id="node中常用的打印输出方式"><a href="#node中常用的打印输出方式" class="headerlink" title="node中常用的打印输出方式"></a>node中常用的打印输出方式</h1><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>效果</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>console.log()</td>
-<td>最常用的输入内容的方式</td>
-</tr>
-<tr>
-<td>console.clear()</td>
-<td>清空控制台</td>
-</tr>
-<tr>
-<td>console.trace()</td>
-<td>打印函数的调用栈</td>
-</tr>
-</tbody></table>
-<p>其他的方法，<a href="https://nodejs.org/dist/latest-v14.x/docs/api/console.html">参考链接</a></p>
-<h1 id="常见的全局对象"><a href="#常见的全局对象" class="headerlink" title="常见的全局对象"></a><a href="https://nodejs.org/dist/latest-v16.x/docs/api/globals.html">常见的全局对象</a></h1><h2 id="特殊的全局对象"><a href="#特殊的全局对象" class="headerlink" title="特殊的全局对象"></a>特殊的全局对象</h2><ul>
-<li>这些全局对象实际上是模块中的变量，只是每个模块中都有，看起来像是全局变量</li>
-<li>在命令行交互中是不可以使用的</li>
-<li>包括： __dirname（目录名称）、__filename（文件名称）、exports、module、require（）</li>
-</ul>
-<figure class="highlight sqf"><table><tr><td class="code"><pre><code class="hljs sqf">console.<span class="hljs-built_in">log</span>(<span class="hljs-variable">__dirname</span>);<br>console.<span class="hljs-built_in">log</span>(<span class="hljs-variable">__filename</span>);<br></code></pre></td></tr></table></figure>
-<pre>
-PS C:\Users\starry\Desktop\total\node\02_nodeGlobalObject\01_specialGlobalObject> node specialGlobalObject.js
-C:\Users\starry\Desktop\total\node\02_nodeGlobalObject\01_specialGlobalObject
-C:\Users\starry\Desktop\total\node\02_nodeGlobalObject\01_specialGlobalObject\specialGlobalObject.js</pre>
-
-<h2 id="常见的全局对象-1"><a href="#常见的全局对象-1" class="headerlink" title="常见的全局对象"></a>常见的全局对象</h2><p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211105234455setTimeOut.png" alt="常见的定时器对象"></p>
-<div class="note success modern"><p>问题1：为什么执行的顺序不一样？<br>问题2：为什么process.nextTick比setImmediate还快？
- </p>
-</div>
-
-<h2 id="global全局对象"><a href="#global全局对象" class="headerlink" title="global全局对象"></a>global全局对象</h2><figure class="highlight sql"><table><tr><td class="code"><pre><code class="hljs sql">console.<span class="hljs-built_in">log</span>(<span class="hljs-keyword">global</span>)<br></code></pre></td></tr></table></figure>
-
-<pre><ref *1> Object [global] {
-  global: [Circular *1],
-  clearInterval: [Function: clearInterval],
-  clearTimeout: [Function: clearTimeout],
-  setInterval: [Function: setInterval],
-  setTimeout: [Function: setTimeout] {
-    [Symbol(nodejs.util.promisify.custom)]: [Function (anonymous)]
-  },
-  queueMicrotask: [Function: queueMicrotask],
-  clearImmediate: [Function: clearImmediate],
-  setImmediate: [Function: setImmediate] {
-    [Symbol(nodejs.util.promisify.custom)]: [Function (anonymous)]
-  }
-}</pre>
-
-
-<h1 id="JavaScript的模块化"><a href="#JavaScript的模块化" class="headerlink" title="JavaScript的模块化"></a>JavaScript的模块化</h1><p>为了让Node.js的文件可以相互调用，Node.js提供了一个简单的模块系统。</p>
-<p>模块是Node.js 应用程序的基本组成部分，文件和模块是一一对应的。换言之，一个 Node.js 文件就是一个模块，这个文件可能是JavaScript 代码、JSON 或者编译过的C/C++ 扩展。</p>
-<h2 id="立即执行函数实现的模块化"><a href="#立即执行函数实现的模块化" class="headerlink" title="立即执行函数实现的模块化"></a>立即执行函数实现的模块化</h2><figure class="highlight actionscript"><table><tr><td class="code"><pre><code class="hljs actionscript"><span class="hljs-keyword">var</span> moduleFoo = (<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-keyword">return</span> &#123;<br>        age,<br>        name<br>    &#125;<br>&#125;)()<br><br></code></pre></td></tr></table></figure>
-
-<p>如果模块化同名也会产生冲突。</p>
-<h2 id="COMMON-JS规范"><a href="#COMMON-JS规范" class="headerlink" title="COMMON.JS规范"></a>COMMON.JS规范</h2><p>我们需要知道common.js是一个规范，最初提出来是在浏览器以外的地方使用，并且当时被命名为ServerJS, 后来为了体现它的广泛性，修改为CommonJS,平时我们也会简称为CJS.</p>
-<ul>
-<li>NODE是commonJs在服务器端一个具有代表性的实现。</li>
-<li>Browserify是COMMON.JS在浏览器中的实现。</li>
-<li>webpack打包工具具备对CommonJs的支持与转换。</li>
-</ul>
-<h2 id="exports"><a href="#exports" class="headerlink" title="exports"></a>exports</h2><p>每个模块都有一个为exports的对象，其默认值为空对象。</p>
-<p>node中实现common.js的方式就是对象的引用赋值。</p>
-<div class="note info modern"><p>问题3：对象的引用赋值与深拷贝，浅拷贝实际是三种东西？
- </p>
-</div>
-
-<h2 id="module-exports"><a href="#module-exports" class="headerlink" title="module.exports"></a>module.exports</h2><p>会创建新的地址空间，默认为空的对象。<br>exports只能使用语法来向外暴露内部变量：如<a href="http://exports.xxx/">http://exports.xxx</a> = xxx;<br>module.exports既可以通过语法，也可以直接赋值一个对象。</p>
-<h2 id="require"><a href="#require" class="headerlink" title="require"></a>require</h2><p>require是一种函数，可以帮助我们引入一个文件（模块）中导入的对象。</p>
-<h3 id="require的查找规则"><a href="#require的查找规则" class="headerlink" title="require的查找规则"></a>require的查找规则</h3><p><a href="https://nodejs.org/dist/latest-v16.x/docs/api/modules.html#requireid">官方文档</a></p>
-<p>一、require的加载规则<br>1、优先从缓存加载<br>2、判断模块标识符</p>
-<p>核心模块<br>自己写的模块（路径形式的模块）</p>
-<p>第三方模块（node_modules）:</p>
-<ul>
-<li>第三方模块的标识就是第三方模块的名称（不可能有第三方模块和核心模块的名字一致）；</li>
-<li>开发人员可以把写好的框架库发布到npm上；</li>
-<li>使用者通过npm命令来下载，使用式：var 名称 = require(‘npm install【下载包】 的包名’)；node_modules/express/package.json main；如果package.json或者main不成立，则查找被选择项：index.js；如果以上条件都不满足，则继续进入上一级目录中的node_modules按照上面的规则依次查找，直到当前文件所属此盘根目录都找不到最后报错.</li>
-</ul>
-<h3 id="require加载文件的顺序"><a href="#require加载文件的顺序" class="headerlink" title="require加载文件的顺序"></a>require加载文件的顺序</h3><ol>
-<li><p>在当前文件中，有通过require加载的文件，同时本文件有其他操作时，会先同步加载前面所导入的文件</p>
-</li>
-<li><p>require在嵌套调用的时候，有的文件可能会被引入多次，但是执行时，同样的代码只会执行一次，因为在内部进行了缓存。在下方打印module的时候有一个loaded属性，如果是true就代表已经加载过，需要缓存；反之，就是没有加载过。</p>
-</li>
-<li><p>循环引用的加载顺序：深度优先</p>
-</li>
-</ol>
-<h2 id="打印module"><a href="#打印module" class="headerlink" title="打印module"></a>打印module</h2><figure class="highlight sql"><table><tr><td class="code"><pre><code class="hljs sql">console.<span class="hljs-built_in">log</span>(<span class="hljs-keyword">module</span>)<br></code></pre></td></tr></table></figure>
-
-<pre>PS C:\Users\starry\Desktop\total\node\03_JavaScript_module\02_commonjs> node bar.js
-Module {
-  id: '.',
-  path: 'C:\\Users\\starry\\Desktop\\total\\node\\03_JavaScript_module\\02_commonjs',        
-  exports: { name: 'jiang', age: 23 },
-  parent: null,
-  filename: 'C:\\Users\\starry\\Desktop\\total\\node\\03_JavaScript_module\\02_commonjs\\bar.js',
-<font color=amber>  loaded: false,</font>
-  children: [],
-  paths: [
-    'C:\\Users\\starry\\Desktop\\total\\node\\03_JavaScript_module\\02_commonjs\\node_modules',
-    'C:\\Users\\starry\\Desktop\\total\\node\\03_JavaScript_module\\node_modules',
-    'C:\\Users\\starry\\Desktop\\total\\node\\node_modules',
-    'C:\\Users\\starry\\Desktop\\total\\node_modules',
-    'C:\\Users\\starry\\Desktop\\node_modules',
-    'C:\\Users\\starry\\node_modules',
-    'C:\\Users\\node_modules',
-    'C:\\node_modules'
-  ]
-}</pre>
-
-<p><img src="https://img1.sycdn.imooc.com/598ad54700010efc03400430.png"></p>
-<h2 id="AMD规范"><a href="#AMD规范" class="headerlink" title="AMD规范"></a><a href="https://github.com/amdjs/amdjs-api/wiki/AMD">AMD规范</a></h2><p>全称是Asynchronous Module Definition，即异步模块加载机制。从它的规范描述页面看，AMD很短也很简单，但它却完整描述了模块的定义，依赖关系，引用关系以及加载机制。从它被requireJs，Dojo，JQuery使用也可以看出它具有很大的价值，没错，JQuery近期也采用了AMD规范。</p>
-<p><a href="http://www.ruanyifeng.com/blog/2012/10/asynchronous_module_definition.html">AMD与COMMON.JS阮一峰博客</a></p>
-<p><a href="https://requirejs.org/docs/node.html#3">require.js in node</a></p>
-<h2 id="CMD规范"><a href="#CMD规范" class="headerlink" title="CMD规范"></a><a href="https://github.com/seajs/seajs/issues/242">CMD规范</a></h2><p>CMD 即Common Module Definition通用模块定义,CMD规范是国内发展出来的,就像AMD有个requireJS,CMD有个浏览器的实现SeaJS,SeaJS要解决的问题和requireJS一样,只不过在模块定义方式和模块加载（可以说运行、解析）时机上有所不同</p>
-<p><a href="https://github.com/seajs/seajs/issues/277">SEA.JS</a><br><a href="https://www.zhihu.com/question/20351507/answer/14859415">知乎：AMD与CMD的区别</a></p>
-<h2 id="ES6导出方式"><a href="#ES6导出方式" class="headerlink" title="ES6导出方式"></a>ES6导出方式</h2><h3 id="方式一："><a href="#方式一：" class="headerlink" title="方式一："></a>方式一：</h3><p>一个模块就是一个独立的文件。该文件内部的所有变量，外部无法获取。如果你希望外部能够读取模块内部的某个变量，就必须使用export关键字输出该变量。下面是一个 JS 文件，里面使用export命令输出变量。</p>
-<figure class="highlight dart"><table><tr><td class="code"><pre><code class="hljs dart"><span class="hljs-keyword">export</span> <span class="hljs-keyword">var</span> firstName = <span class="hljs-string">&#x27;Michael&#x27;</span>;<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">var</span> lastName = <span class="hljs-string">&#x27;Jackson&#x27;</span>;<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">var</span> year = <span class="hljs-number">1958</span>;<br></code></pre></td></tr></table></figure>
-
-<h3 id="方式二：列表方式，大括号"><a href="#方式二：列表方式，大括号" class="headerlink" title="方式二：列表方式，大括号"></a>方式二：列表方式，大括号</h3><p>是大括号，不是对象，一定要注意，在大括号中统一导出。<br>通常情况下，export输出的变量就是本来的名字，但是可以使用as关键字重命名。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">v1</span>(<span class="hljs-params"></span>) </span>&#123; ... &#125;<br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">v2</span>(<span class="hljs-params"></span>) </span>&#123; ... &#125;<br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">v3</span>(<span class="hljs-params"></span>) </span>&#123; ... &#125;<br><br><span class="hljs-keyword">export</span> &#123;<br>  v1 <span class="hljs-keyword">as</span> streamV1,<br>  v2 <span class="hljs-keyword">as</span> streamV2,<br>  v3 <span class="hljs-keyword">as</span> streamLatestVersion<br>&#125;;<br></code></pre></td></tr></table></figure>
-<h2 id="ES6导入方式"><a href="#ES6导入方式" class="headerlink" title="ES6导入方式"></a>ES6导入方式</h2><p>foo.js文件内容：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> name = <span class="hljs-string">&quot;coderwhy&quot;</span>;<br><span class="hljs-keyword">const</span> age = <span class="hljs-number">18</span>;<br><span class="hljs-keyword">const</span> sayHello = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">name</span>)</span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;hello&quot;</span> + name)<br>&#125;<br><br><span class="hljs-comment">//</span><br><span class="hljs-keyword">export</span> &#123;<br>    name,<br>    age,<br>    sayHello<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>index.js文件内容：</p>
-<h3 id="最普通的导入方式"><a href="#最普通的导入方式" class="headerlink" title="最普通的导入方式"></a>最普通的导入方式</h3><p>import {name,age,sayHello} from “./modules/foo.js”</p>
-<h3 id="第二种，导入变量后可以起别名"><a href="#第二种，导入变量后可以起别名" class="headerlink" title="第二种，导入变量后可以起别名"></a>第二种，导入变量后可以起别名</h3><p>import {name as vName,age as vAge,sayHello as vSayHello} from “./modules/foo.js”</p>
-<p>import {streamV1 as vName,streamV2 as vAge,streamLatestVersion as vSayHello} from “./modules/foo.js”</p>
-<h3 id="第三种-as-foo"><a href="#第三种-as-foo" class="headerlink" title="第三种  * as foo"></a>第三种  * as foo</h3><p>import * as foo from ‘./modules/foo.js’</p>
-<p>console.log(foo.name);<br>console.log(foo.age)<br>foo.sayHello(“coderwhy”)</p>
-<div class="note info modern"><p>本质是 将导入的 {name as vName,age as vAge,sayHello as vSayHello} 对象给foo对象，作为它的属性，然后在后方调用。
- </p>
-</div>
-
-
-<h2 id="export与from的使用"><a href="#export与from的使用" class="headerlink" title="export与from的使用"></a>export与from的使用</h2><p>—相当于从指定的js文件，导出需要导出的内容<br>foo.js文件内容：</p>
-<pre>const name = "coderwhy";
-const age = 18;
-const sayHello = function(name){
-    console.log("hello" + name)
-}</pre>
-
-<pre>
-export {name,age,sayHello} from "./modules/foo.js"
-
-<figure class="highlight sql"><table><tr><td class="code"><pre><code class="hljs sql">console.<span class="hljs-built_in">log</span>(name);<br>console.<span class="hljs-built_in">log</span>(age);<br>sayHello(&quot;coderwhy&quot;);<br></code></pre></td></tr></table></figure>
-</pre>
-
-<h2 id="default导出"><a href="#default导出" class="headerlink" title="default导出"></a>default导出</h2><p>默认导出，可以不给导出的文件加名字。</p>
-<p>从前面的例子可以看出，使用import命令的时候，用户需要知道所要加载的变量名或函数名，否则无法加载。但是，用户肯定希望快速上手，未必愿意阅读文档，去了解模块有哪些属性和方法。</p>
-<p>为了给用户提供方便，让他们不用阅读文档就能加载模块，就要用到export default命令，为模块指定默认输出。</p>
-<p>export default命令用于指定模块的默认输出。显然，一个模块只能有一个默认输出，因此export default命令只能使用一次。所以，import命令后面才不用加大括号，因为只可能唯一对应export default命令。</p>
-<pre>// export-default.js
-export default function foo() {
-  console.log('foo');
-}
-
-// 或者写成
-
-function foo() {
-  console.log('foo');
-}
-
-export default foo;</pre>
-
-
-<h2 id="动态加载"><a href="#动态加载" class="headerlink" title="动态加载"></a>动态加载</h2><p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211107001630Eimport%EF%BC%88%EF%BC%89.png" alt="import（）函数动态加载"></p>
-<div class="note info modern"><figure class="highlight applescript"><table><tr><td class="code"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">script</span> src=<span class="hljs-string">&quot;./index.js&quot;</span> type=<span class="hljs-string">&quot;module&quot;</span>&gt;&lt;/<span class="hljs-keyword">script</span>&gt;<br>该<span class="hljs-keyword">script</span>标签加载是异步的，不回阻塞后面代码的执行。<br></code></pre></td></tr></table></figure>
-</div>
-
-<p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211107004522exportRecord.png"></p>
-<p>可以在左侧修改值，不能在右侧改变变量的值。</p>
-]]></content>
-      <categories>
-        <category>node</category>
-      </categories>
-      <tags>
-        <tag>node</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>uni-app实战（一）</title>
-    <url>/2021/10/26/uni-app/4132b17f6755/</url>
-    <content><![CDATA[<h1 id="项目的构建"><a href="#项目的构建" class="headerlink" title="项目的构建"></a>项目的构建</h1><ol>
-<li>开发工具采用uni-app官方的开发工具<a href="https://www.dcloud.io/hbuilderx.html">HbuilderX</a></li>
-<li>构建项目选择基础模板</li>
-<li>引入样式库 <ul>
-<li>uni.css 官方ui库</li>
-<li>animate.css css动画库</li>
-<li>icon.css 图标库</li>
-<li>common.css 公共样式</li>
-</ul>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>uni-app</category>
-      </categories>
-      <tags>
-        <tag>uni-app</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>node常见内置模块</title>
-    <url>/2021/11/07/node/41601c7205c1/</url>
-    <content><![CDATA[<h1 id="path模块"><a href="#path模块" class="headerlink" title="path模块"></a><a href="http://nodejs.cn/learn/the-nodejs-path-module">path模块</a></h1><p>主要对路径和文件相关的进行处理。</p>
-<p>在开发过程中，我们可以用字符串拼接的方式来指定路径，但是考虑到不同操作系统对于路径分隔符的差异，可能导致的兼容性问题，我们采用path模块中的resolve方法来对路径进行处理，它会根据操作系统，来指定适配的路径分隔符。</p>
-<pre>
-const path = require('path');
-
-const basePath = 'User/why';
-const filename = 'abc.txt';
-
-const filepath = path.resolve(basePath, filename)
-
-console.log(filepath)
-
-</pre>
-
-<pre>
-PS C:\Users\starry\Desktop\total\node\04_node内置模块\02_path> node 01_路径的演练.js   
-C:\Users\starry\Desktop\total\node\04_node内置模块\02_path\User\why\abc.txt
-</pre>
-
-
-<h2 id="可以采用同步、异步、promise方式来加载文件信息。"><a href="#可以采用同步、异步、promise方式来加载文件信息。" class="headerlink" title="可以采用同步、异步、promise方式来加载文件信息。"></a>可以采用同步、异步、promise方式来加载文件信息。</h2><figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">const fs = require(<span class="hljs-string">&#x27;fs&#x27;</span>);<br>const filepath = <span class="hljs-string">&#x27;./abc.txt&#x27;</span>;<br><span class="hljs-regexp">//</span> 案例 读取文件信息   同步方式<br><br><br><span class="hljs-regexp">//</span> const info = fs.statSync(filepath);<br><br><span class="hljs-regexp">//</span> console.log(info);<br><span class="hljs-regexp">//</span> console.log(<span class="hljs-string">&#x27;后续执行的代码&#x27;</span>)<br><br><span class="hljs-regexp">//</span> 方式二  异步操作<br><br><span class="hljs-regexp">//</span> fs.stat(filepath, (err,info) =&gt; &#123;<br><span class="hljs-regexp">//</span>     <span class="hljs-keyword">if</span>(err) &#123;<br><span class="hljs-regexp">//</span>         console.log(err);<br><span class="hljs-regexp">//</span>         return;<br><span class="hljs-regexp">//</span>     &#125;<br><span class="hljs-regexp">//</span>     console.log(info);<br><span class="hljs-regexp">//</span> &#125;)<br><span class="hljs-regexp">//</span> console.log(<span class="hljs-string">&quot;后续需要执行的代码&quot;</span>);<br><br><br><span class="hljs-regexp">//</span> 方式三  promise<br><br>fs.promises.stat(filepath).then(info =&gt; &#123;<br>    console.log(info);<br>&#125;).catch(err =&gt; &#123;<br>    console.log(err)<br>&#125;)<br><br>console.log(<span class="hljs-string">&quot;后面需要执行的代码&quot;</span>)<br></code></pre></td></tr></table></figure>
-
-<p>第一种方式因为同步会阻塞，会先打印info信息，后两种方式则会先打印 <font color=red>后续需要执行的代码</font> 这一段内容。</p>
-<h2 id="文件描述符"><a href="#文件描述符" class="headerlink" title="文件描述符"></a>文件描述符</h2><p>在node的文件系统中可以通过传递文件描述符，来对文件进行操作。</p>
-<pre>
-// 文件描述符
-fs.open("./abc.txt",(err, fd) => {
-    if(err){
-        console.log(err);
-        return;
-    }
-   // 通过描述符去获取文件的信息
-
-fs.fstat( fd , (err,info) => {
-    if(err){
-        console.log(err);
-        return;
-    }
-    console.log(info);
-    
-})
-})
-
-</pre>
-<p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211107165552FSinfo.png" alt="文件信息"></p>
-<h2 id="文件的读写"><a href="#文件的读写" class="headerlink" title="文件的读写"></a>文件的读写</h2><pre>const fs = require('fs')
-
-const content = "你好啊，前端程序员";
-const filePath = "./abc.txt";
-fs.writeFile(filePath, content, (err) => {
-    console.log(err)
-})
-
-
-fs.readFile(filePath, {encoding: 'utf-8'}, (err, data) => {
-    console.log(data);
-});</pre>
-
-<h2 id="文件夹的操作"><a href="#文件夹的操作" class="headerlink" title="文件夹的操作"></a>文件夹的操作</h2><ol>
-<li>创建文件夹</li>
-<li>读取文件夹中的所有文件夹</li>
-<li>文件夹的命名</li>
-</ol>
-<p><a href="http://nodejs.cn/learn/working-with-folders-in-nodejs/#%E6%A3%80%E6%9F%A5%E6%96%87%E4%BB%B6%E5%A4%B9%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8">文件夹的相关操作</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211107175920fileMoreName.png"></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;fs&#x27;</span>);<br><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;path&#x27;</span>);<br><span class="hljs-keyword">const</span> dirname = <span class="hljs-string">&#x27;./why&#x27;</span><br><span class="hljs-comment">// try &#123;</span><br><span class="hljs-comment">//   if (!fs.existsSync(dirname)) &#123;</span><br><span class="hljs-comment">//     fs.mkdirSync(dirname);</span><br><span class="hljs-comment">//   &#125;</span><br><span class="hljs-comment">// &#125; catch (err) &#123;</span><br><span class="hljs-comment">//   console.error(err)</span><br><span class="hljs-comment">// &#125;</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getFiles</span>(<span class="hljs-params">dirname</span>) </span>&#123;<br>    fs.readdir(dirname, &#123;<span class="hljs-attr">withFileTypes</span>: <span class="hljs-literal">true</span>&#125;, <span class="hljs-function">(<span class="hljs-params">err, files</span>) =&gt;</span> &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> file <span class="hljs-keyword">of</span> files) &#123;<br>            <span class="hljs-keyword">if</span>(file.isDirectory())&#123;<br>                <span class="hljs-keyword">const</span> filepath = path.resolve(dirname,file.name);<br>                getFiles(filepath);<br>            &#125;<br>            <span class="hljs-keyword">else</span> &#123;<br>                <span class="hljs-built_in">console</span>.log(file.name);<br>            &#125;<br>        &#125;<br>    &#125;)<br>&#125;<br>getFiles(dirname);<br><br><br></code></pre></td></tr></table></figure>
-
-<h1 id="事件触发器"><a href="#事件触发器" class="headerlink" title="事件触发器"></a><a href="http://nodejs.cn/api/events.html">事件触发器</a></h1>]]></content>
-      <categories>
-        <category>node</category>
-      </categories>
-      <tags>
-        <tag>node</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vue3</title>
-    <url>/2021/10/11/vue3/583a6ec9ccd6/</url>
-    <content><![CDATA[<h1 id="vue3"><a href="#vue3" class="headerlink" title="vue3"></a>vue3</h1><p>   新一代的前端框架，基于typescript开发，具有更加优越的性能和更加安全的代码机制。</p>
-<span id="more"></span>]]></content>
-      <categories>
-        <category>vue3</category>
-      </categories>
-      <tags>
-        <tag>vue3</tag>
       </tags>
   </entry>
   <entry>
@@ -1462,6 +1118,260 @@ ALTER TABLE `user` DROP `age`;
       </tags>
   </entry>
   <entry>
+    <title>node学习</title>
+    <url>/2021/11/05/node/d7430acb4af2/</url>
+    <content><![CDATA[<h1 id="什么是node"><a href="#什么是node" class="headerlink" title="什么是node"></a>什么是node</h1><p>“Node全称NodeJS，是一个基于Chrome V8引擎的JavaScript运行环境；一个让JavaScript 运行在服务端的开发平台，它让JavaScript成为与PHP、Python、Perl等服务端语言平起平坐的脚本语言。”</p>
+<h1 id="node版本管理工具"><a href="#node版本管理工具" class="headerlink" title="node版本管理工具"></a>node版本管理工具</h1><p><strong>NVM</strong>  <a href="https://github.com/coreybutler/nvm-windows/releases">下载链接</a> 选择<font color=red>nvm-setup.zip</font>下载解压即可运行可执行文件<br><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211105192106-nvm-url.png" alt="nvm url"></p>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><ol>
+<li><p>nvm list 是查找本电脑上所有的node版本</p>
+<ul>
+<li>nvm list 查看已经安装的版本</li>
+<li>nvm list installed 查看已经安装的版本</li>
+<li>nvm list available 查看网络可以安装的版本</li>
+</ul>
+</li>
+<li><p>nvm install 安装最新版本nvm</p>
+</li>
+<li><p>nvm use <version> ## 切换使用指定的版本node</p>
+</li>
+<li><p>nvm ls 列出所有版本</p>
+</li>
+<li><p>nvm current显示当前版本</p>
+</li>
+<li><p>nvm alias <name> <version> ## 给不同的版本号添加别名</p>
+</li>
+<li><p>nvm unalias <name> ## 删除已定义的别名</p>
+</li>
+<li><p>nvm reinstall-packages <version> ## 在当前版本node环境下，重新全局安装指定版本号的npm包</p>
+</li>
+<li><p>nvm on 打开nodejs控制</p>
+</li>
+<li><p>nvm off 关闭nodejs控制</p>
+</li>
+<li><p>nvm proxy 查看设置与代理</p>
+</li>
+<li><p>nvm node_mirror [url] 设置或者查看setting.txt中的node_mirror，如果不设置的默认是 <a href="https://nodejs.org/dist/">https://nodejs.org/dist/</a><br>　　nvm npm_mirror [url] 设置或者查看setting.txt中的npm_mirror,如果不设置的话默认的是： <a href="https://github.com/npm/npm/archive/">https://github.com/npm/npm/archive/</a>.</p>
+</li>
+<li><p>nvm uninstall <version> 卸载制定的版本</p>
+</li>
+<li><p>nvm use [version] [arch] 切换制定的node版本和位数</p>
+</li>
+<li><p>nvm root [path] 设置和查看root路径</p>
+</li>
+<li><p>nvm version 查看当前的版本</p>
+</li>
+</ol>
+<h1 id="node程序传递参数"><a href="#node程序传递参数" class="headerlink" title="node程序传递参数"></a>node程序传递参数</h1><p>在终端可以通过node运行js文件，一般命令为<font color=chocolate>node 文件名.js</font> ，但是在有些情况下需要传递参数的时候可以在该命令后添加相关参数，则参数会传递到程序内部。那么怎么获取呢？可以使用全局对象 process（进程）</p>
+<p>在控制终端输入命令</p>
+<figure class="highlight crmsh"><table><tr><td class="code"><pre><code class="hljs crmsh"><span class="hljs-keyword">node</span> <span class="hljs-title">index</span>.js 简单点<br></code></pre></td></tr></table></figure>
+<p>效果图如下：<br><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211105204044nodeSendParams.png" alt="node传递参数"></p>
+<h1 id="node中常用的打印输出方式"><a href="#node中常用的打印输出方式" class="headerlink" title="node中常用的打印输出方式"></a>node中常用的打印输出方式</h1><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>console.log()</td>
+<td>最常用的输入内容的方式</td>
+</tr>
+<tr>
+<td>console.clear()</td>
+<td>清空控制台</td>
+</tr>
+<tr>
+<td>console.trace()</td>
+<td>打印函数的调用栈</td>
+</tr>
+</tbody></table>
+<p>其他的方法，<a href="https://nodejs.org/dist/latest-v14.x/docs/api/console.html">参考链接</a></p>
+<h1 id="常见的全局对象"><a href="#常见的全局对象" class="headerlink" title="常见的全局对象"></a><a href="https://nodejs.org/dist/latest-v16.x/docs/api/globals.html">常见的全局对象</a></h1><h2 id="特殊的全局对象"><a href="#特殊的全局对象" class="headerlink" title="特殊的全局对象"></a>特殊的全局对象</h2><ul>
+<li>这些全局对象实际上是模块中的变量，只是每个模块中都有，看起来像是全局变量</li>
+<li>在命令行交互中是不可以使用的</li>
+<li>包括： __dirname（目录名称）、__filename（文件名称）、exports、module、require（）</li>
+</ul>
+<figure class="highlight sqf"><table><tr><td class="code"><pre><code class="hljs sqf">console.<span class="hljs-built_in">log</span>(<span class="hljs-variable">__dirname</span>);<br>console.<span class="hljs-built_in">log</span>(<span class="hljs-variable">__filename</span>);<br></code></pre></td></tr></table></figure>
+<pre>
+PS C:\Users\starry\Desktop\total\node\02_nodeGlobalObject\01_specialGlobalObject> node specialGlobalObject.js
+C:\Users\starry\Desktop\total\node\02_nodeGlobalObject\01_specialGlobalObject
+C:\Users\starry\Desktop\total\node\02_nodeGlobalObject\01_specialGlobalObject\specialGlobalObject.js</pre>
+
+<h2 id="常见的全局对象-1"><a href="#常见的全局对象-1" class="headerlink" title="常见的全局对象"></a>常见的全局对象</h2><p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211105234455setTimeOut.png" alt="常见的定时器对象"></p>
+<div class="note success modern"><p>问题1：为什么执行的顺序不一样？<br>问题2：为什么process.nextTick比setImmediate还快？
+ </p>
+</div>
+
+<h2 id="global全局对象"><a href="#global全局对象" class="headerlink" title="global全局对象"></a>global全局对象</h2><figure class="highlight sql"><table><tr><td class="code"><pre><code class="hljs sql">console.<span class="hljs-built_in">log</span>(<span class="hljs-keyword">global</span>)<br></code></pre></td></tr></table></figure>
+
+<pre><ref *1> Object [global] {
+  global: [Circular *1],
+  clearInterval: [Function: clearInterval],
+  clearTimeout: [Function: clearTimeout],
+  setInterval: [Function: setInterval],
+  setTimeout: [Function: setTimeout] {
+    [Symbol(nodejs.util.promisify.custom)]: [Function (anonymous)]
+  },
+  queueMicrotask: [Function: queueMicrotask],
+  clearImmediate: [Function: clearImmediate],
+  setImmediate: [Function: setImmediate] {
+    [Symbol(nodejs.util.promisify.custom)]: [Function (anonymous)]
+  }
+}</pre>
+
+
+<h1 id="JavaScript的模块化"><a href="#JavaScript的模块化" class="headerlink" title="JavaScript的模块化"></a>JavaScript的模块化</h1><p>为了让Node.js的文件可以相互调用，Node.js提供了一个简单的模块系统。</p>
+<p>模块是Node.js 应用程序的基本组成部分，文件和模块是一一对应的。换言之，一个 Node.js 文件就是一个模块，这个文件可能是JavaScript 代码、JSON 或者编译过的C/C++ 扩展。</p>
+<h2 id="立即执行函数实现的模块化"><a href="#立即执行函数实现的模块化" class="headerlink" title="立即执行函数实现的模块化"></a>立即执行函数实现的模块化</h2><figure class="highlight actionscript"><table><tr><td class="code"><pre><code class="hljs actionscript"><span class="hljs-keyword">var</span> moduleFoo = (<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-keyword">return</span> &#123;<br>        age,<br>        name<br>    &#125;<br>&#125;)()<br><br></code></pre></td></tr></table></figure>
+
+<p>如果模块化同名也会产生冲突。</p>
+<h2 id="COMMON-JS规范"><a href="#COMMON-JS规范" class="headerlink" title="COMMON.JS规范"></a>COMMON.JS规范</h2><p>我们需要知道common.js是一个规范，最初提出来是在浏览器以外的地方使用，并且当时被命名为ServerJS, 后来为了体现它的广泛性，修改为CommonJS,平时我们也会简称为CJS.</p>
+<ul>
+<li>NODE是commonJs在服务器端一个具有代表性的实现。</li>
+<li>Browserify是COMMON.JS在浏览器中的实现。</li>
+<li>webpack打包工具具备对CommonJs的支持与转换。</li>
+</ul>
+<h2 id="exports"><a href="#exports" class="headerlink" title="exports"></a>exports</h2><p>每个模块都有一个为exports的对象，其默认值为空对象。</p>
+<p>node中实现common.js的方式就是对象的引用赋值。</p>
+<div class="note info modern"><p>问题3：对象的引用赋值与深拷贝，浅拷贝实际是三种东西？
+ </p>
+</div>
+
+<h2 id="module-exports"><a href="#module-exports" class="headerlink" title="module.exports"></a>module.exports</h2><p>会创建新的地址空间，默认为空的对象。<br>exports只能使用语法来向外暴露内部变量：如<a href="http://exports.xxx/">http://exports.xxx</a> = xxx;<br>module.exports既可以通过语法，也可以直接赋值一个对象。</p>
+<h2 id="require"><a href="#require" class="headerlink" title="require"></a>require</h2><p>require是一种函数，可以帮助我们引入一个文件（模块）中导入的对象。</p>
+<h3 id="require的查找规则"><a href="#require的查找规则" class="headerlink" title="require的查找规则"></a>require的查找规则</h3><p><a href="https://nodejs.org/dist/latest-v16.x/docs/api/modules.html#requireid">官方文档</a></p>
+<p>一、require的加载规则<br>1、优先从缓存加载<br>2、判断模块标识符</p>
+<p>核心模块<br>自己写的模块（路径形式的模块）</p>
+<p>第三方模块（node_modules）:</p>
+<ul>
+<li>第三方模块的标识就是第三方模块的名称（不可能有第三方模块和核心模块的名字一致）；</li>
+<li>开发人员可以把写好的框架库发布到npm上；</li>
+<li>使用者通过npm命令来下载，使用式：var 名称 = require(‘npm install【下载包】 的包名’)；node_modules/express/package.json main；如果package.json或者main不成立，则查找被选择项：index.js；如果以上条件都不满足，则继续进入上一级目录中的node_modules按照上面的规则依次查找，直到当前文件所属此盘根目录都找不到最后报错.</li>
+</ul>
+<h3 id="require加载文件的顺序"><a href="#require加载文件的顺序" class="headerlink" title="require加载文件的顺序"></a>require加载文件的顺序</h3><ol>
+<li><p>在当前文件中，有通过require加载的文件，同时本文件有其他操作时，会先同步加载前面所导入的文件</p>
+</li>
+<li><p>require在嵌套调用的时候，有的文件可能会被引入多次，但是执行时，同样的代码只会执行一次，因为在内部进行了缓存。在下方打印module的时候有一个loaded属性，如果是true就代表已经加载过，需要缓存；反之，就是没有加载过。</p>
+</li>
+<li><p>循环引用的加载顺序：深度优先</p>
+</li>
+</ol>
+<h2 id="打印module"><a href="#打印module" class="headerlink" title="打印module"></a>打印module</h2><figure class="highlight sql"><table><tr><td class="code"><pre><code class="hljs sql">console.<span class="hljs-built_in">log</span>(<span class="hljs-keyword">module</span>)<br></code></pre></td></tr></table></figure>
+
+<pre>PS C:\Users\starry\Desktop\total\node\03_JavaScript_module\02_commonjs> node bar.js
+Module {
+  id: '.',
+  path: 'C:\\Users\\starry\\Desktop\\total\\node\\03_JavaScript_module\\02_commonjs',        
+  exports: { name: 'jiang', age: 23 },
+  parent: null,
+  filename: 'C:\\Users\\starry\\Desktop\\total\\node\\03_JavaScript_module\\02_commonjs\\bar.js',
+<font color=amber>  loaded: false,</font>
+  children: [],
+  paths: [
+    'C:\\Users\\starry\\Desktop\\total\\node\\03_JavaScript_module\\02_commonjs\\node_modules',
+    'C:\\Users\\starry\\Desktop\\total\\node\\03_JavaScript_module\\node_modules',
+    'C:\\Users\\starry\\Desktop\\total\\node\\node_modules',
+    'C:\\Users\\starry\\Desktop\\total\\node_modules',
+    'C:\\Users\\starry\\Desktop\\node_modules',
+    'C:\\Users\\starry\\node_modules',
+    'C:\\Users\\node_modules',
+    'C:\\node_modules'
+  ]
+}</pre>
+
+<p><img src="https://img1.sycdn.imooc.com/598ad54700010efc03400430.png"></p>
+<h2 id="AMD规范"><a href="#AMD规范" class="headerlink" title="AMD规范"></a><a href="https://github.com/amdjs/amdjs-api/wiki/AMD">AMD规范</a></h2><p>全称是Asynchronous Module Definition，即异步模块加载机制。从它的规范描述页面看，AMD很短也很简单，但它却完整描述了模块的定义，依赖关系，引用关系以及加载机制。从它被requireJs，Dojo，JQuery使用也可以看出它具有很大的价值，没错，JQuery近期也采用了AMD规范。</p>
+<p><a href="http://www.ruanyifeng.com/blog/2012/10/asynchronous_module_definition.html">AMD与COMMON.JS阮一峰博客</a></p>
+<p><a href="https://requirejs.org/docs/node.html#3">require.js in node</a></p>
+<h2 id="CMD规范"><a href="#CMD规范" class="headerlink" title="CMD规范"></a><a href="https://github.com/seajs/seajs/issues/242">CMD规范</a></h2><p>CMD 即Common Module Definition通用模块定义,CMD规范是国内发展出来的,就像AMD有个requireJS,CMD有个浏览器的实现SeaJS,SeaJS要解决的问题和requireJS一样,只不过在模块定义方式和模块加载（可以说运行、解析）时机上有所不同</p>
+<p><a href="https://github.com/seajs/seajs/issues/277">SEA.JS</a><br><a href="https://www.zhihu.com/question/20351507/answer/14859415">知乎：AMD与CMD的区别</a></p>
+<h2 id="ES6导出方式"><a href="#ES6导出方式" class="headerlink" title="ES6导出方式"></a>ES6导出方式</h2><h3 id="方式一："><a href="#方式一：" class="headerlink" title="方式一："></a>方式一：</h3><p>一个模块就是一个独立的文件。该文件内部的所有变量，外部无法获取。如果你希望外部能够读取模块内部的某个变量，就必须使用export关键字输出该变量。下面是一个 JS 文件，里面使用export命令输出变量。</p>
+<figure class="highlight dart"><table><tr><td class="code"><pre><code class="hljs dart"><span class="hljs-keyword">export</span> <span class="hljs-keyword">var</span> firstName = <span class="hljs-string">&#x27;Michael&#x27;</span>;<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">var</span> lastName = <span class="hljs-string">&#x27;Jackson&#x27;</span>;<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">var</span> year = <span class="hljs-number">1958</span>;<br></code></pre></td></tr></table></figure>
+
+<h3 id="方式二：列表方式，大括号"><a href="#方式二：列表方式，大括号" class="headerlink" title="方式二：列表方式，大括号"></a>方式二：列表方式，大括号</h3><p>是大括号，不是对象，一定要注意，在大括号中统一导出。<br>通常情况下，export输出的变量就是本来的名字，但是可以使用as关键字重命名。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">v1</span>(<span class="hljs-params"></span>) </span>&#123; ... &#125;<br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">v2</span>(<span class="hljs-params"></span>) </span>&#123; ... &#125;<br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">v3</span>(<span class="hljs-params"></span>) </span>&#123; ... &#125;<br><br><span class="hljs-keyword">export</span> &#123;<br>  v1 <span class="hljs-keyword">as</span> streamV1,<br>  v2 <span class="hljs-keyword">as</span> streamV2,<br>  v3 <span class="hljs-keyword">as</span> streamLatestVersion<br>&#125;;<br></code></pre></td></tr></table></figure>
+<h2 id="ES6导入方式"><a href="#ES6导入方式" class="headerlink" title="ES6导入方式"></a>ES6导入方式</h2><p>foo.js文件内容：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> name = <span class="hljs-string">&quot;coderwhy&quot;</span>;<br><span class="hljs-keyword">const</span> age = <span class="hljs-number">18</span>;<br><span class="hljs-keyword">const</span> sayHello = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">name</span>)</span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;hello&quot;</span> + name)<br>&#125;<br><br><span class="hljs-comment">//</span><br><span class="hljs-keyword">export</span> &#123;<br>    name,<br>    age,<br>    sayHello<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>index.js文件内容：</p>
+<h3 id="最普通的导入方式"><a href="#最普通的导入方式" class="headerlink" title="最普通的导入方式"></a>最普通的导入方式</h3><p>import {name,age,sayHello} from “./modules/foo.js”</p>
+<h3 id="第二种，导入变量后可以起别名"><a href="#第二种，导入变量后可以起别名" class="headerlink" title="第二种，导入变量后可以起别名"></a>第二种，导入变量后可以起别名</h3><p>import {name as vName,age as vAge,sayHello as vSayHello} from “./modules/foo.js”</p>
+<p>import {streamV1 as vName,streamV2 as vAge,streamLatestVersion as vSayHello} from “./modules/foo.js”</p>
+<h3 id="第三种-as-foo"><a href="#第三种-as-foo" class="headerlink" title="第三种  * as foo"></a>第三种  * as foo</h3><p>import * as foo from ‘./modules/foo.js’</p>
+<p>console.log(foo.name);<br>console.log(foo.age)<br>foo.sayHello(“coderwhy”)</p>
+<div class="note info modern"><p>本质是 将导入的 {name as vName,age as vAge,sayHello as vSayHello} 对象给foo对象，作为它的属性，然后在后方调用。
+ </p>
+</div>
+
+
+<h2 id="export与from的使用"><a href="#export与from的使用" class="headerlink" title="export与from的使用"></a>export与from的使用</h2><p>—相当于从指定的js文件，导出需要导出的内容<br>foo.js文件内容：</p>
+<pre>const name = "coderwhy";
+const age = 18;
+const sayHello = function(name){
+    console.log("hello" + name)
+}</pre>
+
+<pre>
+export {name,age,sayHello} from "./modules/foo.js"
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><code class="hljs sql">console.<span class="hljs-built_in">log</span>(name);<br>console.<span class="hljs-built_in">log</span>(age);<br>sayHello(&quot;coderwhy&quot;);<br></code></pre></td></tr></table></figure>
+</pre>
+
+<h2 id="default导出"><a href="#default导出" class="headerlink" title="default导出"></a>default导出</h2><p>默认导出，可以不给导出的文件加名字。</p>
+<p>从前面的例子可以看出，使用import命令的时候，用户需要知道所要加载的变量名或函数名，否则无法加载。但是，用户肯定希望快速上手，未必愿意阅读文档，去了解模块有哪些属性和方法。</p>
+<p>为了给用户提供方便，让他们不用阅读文档就能加载模块，就要用到export default命令，为模块指定默认输出。</p>
+<p>export default命令用于指定模块的默认输出。显然，一个模块只能有一个默认输出，因此export default命令只能使用一次。所以，import命令后面才不用加大括号，因为只可能唯一对应export default命令。</p>
+<pre>// export-default.js
+export default function foo() {
+  console.log('foo');
+}
+
+// 或者写成
+
+function foo() {
+  console.log('foo');
+}
+
+export default foo;</pre>
+
+
+<h2 id="动态加载"><a href="#动态加载" class="headerlink" title="动态加载"></a>动态加载</h2><p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211107001630Eimport%EF%BC%88%EF%BC%89.png" alt="import（）函数动态加载"></p>
+<div class="note info modern"><figure class="highlight applescript"><table><tr><td class="code"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">script</span> src=<span class="hljs-string">&quot;./index.js&quot;</span> type=<span class="hljs-string">&quot;module&quot;</span>&gt;&lt;/<span class="hljs-keyword">script</span>&gt;<br>该<span class="hljs-keyword">script</span>标签加载是异步的，不回阻塞后面代码的执行。<br></code></pre></td></tr></table></figure>
+</div>
+
+<p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211107004522exportRecord.png"></p>
+<p>可以在左侧修改值，不能在右侧改变变量的值。</p>
+]]></content>
+      <categories>
+        <category>node</category>
+      </categories>
+      <tags>
+        <tag>node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>uni-app实战（一）</title>
+    <url>/2021/10/26/uni-app/4132b17f6755/</url>
+    <content><![CDATA[<h1 id="项目的构建"><a href="#项目的构建" class="headerlink" title="项目的构建"></a>项目的构建</h1><ol>
+<li>开发工具采用uni-app官方的开发工具<a href="https://www.dcloud.io/hbuilderx.html">HbuilderX</a></li>
+<li>构建项目选择基础模板</li>
+<li>引入样式库 <ul>
+<li>uni.css 官方ui库</li>
+<li>animate.css css动画库</li>
+<li>icon.css 图标库</li>
+<li>common.css 公共样式</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>uni-app</category>
+      </categories>
+      <tags>
+        <tag>uni-app</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>vue3 基础文档学习</title>
     <url>/2021/09/23/vue3/22ee434cee21/</url>
     <content><![CDATA[<h1 id="基础文档网址"><a href="#基础文档网址" class="headerlink" title="基础文档网址"></a>基础文档网址</h1><p><a href="https://v3.cn.vuejs.org/">vue3官方文档学习</a></p>
@@ -1477,143 +1387,93 @@ ALTER TABLE `user` DROP `age`;
       </tags>
   </entry>
   <entry>
-    <title>后台管理系统vue3TsElement-plusVite</title>
-    <url>/2021/09/14/vue3/9e0f53e3c316/</url>
-    <content><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>截止目前，工作中对于需要处理的项目需求已经基本完成，在没有新的需求产生之前，项目基本的模型基本固定，所以有时间进行项目的思考与新技术的学习，在实际的开发的项目中会技术知识点的熟练度问题导致经常需要参考网上的相关例子，但是根据教程解决完业务问题后，因为整理不及时，在遇到相同问题的时候就会花费更多的精力和时间，也不利于沉淀。正好，博客系统也能都正常上线使用，采用了比较简洁的hexo-next主题，虽然界面比较朴素，但是对于写技术博客来说，已经是非常适合不过了。当然也有其他的主题，比较好看，但是因为配置next主题也花了一些时间，同时在此阶段结合谷歌浏览器lighthouse插件，也解决了一些项目的性能优化问题，包括通过<a href="https://www.jsdelivr.com/">jsdelivr</a>对图片进行CDN优化，加快访问速度等，如图<img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914162406blogRateScreen.png" alt="个人博客网站评分">，同时也提出了http/1.1 http/2等的问题，可以明显的感觉到加载速度的差异，<a href="https://http2.akamai.com/demo">加载速度对比</a>,发现对于基础知识还是有许多需要学习的地方，也就是当前来说技术知识的提升比博客页面的美观更加重要一些，所以就开始先更文章了!</p>
-<span id="more"></span>
-<h1 id="就叫它NS吧"><a href="#就叫它NS吧" class="headerlink" title="就叫它NS吧"></a>就叫它NS吧</h1><p>  在开始文章的叙述之前，总得先定一个叙述对象，它也就是前面提及的工作项目，结合项目名称，以及便于后续称呼，就叫它NS吧，这是一个后台管理系统项目，采用了当下非常流行的vue以及elementUI作为开发的基础性框架，打包工具则以gulp为主，同时包含少量的webpack配置，对于这方面的知识还是比较欠缺，当然整个项目的业务逻辑还是在摸索了几天逐渐熟悉了。<br>  随着业务量的深入以及代码量的增多，可以很容易的发现，代码变得逐渐难以管理，同时因为初期的代码规范性问题，导致代码的可读性变差，因为缺少文档，导致在日常赶需求的时候，引入的依赖，配置项等，在维护过程中，对于一些不需要的冗余代码，不方便精简，大多采用注释的方式解决，业务中遇到的主要问题是图片的处理，包括上传和保证图片的上传顺序等，还有大文件的上传，同时是订单管理中不可缺少的导出功能，如何在前端根据列实现对表格数据的筛选，还有地图数据展示与选择过程中的循环问题，对于路由权限问题需要在新项目中搭建中熟悉动态路由表以及权限处理</p>
-<h1 id="初步认识"><a href="#初步认识" class="headerlink" title="初步认识"></a>初步认识</h1><p>  问题已经大致了解了，所以在新项目的开始过程中，也算是有了“需求”，能够有效的提升学习效率了。</p>
-<h2 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h2><p>  <a href="https://vue3js.cn/docs/zh/">vue3官方中文文档</a></p>
-<p>  <a href="https://www.tslang.cn/docs/home.html">TypeScript官方文档 v3.1</a></p>
-<p>  <a href="https://vitejs.cn/">Vite官方文档</a></p>
-<p>  <a href="https://element-plus.org/#/zh-CN/component/installation">element-plus官方文档</a></p>
-<h2 id="构建基础项目"><a href="#构建基础项目" class="headerlink" title="构建基础项目"></a>构建基础项目</h2><p>跟随着vite官方教程，我们成功的运行起来了项目，同时能够感受到页面内容的快速构建和页面快速的响应式热更新带来的流畅开发体验。</p>
-<p>基础demo运行: <img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914180734vue3viteBaseDemo.png"></p>
-<p>项目运行起来的时间为：<img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914180937baseDemoRate.png"></p>
-<p>下面可以看下具体的项目结构：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914181052baseDemoStrucet.png" alt="项目基本结构"><br>同时也有一些问题，<img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914181439demoProblem.png" alt="基础vite项目bug">对于一个元素的问题，<a href="https://stackoverflow.com/questions/64867504/vue-3-the-template-root-requires-exactly-one-element-eslint-plugin-vue">尝试用div标签包裹template内的元素，一个bug可以解决</a>但是另外一个还是会有问题，经过搜索发现有帖子有相同的错误，故保存下来。<a href="https://www.jianshu.com/p/684820d0f905">vue3+eslint遇到 The template root requires exactly one element.eslintvue/no-multiple-template-root ..</a><br>经过一番折腾，还是回到原来构建时候的代码状态，原来是因为插件的问题，<a href="https://juejin.cn/post/6875713523968802829#heading-6">参考评论区</a>,具体评论为：<img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914185531veturBug.png"></p>
-]]></content>
+    <title>node常见内置模块</title>
+    <url>/2021/11/07/node/41601c7205c1/</url>
+    <content><![CDATA[<h1 id="path模块"><a href="#path模块" class="headerlink" title="path模块"></a><a href="http://nodejs.cn/learn/the-nodejs-path-module">path模块</a></h1><p>主要对路径和文件相关的进行处理。</p>
+<p>在开发过程中，我们可以用字符串拼接的方式来指定路径，但是考虑到不同操作系统对于路径分隔符的差异，可能导致的兼容性问题，我们采用path模块中的resolve方法来对路径进行处理，它会根据操作系统，来指定适配的路径分隔符。</p>
+<pre>
+const path = require('path');
+
+const basePath = 'User/why';
+const filename = 'abc.txt';
+
+const filepath = path.resolve(basePath, filename)
+
+console.log(filepath)
+
+</pre>
+
+<pre>
+PS C:\Users\starry\Desktop\total\node\04_node内置模块\02_path> node 01_路径的演练.js   
+C:\Users\starry\Desktop\total\node\04_node内置模块\02_path\User\why\abc.txt
+</pre>
+
+
+<h2 id="可以采用同步、异步、promise方式来加载文件信息。"><a href="#可以采用同步、异步、promise方式来加载文件信息。" class="headerlink" title="可以采用同步、异步、promise方式来加载文件信息。"></a>可以采用同步、异步、promise方式来加载文件信息。</h2><figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">const fs = require(<span class="hljs-string">&#x27;fs&#x27;</span>);<br>const filepath = <span class="hljs-string">&#x27;./abc.txt&#x27;</span>;<br><span class="hljs-regexp">//</span> 案例 读取文件信息   同步方式<br><br><br><span class="hljs-regexp">//</span> const info = fs.statSync(filepath);<br><br><span class="hljs-regexp">//</span> console.log(info);<br><span class="hljs-regexp">//</span> console.log(<span class="hljs-string">&#x27;后续执行的代码&#x27;</span>)<br><br><span class="hljs-regexp">//</span> 方式二  异步操作<br><br><span class="hljs-regexp">//</span> fs.stat(filepath, (err,info) =&gt; &#123;<br><span class="hljs-regexp">//</span>     <span class="hljs-keyword">if</span>(err) &#123;<br><span class="hljs-regexp">//</span>         console.log(err);<br><span class="hljs-regexp">//</span>         return;<br><span class="hljs-regexp">//</span>     &#125;<br><span class="hljs-regexp">//</span>     console.log(info);<br><span class="hljs-regexp">//</span> &#125;)<br><span class="hljs-regexp">//</span> console.log(<span class="hljs-string">&quot;后续需要执行的代码&quot;</span>);<br><br><br><span class="hljs-regexp">//</span> 方式三  promise<br><br>fs.promises.stat(filepath).then(info =&gt; &#123;<br>    console.log(info);<br>&#125;).catch(err =&gt; &#123;<br>    console.log(err)<br>&#125;)<br><br>console.log(<span class="hljs-string">&quot;后面需要执行的代码&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>第一种方式因为同步会阻塞，会先打印info信息，后两种方式则会先打印 <font color=red>后续需要执行的代码</font> 这一段内容。</p>
+<h2 id="文件描述符"><a href="#文件描述符" class="headerlink" title="文件描述符"></a>文件描述符</h2><p>在node的文件系统中可以通过传递文件描述符，来对文件进行操作。</p>
+<pre>
+// 文件描述符
+fs.open("./abc.txt",(err, fd) => {
+    if(err){
+        console.log(err);
+        return;
+    }
+   // 通过描述符去获取文件的信息
+
+fs.fstat( fd , (err,info) => {
+    if(err){
+        console.log(err);
+        return;
+    }
+    console.log(info);
+    
+})
+})
+
+</pre>
+<p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211107165552FSinfo.png" alt="文件信息"></p>
+<h2 id="文件的读写"><a href="#文件的读写" class="headerlink" title="文件的读写"></a>文件的读写</h2><pre>const fs = require('fs')
+
+const content = "你好啊，前端程序员";
+const filePath = "./abc.txt";
+fs.writeFile(filePath, content, (err) => {
+    console.log(err)
+})
+
+
+fs.readFile(filePath, {encoding: 'utf-8'}, (err, data) => {
+    console.log(data);
+});</pre>
+
+<h2 id="文件夹的操作"><a href="#文件夹的操作" class="headerlink" title="文件夹的操作"></a>文件夹的操作</h2><ol>
+<li>创建文件夹</li>
+<li>读取文件夹中的所有文件夹</li>
+<li>文件夹的命名</li>
+</ol>
+<p><a href="http://nodejs.cn/learn/working-with-folders-in-nodejs/#%E6%A3%80%E6%9F%A5%E6%96%87%E4%BB%B6%E5%A4%B9%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8">文件夹的相关操作</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211107175920fileMoreName.png"></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;fs&#x27;</span>);<br><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;path&#x27;</span>);<br><span class="hljs-keyword">const</span> dirname = <span class="hljs-string">&#x27;./why&#x27;</span><br><span class="hljs-comment">// try &#123;</span><br><span class="hljs-comment">//   if (!fs.existsSync(dirname)) &#123;</span><br><span class="hljs-comment">//     fs.mkdirSync(dirname);</span><br><span class="hljs-comment">//   &#125;</span><br><span class="hljs-comment">// &#125; catch (err) &#123;</span><br><span class="hljs-comment">//   console.error(err)</span><br><span class="hljs-comment">// &#125;</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getFiles</span>(<span class="hljs-params">dirname</span>) </span>&#123;<br>    fs.readdir(dirname, &#123;<span class="hljs-attr">withFileTypes</span>: <span class="hljs-literal">true</span>&#125;, <span class="hljs-function">(<span class="hljs-params">err, files</span>) =&gt;</span> &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> file <span class="hljs-keyword">of</span> files) &#123;<br>            <span class="hljs-keyword">if</span>(file.isDirectory())&#123;<br>                <span class="hljs-keyword">const</span> filepath = path.resolve(dirname,file.name);<br>                getFiles(filepath);<br>            &#125;<br>            <span class="hljs-keyword">else</span> &#123;<br>                <span class="hljs-built_in">console</span>.log(file.name);<br>            &#125;<br>        &#125;<br>    &#125;)<br>&#125;<br>getFiles(dirname);<br><br><br></code></pre></td></tr></table></figure>
+
+<h1 id="事件触发器"><a href="#事件触发器" class="headerlink" title="事件触发器"></a><a href="http://nodejs.cn/api/events.html">事件触发器</a></h1>]]></content>
+      <categories>
+        <category>node</category>
+      </categories>
+      <tags>
+        <tag>node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vue3</title>
+    <url>/2021/10/11/vue3/583a6ec9ccd6/</url>
+    <content><![CDATA[<h1 id="vue3"><a href="#vue3" class="headerlink" title="vue3"></a>vue3</h1><p>   新一代的前端框架，基于typescript开发，具有更加优越的性能和更加安全的代码机制。</p>
+<span id="more"></span>]]></content>
       <categories>
         <category>vue3</category>
       </categories>
       <tags>
-        <tag>TypeScript</tag>
         <tag>vue3</tag>
-        <tag>vite</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>webpack基本配置（二）</title>
-    <url>/2021/10/18/webpack/eb2dff5fc128/</url>
-    <content><![CDATA[<h1 id="webpack基本配置-入口、出口"><a href="#webpack基本配置-入口、出口" class="headerlink" title="webpack基本配置(入口、出口)"></a>webpack基本配置(入口、出口)</h1><p>配置方式：</p>
-<ul>
-<li>第一种方式</li>
-</ul>
-<p>通过在命令行直接指定,但是在操作的时候容易输错命令，且在需要重复重复操作时，需要再次输入很长的命令，显然是非常影响开发效率的。</p>
-<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><code class="hljs jboss-cli">webpack <span class="hljs-params">--entry</span> <span class="hljs-string">./src/main.js</span> <span class="hljs-params">--output-path</span> <span class="hljs-string">./build</span><br></code></pre></td></tr></table></figure>
-
-<ul>
-<li>第二种方式</li>
-</ul>
-<p>通过在项目的<font color=chocolate>package.json</font>文件中的scripts对象中，将命令指定为相应的值y，通过在命令行，输入npm run + x 。也可以完成相应的操作，    (其中x表示y相对应的键) </p>
-<figure class="highlight ada"><table><tr><td class="code"><pre><code class="hljs ada"><span class="hljs-string">&quot;scripts&quot;</span> : &#123;<br>    <span class="hljs-string">&quot;build&quot;</span>: <span class="hljs-string">&quot;webpack --entry ./src/main.js --output-path ./build&quot;</span><br>&#125;<br></code></pre></td></tr></table></figure>
-<p>但是可以明显的考虑到，当右边的命令很长时，是非常不便于阅读和维护的。</p>
-<ul>
-<li>第三种方式</li>
-</ul>
-<p>通过在项目package.json统计目录新建 <font color=royalblue>webpack.config.js</font>  文件</p>
-<figure class="highlight lua"><table><tr><td class="code"><pre><code class="hljs lua"><br>const <span class="hljs-built_in">path</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;path&#x27;</span>);<br><br><span class="hljs-built_in">module</span>.exports = &#123;<br>   entry: <span class="hljs-string">&#x27;./src/main.js&#x27;</span>, //可以相对路径<br>   <span class="hljs-built_in">output</span>:&#123;<br>     filename: <span class="hljs-string">&quot;bundle.js&quot;</span>,<br>     <span class="hljs-built_in">path</span>: <span class="hljs-built_in">path</span>.resolve(__dirname,<span class="hljs-string">&quot;./build&quot;</span>)          //只能绝对绝对路径  <br>   &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<ul>
-<li>输出文件只能是绝对路径，可以通过path.resolve指定项目文件夹的所在路径。否则会报以下错误<blockquote>
-<p>[webpack-cli] Invalid configuration object. Webpack has been initialized using a configuration object that does not match the API schema.- configuration.output.path: The provided value “./build” is not an absolute path!-&gt; The output directory as <strong>absolute path</strong> (required).</p>
-</blockquote>
-</li>
-</ul>
-<h1 id="为什么采用module-export形式"><a href="#为什么采用module-export形式" class="headerlink" title="为什么采用module.export形式"></a>为什么采用<font color=green>module.export</font>形式</h1><p><a href="http://www.ruanyifeng.com/blog/2015/05/commonjs-in-browser.html">webpack读取文件的时候是采用的common，js的方式，因为webpack配置需要在node环境下运行</a></p>
-<hr>
-<div class="note warning modern"><p>如果在新建文件时，不将webpack配置文件命名为webpack.config.json命令为这样，在运行命令时就会报错，因为这是webpack配置的默认值，如果想要指定文件名，则可以在package.json的scripts文件中</p>
-<figure class="highlight ada"><table><tr><td class="code"><pre><code class="hljs ada"><span class="hljs-string">&quot;scripts&quot;</span> : &#123;<br>    <span class="hljs-string">&quot;build&quot;</span>: <span class="hljs-string">&quot;webpack --config 自定义文件名（英文）.config,js&quot;</span><br>&#125;<br></code></pre></td></tr></table></figure></div>
-
-<hr>
-<h1 id="理解webpack打包机制与依赖关系"><a href="#理解webpack打包机制与依赖关系" class="headerlink" title="理解webpack打包机制与依赖关系"></a>理解webpack打包机制与依赖关系</h1><p>   在webpack的打包过程中实际上就是通过文件之间的引入，导出等形成各种的依赖关系，并且依赖于这种关系，将多方的资源进行打包，有点类似于 中国当下的公路建设，可以连接到各地的城市和乡村，对于我们在js文件中，通过依赖进行打包发现是畅通无阻的，但是在给一些js文件中引入css文件时，再进行打包的时候就会出现以下问题，这就像是各地的桥梁来完成公路间的链接，这也就是loader的基本认识。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;../css/index.css&quot;</span>;<br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">component</span>(<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-keyword">const</span> element = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">&quot;div&quot;</span>);<br><br>    element.innerHTML = [<span class="hljs-string">&quot;hello&quot;</span>, <span class="hljs-string">&quot;webpack&quot;</span>].join(<span class="hljs-string">&quot; &quot;</span>);<br><br>    element.className = <span class="hljs-string">&quot;content&quot;</span>;<br><br>    <span class="hljs-keyword">return</span> element;<br>&#125;<br><br><span class="hljs-built_in">document</span>.body.appendChild(component());<br></code></pre></td></tr></table></figure>
-
-<p>在以上的代码中我们引入了css样式文件，然后输入命令进行打包时：</p>
-<div class="note danger modern"><pre>
-ERROR in ./src/css/index.css 1:0
-Module parse failed: Unexpected token (1:0)
-You may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. 
-See https://webpack.js.org/concepts#loaders
-> .content {
-|     color: aquamarine;
-| }
-</pre></div>
-
-<h1 id="loader"><a href="#loader" class="headerlink" title="loader"></a>loader</h1><h2 id="loader的基本概念"><a href="#loader的基本概念" class="headerlink" title="loader的基本概念"></a>loader的基本概念</h2><p><font color=red>loader</font> 让 webpack 能够去处理那些非 JavaScript 文件（webpack 自身只理解 JavaScript）。loader 可以将所有类型的文件转换为 webpack 能够处理的有效模块，然后你就可以利用 webpack 的打包能力，对它们进行处理。</p>
-<p>本质上，webpack loader 将所有类型的文件，转换为应用程序的依赖图（和最终的 bundle）可以直接引用的模块。</p>
-<h2 id="css-loader的安装"><a href="#css-loader的安装" class="headerlink" title="css-loader的安装"></a>css-loader的安装</h2><figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> css-loader -D<br></code></pre></td></tr></table></figure>
-
-<p>当前版本为：<font color=amber><a href="mailto:&#x63;&#x73;&#x73;&#x2d;&#x6c;&#x6f;&#x61;&#x64;&#x65;&#114;&#x40;&#54;&#46;&#x34;&#x2e;&#48;">&#x63;&#x73;&#x73;&#x2d;&#x6c;&#x6f;&#x61;&#x64;&#x65;&#114;&#x40;&#54;&#46;&#x34;&#x2e;&#48;</a></font></p>
-<p>安装完css-loader后，在package.json的<font color=red>devDependencies</font>中即可看到对应的版本号，但是现在桥梁的材料准备好了，还需要将公路与桥梁进行以下安装处理，使得其可以稳固通行，也就是代码能够正常运行。要想达到目的，有以下几种方式：</p>
-<div class="tabs" id="tab"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#tab-1">配置方式 推荐</button></li><li class="tab"><button type="button" data-href="#tab-2">CLI方式（webpack5版本中不再使用）</button></li><li class="tab"><button type="button" data-href="#tab-3">内联方式</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="tab-1"><figure class="highlight yaml"><table><tr><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">module:</span> &#123;<br>   <span class="hljs-attr">rules:</span> [<br>     &#123;<br>       <span class="hljs-attr">test:</span> <span class="hljs-string">/\.css$/</span>,               <br>       <span class="hljs-attr">use:</span> [<br>         &#123; <span class="hljs-attr">loader:</span> <span class="hljs-string">&#x27;style-loader&#x27;</span> &#125;,<br>         &#123;<br>           <span class="hljs-attr">loader:</span> <span class="hljs-string">&#x27;css-loader&#x27;</span>,<br>           <span class="hljs-attr">options:</span> &#123;<br>             <span class="hljs-attr">modules:</span> <span class="hljs-literal">true</span><br>           &#125;<br>         &#125;<br>       ]<br>     &#125;<br>   ]<br> &#125;<br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-2"><figure class="highlight fortran"><table><tr><td class="code"><pre><code class="hljs fortran">webpack --<span class="hljs-keyword">module</span>-<span class="hljs-keyword">bind</span> jade-loader --<span class="hljs-keyword">module</span>-<span class="hljs-keyword">bind</span> <span class="hljs-string">&#x27;css=style-loader!css-loader&#x27;</span><br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-3"><p>通过loader名字和”!” 将css文件分隔开，当然也可以同时写多个 import “xxx-loader!css-loader../css/index.css”;</p>
-<figure class="highlight abnf"><table><tr><td class="code"><pre><code class="hljs abnf">import <span class="hljs-string">&quot;css-loader!../css/index.css&quot;</span><span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
-
-
-<p>-在配置模式中，webpack会按照代码从下方到上方的方向进行loader的解析或者代码在同一行时，从右方向左方使用loader进行加载。当然，可以在自定义loader时，指定解析顺序，不过是后面的内容了。<br><font color=royalblue> 注意编写顺序  从下到上，从右往左，本质 从后往前</font></p>
-<p>在前面我们已经了解到，处理css文件需要css-loader,style-loader等来处理，那么在开发过程中如果需要处理不同的文件，则需要不同的loader来实现代码功能。</p>
-<p>但是，以less文件举例子，则需要用到less工具</p>
-<figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> <span class="hljs-keyword">less</span> -D<br></code></pre></td></tr></table></figure>
-<p>当前版本：<font color=camel> <a href="mailto:&#x6c;&#x65;&#x73;&#x73;&#x40;&#52;&#x2e;&#x31;&#46;&#50;">&#x6c;&#x65;&#x73;&#x73;&#x40;&#52;&#x2e;&#x31;&#46;&#50;</a></font></p>
-<p>安装完成后，可以通过npx来操作node_modules中的less，来进行处理：</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">npx less .<span class="hljs-regexp">/src/</span>css/component.less &gt; component.css<br></code></pre></td></tr></table></figure>
-<p>它可以将less文件转为正常的css文件</p>
-<div class="tabs" id="tab"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#tab-1">less文件 （转化前）</button></li><li class="tab"><button type="button" data-href="#tab-2">css文件（转化后）</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="tab-1"><figure class="highlight less"><table><tr><td class="code"><pre><code class="hljs less"><span class="hljs-variable">@fontSize:</span><span class="hljs-number">50px</span>;<br><span class="hljs-variable">@fontWeight:</span> <span class="hljs-number">700</span>;<br><br><span class="hljs-selector-class">.content</span> &#123;<br>    <span class="hljs-attribute">font-size</span>: <span class="hljs-variable">@fontSize</span>;<br>    <span class="hljs-attribute">font-weight</span>: <span class="hljs-variable">@fontWeight</span>;<br>&#125;<br> <br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-2"><figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.content</span> &#123;<br>  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">50px</span>;<br>  <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">700</span>;<br>&#125;<br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
-
-<h1 id="less-loader"><a href="#less-loader" class="headerlink" title="less-loader"></a>less-loader</h1><p>从上面的处理过程中，我们能够体会到less工具的快捷，但是在中大型项目中，当有大量的less文件需要处理时，想要通过命令行完成less文件的转化显然是不现实的，于是可以采用less-loader来进行处理，当然<font color=seagreen>less-loader是基于less工具</font>的，所以使用less-loader时，需要保证提前安装了less工具。</p>
-<figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> <span class="hljs-keyword">less</span> -D<br></code></pre></td></tr></table></figure>
-<p>当前版本：<font color=camel> <a href="mailto:&#x6c;&#101;&#x73;&#115;&#x40;&#52;&#x2e;&#49;&#x2e;&#50;">&#x6c;&#101;&#x73;&#115;&#x40;&#52;&#x2e;&#49;&#x2e;&#50;</a></font></p>
-<figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> <span class="hljs-keyword">less</span>-loader -D<br></code></pre></td></tr></table></figure>
-<p>当前版本： <font color=amber><a href="mailto:&#108;&#x65;&#115;&#x73;&#45;&#x6c;&#x6f;&#x61;&#100;&#101;&#114;&#64;&#x31;&#48;&#x2e;&#x32;&#x2e;&#x30;">&#108;&#x65;&#115;&#x73;&#45;&#x6c;&#x6f;&#x61;&#100;&#101;&#114;&#64;&#x31;&#48;&#x2e;&#x32;&#x2e;&#x30;</a></font></p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">module: &#123;<br>   <span class="hljs-regexp">//</span> rules数组里面都是rule对象<br>  rules: [<br>    &#123;<br>      test: <span class="hljs-regexp">/\.css$/</span>,    <span class="hljs-regexp">//</span> 匹配以css结尾的文件<br>      use: [<br>        <span class="hljs-regexp">//</span>  注意编写顺序  从下到上，从右往左，本质 从后往前<br>        &#123; loader: <span class="hljs-string">&#x27;style-loader&#x27;</span> &#125;,<br>        &#123;<br>          loader: <span class="hljs-string">&#x27;css-loader&#x27;</span>,<br>        &#125;<br>      ]<br>    &#125;,<br>    &#123;<br>      test: <span class="hljs-regexp">/\.less$/</span>,    <span class="hljs-regexp">//</span> 匹配以css结尾的文件<br>      use: [<br>        <span class="hljs-regexp">//</span>  注意编写顺序  从下到上，从右往左，本质 从后往前<br>        &#123; loader: <span class="hljs-string">&#x27;style-loader&#x27;</span> &#125;,<br>        &#123; loader: <span class="hljs-string">&#x27;css-loader&#x27;</span> &#125;,<br>        &#123;<br>          loader: <span class="hljs-string">&#x27;less-loader&#x27;</span>,<br>        &#125;<br>      ]<br>    &#125;<br>  ]<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h1 id="浏览器兼容性"><a href="#浏览器兼容性" class="headerlink" title="浏览器兼容性"></a>浏览器兼容性</h1><p>在开发中，我们会遇到浏览器的兼容性问题，不是指屏幕大小的变化适配，主要是针对于不同的浏览器所支持的特性之间的问题，比如CSS特性，js语法之间的兼容性，同时市面上存在着的浏览器，包括chrome、safari、IE、Edge、chrome for Android、UC Browser、QQ Browser等等，有着不同的市场占有率，是不是都需要兼容呢？</p>
-<h2 id="市场占有率与browserslist工具"><a href="#市场占有率与browserslist工具" class="headerlink" title="市场占有率与browserslist工具"></a>市场占有率与browserslist工具</h2><p> 浏览器的市场占有率，可以通过<a href="https://caniuse.com/usage-table">网站 can i use</a>在线查询。</p>
-<p>前端工具举例：autoprefixer , babel , postcss-preset-env</p>
-<p><a href="https://www.cnblogs.com/both-eyes/p/10151272.html">通过browserslist，在不同的前端工具之间，共享目标浏览器和Node.js版本的配置。</a></p>
-<p>基本写法,可以参考以下方式：</p>
-<div class="tabs" id="tab"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#tab-1">在package.json中添加</button></li><li class="tab"><button type="button" data-href="#tab-2">package.json同级目录创建 .browserslistrc文件</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="tab-1"><figure class="highlight prolog"><table><tr><td class="code"><pre><code class="hljs prolog"><span class="hljs-string">&quot;browserslist&quot;</span>: [<br>    <span class="hljs-string">&quot;&gt;1%&quot;</span>,<br>    <span class="hljs-string">&quot;last 2 version&quot;</span>,<br>    <span class="hljs-string">&quot;not dead&quot;</span><br>] <br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-2"><figure class="highlight applescript"><table><tr><td class="code"><pre><code class="hljs applescript">&gt;<span class="hljs-number">1</span>%<br><span class="hljs-keyword">last</span> <span class="hljs-number">2</span> <span class="hljs-built_in">version</span><br><span class="hljs-keyword">not</span> dead<br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
-
-<p>在不设置时，会有默认的基础配置</p>
-<figure class="highlight ini"><table><tr><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">browserslist.defaults</span> = [<br>  <span class="hljs-string">&#x27;&gt; 0.5%&#x27;</span>,<br>  <span class="hljs-string">&#x27;last 2 versions&#x27;</span>,<br>  <span class="hljs-string">&#x27;Firefox ESR&#x27;</span>,<br>  <span class="hljs-string">&#x27;not dead&#x27;</span><br>]<br></code></pre></td></tr></table></figure>
-
-<h1 id="postcss工具"><a href="#postcss工具" class="headerlink" title="postcss工具"></a>postcss工具</h1><p> <a href="https://www.postcss.com.cn/">PostCSS</a> 利用从 Can I Use 网站获取的数据为 CSS 规则添加特定厂商的前缀。 <a href="https://github.com/postcss/autoprefixer">Autoprefixer</a> 自动获取浏览器的流行度和能够支持的属性，并根据这些数据帮你自动为 CSS 规则添加前缀。</p>
-<p> 可以使用命令：<br> <figure class="highlight mipsasm"><table><tr><td class="code"><pre><code class="hljs mipsasm">npx <span class="hljs-keyword">browserslist </span><span class="hljs-string">&quot;&gt;1%,last 2 version,not dead&quot;</span><br></code></pre></td></tr></table></figure><br> 来查询根据条件查询出需要适配的浏览器，在Windows环境下，会在项目的src目录下生成一个名为1%的文件。如果出现这种情况可以用</p>
- <figure class="highlight mipsasm"><table><tr><td class="code"><pre><code class="hljs mipsasm">npx <span class="hljs-keyword">browserslist </span><span class="hljs-string">&quot;&quot;</span><br></code></pre></td></tr></table></figure>
-<p>它会根据你的package.json中的”browserslist”条件或者是package.json同级目录创建的.browserslistrc文件中的条件来输出浏览器的名字及对应的版本。</p>
-<h2 id="通过JavaScript转换css样式"><a href="#通过JavaScript转换css样式" class="headerlink" title="通过JavaScript转换css样式"></a>通过JavaScript转换css样式</h2><ul>
-<li>完成css的转换与匹配</li>
-<li>完成css样式的重置</li>
-</ul>
-<p>需要借助于PostCss插件。</p>
-<h2 id="使用postcss的步骤"><a href="#使用postcss的步骤" class="headerlink" title="使用postcss的步骤"></a>使用postcss的步骤</h2><p>第一步：查找postCss在构建工具中的扩展，比如webpack中的postcss-loader;<br>第二步： 选择可以添加你需要的postCss相关的插件</p>
-<p>如果是在终端直接使用，需要单独安装postcss-cli。</p>
-<figure class="highlight avrasm"><table><tr><td class="code"><pre><code class="hljs avrasm">npm i -D postcss postcss-<span class="hljs-keyword">cli</span><br></code></pre></td></tr></table></figure>
-<p><font color=chocolate>+ <a href="mailto:&#112;&#x6f;&#x73;&#x74;&#x63;&#x73;&#115;&#x40;&#x38;&#46;&#x33;&#x2e;&#57;">&#112;&#x6f;&#x73;&#x74;&#x63;&#x73;&#115;&#x40;&#x38;&#46;&#x33;&#x2e;&#57;</a></font><br><font color=yellowgreen>+ <a href="mailto:&#x70;&#111;&#115;&#x74;&#99;&#x73;&#115;&#x2d;&#x63;&#x6c;&#105;&#x40;&#x39;&#x2e;&#x30;&#46;&#49;">&#x70;&#111;&#115;&#x74;&#99;&#x73;&#115;&#x2d;&#x63;&#x6c;&#105;&#x40;&#x39;&#x2e;&#x30;&#46;&#49;</a></font></p>
-<p>在css开发过程中，会写到很多属性和样式，让我们遇到不熟悉的属性的时候，不清楚需要对哪些浏览器进行适配的时候，可以到<a href="http://autoprefixer.github.io/">Autoprefixer CSS online</a>,它是一个postcss插件，可以通过它解析CSS并添加供应商前缀。</p>
-<p>自动添加前缀插件： autopreFixer</p>
-<figure class="highlight angelscript"><table><tr><td class="code"><pre><code class="hljs angelscript">npm install <span class="hljs-built_in">auto</span>prefixer -D<br></code></pre></td></tr></table></figure>
-<p>当前版本：<font color=blue><a href="mailto:&#97;&#x75;&#116;&#111;&#112;&#114;&#x65;&#102;&#105;&#120;&#101;&#x72;&#64;&#x31;&#48;&#46;&#x33;&#46;&#55;">&#97;&#x75;&#116;&#111;&#112;&#114;&#x65;&#102;&#105;&#120;&#101;&#x72;&#64;&#x31;&#48;&#46;&#x33;&#46;&#55;</a></font></p>
-<div class="tabs" id="tab"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#tab-1">webpack使用方式  post-cssloader</button></li><li class="tab"><button type="button" data-href="#tab-2">命令行使用方式：</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="tab-1"><figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> postcss-loader -D<br></code></pre></td></tr></table></figure>
-<p><font color=royalblue>+ <a href="mailto:&#x70;&#x6f;&#x73;&#116;&#x63;&#115;&#115;&#x2d;&#x6c;&#111;&#97;&#100;&#x65;&#114;&#x40;&#54;&#46;&#50;&#46;&#x30;">&#x70;&#x6f;&#x73;&#116;&#x63;&#115;&#115;&#x2d;&#x6c;&#111;&#97;&#100;&#x65;&#114;&#x40;&#54;&#46;&#50;&#46;&#x30;</a></font><br>它可以自动检测并通过postcss来进行css的自动化处理。</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">module: &#123;<br>     <span class="hljs-regexp">//</span> rules数组里面都是rule对象<br>    rules: [<br>      &#123;<br>        test: <span class="hljs-regexp">/\.css$/</span>,    <span class="hljs-regexp">//</span> 匹配以css结尾的文件<br>        use: [<br>          <span class="hljs-regexp">//</span>  注意编写顺序  从下到上，从右往左，本质 从后往前<br>          &#123; loader: <span class="hljs-string">&#x27;style-loader&#x27;</span> &#125;,<br>          &#123;<br>            loader: <span class="hljs-string">&#x27;css-loader&#x27;</span>,<br>          &#125;,<br>          &#123;<br>            loader: <span class="hljs-string">&#x27;postcss-loader&#x27;</span>,<br>            options: &#123;<br>              postcssOptions: &#123;<br>                plugins: [<br>                  require(<span class="hljs-string">&quot;autoprefixer&quot;</span>)<br>                ]<br>              &#125;<br>            &#125;<br>          &#125;<br>        ]<br>      &#125;<br>    ]<br>  &#125;<br><br></code></pre></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211019213331autoPreFixerExample.png" alt="自动加前缀实验"></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-2"><figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">npx postcss --use autoprefixer -o result.css .<span class="hljs-regexp">/src/</span>css/test.css<br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
-]]></content>
-      <categories>
-        <category>webpack</category>
-      </categories>
-      <tags>
-        <tag>webpack</tag>
       </tags>
   </entry>
   <entry>
@@ -1690,6 +1550,32 @@ See https://webpack.js.org/concepts#loaders
       </categories>
       <tags>
         <tag>webpack</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>后台管理系统vue3TsElement-plusVite</title>
+    <url>/2021/09/14/vue3/9e0f53e3c316/</url>
+    <content><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>截止目前，工作中对于需要处理的项目需求已经基本完成，在没有新的需求产生之前，项目基本的模型基本固定，所以有时间进行项目的思考与新技术的学习，在实际的开发的项目中会技术知识点的熟练度问题导致经常需要参考网上的相关例子，但是根据教程解决完业务问题后，因为整理不及时，在遇到相同问题的时候就会花费更多的精力和时间，也不利于沉淀。正好，博客系统也能都正常上线使用，采用了比较简洁的hexo-next主题，虽然界面比较朴素，但是对于写技术博客来说，已经是非常适合不过了。当然也有其他的主题，比较好看，但是因为配置next主题也花了一些时间，同时在此阶段结合谷歌浏览器lighthouse插件，也解决了一些项目的性能优化问题，包括通过<a href="https://www.jsdelivr.com/">jsdelivr</a>对图片进行CDN优化，加快访问速度等，如图<img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914162406blogRateScreen.png" alt="个人博客网站评分">，同时也提出了http/1.1 http/2等的问题，可以明显的感觉到加载速度的差异，<a href="https://http2.akamai.com/demo">加载速度对比</a>,发现对于基础知识还是有许多需要学习的地方，也就是当前来说技术知识的提升比博客页面的美观更加重要一些，所以就开始先更文章了!</p>
+<span id="more"></span>
+<h1 id="就叫它NS吧"><a href="#就叫它NS吧" class="headerlink" title="就叫它NS吧"></a>就叫它NS吧</h1><p>  在开始文章的叙述之前，总得先定一个叙述对象，它也就是前面提及的工作项目，结合项目名称，以及便于后续称呼，就叫它NS吧，这是一个后台管理系统项目，采用了当下非常流行的vue以及elementUI作为开发的基础性框架，打包工具则以gulp为主，同时包含少量的webpack配置，对于这方面的知识还是比较欠缺，当然整个项目的业务逻辑还是在摸索了几天逐渐熟悉了。<br>  随着业务量的深入以及代码量的增多，可以很容易的发现，代码变得逐渐难以管理，同时因为初期的代码规范性问题，导致代码的可读性变差，因为缺少文档，导致在日常赶需求的时候，引入的依赖，配置项等，在维护过程中，对于一些不需要的冗余代码，不方便精简，大多采用注释的方式解决，业务中遇到的主要问题是图片的处理，包括上传和保证图片的上传顺序等，还有大文件的上传，同时是订单管理中不可缺少的导出功能，如何在前端根据列实现对表格数据的筛选，还有地图数据展示与选择过程中的循环问题，对于路由权限问题需要在新项目中搭建中熟悉动态路由表以及权限处理</p>
+<h1 id="初步认识"><a href="#初步认识" class="headerlink" title="初步认识"></a>初步认识</h1><p>  问题已经大致了解了，所以在新项目的开始过程中，也算是有了“需求”，能够有效的提升学习效率了。</p>
+<h2 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h2><p>  <a href="https://vue3js.cn/docs/zh/">vue3官方中文文档</a></p>
+<p>  <a href="https://www.tslang.cn/docs/home.html">TypeScript官方文档 v3.1</a></p>
+<p>  <a href="https://vitejs.cn/">Vite官方文档</a></p>
+<p>  <a href="https://element-plus.org/#/zh-CN/component/installation">element-plus官方文档</a></p>
+<h2 id="构建基础项目"><a href="#构建基础项目" class="headerlink" title="构建基础项目"></a>构建基础项目</h2><p>跟随着vite官方教程，我们成功的运行起来了项目，同时能够感受到页面内容的快速构建和页面快速的响应式热更新带来的流畅开发体验。</p>
+<p>基础demo运行: <img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914180734vue3viteBaseDemo.png"></p>
+<p>项目运行起来的时间为：<img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914180937baseDemoRate.png"></p>
+<p>下面可以看下具体的项目结构：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914181052baseDemoStrucet.png" alt="项目基本结构"><br>同时也有一些问题，<img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914181439demoProblem.png" alt="基础vite项目bug">对于一个元素的问题，<a href="https://stackoverflow.com/questions/64867504/vue-3-the-template-root-requires-exactly-one-element-eslint-plugin-vue">尝试用div标签包裹template内的元素，一个bug可以解决</a>但是另外一个还是会有问题，经过搜索发现有帖子有相同的错误，故保存下来。<a href="https://www.jianshu.com/p/684820d0f905">vue3+eslint遇到 The template root requires exactly one element.eslintvue/no-multiple-template-root ..</a><br>经过一番折腾，还是回到原来构建时候的代码状态，原来是因为插件的问题，<a href="https://juejin.cn/post/6875713523968802829#heading-6">参考评论区</a>,具体评论为：<img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914185531veturBug.png"></p>
+]]></content>
+      <categories>
+        <category>vue3</category>
+      </categories>
+      <tags>
+        <tag>TypeScript</tag>
+        <tag>vue3</tag>
+        <tag>vite</tag>
       </tags>
   </entry>
   <entry>
@@ -1863,6 +1749,169 @@ See https://webpack.js.org/concepts#loaders
       </tags>
   </entry>
   <entry>
+    <title>webpack基本配置（二）</title>
+    <url>/2021/10/18/webpack/eb2dff5fc128/</url>
+    <content><![CDATA[<h1 id="webpack基本配置-入口、出口"><a href="#webpack基本配置-入口、出口" class="headerlink" title="webpack基本配置(入口、出口)"></a>webpack基本配置(入口、出口)</h1><p>配置方式：</p>
+<ul>
+<li>第一种方式</li>
+</ul>
+<p>通过在命令行直接指定,但是在操作的时候容易输错命令，且在需要重复重复操作时，需要再次输入很长的命令，显然是非常影响开发效率的。</p>
+<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><code class="hljs jboss-cli">webpack <span class="hljs-params">--entry</span> <span class="hljs-string">./src/main.js</span> <span class="hljs-params">--output-path</span> <span class="hljs-string">./build</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>第二种方式</li>
+</ul>
+<p>通过在项目的<font color=chocolate>package.json</font>文件中的scripts对象中，将命令指定为相应的值y，通过在命令行，输入npm run + x 。也可以完成相应的操作，    (其中x表示y相对应的键) </p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><code class="hljs ada"><span class="hljs-string">&quot;scripts&quot;</span> : &#123;<br>    <span class="hljs-string">&quot;build&quot;</span>: <span class="hljs-string">&quot;webpack --entry ./src/main.js --output-path ./build&quot;</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>但是可以明显的考虑到，当右边的命令很长时，是非常不便于阅读和维护的。</p>
+<ul>
+<li>第三种方式</li>
+</ul>
+<p>通过在项目package.json统计目录新建 <font color=royalblue>webpack.config.js</font>  文件</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><code class="hljs lua"><br>const <span class="hljs-built_in">path</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;path&#x27;</span>);<br><br><span class="hljs-built_in">module</span>.exports = &#123;<br>   entry: <span class="hljs-string">&#x27;./src/main.js&#x27;</span>, //可以相对路径<br>   <span class="hljs-built_in">output</span>:&#123;<br>     filename: <span class="hljs-string">&quot;bundle.js&quot;</span>,<br>     <span class="hljs-built_in">path</span>: <span class="hljs-built_in">path</span>.resolve(__dirname,<span class="hljs-string">&quot;./build&quot;</span>)          //只能绝对绝对路径  <br>   &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>输出文件只能是绝对路径，可以通过path.resolve指定项目文件夹的所在路径。否则会报以下错误<blockquote>
+<p>[webpack-cli] Invalid configuration object. Webpack has been initialized using a configuration object that does not match the API schema.- configuration.output.path: The provided value “./build” is not an absolute path!-&gt; The output directory as <strong>absolute path</strong> (required).</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="为什么采用module-export形式"><a href="#为什么采用module-export形式" class="headerlink" title="为什么采用module.export形式"></a>为什么采用<font color=green>module.export</font>形式</h1><p><a href="http://www.ruanyifeng.com/blog/2015/05/commonjs-in-browser.html">webpack读取文件的时候是采用的common，js的方式，因为webpack配置需要在node环境下运行</a></p>
+<hr>
+<div class="note warning modern"><p>如果在新建文件时，不将webpack配置文件命名为webpack.config.json命令为这样，在运行命令时就会报错，因为这是webpack配置的默认值，如果想要指定文件名，则可以在package.json的scripts文件中</p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><code class="hljs ada"><span class="hljs-string">&quot;scripts&quot;</span> : &#123;<br>    <span class="hljs-string">&quot;build&quot;</span>: <span class="hljs-string">&quot;webpack --config 自定义文件名（英文）.config,js&quot;</span><br>&#125;<br></code></pre></td></tr></table></figure></div>
+
+<hr>
+<h1 id="理解webpack打包机制与依赖关系"><a href="#理解webpack打包机制与依赖关系" class="headerlink" title="理解webpack打包机制与依赖关系"></a>理解webpack打包机制与依赖关系</h1><p>   在webpack的打包过程中实际上就是通过文件之间的引入，导出等形成各种的依赖关系，并且依赖于这种关系，将多方的资源进行打包，有点类似于 中国当下的公路建设，可以连接到各地的城市和乡村，对于我们在js文件中，通过依赖进行打包发现是畅通无阻的，但是在给一些js文件中引入css文件时，再进行打包的时候就会出现以下问题，这就像是各地的桥梁来完成公路间的链接，这也就是loader的基本认识。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;../css/index.css&quot;</span>;<br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">component</span>(<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-keyword">const</span> element = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">&quot;div&quot;</span>);<br><br>    element.innerHTML = [<span class="hljs-string">&quot;hello&quot;</span>, <span class="hljs-string">&quot;webpack&quot;</span>].join(<span class="hljs-string">&quot; &quot;</span>);<br><br>    element.className = <span class="hljs-string">&quot;content&quot;</span>;<br><br>    <span class="hljs-keyword">return</span> element;<br>&#125;<br><br><span class="hljs-built_in">document</span>.body.appendChild(component());<br></code></pre></td></tr></table></figure>
+
+<p>在以上的代码中我们引入了css样式文件，然后输入命令进行打包时：</p>
+<div class="note danger modern"><pre>
+ERROR in ./src/css/index.css 1:0
+Module parse failed: Unexpected token (1:0)
+You may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. 
+See https://webpack.js.org/concepts#loaders
+> .content {
+|     color: aquamarine;
+| }
+</pre></div>
+
+<h1 id="loader"><a href="#loader" class="headerlink" title="loader"></a>loader</h1><h2 id="loader的基本概念"><a href="#loader的基本概念" class="headerlink" title="loader的基本概念"></a>loader的基本概念</h2><p><font color=red>loader</font> 让 webpack 能够去处理那些非 JavaScript 文件（webpack 自身只理解 JavaScript）。loader 可以将所有类型的文件转换为 webpack 能够处理的有效模块，然后你就可以利用 webpack 的打包能力，对它们进行处理。</p>
+<p>本质上，webpack loader 将所有类型的文件，转换为应用程序的依赖图（和最终的 bundle）可以直接引用的模块。</p>
+<h2 id="css-loader的安装"><a href="#css-loader的安装" class="headerlink" title="css-loader的安装"></a>css-loader的安装</h2><figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> css-loader -D<br></code></pre></td></tr></table></figure>
+
+<p>当前版本为：<font color=amber><a href="mailto:&#99;&#115;&#x73;&#x2d;&#x6c;&#x6f;&#97;&#100;&#101;&#x72;&#64;&#x36;&#46;&#x34;&#46;&#48;">&#99;&#115;&#x73;&#x2d;&#x6c;&#x6f;&#97;&#100;&#101;&#x72;&#64;&#x36;&#46;&#x34;&#46;&#48;</a></font></p>
+<p>安装完css-loader后，在package.json的<font color=red>devDependencies</font>中即可看到对应的版本号，但是现在桥梁的材料准备好了，还需要将公路与桥梁进行以下安装处理，使得其可以稳固通行，也就是代码能够正常运行。要想达到目的，有以下几种方式：</p>
+<div class="tabs" id="tab"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#tab-1">配置方式 推荐</button></li><li class="tab"><button type="button" data-href="#tab-2">CLI方式（webpack5版本中不再使用）</button></li><li class="tab"><button type="button" data-href="#tab-3">内联方式</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="tab-1"><figure class="highlight yaml"><table><tr><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">module:</span> &#123;<br>   <span class="hljs-attr">rules:</span> [<br>     &#123;<br>       <span class="hljs-attr">test:</span> <span class="hljs-string">/\.css$/</span>,               <br>       <span class="hljs-attr">use:</span> [<br>         &#123; <span class="hljs-attr">loader:</span> <span class="hljs-string">&#x27;style-loader&#x27;</span> &#125;,<br>         &#123;<br>           <span class="hljs-attr">loader:</span> <span class="hljs-string">&#x27;css-loader&#x27;</span>,<br>           <span class="hljs-attr">options:</span> &#123;<br>             <span class="hljs-attr">modules:</span> <span class="hljs-literal">true</span><br>           &#125;<br>         &#125;<br>       ]<br>     &#125;<br>   ]<br> &#125;<br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-2"><figure class="highlight fortran"><table><tr><td class="code"><pre><code class="hljs fortran">webpack --<span class="hljs-keyword">module</span>-<span class="hljs-keyword">bind</span> jade-loader --<span class="hljs-keyword">module</span>-<span class="hljs-keyword">bind</span> <span class="hljs-string">&#x27;css=style-loader!css-loader&#x27;</span><br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-3"><p>通过loader名字和”!” 将css文件分隔开，当然也可以同时写多个 import “xxx-loader!css-loader../css/index.css”;</p>
+<figure class="highlight abnf"><table><tr><td class="code"><pre><code class="hljs abnf">import <span class="hljs-string">&quot;css-loader!../css/index.css&quot;</span><span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+
+
+<p>-在配置模式中，webpack会按照代码从下方到上方的方向进行loader的解析或者代码在同一行时，从右方向左方使用loader进行加载。当然，可以在自定义loader时，指定解析顺序，不过是后面的内容了。<br><font color=royalblue> 注意编写顺序  从下到上，从右往左，本质 从后往前</font></p>
+<p>在前面我们已经了解到，处理css文件需要css-loader,style-loader等来处理，那么在开发过程中如果需要处理不同的文件，则需要不同的loader来实现代码功能。</p>
+<p>但是，以less文件举例子，则需要用到less工具</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> <span class="hljs-keyword">less</span> -D<br></code></pre></td></tr></table></figure>
+<p>当前版本：<font color=camel> <a href="mailto:&#x6c;&#101;&#x73;&#x73;&#x40;&#52;&#x2e;&#x31;&#x2e;&#50;">&#x6c;&#101;&#x73;&#x73;&#x40;&#52;&#x2e;&#x31;&#x2e;&#50;</a></font></p>
+<p>安装完成后，可以通过npx来操作node_modules中的less，来进行处理：</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">npx less .<span class="hljs-regexp">/src/</span>css/component.less &gt; component.css<br></code></pre></td></tr></table></figure>
+<p>它可以将less文件转为正常的css文件</p>
+<div class="tabs" id="tab"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#tab-1">less文件 （转化前）</button></li><li class="tab"><button type="button" data-href="#tab-2">css文件（转化后）</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="tab-1"><figure class="highlight less"><table><tr><td class="code"><pre><code class="hljs less"><span class="hljs-variable">@fontSize:</span><span class="hljs-number">50px</span>;<br><span class="hljs-variable">@fontWeight:</span> <span class="hljs-number">700</span>;<br><br><span class="hljs-selector-class">.content</span> &#123;<br>    <span class="hljs-attribute">font-size</span>: <span class="hljs-variable">@fontSize</span>;<br>    <span class="hljs-attribute">font-weight</span>: <span class="hljs-variable">@fontWeight</span>;<br>&#125;<br> <br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-2"><figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.content</span> &#123;<br>  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">50px</span>;<br>  <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">700</span>;<br>&#125;<br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+
+<h1 id="less-loader"><a href="#less-loader" class="headerlink" title="less-loader"></a>less-loader</h1><p>从上面的处理过程中，我们能够体会到less工具的快捷，但是在中大型项目中，当有大量的less文件需要处理时，想要通过命令行完成less文件的转化显然是不现实的，于是可以采用less-loader来进行处理，当然<font color=seagreen>less-loader是基于less工具</font>的，所以使用less-loader时，需要保证提前安装了less工具。</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> <span class="hljs-keyword">less</span> -D<br></code></pre></td></tr></table></figure>
+<p>当前版本：<font color=camel> <a href="mailto:&#x6c;&#x65;&#x73;&#x73;&#64;&#x34;&#x2e;&#49;&#x2e;&#50;">&#x6c;&#x65;&#x73;&#x73;&#64;&#x34;&#x2e;&#49;&#x2e;&#50;</a></font></p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> <span class="hljs-keyword">less</span>-loader -D<br></code></pre></td></tr></table></figure>
+<p>当前版本： <font color=amber><a href="mailto:&#x6c;&#101;&#115;&#x73;&#x2d;&#x6c;&#111;&#97;&#x64;&#x65;&#114;&#x40;&#x31;&#x30;&#x2e;&#x32;&#x2e;&#x30;">&#x6c;&#101;&#115;&#x73;&#x2d;&#x6c;&#111;&#97;&#x64;&#x65;&#114;&#x40;&#x31;&#x30;&#x2e;&#x32;&#x2e;&#x30;</a></font></p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">module: &#123;<br>   <span class="hljs-regexp">//</span> rules数组里面都是rule对象<br>  rules: [<br>    &#123;<br>      test: <span class="hljs-regexp">/\.css$/</span>,    <span class="hljs-regexp">//</span> 匹配以css结尾的文件<br>      use: [<br>        <span class="hljs-regexp">//</span>  注意编写顺序  从下到上，从右往左，本质 从后往前<br>        &#123; loader: <span class="hljs-string">&#x27;style-loader&#x27;</span> &#125;,<br>        &#123;<br>          loader: <span class="hljs-string">&#x27;css-loader&#x27;</span>,<br>        &#125;<br>      ]<br>    &#125;,<br>    &#123;<br>      test: <span class="hljs-regexp">/\.less$/</span>,    <span class="hljs-regexp">//</span> 匹配以css结尾的文件<br>      use: [<br>        <span class="hljs-regexp">//</span>  注意编写顺序  从下到上，从右往左，本质 从后往前<br>        &#123; loader: <span class="hljs-string">&#x27;style-loader&#x27;</span> &#125;,<br>        &#123; loader: <span class="hljs-string">&#x27;css-loader&#x27;</span> &#125;,<br>        &#123;<br>          loader: <span class="hljs-string">&#x27;less-loader&#x27;</span>,<br>        &#125;<br>      ]<br>    &#125;<br>  ]<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="浏览器兼容性"><a href="#浏览器兼容性" class="headerlink" title="浏览器兼容性"></a>浏览器兼容性</h1><p>在开发中，我们会遇到浏览器的兼容性问题，不是指屏幕大小的变化适配，主要是针对于不同的浏览器所支持的特性之间的问题，比如CSS特性，js语法之间的兼容性，同时市面上存在着的浏览器，包括chrome、safari、IE、Edge、chrome for Android、UC Browser、QQ Browser等等，有着不同的市场占有率，是不是都需要兼容呢？</p>
+<h2 id="市场占有率与browserslist工具"><a href="#市场占有率与browserslist工具" class="headerlink" title="市场占有率与browserslist工具"></a>市场占有率与browserslist工具</h2><p> 浏览器的市场占有率，可以通过<a href="https://caniuse.com/usage-table">网站 can i use</a>在线查询。</p>
+<p>前端工具举例：autoprefixer , babel , postcss-preset-env</p>
+<p><a href="https://www.cnblogs.com/both-eyes/p/10151272.html">通过browserslist，在不同的前端工具之间，共享目标浏览器和Node.js版本的配置。</a></p>
+<p>基本写法,可以参考以下方式：</p>
+<div class="tabs" id="tab"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#tab-1">在package.json中添加</button></li><li class="tab"><button type="button" data-href="#tab-2">package.json同级目录创建 .browserslistrc文件</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="tab-1"><figure class="highlight prolog"><table><tr><td class="code"><pre><code class="hljs prolog"><span class="hljs-string">&quot;browserslist&quot;</span>: [<br>    <span class="hljs-string">&quot;&gt;1%&quot;</span>,<br>    <span class="hljs-string">&quot;last 2 version&quot;</span>,<br>    <span class="hljs-string">&quot;not dead&quot;</span><br>] <br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-2"><figure class="highlight applescript"><table><tr><td class="code"><pre><code class="hljs applescript">&gt;<span class="hljs-number">1</span>%<br><span class="hljs-keyword">last</span> <span class="hljs-number">2</span> <span class="hljs-built_in">version</span><br><span class="hljs-keyword">not</span> dead<br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+
+<p>在不设置时，会有默认的基础配置</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">browserslist.defaults</span> = [<br>  <span class="hljs-string">&#x27;&gt; 0.5%&#x27;</span>,<br>  <span class="hljs-string">&#x27;last 2 versions&#x27;</span>,<br>  <span class="hljs-string">&#x27;Firefox ESR&#x27;</span>,<br>  <span class="hljs-string">&#x27;not dead&#x27;</span><br>]<br></code></pre></td></tr></table></figure>
+
+<h1 id="postcss工具"><a href="#postcss工具" class="headerlink" title="postcss工具"></a>postcss工具</h1><p> <a href="https://www.postcss.com.cn/">PostCSS</a> 利用从 Can I Use 网站获取的数据为 CSS 规则添加特定厂商的前缀。 <a href="https://github.com/postcss/autoprefixer">Autoprefixer</a> 自动获取浏览器的流行度和能够支持的属性，并根据这些数据帮你自动为 CSS 规则添加前缀。</p>
+<p> 可以使用命令：<br> <figure class="highlight mipsasm"><table><tr><td class="code"><pre><code class="hljs mipsasm">npx <span class="hljs-keyword">browserslist </span><span class="hljs-string">&quot;&gt;1%,last 2 version,not dead&quot;</span><br></code></pre></td></tr></table></figure><br> 来查询根据条件查询出需要适配的浏览器，在Windows环境下，会在项目的src目录下生成一个名为1%的文件。如果出现这种情况可以用</p>
+ <figure class="highlight mipsasm"><table><tr><td class="code"><pre><code class="hljs mipsasm">npx <span class="hljs-keyword">browserslist </span><span class="hljs-string">&quot;&quot;</span><br></code></pre></td></tr></table></figure>
+<p>它会根据你的package.json中的”browserslist”条件或者是package.json同级目录创建的.browserslistrc文件中的条件来输出浏览器的名字及对应的版本。</p>
+<h2 id="通过JavaScript转换css样式"><a href="#通过JavaScript转换css样式" class="headerlink" title="通过JavaScript转换css样式"></a>通过JavaScript转换css样式</h2><ul>
+<li>完成css的转换与匹配</li>
+<li>完成css样式的重置</li>
+</ul>
+<p>需要借助于PostCss插件。</p>
+<h2 id="使用postcss的步骤"><a href="#使用postcss的步骤" class="headerlink" title="使用postcss的步骤"></a>使用postcss的步骤</h2><p>第一步：查找postCss在构建工具中的扩展，比如webpack中的postcss-loader;<br>第二步： 选择可以添加你需要的postCss相关的插件</p>
+<p>如果是在终端直接使用，需要单独安装postcss-cli。</p>
+<figure class="highlight avrasm"><table><tr><td class="code"><pre><code class="hljs avrasm">npm i -D postcss postcss-<span class="hljs-keyword">cli</span><br></code></pre></td></tr></table></figure>
+<p><font color=chocolate>+ <a href="mailto:&#x70;&#x6f;&#115;&#x74;&#99;&#x73;&#115;&#64;&#56;&#46;&#51;&#x2e;&#x39;">&#x70;&#x6f;&#115;&#x74;&#99;&#x73;&#115;&#64;&#56;&#46;&#51;&#x2e;&#x39;</a></font><br><font color=yellowgreen>+ <a href="mailto:&#112;&#x6f;&#x73;&#116;&#99;&#115;&#115;&#x2d;&#99;&#108;&#x69;&#x40;&#x39;&#x2e;&#x30;&#46;&#49;">&#112;&#x6f;&#x73;&#116;&#99;&#115;&#115;&#x2d;&#99;&#108;&#x69;&#x40;&#x39;&#x2e;&#x30;&#46;&#49;</a></font></p>
+<p>在css开发过程中，会写到很多属性和样式，让我们遇到不熟悉的属性的时候，不清楚需要对哪些浏览器进行适配的时候，可以到<a href="http://autoprefixer.github.io/">Autoprefixer CSS online</a>,它是一个postcss插件，可以通过它解析CSS并添加供应商前缀。</p>
+<p>自动添加前缀插件： autopreFixer</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><code class="hljs angelscript">npm install <span class="hljs-built_in">auto</span>prefixer -D<br></code></pre></td></tr></table></figure>
+<p>当前版本：<font color=blue><a href="mailto:&#x61;&#117;&#x74;&#111;&#112;&#114;&#101;&#102;&#x69;&#120;&#x65;&#114;&#x40;&#x31;&#x30;&#x2e;&#x33;&#x2e;&#x37;">&#x61;&#117;&#x74;&#111;&#112;&#114;&#101;&#102;&#x69;&#120;&#x65;&#114;&#x40;&#x31;&#x30;&#x2e;&#x33;&#x2e;&#x37;</a></font></p>
+<div class="tabs" id="tab"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#tab-1">webpack使用方式  post-cssloader</button></li><li class="tab"><button type="button" data-href="#tab-2">命令行使用方式：</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="tab-1"><figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> postcss-loader -D<br></code></pre></td></tr></table></figure>
+<p><font color=royalblue>+ <a href="mailto:&#x70;&#111;&#x73;&#x74;&#99;&#115;&#115;&#45;&#x6c;&#x6f;&#x61;&#100;&#x65;&#x72;&#x40;&#54;&#46;&#x32;&#x2e;&#x30;">&#x70;&#111;&#x73;&#x74;&#99;&#115;&#115;&#45;&#x6c;&#x6f;&#x61;&#100;&#x65;&#x72;&#x40;&#54;&#46;&#x32;&#x2e;&#x30;</a></font><br>它可以自动检测并通过postcss来进行css的自动化处理。</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">module: &#123;<br>     <span class="hljs-regexp">//</span> rules数组里面都是rule对象<br>    rules: [<br>      &#123;<br>        test: <span class="hljs-regexp">/\.css$/</span>,    <span class="hljs-regexp">//</span> 匹配以css结尾的文件<br>        use: [<br>          <span class="hljs-regexp">//</span>  注意编写顺序  从下到上，从右往左，本质 从后往前<br>          &#123; loader: <span class="hljs-string">&#x27;style-loader&#x27;</span> &#125;,<br>          &#123;<br>            loader: <span class="hljs-string">&#x27;css-loader&#x27;</span>,<br>          &#125;,<br>          &#123;<br>            loader: <span class="hljs-string">&#x27;postcss-loader&#x27;</span>,<br>            options: &#123;<br>              postcssOptions: &#123;<br>                plugins: [<br>                  require(<span class="hljs-string">&quot;autoprefixer&quot;</span>)<br>                ]<br>              &#125;<br>            &#125;<br>          &#125;<br>        ]<br>      &#125;<br>    ]<br>  &#125;<br><br></code></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211019213331autoPreFixerExample.png" alt="自动加前缀实验"></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-2"><figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">npx postcss --use autoprefixer -o result.css .<span class="hljs-regexp">/src/</span>css/test.css<br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+]]></content>
+      <categories>
+        <category>webpack</category>
+      </categories>
+      <tags>
+        <tag>webpack</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vue+elementUI后台管理系统</title>
+    <url>/2021/04/17/uncategorized/cf07c19a06d1/</url>
+    <content><![CDATA[<h1 id="关于后台管理系统开发过程中问题的解决"><a href="#关于后台管理系统开发过程中问题的解决" class="headerlink" title="关于后台管理系统开发过程中问题的解决"></a>关于后台管理系统开发过程中问题的解决</h1><h2 id="相关环境及版本号"><a href="#相关环境及版本号" class="headerlink" title="相关环境及版本号"></a>相关环境及版本号</h2><p>node -v</p>
+<span id="more"></span>
+]]></content>
+      <tags>
+        <tag>cms</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>有趣的前端游戏</title>
+    <url>/2021/11/15/web-fun/fcf961257c62/</url>
+    <content><![CDATA[<h1 id="有趣的前端资源"><a href="#有趣的前端资源" class="headerlink" title="有趣的前端资源"></a>有趣的前端资源</h1><p>[1]<br>Flex Box 冒险游戏: <a href="https://codingfantasy.com/games/flexboxadventure">https://codingfantasy.com/games/flexboxadventure</a></p>
+<p>[2]<br>Flexbox 格子骑士: <a href="https://knightsoftheflexboxtable.com/">https://knightsoftheflexboxtable.com/</a></p>
+<p>[3]<br>Flex Box 青蛙: <a href="https://flexboxfroggy.com/">https://flexboxfroggy.com/</a></p>
+<p>[4]<br>Flex Box 打僵尸: <a href="https://geddski.teachable.com/p/flexbox-zombies">https://geddski.teachable.com/p/flexbox-zombies</a></p>
+<p>[5]<br>Flex Box 保卫战: <a href="http://www.flexboxdefense.com/">http://www.flexboxdefense.com/</a></p>
+<p>[6]<br>Flex语法操纵台: <a href="https://the-echoplex.net/flexyboxes/">https://the-echoplex.net/flexyboxes/</a></p>
+<p>[7]<br>Grid 花园: <a href="https://cssgridgarden.com/">https://cssgridgarden.com/</a></p>
+<p>[8]<br>CSS Grid 备忘清单: <a href="https://alialaa.github.io/css-grid-cheat-sheet/">https://alialaa.github.io/css-grid-cheat-sheet/</a></p>
+<p>[9]<br>Grid 攻击: <a href="https://codingfantasy.com/games/css-grid-attack">https://codingfantasy.com/games/css-grid-attack</a></p>
+<p>[10]<br>CSS 选择器备忘清单: <a href="https://frontend30.com/css-selectors-cheatsheet/">https://frontend30.com/css-selectors-cheatsheet/</a></p>
+<p>[11]<br>CSS 动画: <a href="https://css-animations.io/">https://css-animations.io/</a></p>
+<p>[12]<br>混合滤镜: <a href="https://ilyashubin.github.io/FilterBlend/">https://ilyashubin.github.io/FilterBlend/</a></p>
+<p>[13]<br>CSS晚餐: <a href="https://flukeout.github.io/">https://flukeout.github.io/</a></p>
+<p>[14]<br>TypeScript 练习: <a href="https://typescript-exercises.github.io/">https://typescript-exercises.github.io/</a></p>
+<p>[15]<br>设计模式游戏: <a href="https://designpatternsgame.com/">https://designpatternsgame.com/</a></p>
+<p>[16]<br>React 教程: <a href="https://react-tutorial.app/">https://react-tutorial.app/</a></p>
+<p>[17]<br>Untrusted: <a href="https://alexnisnevich.github.io/untrusted/">https://alexnisnevich.github.io/untrusted/</a></p>
+<p>[18]<br>Promisees: <a href="https://bevacqua.github.io/promisees/">https://bevacqua.github.io/promisees/</a></p>
+<p>[19]<br>JSchallenger: <a href="https://www.jschallenger.com/">https://www.jschallenger.com/</a></p>
+<p>[20]<br>Service Workies: <a href="https://serviceworkies.com/">https://serviceworkies.com/</a></p>
+<p>[21]<br>Git分支学习: <a href="https://learngitbranching.js.org/">https://learngitbranching.js.org/</a></p>
+<p>[22]<br>Select Star SQL: <a href="https://selectstarsql.com/">https://selectstarsql.com/</a></p>
+<p>[23]<br>Select Star SQL: <a href="https://selectstarsql.com/">https://selectstarsql.com/</a></p>
+<p>[24]<br>SQL警察局: <a href="https://sqlpd.com/">https://sqlpd.com/</a></p>
+<p>[25]<br>CodinGame: <a href="https://www.codingame.com/">https://www.codingame.com/</a></p>
+<p>[26]<br>CodinGame: <a href="https://www.codingame.com/">https://www.codingame.com/</a></p>
+<p>[27]<br>正则填字游戏: <a href="https://regexcrossword.com/">https://regexcrossword.com/</a></p>
+<p>[28]<br>RegexOne: <a href="https://regexone.com/">https://regexone.com/</a></p>
+]]></content>
+      <categories>
+        <category>web-fun</category>
+      </categories>
+      <tags>
+        <tag>web-fun</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>开发自己的脚手架工具</title>
     <url>/2021/11/08/mhist-cli/f848dc5a8054/</url>
     <content><![CDATA[<h1 id="入口文件和基本配置文件"><a href="#入口文件和基本配置文件" class="headerlink" title="入口文件和基本配置文件"></a>入口文件和基本配置文件</h1><p>mhist-cli<br>├── index.js<br>├── package.json</p>
@@ -1920,16 +1969,6 @@ Emitted 'error' event on ChildProcess instance at:
       </tags>
   </entry>
   <entry>
-    <title>vue+elementUI后台管理系统</title>
-    <url>/2021/04/17/uncategorized/cf07c19a06d1/</url>
-    <content><![CDATA[<h1 id="关于后台管理系统开发过程中问题的解决"><a href="#关于后台管理系统开发过程中问题的解决" class="headerlink" title="关于后台管理系统开发过程中问题的解决"></a>关于后台管理系统开发过程中问题的解决</h1><h2 id="相关环境及版本号"><a href="#相关环境及版本号" class="headerlink" title="相关环境及版本号"></a>相关环境及版本号</h2><p>node -v</p>
-<span id="more"></span>
-]]></content>
-      <tags>
-        <tag>cms</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>小结-基于JavaScript高级程序设计第四版</title>
     <url>/2021/05/16/uncategorized/5fd2568d8f67/</url>
     <content><![CDATA[<h1 id="第1章-什么是-JavaScript"><a href="#第1章-什么是-JavaScript" class="headerlink" title="第1章 什么是 JavaScript"></a>第1章 什么是 JavaScript</h1><p>JavaScript 是一门用来与网页交互的脚本语言，包含以下三个组成部分。 ECMAScript：由 ECMA-262 定义并提供核心功能。 文档对象模型（DOM）：提供与网页内容交互的方法和接口。 浏览器对象模型（BOM）：提供与浏览器交互的方法和接口。 JavaScript 的这三个部分得到了五大 Web 浏览器（IE、Firefox、Chrome、Safari 和 Opera）不同程度 的支持。所有浏览器基本上对 ES5（ECMAScript 5）提供了完善的支持，而对 ES6（ECMAScript 6）和 ES7（ECMAScript 7）的支持度也在不断提升。这些浏览器对 DOM 的支持各不相同，但对 Level 3 的支 持日益趋于规范。HTML5 中收录的 BOM 会因浏览器而异，不过开发者仍然可以假定存在很大一部分 公共特性</p>
@@ -1964,45 +2003,6 @@ Emitted 'error' event on ChildProcess instance at:
 ]]></content>
       <tags>
         <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>有趣的前端游戏</title>
-    <url>/2021/11/15/web-fun/fcf961257c62/</url>
-    <content><![CDATA[<h1 id="有趣的前端资源"><a href="#有趣的前端资源" class="headerlink" title="有趣的前端资源"></a>有趣的前端资源</h1><p>[1]<br>Flex Box 冒险游戏: <a href="https://codingfantasy.com/games/flexboxadventure">https://codingfantasy.com/games/flexboxadventure</a></p>
-<p>[2]<br>Flexbox 格子骑士: <a href="https://knightsoftheflexboxtable.com/">https://knightsoftheflexboxtable.com/</a></p>
-<p>[3]<br>Flex Box 青蛙: <a href="https://flexboxfroggy.com/">https://flexboxfroggy.com/</a></p>
-<p>[4]<br>Flex Box 打僵尸: <a href="https://geddski.teachable.com/p/flexbox-zombies">https://geddski.teachable.com/p/flexbox-zombies</a></p>
-<p>[5]<br>Flex Box 保卫战: <a href="http://www.flexboxdefense.com/">http://www.flexboxdefense.com/</a></p>
-<p>[6]<br>Flex语法操纵台: <a href="https://the-echoplex.net/flexyboxes/">https://the-echoplex.net/flexyboxes/</a></p>
-<p>[7]<br>Grid 花园: <a href="https://cssgridgarden.com/">https://cssgridgarden.com/</a></p>
-<p>[8]<br>CSS Grid 备忘清单: <a href="https://alialaa.github.io/css-grid-cheat-sheet/">https://alialaa.github.io/css-grid-cheat-sheet/</a></p>
-<p>[9]<br>Grid 攻击: <a href="https://codingfantasy.com/games/css-grid-attack">https://codingfantasy.com/games/css-grid-attack</a></p>
-<p>[10]<br>CSS 选择器备忘清单: <a href="https://frontend30.com/css-selectors-cheatsheet/">https://frontend30.com/css-selectors-cheatsheet/</a></p>
-<p>[11]<br>CSS 动画: <a href="https://css-animations.io/">https://css-animations.io/</a></p>
-<p>[12]<br>混合滤镜: <a href="https://ilyashubin.github.io/FilterBlend/">https://ilyashubin.github.io/FilterBlend/</a></p>
-<p>[13]<br>CSS晚餐: <a href="https://flukeout.github.io/">https://flukeout.github.io/</a></p>
-<p>[14]<br>TypeScript 练习: <a href="https://typescript-exercises.github.io/">https://typescript-exercises.github.io/</a></p>
-<p>[15]<br>设计模式游戏: <a href="https://designpatternsgame.com/">https://designpatternsgame.com/</a></p>
-<p>[16]<br>React 教程: <a href="https://react-tutorial.app/">https://react-tutorial.app/</a></p>
-<p>[17]<br>Untrusted: <a href="https://alexnisnevich.github.io/untrusted/">https://alexnisnevich.github.io/untrusted/</a></p>
-<p>[18]<br>Promisees: <a href="https://bevacqua.github.io/promisees/">https://bevacqua.github.io/promisees/</a></p>
-<p>[19]<br>JSchallenger: <a href="https://www.jschallenger.com/">https://www.jschallenger.com/</a></p>
-<p>[20]<br>Service Workies: <a href="https://serviceworkies.com/">https://serviceworkies.com/</a></p>
-<p>[21]<br>Git分支学习: <a href="https://learngitbranching.js.org/">https://learngitbranching.js.org/</a></p>
-<p>[22]<br>Select Star SQL: <a href="https://selectstarsql.com/">https://selectstarsql.com/</a></p>
-<p>[23]<br>Select Star SQL: <a href="https://selectstarsql.com/">https://selectstarsql.com/</a></p>
-<p>[24]<br>SQL警察局: <a href="https://sqlpd.com/">https://sqlpd.com/</a></p>
-<p>[25]<br>CodinGame: <a href="https://www.codingame.com/">https://www.codingame.com/</a></p>
-<p>[26]<br>CodinGame: <a href="https://www.codingame.com/">https://www.codingame.com/</a></p>
-<p>[27]<br>正则填字游戏: <a href="https://regexcrossword.com/">https://regexcrossword.com/</a></p>
-<p>[28]<br>RegexOne: <a href="https://regexone.com/">https://regexone.com/</a></p>
-]]></content>
-      <categories>
-        <category>web-fun</category>
-      </categories>
-      <tags>
-        <tag>web-fun</tag>
       </tags>
   </entry>
 </search>

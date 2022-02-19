@@ -305,13 +305,6 @@
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/tags/mhist-cli/</loc>
-    <lastmod>2022-02-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://wakeweb.cloud/tags/cms/</loc>
     <lastmod>2022-02-19</lastmod>
     <changefreq>daily</changefreq>
@@ -320,6 +313,13 @@
   
   <url>
     <loc>http://wakeweb.cloud/tags/web-fun/</loc>
+    <lastmod>2022-02-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://wakeweb.cloud/tags/mhist-cli/</loc>
     <lastmod>2022-02-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -384,14 +384,14 @@
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/categories/mhist-cli/</loc>
+    <loc>http://wakeweb.cloud/categories/web-fun/</loc>
     <lastmod>2022-02-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://wakeweb.cloud/categories/web-fun/</loc>
+    <loc>http://wakeweb.cloud/categories/mhist-cli/</loc>
     <lastmod>2022-02-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
