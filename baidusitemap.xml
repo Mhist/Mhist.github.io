@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://wakeweb.cloud/2021/04/28/webpack/a052f112cdb6/</loc>
-    <lastmod>2022-02-20</lastmod>
+    <loc>http://wakeweb.cloud/2022/03/08/vue/9eb91058fc40/</loc>
+    <lastmod>2022-03-08</lastmod>
   </url>
   <url>
     <loc>http://wakeweb.cloud/2022/02/20/js%E9%9D%A2%E8%AF%95%E9%A2%98/e6e33b6aaa60/</loc>
+    <lastmod>2022-02-20</lastmod>
+  </url>
+  <url>
+    <loc>http://wakeweb.cloud/2021/04/28/webpack/a052f112cdb6/</loc>
     <lastmod>2022-02-20</lastmod>
   </url>
   <url>

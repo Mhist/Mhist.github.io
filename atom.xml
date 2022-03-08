@@ -6,7 +6,7 @@
   <link href="http://wakeweb.cloud/atom.xml" rel="self"/>
   
   <link href="http://wakeweb.cloud/"/>
-  <updated>2022-02-20T06:48:46.820Z</updated>
+  <updated>2022-03-08T07:55:46.719Z</updated>
   <id>http://wakeweb.cloud/</id>
   
   <author>
@@ -17,18 +17,43 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>js面试题.md</title>
+    <title>vue2一些原理</title>
+    <link href="http://wakeweb.cloud/2022/03/08/vue/9eb91058fc40/"/>
+    <id>http://wakeweb.cloud/2022/03/08/vue/9eb91058fc40/</id>
+    <published>2022-03-08T06:09:17.000Z</published>
+    <updated>2022-03-08T07:55:46.719Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;一、MVVM&quot;&gt;&lt;a href=&quot;#一、MVVM&quot; class=&quot;headerlink&quot; title=&quot;一、MVVM&quot;&gt;&lt;/a&gt;一、MVVM&lt;/h2&gt;&lt;p&gt;vue 中的 MVVM 模型，其本质即 M,V,VM 等组成的数据与视图模型&lt;br&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="vue" scheme="http://wakeweb.cloud/categories/vue/"/>
+    
+    
+    <category term="vue" scheme="http://wakeweb.cloud/tags/vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>js面试题</title>
     <link href="http://wakeweb.cloud/2022/02/20/js%E9%9D%A2%E8%AF%95%E9%A2%98/e6e33b6aaa60/"/>
     <id>http://wakeweb.cloud/2022/02/20/js%E9%9D%A2%E8%AF%95%E9%A2%98/e6e33b6aaa60/</id>
     <published>2022-02-20T06:42:27.000Z</published>
-    <updated>2022-02-20T06:48:46.820Z</updated>
+    <updated>2022-02-20T07:19:10.818Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;js面试题&quot;&gt;&lt;a href=&quot;#js面试题&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1 id=&quot;js面试题&quot;&gt;&lt;a href=&quot;#js面试题&quot; class=&quot;headerlink&quot; title=&quot;js面试题&quot;&gt;&lt;/a&gt;js面试题&lt;/h1&gt;&lt;p&gt;&lt;a</summary>
         
       
     
@@ -461,27 +486,6 @@ SELECT</summary>
     
     <summary type="html">&lt;h1 id=&quot;第1章-什么是-JavaScript&quot;&gt;&lt;a href=&quot;#第1章-什么是-JavaScript&quot; class=&quot;headerlink&quot; title=&quot;第1章 什么是 JavaScript&quot;&gt;&lt;/a&gt;第1章 什么是 JavaScript&lt;/h1&gt;&lt;p&gt;JavaScript 是一门用来与网页交互的脚本语言，包含以下三个组成部分。 ECMAScript：由 ECMA-262 定义并提供核心功能。 文档对象模型（DOM）：提供与网页内容交互的方法和接口。 浏览器对象模型（BOM）：提供与浏览器交互的方法和接口。 JavaScript 的这三个部分得到了五大 Web 浏览器（IE、Firefox、Chrome、Safari 和 Opera）不同程度 的支持。所有浏览器基本上对 ES5（ECMAScript 5）提供了完善的支持，而对 ES6（ECMAScript 6）和 ES7（ECMAScript 7）的支持度也在不断提升。这些浏览器对 DOM 的支持各不相同，但对 Level 3 的支 持日益趋于规范。HTML5 中收录的 BOM 会因浏览器而异，不过开发者仍然可以假定存在很大一部分 公共特性&lt;/p&gt;
 &lt;h1 id=&quot;第2章-HTML-中的-JavaScript&quot;&gt;&lt;a href=&quot;#第2章-HTML-中的-JavaScript&quot; class=&quot;headerlink&quot; title=&quot;第2章 HTML 中的 JavaScript&quot;&gt;&lt;/a&gt;第2章 HTML 中的 JavaScript&lt;/h1&gt;</summary>
-    
-    
-    
-    
-    <category term="JavaScript" scheme="http://wakeweb.cloud/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>基本引用类型-date</title>
-    <link href="http://wakeweb.cloud/2021/05/03/uncategorized/37be020c9cae/"/>
-    <id>http://wakeweb.cloud/2021/05/03/uncategorized/37be020c9cae/</id>
-    <published>2021-05-03T07:22:58.000Z</published>
-    <updated>2021-10-11T10:06:00.101Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;基本引用类型-date&quot;&gt;&lt;a href=&quot;#基本引用类型-date&quot; class=&quot;headerlink&quot; title=&quot;基本引用类型-date&quot;&gt;&lt;/a&gt;基本引用类型-date&lt;/h1&gt;&lt;p&gt;引用类型可以理解为对象定义，通过构造函数（new 操作符）来创建。&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;code class=&quot;hljs javascript&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;let&lt;/span&gt; now = &lt;span class=&quot;hljs-keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;hljs-built_in&quot;&gt;Date&lt;/span&gt;();&lt;br&gt;&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;基本引用类型相对于集合引用类型可以理解为单独引用类型，因为集合引用类型这些&lt;/p&gt;
-&lt;p&gt;Object、Array、定型数组、Map、WeakMap、Set、WeakSet等这些可以将基本引用类型包含于其中。&lt;/p&gt;</summary>
     
     
     
