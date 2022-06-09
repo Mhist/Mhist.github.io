@@ -1578,6 +1578,9 @@ export default foo;</pre>
 
 
 <p>_data中的会触发页面的数据实时更新，所以当实例化过程中的定义的data对象中的属性值发生变化时，需要监听，来修改_data从而触发视图层的更新。</p>
+<h2 id="Vue更新数据遇到的问题"><a href="#Vue更新数据遇到的问题" class="headerlink" title="Vue更新数据遇到的问题"></a>Vue更新数据遇到的问题</h2><p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/%20img/20220308220947.png"></p>
+<p>Vue 无法检测 property 的添加或移除。由于 Vue 会在初始化实例时对 property 执行 getter/setter 转化，所以 property 必须在 data 对象上存在才能让 Vue 将它转换为响应式的。</p>
+<p><a href="https://cn.vuejs.org/v2/guide/reactivity.html#%E5%AF%B9%E4%BA%8E%E5%AF%B9%E8%B1%A1">https://cn.vuejs.org/v2/guide/reactivity.html#%E5%AF%B9%E4%BA%8E%E5%AF%B9%E8%B1%A1</a></p>
 ]]></content>
       <categories>
         <category>vue</category>
