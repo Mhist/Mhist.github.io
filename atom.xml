@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>江东及巽`s blog</title>
+  <icon>https://mhist.github.io/icon.png</icon>
+  <subtitle>真正的大师永远怀有一颗学徒的心</subtitle>
+  <link href="https://mhist.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://mhist.github.io/"/>
+  <updated>2024-01-21T16:09:10.883Z</updated>
+  <id>https://mhist.github.io/</id>
+  
+  <author>
+    <name>Mhist</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://mhist.github.io/2024/01/22/hexo/435244c26d39/"/>
+    <id>https://mhist.github.io/2024/01/22/hexo/435244c26d39/</id>
+    <published>2024-01-21T16:09:10.883Z</published>
+    <updated>2024-01-21T16:09:10.883Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;</summary>
+    
+    
+    
+    <category term="hexo" scheme="https://mhist.github.io/categories/hexo/"/>
+    
+    
+    <category term="hexo" scheme="https://mhist.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>npm常用命令</title>
+    <link href="https://mhist.github.io/2023/12/18/npm/8cca0075206a/"/>
+    <id>https://mhist.github.io/2023/12/18/npm/8cca0075206a/</id>
+    <published>2023-12-18T13:45:42.000Z</published>
+    <updated>2024-01-21T16:09:10.884Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;针对于-npm-install卡在sill-idealTree-buildDeps-没有反应，安装失灵&quot;&gt;&lt;a href=&quot;#针对于-npm-install卡在sill-idealTree-buildDeps-没有反应，安装失灵&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="npm" scheme="https://mhist.github.io/categories/npm/"/>
+    
+    
+    <category term="npm" scheme="https://mhist.github.io/tags/npm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nginx部署</title>
+    <link href="https://mhist.github.io/2023/04/28/nginx/cc389d1d1416/"/>
+    <id>https://mhist.github.io/2023/04/28/nginx/cc389d1d1416/</id>
+    <published>2023-04-28T06:33:54.000Z</published>
+    <updated>2024-01-21T16:09:10.884Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;nginx部署&quot;&gt;&lt;a href=&quot;#nginx部署&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="nginx" scheme="https://mhist.github.io/categories/nginx/"/>
+    
+    
+    <category term="nginx" scheme="https://mhist.github.io/tags/nginx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>富文本编辑器选型</title>
+    <link href="https://mhist.github.io/2022/12/20/editor/a972ef10f61a/"/>
+    <id>https://mhist.github.io/2022/12/20/editor/a972ef10f61a/</id>
+    <published>2022-12-20T06:08:13.000Z</published>
+    <updated>2024-01-21T16:09:10.883Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;一、常见的富文本编辑器&lt;/p&gt;
+&lt;p&gt;种类：现有14种。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;编辑器名称&lt;/th&gt;
+&lt;th&gt;在线网址&lt;/th&gt;
+&lt;th&gt;GITHUB&lt;/th&gt;
+&lt;th&gt;开源代码协议&lt;/th&gt;
+&lt;th&gt;最后更新&lt;/th&gt;
+&lt;th&gt;是否符合</summary>
+        
+      
+    
+    
+    
+    <category term="editor" scheme="https://mhist.github.io/categories/editor/"/>
+    
+    
+    <category term="editor" scheme="https://mhist.github.io/tags/editor/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>IIS部署cesium文档</title>
+    <link href="https://mhist.github.io/2022/12/07/cesium/da39cf3f3db8/"/>
+    <id>https://mhist.github.io/2022/12/07/cesium/da39cf3f3db8/</id>
+    <published>2022-12-07T02:44:13.000Z</published>
+    <updated>2024-01-21T16:09:10.882Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;部署效果&quot;&gt;&lt;a href=&quot;#部署效果&quot; class=&quot;headerlink&quot; title=&quot;部署效果&quot;&gt;&lt;/a&gt;部署效果&lt;/h1&gt;&lt;p&gt;&lt;a id=&quot;DeploymentEffect&quot;&gt;部署效果&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="cesium" scheme="https://mhist.github.io/categories/cesium/"/>
+    
+    
+    <category term="cesium" scheme="https://mhist.github.io/tags/cesium/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vue2一些原理</title>
+    <link href="https://mhist.github.io/2022/03/08/vue/9eb91058fc40/"/>
+    <id>https://mhist.github.io/2022/03/08/vue/9eb91058fc40/</id>
+    <published>2022-03-08T06:09:17.000Z</published>
+    <updated>2024-01-21T16:09:10.884Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;一、MVVM&quot;&gt;&lt;a href=&quot;#一、MVVM&quot; class=&quot;headerlink&quot; title=&quot;一、MVVM&quot;&gt;&lt;/a&gt;一、MVVM&lt;/h2&gt;&lt;p&gt;vue 中的 MVVM 模型，其本质即 M,V,VM 等组成的数据与视图模型&lt;br&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="vue" scheme="https://mhist.github.io/categories/vue/"/>
+    
+    
+    <category term="vue" scheme="https://mhist.github.io/tags/vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>js面试题</title>
+    <link href="https://mhist.github.io/2022/02/20/js%E9%9D%A2%E8%AF%95%E9%A2%98/e6e33b6aaa60/"/>
+    <id>https://mhist.github.io/2022/02/20/js%E9%9D%A2%E8%AF%95%E9%A2%98/e6e33b6aaa60/</id>
+    <published>2022-02-20T06:42:27.000Z</published>
+    <updated>2024-01-21T16:09:10.883Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;script src=/js/crypto-js.js&gt;&lt;/script&gt;
+&lt;script&gt;
+function doDecrypt (pwd, onError) {
+	console.log(&#39;in doDecrypt&#39;);
+	const txt =</summary>
+        
+      
+    
+    
+    
+    <category term="js面试题" scheme="https://mhist.github.io/categories/js%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    
+    <category term="面试" scheme="https://mhist.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>有趣的前端游戏</title>
+    <link href="https://mhist.github.io/2021/11/15/web-fun/fcf961257c62/"/>
+    <id>https://mhist.github.io/2021/11/15/web-fun/fcf961257c62/</id>
+    <published>2021-11-15T09:07:32.000Z</published>
+    <updated>2024-01-21T16:09:10.885Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;有趣的前端资源&quot;&gt;&lt;a href=&quot;#有趣的前端资源&quot; class=&quot;headerlink&quot; title=&quot;有趣的前端资源&quot;&gt;&lt;/a&gt;有趣的前端资源&lt;/h1&gt;&lt;p&gt;[1]&lt;br&gt;Flex Box 冒险游戏: &lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="web-fun" scheme="https://mhist.github.io/categories/web-fun/"/>
+    
+    
+    <category term="web-fun" scheme="https://mhist.github.io/tags/web-fun/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mysql-多表</title>
+    <link href="https://mhist.github.io/2021/11/14/mysql/6220192bee46/"/>
+    <id>https://mhist.github.io/2021/11/14/mysql/6220192bee46/</id>
+    <published>2021-11-14T03:25:28.000Z</published>
+    <updated>2024-01-21T16:09:10.883Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;聚合函数&quot;&gt;&lt;a href=&quot;#聚合函数&quot; class=&quot;headerlink&quot; title=&quot;聚合函数&quot;&gt;&lt;/a&gt;聚合函数&lt;/h1&gt;&lt;pre&gt;
+# 1.聚合函数的使用        所有数据当作一组
+# 求所有手机的价格的总和
+SELECT</summary>
+        
+      
+    
+    
+    
+    <category term="mysql" scheme="https://mhist.github.io/categories/mysql/"/>
+    
+    
+    <category term="mysql" scheme="https://mhist.github.io/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mysql-语句</title>
+    <link href="https://mhist.github.io/2021/11/12/mysql/de9d27f5d5d1/"/>
+    <id>https://mhist.github.io/2021/11/12/mysql/de9d27f5d5d1/</id>
+    <published>2021-11-12T04:22:30.000Z</published>
+    <updated>2024-01-21T16:09:10.883Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;终端操作缺陷&quot;&gt;&lt;a href=&quot;#终端操作缺陷&quot; class=&quot;headerlink&quot; title=&quot;终端操作缺陷&quot;&gt;&lt;/a&gt;终端操作缺陷&lt;/h1&gt;&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="mysql" scheme="https://mhist.github.io/categories/mysql/"/>
+    
+    
+    <category term="mysql" scheme="https://mhist.github.io/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mysql</title>
+    <link href="https://mhist.github.io/2021/11/12/mysql/ab03683a0789/"/>
+    <id>https://mhist.github.io/2021/11/12/mysql/ab03683a0789/</id>
+    <published>2021-11-12T02:13:58.000Z</published>
+    <updated>2024-01-21T16:09:10.883Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;mysql下载地址&quot;&gt;&lt;a href=&quot;#mysql下载地址&quot; class=&quot;headerlink&quot; title=&quot;mysql下载地址&quot;&gt;&lt;/a&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="mysql" scheme="https://mhist.github.io/categories/mysql/"/>
+    
+    
+    <category term="mysql" scheme="https://mhist.github.io/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>开发自己的脚手架工具</title>
+    <link href="https://mhist.github.io/2021/11/08/mhist-cli/f848dc5a8054/"/>
+    <id>https://mhist.github.io/2021/11/08/mhist-cli/f848dc5a8054/</id>
+    <published>2021-11-08T09:59:51.000Z</published>
+    <updated>2024-01-21T16:09:10.885Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;入口文件和基本配置文件&quot;&gt;&lt;a href=&quot;#入口文件和基本配置文件&quot; class=&quot;headerlink&quot; title=&quot;入口文件和基本配置文件&quot;&gt;&lt;/a&gt;入口文件和基本配置文件&lt;/h1&gt;&lt;p&gt;mhist-cli&lt;br&gt;├── index.js&lt;br&gt;├──</summary>
+        
+      
+    
+    
+    
+    <category term="mhist-cli" scheme="https://mhist.github.io/categories/mhist-cli/"/>
+    
+    
+    <category term="mhist-cli" scheme="https://mhist.github.io/tags/mhist-cli/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>node常见内置模块</title>
+    <link href="https://mhist.github.io/2021/11/07/node/41601c7205c1/"/>
+    <id>https://mhist.github.io/2021/11/07/node/41601c7205c1/</id>
+    <published>2021-11-07T02:33:15.000Z</published>
+    <updated>2024-01-21T16:09:10.884Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;path模块&quot;&gt;&lt;a href=&quot;#path模块&quot; class=&quot;headerlink&quot; title=&quot;path模块&quot;&gt;&lt;/a&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="node" scheme="https://mhist.github.io/categories/node/"/>
+    
+    
+    <category term="node" scheme="https://mhist.github.io/tags/node/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>node学习</title>
+    <link href="https://mhist.github.io/2021/11/05/node/d7430acb4af2/"/>
+    <id>https://mhist.github.io/2021/11/05/node/d7430acb4af2/</id>
+    <published>2021-11-05T11:17:28.000Z</published>
+    <updated>2024-01-21T16:09:10.884Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;什么是node&quot;&gt;&lt;a href=&quot;#什么是node&quot; class=&quot;headerlink&quot; title=&quot;什么是node&quot;&gt;&lt;/a&gt;什么是node&lt;/h1&gt;&lt;p&gt;“Node全称NodeJS，是一个基于Chrome</summary>
+        
+      
+    
+    
+    
+    <category term="node" scheme="https://mhist.github.io/categories/node/"/>
+    
+    
+    <category term="node" scheme="https://mhist.github.io/tags/node/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git</title>
+    <link href="https://mhist.github.io/2021/11/01/git/0e5e66b4b6b0/"/>
+    <id>https://mhist.github.io/2021/11/01/git/0e5e66b4b6b0/</id>
+    <published>2021-11-01T03:33:19.000Z</published>
+    <updated>2024-01-21T16:09:10.883Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;git是什么？&quot;&gt;&lt;a href=&quot;#git是什么？&quot; class=&quot;headerlink&quot; title=&quot;git是什么？&quot;&gt;&lt;/a&gt;git是什么？&lt;/h2&gt;&lt;p&gt; Git是一种分布式的版本控制软件， 它像是把数据看作是对小型文件系统的一系列快照。 在 Git</summary>
+        
+      
+    
+    
+    
+    <category term="git" scheme="https://mhist.github.io/categories/git/"/>
+    
+    
+    <category term="git" scheme="https://mhist.github.io/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>uni-app实战（一）</title>
+    <link href="https://mhist.github.io/2021/10/26/uni-app/4132b17f6755/"/>
+    <id>https://mhist.github.io/2021/10/26/uni-app/4132b17f6755/</id>
+    <published>2021-10-26T05:59:33.000Z</published>
+    <updated>2024-01-21T16:09:10.884Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;项目的构建&quot;&gt;&lt;a href=&quot;#项目的构建&quot; class=&quot;headerlink&quot; title=&quot;项目的构建&quot;&gt;&lt;/a&gt;项目的构建&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;开发工具采用uni-app官方的开发工具&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="uni-app" scheme="https://mhist.github.io/categories/uni-app/"/>
+    
+    
+    <category term="uni-app" scheme="https://mhist.github.io/tags/uni-app/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>webpack基本配置（二）</title>
+    <link href="https://mhist.github.io/2021/10/18/webpack/eb2dff5fc128/"/>
+    <id>https://mhist.github.io/2021/10/18/webpack/eb2dff5fc128/</id>
+    <published>2021-10-18T07:42:51.000Z</published>
+    <updated>2024-01-21T16:09:10.884Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;webpack基本配置-入口、出口&quot;&gt;&lt;a href=&quot;#webpack基本配置-入口、出口&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="webpack" scheme="https://mhist.github.io/categories/webpack/"/>
+    
+    
+    <category term="webpack" scheme="https://mhist.github.io/tags/webpack/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vue3</title>
+    <link href="https://mhist.github.io/2021/10/11/vue3/583a6ec9ccd6/"/>
+    <id>https://mhist.github.io/2021/10/11/vue3/583a6ec9ccd6/</id>
+    <published>2021-10-11T05:34:42.000Z</published>
+    <updated>2024-01-21T16:09:10.884Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;vue3&quot;&gt;&lt;a href=&quot;#vue3&quot; class=&quot;headerlink&quot; title=&quot;vue3&quot;&gt;&lt;/a&gt;vue3&lt;/h1&gt;&lt;p&gt;   新一代的前端框架，基于typescript开发，具有更加优越的性能和更加安全的代码机制。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="vue3" scheme="https://mhist.github.io/categories/vue3/"/>
+    
+    
+    <category term="vue3" scheme="https://mhist.github.io/tags/vue3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo样式修改汇总</title>
+    <link href="https://mhist.github.io/2021/09/28/hexo/371af6f33ab0/"/>
+    <id>https://mhist.github.io/2021/09/28/hexo/371af6f33ab0/</id>
+    <published>2021-09-28T05:40:16.000Z</published>
+    <updated>2024-01-21T16:09:10.883Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;hexo样式汇总&quot;&gt;&lt;a href=&quot;#hexo样式汇总&quot; class=&quot;headerlink&quot; title=&quot;hexo样式汇总&quot;&gt;&lt;/a&gt;hexo样式汇总&lt;/h1&gt;&lt;h1 id=&quot;更改超链接格式（文字颜色）&quot;&gt;&lt;a href=&quot;#更改超链接格式（文字颜色）&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="hexo" scheme="https://mhist.github.io/categories/hexo/"/>
+    
+    
+    <category term="hexo" scheme="https://mhist.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TypeScript入门教程二</title>
+    <link href="https://mhist.github.io/2021/09/26/TypeScript/4d8aa16bcb6b/"/>
+    <id>https://mhist.github.io/2021/09/26/TypeScript/4d8aa16bcb6b/</id>
+    <published>2021-09-26T09:49:42.000Z</published>
+    <updated>2024-01-21T16:09:10.882Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;typescript学习：第二部分&quot;&gt;&lt;a href=&quot;#typescript学习：第二部分&quot; class=&quot;headerlink&quot; title=&quot;typescript学习：第二部分&quot;&gt;&lt;/a&gt;typescript学习：第二部分&lt;/h1&gt;&lt;p&gt;  → &lt;a href=&quot;http://wakeweb.cloud/2021/09/24/TypeScript/854698b90236/&quot;&gt;第一部分跳转链接&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;经过第一部分的学习，我们已经了解到了typescript的基本用法，同时对于其在代码健壮性，以及编译过程中即出现错误提示的有点有了更一步的了解，接下来，我们将进一步学习新的知识，体会typescript更加高级的用法。&lt;/p&gt;
+&lt;h2 id=&quot;类型断言&quot;&gt;&lt;a href=&quot;#类型断言&quot; class=&quot;headerlink&quot; title=&quot;类型断言&quot;&gt;&lt;/a&gt;类型断言&lt;/h2&gt;&lt;p&gt;  在学习类型断言之前，需要先了解断言的具体概念，针对node语言里面也有相关断言的概念，有以下的问题：&lt;br&gt;  &lt;font color=orange&gt;1.断言是一个广泛的概念吗？&lt;/font&gt;&lt;br&gt;  &lt;font color=seagreen&gt;2.node断言与typescript类型断言分别都是什么？&lt;/font&gt;&lt;br&gt;</summary>
+    
+    
+    
+    <category term="TypeScript" scheme="https://mhist.github.io/categories/TypeScript/"/>
+    
+    
+    <category term="TypeScript" scheme="https://mhist.github.io/tags/TypeScript/"/>
+    
+  </entry>
+  
+</feed>

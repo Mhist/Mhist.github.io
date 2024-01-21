@@ -1,0 +1,392 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>git | 江东及巽`s blog</title><meta name="keywords" content="git"><meta name="author" content="Mhist"><meta name="copyright" content="Mhist"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="git是什么？ Git是一种分布式的版本控制软件， 它像是把数据看作是对小型文件系统的一系列快照。 在 Git 中，每当你提交更新或保存项目状态时，它基本上就会对当时的全部文件创建一个快照并保存这个快照的索引。 为了效率，如果文件没有修改，Git 不再重新存储该文件，而是只保留一个链接指向之前存储的文件。 Git 对待数据更像是一个 快照流。 git的特点 直接记录快照，而非差异比较 近乎所有操作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git">
+<meta property="og:url" content="https://mhist.github.io/2021/11/01/git/0e5e66b4b6b0/index.html">
+<meta property="og:site_name" content="江东及巽&#96;s blog">
+<meta property="og:description" content="git是什么？ Git是一种分布式的版本控制软件， 它像是把数据看作是对小型文件系统的一系列快照。 在 Git 中，每当你提交更新或保存项目状态时，它基本上就会对当时的全部文件创建一个快照并保存这个快照的索引。 为了效率，如果文件没有修改，Git 不再重新存储该文件，而是只保留一个链接指向之前存储的文件。 Git 对待数据更像是一个 快照流。 git的特点 直接记录快照，而非差异比较 近乎所有操作">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211013225527code.jpg">
+<meta property="article:published_time" content="2021-11-01T03:33:19.000Z">
+<meta property="article:modified_time" content="2024-01-21T16:09:10.883Z">
+<meta property="article:author" content="Mhist">
+<meta property="article:tag" content="git">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211013225527code.jpg"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211012115735hexo-favicon_16*16.ico"><link rel="canonical" href="https://mhist.github.io/2021/11/01/git/0e5e66b4b6b0/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":500,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'git',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-01-22 00:09:10'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="江东及巽`s blog" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}</style></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914112616catAvatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">30</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 媒体</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/sitemap.xml"><i class="fa-fw fas fa-map"></i><span> 站点地图</span></a></li><li><a class="site-page child" href="/baidusitemap.xml"><i class="fa-fw fas fa-map"></i><span> 百度站点地图</span></a></li><li><a class="site-page child" href="/atom.xml"><i class="fa-fw fas fa-rss"></i><span> RSS</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://butterfly.js.org/"><i class="fa-fw fas fa-link"></i><span> butterfly</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211013225527code.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">江东及巽`s blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 媒体</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/sitemap.xml"><i class="fa-fw fas fa-map"></i><span> 站点地图</span></a></li><li><a class="site-page child" href="/baidusitemap.xml"><i class="fa-fw fas fa-map"></i><span> 百度站点地图</span></a></li><li><a class="site-page child" href="/atom.xml"><i class="fa-fw fas fa-rss"></i><span> RSS</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://butterfly.js.org/"><i class="fa-fw fas fa-link"></i><span> butterfly</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">git</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-11-01T03:33:19.000Z" title="发表于 2021-11-01 11:33:19">2021-11-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-01-21T16:09:10.883Z" title="更新于 2024-01-22 00:09:10">2024-01-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/git/">git</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="git"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="git是什么？"><a href="#git是什么？" class="headerlink" title="git是什么？"></a>git是什么？</h2><p> Git是一种分布式的版本控制软件， 它像是把数据看作是对小型文件系统的一系列快照。 在 Git 中，每当你提交更新或保存项目状态时，它基本上就会对当时的全部文件创建一个快照并保存这个快照的索引。 为了效率，如果文件没有修改，Git 不再重新存储该文件，而是只保留一个链接指向之前存储的文件。 Git 对待数据更像是一个 <font color=amber>快照流</font>。</p>
+<h2 id="git的特点"><a href="#git的特点" class="headerlink" title="git的特点"></a>git的特点</h2><ol>
+<li>直接记录快照，而非差异比较</li>
+<li>近乎所有操作都是本地执行</li>
+<li>Git 保证完整性 （Git 数据库中保存的信息都是以文件内容的哈希值来索引，而不是文件名。）</li>
+<li>Git 一般只添加数据</li>
+</ol>
+<div class="note default modern"><p> Git 用以计算校验和的机制叫做 SHA-1 散列（hash，哈希）。 这是一个由 40 个十六进制字符（0-9 和 a-f）组成的字符串，基于 Git 中文件的内容或目录结构计算出来。 SHA-1 哈希看起来是这样：</p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dns"><span class="hljs-number">24</span>b9da6552252987aa493b52f8696cd<span class="hljs-number">6d3b00373</span><br></code></pre></td></tr></table></figure></div>
+
+<h2 id="git的三种区域划分"><a href="#git的三种区域划分" class="headerlink" title="git的三种区域划分"></a>git的三种区域划分</h2><ul>
+<li><p> 已修改（modified）：表示修改了文件，但还没保存到数据库中。</p>
+</li>
+<li><p>已暂存（staged）： 表示对一个已修改文件的当前版本做了标记，使之包含在下次提交的快照中。</p>
+</li>
+<li><p>已提交（committed）：表示数据已经安全地保存在本地数据库中。</p>
+</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://git-scm.com/book/en/v2/images/areas.png" alt="git三种区域"></p>
+<h2 id="初次运行-Git-前的配置"><a href="#初次运行-Git-前的配置" class="headerlink" title="初次运行 Git 前的配置"></a>初次运行 Git 前的配置</h2><h3 id="用户信息"><a href="#用户信息" class="headerlink" title="用户信息"></a>用户信息</h3><p>安装完 Git 之后，要做的第一件事就是设置你的用户名和邮件地址。 这一点很重要，因为每一个 Git 提交都会使用这些信息，它们会写入到你的每一次提交中，不可更改：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs verilog">git <span class="hljs-keyword">config</span> --<span class="hljs-keyword">global</span> user<span class="hljs-variable">.name</span> <span class="hljs-string">&quot;John Doe&quot;</span><br>git <span class="hljs-keyword">config</span> --<span class="hljs-keyword">global</span> user<span class="hljs-variable">.email</span> johndoe@example<span class="hljs-variable">.com</span><br></code></pre></td></tr></table></figure>
+
+<div class="note default modern"><p>再次强调，如果使用了 –global 选项，那么该命令只需要运行一次，因为之后无论你在该系统上做任何事情， Git 都会使用那些信息。 当你想针对特定项目使用不同的用户名称与邮件地址时，可以在那个项目目录下运行没有 –global 选项的命令来配置。</p>
+</div>
+
+<h3 id="文本编辑器"><a href="#文本编辑器" class="headerlink" title="文本编辑器"></a>文本编辑器</h3><p>在 Windows 系统上，如果你想要使用别的文本编辑器，那么必须指定可执行文件的完整路径。 它可能随你的编辑器的打包方式而不同。</p>
+<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs brainfuck"><span class="hljs-comment">git</span> <span class="hljs-comment">config</span> --<span class="hljs-comment">global</span> <span class="hljs-comment">core</span><span class="hljs-string">.</span><span class="hljs-comment">editor</span> <span class="hljs-comment">&quot;&#x27;C:/Program</span> <span class="hljs-comment">Files/Notepad</span>++<span class="hljs-comment">/notepad</span>++<span class="hljs-string">.</span><span class="hljs-comment">exe&#x27;</span> <span class="hljs-literal">-</span><span class="hljs-comment">multiInst</span> <span class="hljs-literal">-</span><span class="hljs-comment">notabbar</span> <span class="hljs-literal">-</span><span class="hljs-comment">nosession</span> <span class="hljs-literal">-</span><span class="hljs-comment">noPlugin&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="检查配置信息"><a href="#检查配置信息" class="headerlink" title="检查配置信息"></a>检查配置信息</h3><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs lua">git <span class="hljs-built_in">config</span> <span class="hljs-comment">--list</span><br></code></pre></td></tr></table></figure>
+<pre>
+PS C:\Users\starry\Desktop\hexo-new> git config --list
+diff.astextplain.textconv=astextplain
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+http.sslbackend=openssl
+http.sslcainfo=D:/dev/git/Git/mingw64/ssl/certs/ca-bundle.crt
+core.autocrlf=true
+core.fscache=true
+core.symlinks=false
+pull.rebase=false
+credential.helper=manager-core
+credential.https://dev.azure.com.usehttppath=true
+:...skipping...
+diff.astextplain.textconv=astextplain
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+http.sslbackend=openssl
+http.sslcainfo=D:/dev/git/Git/mingw64/ssl/certs/ca-bundle.crt    
+core.autocrlf=true
+core.fscache=true
+core.symlinks=false
+pull.rebase=false
+credential.helper=manager-core
+credential.https://dev.azure.com.usehttppath=true
+init.defaultbranch=master
+core.editor="D:\dev\vscode\Microsoft VS Code\bin\code.cmd" --wait
+user.email=18827637106@163.com
+user.name=mhist
+http.sslverify=false
+http.postbuffer=524288000
+</pre>
+
+<p>使用该命令后，你会获得如上的键值对形式的文件，当然你也可以使用命令，通过键来获得你需要得键值</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino">git config &lt;key&gt;<br></code></pre></td></tr></table></figure>
+<pre>
+PS C:\Users\starry\Desktop\hexo-new> git config core.fscache
+true
+</pre>
+
+<h2 id="获取帮助和官方手册"><a href="#获取帮助和官方手册" class="headerlink" title="获取帮助和官方手册"></a>获取帮助和官方手册</h2><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino">git help config<br></code></pre></td></tr></table></figure>
+<p>输入命令后会在浏览器打开手册，通过html文件来展示。实际在安装git软件的时候会在相应的文件夹中，博主的文件对应路径为：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">file:<span class="hljs-regexp">//</span><span class="hljs-regexp">/D:/</span>dev<span class="hljs-regexp">/git/</span>Git<span class="hljs-regexp">/mingw64/</span>share<span class="hljs-regexp">/doc/gi</span>t-doc/git-config.html<br></code></pre></td></tr></table></figure>
+
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">效果</th>
+<th align="center">场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">git clone url</td>
+<td align="center">在本地创建相应的仓库</td>
+<td align="center">用于克隆目标链接的文件</td>
+</tr>
+<tr>
+<td align="center">git init</td>
+<td align="center">在已存在目录中初始化仓库</td>
+<td align="center">用于初始化</td>
+</tr>
+<tr>
+<td align="center">git status</td>
+<td align="center">显示文件分支和文件提交情况和工作区情况</td>
+<td align="center">用于检测当前仓库文件状态</td>
+</tr>
+<tr>
+<td align="center">git add</td>
+<td align="center">使用文件或目录的路径作为参数，目录路径下所有文件会被追踪</td>
+<td align="center">用于跟踪新文件，将文件放到暂存区</td>
+</tr>
+<tr>
+<td align="center">git diff</td>
+<td align="center">本身只显示尚未暂存的改动，而不是自上次提交以来所做的所有改动</td>
+<td align="center">用于查看已暂存和未暂存的修改</td>
+</tr>
+<tr>
+<td align="center">git commit</td>
+<td align="center">将暂存区的文件提交,可通过<font color=camel>git commit -m “添加描述信息”</font></td>
+<td align="center">用于提交更新</td>
+</tr>
+<tr>
+<td align="center">git rm</td>
+<td align="center">若文件不在暂存区 <font color=tomato>git rm 文件名 </font>；否则，使用<font color=camel>git rm -f 文件名</font></td>
+<td align="center">用于移除文件，<a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E8%AE%B0%E5%BD%95%E6%AF%8F%E6%AC%A1%E6%9B%B4%E6%96%B0%E5%88%B0%E4%BB%93%E5%BA%93">其他删除细节参照链接</a></td>
+</tr>
+<tr>
+<td align="center">git mv 原文件名 新文件名</td>
+<td align="center">实质：<code>mv README.md README；git rm README.md；git add README</code></td>
+<td align="center">用于移动文件或者修改文件名</td>
+</tr>
+<tr>
+<td align="center">git log</td>
+<td align="center">在控制台输入命令后会显示以哈希值版本，作者，提交时间组成的内容</td>
+<td align="center">用于查看提交历史</td>
+</tr>
+</tbody></table>
+<div class="note default modern"><p>如果文件已被跟踪，然后再后续过程中被修改，则该跟踪文件的内容发生了变化，但还没有放到暂存区。 要暂存这次更新，需要运行 git add 命令。 这是个多功能命令：可以用它开始跟踪新文件，或者把已跟踪的文件放到暂存区，还能用于合并时把有冲突的文件标记为已解决状态等。 将这个命令理解为“精确地将内容添加到下一次提交中”</p>
+</div>
+
+<h3 id="git-log-配置"><a href="#git-log-配置" class="headerlink" title="git log 配置"></a>git log 配置</h3><p><a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%9F%A5%E7%9C%8B%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2">配置例子具体链接</a></p>
+<p>例子：将提交版本的哈希值用简短形式展示</p>
+<pre>
+PS C:\Users\starry\Desktop\hexo-new\blog> git log --pretty=format:"%h"
+0f2dda8
+40f740a
+668fc87
+2b7da17
+418255c
+7601831
+f89d8a5
+</pre>
+
+<h3 id="撤销操作"><a href="#撤销操作" class="headerlink" title="撤销操作"></a>撤销操作</h3><ol>
+<li><p>它一般用于解决在开发过程中因为细微的操作导致的问题，比如在提交完成后发现有些文件忘记更新到缓存区，导致文件没有提交，而文件又不是很多，如果再次提交，会增多提交历史中的事件轴，为了解决这一问题可以使用以下命令，它会提交第二次的修改，从效果上来说，就像是旧有的提交从未存在过一样，它并不会出现在仓库的历史中。</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">git <span class="hljs-keyword">commit</span> <span class="hljs-comment">--amend</span><br></code></pre></td></tr></table></figure></li>
+<li><p>取消暂存</p>
+<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sas">git <span class="hljs-meta">reset</span> HEAD &lt;<span class="hljs-meta">file</span>&gt;...<br></code></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h2><h3 id="查看远程仓库"><a href="#查看远程仓库" class="headerlink" title="查看远程仓库"></a>查看远程仓库</h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">git remote</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">git remote -v</span><br></code></pre></td></tr></table></figure>
+<h3 id="添加远程仓库"><a href="#添加远程仓库" class="headerlink" title="添加远程仓库"></a>添加远程仓库</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim">git remote <span class="hljs-built_in">add</span> <span class="hljs-symbol">&lt;shortname&gt;</span> <span class="hljs-symbol">&lt;url&gt;</span><br></code></pre></td></tr></table></figure>
+<h3 id="从远程仓库拉取"><a href="#从远程仓库拉取" class="headerlink" title="从远程仓库拉取"></a>从远程仓库拉取</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml">git fetch <span class="hljs-tag">&lt;<span class="hljs-name">remote</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h3 id="推送到远程仓库"><a href="#推送到远程仓库" class="headerlink" title="推送到远程仓库"></a>推送到远程仓库</h3><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs maxima">git <span class="hljs-built_in">push</span> <span class="hljs-built_in">origin</span> master<br></code></pre></td></tr></table></figure>
+<h3 id="查看某个远程仓库"><a href="#查看某个远程仓库" class="headerlink" title="查看某个远程仓库"></a>查看某个远程仓库</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml">git remote show <span class="hljs-tag">&lt;<span class="hljs-name">remote</span>&gt;</span> <br></code></pre></td></tr></table></figure>
+<h3 id="远程仓库的重命名"><a href="#远程仓库的重命名" class="headerlink" title="远程仓库的重命名"></a>远程仓库的重命名</h3><p>例如，想要将 pb 重命名为 paul，可以用 git remote rename 这样做：</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coq">git remote <span class="hljs-built_in">rename</span> pb paul<br></code></pre></td></tr></table></figure>
+<h3 id="远程仓库的删除"><a href="#远程仓库的删除" class="headerlink" title="远程仓库的删除"></a>远程仓库的删除</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">git remote <span class="hljs-builtin-name">remove</span> 远程仓库名<br></code></pre></td></tr></table></figure>
+
+<h2 id="git分支与合并"><a href="#git分支与合并" class="headerlink" title="git分支与合并"></a>git分支与合并</h2><ol>
+<li><p>查看分支 </p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">git branch</span><br></code></pre></td></tr></table></figure></li>
+<li><p>创建分支</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">git <span class="hljs-keyword">branch </span>分支名称<br></code></pre></td></tr></table></figure></li>
+<li><p>切换分支</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">git</span> checkout 分支名称<br></code></pre></td></tr></table></figure></li>
+<li><p>分支合并<br>假设现在有两个分支，分别为master和test分支，当前你在master分支上，可以使用以下命令将test分支上的内容合并到master分支上。</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stata">git <span class="hljs-keyword">merge</span> <span class="hljs-keyword">test</span><br></code></pre></td></tr></table></figure></li>
+</ol>
+<p>合并冲突：</p>
+<ol start="5">
+<li>删除分支<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">git <span class="hljs-keyword">branch </span>-d 分支名称<br></code></pre></td></tr></table></figure></li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Mhist</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://mhist.github.io/2021/11/01/git/0e5e66b4b6b0/">https://mhist.github.io/2021/11/01/git/0e5e66b4b6b0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://mhist.github.io" target="_blank">江东及巽`s blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/git/">git</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211013225527code.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914113259wechatpay.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914113259wechatpay.jpg"/></a><div class="post-qr-code-desc"></div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914113106alipay.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914113106alipay.jpg"/></a><div class="post-qr-code-desc"></div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/11/05/node/d7430acb4af2/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211013225527code.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">node学习</div></div></a></div><div class="next-post pull-right"><a href="/2021/10/26/uni-app/4132b17f6755/"><img class="next-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211013225527code.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">uni-app实战（一）</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914112616catAvatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Mhist</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">30</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/mhist"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/mhist" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:18827637106@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">git是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-number">2.</span> <span class="toc-text">git的特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E7%9A%84%E4%B8%89%E7%A7%8D%E5%8C%BA%E5%9F%9F%E5%88%92%E5%88%86"><span class="toc-number">3.</span> <span class="toc-text">git的三种区域划分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E6%AC%A1%E8%BF%90%E8%A1%8C-Git-%E5%89%8D%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="toc-number">4.</span> <span class="toc-text">初次运行 Git 前的配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF"><span class="toc-number">4.1.</span> <span class="toc-text">用户信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8"><span class="toc-number">4.2.</span> <span class="toc-text">文本编辑器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF"><span class="toc-number">4.3.</span> <span class="toc-text">检查配置信息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%B8%AE%E5%8A%A9%E5%92%8C%E5%AE%98%E6%96%B9%E6%89%8B%E5%86%8C"><span class="toc-number">5.</span> <span class="toc-text">获取帮助和官方手册</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">6.</span> <span class="toc-text">常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git-log-%E9%85%8D%E7%BD%AE"><span class="toc-number">6.1.</span> <span class="toc-text">git log 配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%92%A4%E9%94%80%E6%93%8D%E4%BD%9C"><span class="toc-number">6.2.</span> <span class="toc-text">撤销操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">7.</span> <span class="toc-text">远程仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">7.1.</span> <span class="toc-text">查看远程仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">7.2.</span> <span class="toc-text">添加远程仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E6%8B%89%E5%8F%96"><span class="toc-number">7.3.</span> <span class="toc-text">从远程仓库拉取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A8%E9%80%81%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">7.4.</span> <span class="toc-text">推送到远程仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%9F%90%E4%B8%AA%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">7.5.</span> <span class="toc-text">查看某个远程仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%9A%84%E9%87%8D%E5%91%BD%E5%90%8D"><span class="toc-number">7.6.</span> <span class="toc-text">远程仓库的重命名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%9A%84%E5%88%A0%E9%99%A4"><span class="toc-number">7.7.</span> <span class="toc-text">远程仓库的删除</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E5%88%86%E6%94%AF%E4%B8%8E%E5%90%88%E5%B9%B6"><span class="toc-number">8.</span> <span class="toc-text">git分支与合并</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/01/22/hexo/435244c26d39/" title="Hello World"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211013225527code.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2024/01/22/hexo/435244c26d39/" title="Hello World">Hello World</a><time datetime="2024-01-21T16:09:10.883Z" title="发表于 2024-01-22 00:09:10">2024-01-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/18/npm/8cca0075206a/" title="npm常用命令"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211013225527code.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="npm常用命令"/></a><div class="content"><a class="title" href="/2023/12/18/npm/8cca0075206a/" title="npm常用命令">npm常用命令</a><time datetime="2023-12-18T13:45:42.000Z" title="发表于 2023-12-18 21:45:42">2023-12-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/04/28/nginx/cc389d1d1416/" title="nginx部署"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211013225527code.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="nginx部署"/></a><div class="content"><a class="title" href="/2023/04/28/nginx/cc389d1d1416/" title="nginx部署">nginx部署</a><time datetime="2023-04-28T06:33:54.000Z" title="发表于 2023-04-28 14:33:54">2023-04-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/20/editor/a972ef10f61a/" title="富文本编辑器选型"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211013225527code.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="富文本编辑器选型"/></a><div class="content"><a class="title" href="/2022/12/20/editor/a972ef10f61a/" title="富文本编辑器选型">富文本编辑器选型</a><time datetime="2022-12-20T06:08:13.000Z" title="发表于 2022-12-20 14:08:13">2022-12-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/07/cesium/da39cf3f3db8/" title="IIS部署cesium文档"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211013225527code.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="IIS部署cesium文档"/></a><div class="content"><a class="title" href="/2022/12/07/cesium/da39cf3f3db8/" title="IIS部署cesium文档">IIS部署cesium文档</a><time datetime="2022-12-07T02:44:13.000Z" title="发表于 2022-12-07 10:44:13">2022-12-07</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211013225527code.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2024 By Mhist</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.css"><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script><script>if (document.getElementsByClassName('mermaid').length) {
+  if (window.mermaidJsLoad) mermaid.init()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
+      window.mermaidJsLoad = true
+      mermaid.initialize({
+        theme: 'default',
+      })
+      false && mermaid.init()
+    })
+  }
+}</script><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '2GY7e9H80t5xfGJqD7uxvvUe-gzGzoHsz',
+      appKey: '3G0gYtHufUNRz206AsXxpnsv',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: true,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: true,
+      path: window.location.pathname,
+      requiredFields: ["nick,mail"],
+      visitor: true
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script async data-pjax src="https://cn.vercount.one/js"></script></div></body></html>

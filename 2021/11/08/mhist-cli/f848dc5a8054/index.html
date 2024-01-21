@@ -1,0 +1,261 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>开发自己的脚手架工具 | 江东及巽`s blog</title><meta name="keywords" content="mhist-cli"><meta name="author" content="Mhist"><meta name="copyright" content="Mhist"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="入口文件和基本配置文件mhist-cli├── index.js├── package.json 可以通过命令创建package.json文件 1npm init -y  终端命令需求：在终端输入指令后，会显示你所定义的相应的类似版本号之类的内容。 知识： #！ （#!是特殊的表示符，其后面跟的是解释此脚本的shell的路径，这个是告诉系统，应该调用哪个东西来运行他。） 定义路径 1#!&#x2F;usr&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开发自己的脚手架工具">
+<meta property="og:url" content="https://mhist.github.io/2021/11/08/mhist-cli/f848dc5a8054/index.html">
+<meta property="og:site_name" content="江东及巽&#96;s blog">
+<meta property="og:description" content="入口文件和基本配置文件mhist-cli├── index.js├── package.json 可以通过命令创建package.json文件 1npm init -y  终端命令需求：在终端输入指令后，会显示你所定义的相应的类似版本号之类的内容。 知识： #！ （#!是特殊的表示符，其后面跟的是解释此脚本的shell的路径，这个是告诉系统，应该调用哪个东西来运行他。） 定义路径 1#!&#x2F;usr&#x2F;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211013225527code.jpg">
+<meta property="article:published_time" content="2021-11-08T09:59:51.000Z">
+<meta property="article:modified_time" content="2024-01-21T16:09:10.885Z">
+<meta property="article:author" content="Mhist">
+<meta property="article:tag" content="mhist-cli">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211013225527code.jpg"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211012115735hexo-favicon_16*16.ico"><link rel="canonical" href="https://mhist.github.io/2021/11/08/mhist-cli/f848dc5a8054/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":500,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '开发自己的脚手架工具',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-01-22 00:09:10'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="江东及巽`s blog" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}</style></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914112616catAvatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">30</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 媒体</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/sitemap.xml"><i class="fa-fw fas fa-map"></i><span> 站点地图</span></a></li><li><a class="site-page child" href="/baidusitemap.xml"><i class="fa-fw fas fa-map"></i><span> 百度站点地图</span></a></li><li><a class="site-page child" href="/atom.xml"><i class="fa-fw fas fa-rss"></i><span> RSS</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://butterfly.js.org/"><i class="fa-fw fas fa-link"></i><span> butterfly</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211013225527code.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">江东及巽`s blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 媒体</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/sitemap.xml"><i class="fa-fw fas fa-map"></i><span> 站点地图</span></a></li><li><a class="site-page child" href="/baidusitemap.xml"><i class="fa-fw fas fa-map"></i><span> 百度站点地图</span></a></li><li><a class="site-page child" href="/atom.xml"><i class="fa-fw fas fa-rss"></i><span> RSS</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://butterfly.js.org/"><i class="fa-fw fas fa-link"></i><span> butterfly</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">开发自己的脚手架工具</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-11-08T09:59:51.000Z" title="发表于 2021-11-08 17:59:51">2021-11-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-01-21T16:09:10.885Z" title="更新于 2024-01-22 00:09:10">2024-01-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/mhist-cli/">mhist-cli</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">637</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>2分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="开发自己的脚手架工具"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="入口文件和基本配置文件"><a href="#入口文件和基本配置文件" class="headerlink" title="入口文件和基本配置文件"></a>入口文件和基本配置文件</h1><p>mhist-cli<br>├── index.js<br>├── package.json</p>
+<p>可以通过命令创建package.json文件</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript"><span class="hljs-built_in">npm</span> init -y<br></code></pre></td></tr></table></figure>
+
+<h1 id="终端命令"><a href="#终端命令" class="headerlink" title="终端命令"></a>终端命令</h1><p>需求：在终端输入指令后，会显示你所定义的相应的类似版本号之类的内容。</p>
+<p>知识： #！ （#!是特殊的表示符，其后面跟的是解释此脚本的shell的路径，这个是告诉系统，应该调用哪个东西来运行他。）</p>
+<p>定义路径</p>
+<figure class="highlight d"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs d"><span class="hljs-meta">#!/usr/bin/env node</span><br></code></pre></td></tr></table></figure>
+<p>同时在package.json中添加一个对象</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs 1c"><span class="hljs-string">&quot;bin&quot;</span>: &#123;<br>   <span class="hljs-string">&quot;mhist-cli&quot;</span>: <span class="hljs-string">&quot;index.js&quot;</span><br> &#125;,<br></code></pre></td></tr></table></figure>
+<p>这时候需要使用 <font color=red>npm link</font> 命令，将环境进行链接，之后在终端输入你指定的mhist-cli就会在终端输出你需要的相应的结果，其实也就是能够直接完成  node index.js.</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211108182935m.png" alt="mhist-cli-001"></p>
+<h1 id="自定义终端命令"><a href="#自定义终端命令" class="headerlink" title="自定义终端命令"></a>自定义终端命令</h1><p>基于commander.js </p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> commmander<br></code></pre></td></tr></table></figure>
+
+<h2 id="版本号"><a href="#版本号" class="headerlink" title="版本号"></a>版本号</h2><p>通常情况下，在package.json中会有项目当前的版本号，我们可以通过commander中的</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">program.version(require(<span class="hljs-string">&#x27;./package.json&#x27;</span>).<span class="hljs-keyword">version</span>);<br></code></pre></td></tr></table></figure>
+<p>动态获取到最新的版本号，以便于在终端进行输出。</p>
+<p>在文件根目录中终端中输入 <font color=blue>脚手架名称 –version</font> 即可显示对应的版本号，例如  mhist-cli –version或者mhist-cli -V  ,其输出结果为 1.0.0    </p>
+<p>#如果希望程序响应-v选项而不是-V选项，<br>#只需使用与option方法相同的语法将自定义标志传递给version方法<br>program<br>  .version(‘0.0.1’, ‘-v, –version’)</p>
+<h2 id="开发过程中遇到的问题"><a href="#开发过程中遇到的问题" class="headerlink" title="开发过程中遇到的问题"></a>开发过程中遇到的问题</h2><h3 id="下载项目模板，需要自动化实现npm-install-通过自己的脚手架创建项目时，出现以下问题："><a href="#下载项目模板，需要自动化实现npm-install-通过自己的脚手架创建项目时，出现以下问题：" class="headerlink" title="下载项目模板，需要自动化实现npm install,通过自己的脚手架创建项目时，出现以下问题："></a>下载项目模板，需要自动化实现npm install,通过自己的脚手架创建项目时，出现以下问题：</h3><pre>
+events.js:292
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: spawn npm ENOENT
+    at Process.ChildProcess._handle.onexit (internal/child_process.js:269:19)
+    at onErrorNT (internal/child_process.js:465:16)
+    at processTicksAndRejections (internal/process/task_queues.js:80:21)
+Emitted 'error' event on ChildProcess instance at:
+    at Process.ChildProcess._handle.onexit (internal/child_process.js:275:12)
+    at onErrorNT (internal/child_process.js:465:16)
+    at processTicksAndRejections (internal/process/task_queues.js:80:21) {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'spawn npm',
+  path: 'npm',
+  spawnargs: [ 'install' ]
+}
+</pre>
+
+<p>解决方案：<a target="_blank" rel="noopener" href="https://github.com/vitejs/vite/issues/1361">issue</a></p>
+<p>按照上述issues的说法并没有解决相应的问题，在运行npm命令时需要考虑平台的问题。</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs delphi"><span class="hljs-comment">// 2.执行npm install</span><br>    <span class="hljs-keyword">const</span> command = process.<span class="hljs-keyword">platform</span> === <span class="hljs-string">&#x27;win32&#x27;</span> ? <span class="hljs-string">&#x27;npm.cmd&#x27;</span>: <span class="hljs-string">&#x27;npm&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+<div class="note success modern"><p>当然在这之前，我也按照搜到的资料，设置了环境变量，然后现在成功运行之后，为了控制变量，删除了之前添加的环境变量，发现项目模板能够正确创建，同时能够自动通过npm install下载需要的依赖包。</p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Mhist</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://mhist.github.io/2021/11/08/mhist-cli/f848dc5a8054/">https://mhist.github.io/2021/11/08/mhist-cli/f848dc5a8054/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://mhist.github.io" target="_blank">江东及巽`s blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/mhist-cli/">mhist-cli</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211013225527code.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914113259wechatpay.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914113259wechatpay.jpg"/></a><div class="post-qr-code-desc"></div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914113106alipay.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914113106alipay.jpg"/></a><div class="post-qr-code-desc"></div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/11/12/mysql/ab03683a0789/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211013225527code.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">mysql</div></div></a></div><div class="next-post pull-right"><a href="/2021/11/07/node/41601c7205c1/"><img class="next-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211013225527code.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">node常见内置模块</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914112616catAvatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Mhist</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">30</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/mhist"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/mhist" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:18827637106@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%A5%E5%8F%A3%E6%96%87%E4%BB%B6%E5%92%8C%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">入口文件和基本配置文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4"><span class="toc-number">2.</span> <span class="toc-text">终端命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4"><span class="toc-number">3.</span> <span class="toc-text">自定义终端命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%88%E6%9C%AC%E5%8F%B7"><span class="toc-number">3.1.</span> <span class="toc-text">版本号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">3.2.</span> <span class="toc-text">开发过程中遇到的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E9%A1%B9%E7%9B%AE%E6%A8%A1%E6%9D%BF%EF%BC%8C%E9%9C%80%E8%A6%81%E8%87%AA%E5%8A%A8%E5%8C%96%E5%AE%9E%E7%8E%B0npm-install-%E9%80%9A%E8%BF%87%E8%87%AA%E5%B7%B1%E7%9A%84%E8%84%9A%E6%89%8B%E6%9E%B6%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE%E6%97%B6%EF%BC%8C%E5%87%BA%E7%8E%B0%E4%BB%A5%E4%B8%8B%E9%97%AE%E9%A2%98%EF%BC%9A"><span class="toc-number">3.2.1.</span> <span class="toc-text">下载项目模板，需要自动化实现npm install,通过自己的脚手架创建项目时，出现以下问题：</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/01/22/hexo/435244c26d39/" title="Hello World"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211013225527code.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2024/01/22/hexo/435244c26d39/" title="Hello World">Hello World</a><time datetime="2024-01-21T16:09:10.883Z" title="发表于 2024-01-22 00:09:10">2024-01-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/18/npm/8cca0075206a/" title="npm常用命令"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211013225527code.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="npm常用命令"/></a><div class="content"><a class="title" href="/2023/12/18/npm/8cca0075206a/" title="npm常用命令">npm常用命令</a><time datetime="2023-12-18T13:45:42.000Z" title="发表于 2023-12-18 21:45:42">2023-12-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/04/28/nginx/cc389d1d1416/" title="nginx部署"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211013225527code.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="nginx部署"/></a><div class="content"><a class="title" href="/2023/04/28/nginx/cc389d1d1416/" title="nginx部署">nginx部署</a><time datetime="2023-04-28T06:33:54.000Z" title="发表于 2023-04-28 14:33:54">2023-04-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/20/editor/a972ef10f61a/" title="富文本编辑器选型"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211013225527code.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="富文本编辑器选型"/></a><div class="content"><a class="title" href="/2022/12/20/editor/a972ef10f61a/" title="富文本编辑器选型">富文本编辑器选型</a><time datetime="2022-12-20T06:08:13.000Z" title="发表于 2022-12-20 14:08:13">2022-12-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/07/cesium/da39cf3f3db8/" title="IIS部署cesium文档"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211013225527code.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="IIS部署cesium文档"/></a><div class="content"><a class="title" href="/2022/12/07/cesium/da39cf3f3db8/" title="IIS部署cesium文档">IIS部署cesium文档</a><time datetime="2022-12-07T02:44:13.000Z" title="发表于 2022-12-07 10:44:13">2022-12-07</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211013225527code.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2024 By Mhist</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.css"><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script><script>if (document.getElementsByClassName('mermaid').length) {
+  if (window.mermaidJsLoad) mermaid.init()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
+      window.mermaidJsLoad = true
+      mermaid.initialize({
+        theme: 'default',
+      })
+      false && mermaid.init()
+    })
+  }
+}</script><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '2GY7e9H80t5xfGJqD7uxvvUe-gzGzoHsz',
+      appKey: '3G0gYtHufUNRz206AsXxpnsv',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: true,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: true,
+      path: window.location.pathname,
+      requiredFields: ["nick,mail"],
+      visitor: true
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script async data-pjax src="https://cn.vercount.one/js"></script></div></body></html>
