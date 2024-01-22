@@ -42,6 +42,204 @@
       </tags>
   </entry>
   <entry>
+    <title>TypeScript入门教程(一)</title>
+    <url>/2021/09/24/TypeScript/854698b90236/</url>
+    <content><![CDATA[<h1 id="TypeScript学习"><a href="#TypeScript学习" class="headerlink" title="TypeScript学习"></a>TypeScript学习</h1><p>  TypeScript 的发展已经深入到前端社区的方方面面了，任何规模的项目都或多或少得到了 TypeScript 的支持。同时vue3在经过vue2之后的发展过程中采用了TypeScript进行了重构，也让使用vue作为主力开发框架的开发者们，需要学习TypeScript来适应日常的开发过程。</p>
+<p>  同时也有赖于TypeScript这门语言的优点:</p>
+<ol>
+<li>完全兼容于JavaScript</li>
+<li>适用于任何规模</li>
+</ol>
+<p>  使得我们的开发的代码能够更加严谨和健壮！</p>
+<span id="more"></span>
+<h2 id="学习内容及教程推荐"><a href="#学习内容及教程推荐" class="headerlink" title="学习内容及教程推荐"></a>学习内容及教程推荐</h2><ol>
+<li><a href="https://ts.xcatliu.com/introduction/what-is-typescript.html">TypeScript入门教程</a>  中文文档，很容易阅读和理解，对于新手十分友好</li>
+<li><a href="https://www.typescriptlang.org/docs/handbook/intro.html">typescript中文官网–手书</a> 英文文档，阅读体验对国人不是很友好</li>
+<li><a href="https://www.tslang.cn/docs/home.html">typescript中文文档教程</a>   当前最新typescript版本为 “typescript”: “^4.3.2”,文档最新版本只更新到v3.1版本，是有滞后的。</li>
+</ol>
+<h2 id="除了实现-ECMAScript-标准之外，TypeScript-团队也推进了诸多语法提案"><a href="#除了实现-ECMAScript-标准之外，TypeScript-团队也推进了诸多语法提案" class="headerlink" title="除了实现 ECMAScript 标准之外，TypeScript 团队也推进了诸多语法提案"></a>除了实现 ECMAScript 标准之外，TypeScript 团队也推进了诸多语法提案</h2><h3 id="可选链操作符（-）"><a href="#可选链操作符（-）" class="headerlink" title="可选链操作符（?.）"></a>可选链操作符（?.）</h3><pre><code>  参考链接: https://zh.javascript.info/optional-chaining
+</code></pre>
+<h3 id="空值合并操作符"><a href="#空值合并操作符" class="headerlink" title="空值合并操作符"></a>空值合并操作符</h3><pre><code>  参考链接: https://zh.javascript.info/nullish-coalescing-operator
+</code></pre>
+<h3 id="throw表达式"><a href="#throw表达式" class="headerlink" title="throw表达式"></a>throw表达式</h3><pre><code>  throw 语句抛出一个错误。
+</code></pre>
+<p>当错误发生时， JavaScript 会停止执行并抛出错误信息。</p>
+<p>描述这种情况的技术术语是：JavaScript 将抛出一个错误。</p>
+<p>throw 语句创建自定义错误。</p>
+<p>技术术语是： 抛出异常。</p>
+<p>异常可以是 JavaScript 字符串、数字、逻辑值或对象：</p>
+<h3 id="正则匹配索引"><a href="#正则匹配索引" class="headerlink" title="正则匹配索引"></a>正则匹配索引</h3><h2 id="typescript的安装"><a href="#typescript的安装" class="headerlink" title="typescript的安装"></a>typescript的安装</h2><h3 id="使用命令行工具"><a href="#使用命令行工具" class="headerlink" title="使用命令行工具"></a>使用命令行工具</h3><figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> -g typescript<br></code></pre></td></tr></table></figure>
+<h3 id="hello-ts"><a href="#hello-ts" class="headerlink" title="hello.ts"></a>hello.ts</h3><p>  1.新建一个简单函数：hello.ts</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><code class="hljs typescript">  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sayHello</span>(<span class="hljs-params">person: <span class="hljs-built_in">string</span></span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;hello,&#x27;</span>+ person;<br><br>&#125;<br><span class="hljs-keyword">let</span> user = <span class="hljs-string">&#x27;tom&#x27;</span>;<br><span class="hljs-built_in">console</span>.log(sayHello(user));<br></code></pre></td></tr></table></figure>
+<p>  2.安装好typescript后，在命令行终端键入以下命令： <strong>tsc hello.ts</strong></p>
+<p>  即可看到显示的hello.js文件</p>
+<p>  <img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210924160047d.png" alt="hello.ts"><br>  <img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210924160612hellojs.png" alt="hello.js"></p>
+<blockquote>
+<p>TypeScript 只会在编译时对类型进行静态检查，如果发现有错误，编译的时候就会报错。而在运行时，与普通的 JavaScript 文件一样，不会对类型进行检查。</p>
+</blockquote>
+<p>  简单来说，typescript主要是在编译过程中检查错误的存在，在没有进行其他设置的情况下，即使错误，也会继续生成相应的js文件，当然这对于使用typescript的用户来说是需要避免的，开发着需要在ts编译阶段报错时终止(ts文件→js文件)这一过程，需要进行以下<strong><strong>配置</strong></strong></p>
+<p>  可以在 tsconfig.json 中配置 noEmitOnError 即可。关于 tsconfig.json，<a href="https://segmentfault.com/a/1190000021421461?utm_source=tag-newest">参考思否教程</a>。</p>
+<h1 id="typescript基础"><a href="#typescript基础" class="headerlink" title="typescript基础"></a>typescript基础</h1><h2 id="原始数据类型"><a href="#原始数据类型" class="headerlink" title="原始数据类型"></a>原始数据类型</h2><p>   原始数据类型现今总共有：  7种 = 5种 + 2种<br>   5种： 布尔值，数值，字符串，null, undefined<br>   2种： Symbol (ES6新类型)； BigInt(ES10新类型) </p>
+<h3 id="布尔值"><a href="#布尔值" class="headerlink" title="布尔值"></a>布尔值</h3><figure class="highlight lasso"><table><tr><td class="code"><pre><code class="hljs lasso"><span class="hljs-keyword">let</span> isDone: <span class="hljs-built_in">boolean</span> = <span class="hljs-literal">false</span>;<br></code></pre></td></tr></table></figure>
+
+<p>  很明显可以正常编译,那么采用构造函数的形式呢？</p>
+<figure class="highlight lasso"><table><tr><td class="code"><pre><code class="hljs lasso"><span class="hljs-keyword">let</span> createdByNewBoolean: <span class="hljs-built_in">boolean</span> = <span class="hljs-literal">new</span> <span class="hljs-built_in">Boolean</span>(<span class="hljs-number">1</span>);<br></code></pre></td></tr></table></figure>
+
+<p><a href="https://www.typescriptlang.org/zh/play#code/DYUwLgBAxgTiCGYQBMBCBPAciA7qg9vqPAHYBcEARocSRALwQm4QFEIkAUAjAJQDcQA">代码预览—布尔值</a></p>
+<blockquote>
+<p> error TS2322: Type ‘Boolean’ is not assignable to type ‘boolean’.<br>  ‘boolean’ is a primitive, but ‘Boolean’ is a wrapper object. Prefer using ‘boolean’ when possible.</p>
+</blockquote>
+<blockquote>
+<p>Boolean 是对应布尔值的引用类型。要创建一个 Boolean 对象，就使用 Boolean 构造函数并传入<br>true 或 false</p>
+</blockquote>
+<p>即通过构造函数new Boolean(1)的结果实际是布尔值对象，而不是布尔值，所以会出现类型错误，理解原始布尔值和 Boolean 对象之间的区别非常重要，强烈建议永远不要使用后者.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> createdByNewBoolean: <span class="hljs-built_in">Boolean</span> = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Boolean</span>(<span class="hljs-number">1</span>);<br></code></pre></td></tr></table></figure>
+
+<p><a href="https://www.typescriptlang.org/zh/play#code/DYUwLgBAxgTiCGYQBMBCBPAciA7qg9vqPAHYBcEBRCJEAvBCbpYcSQBQCMAlANxA">代码预览—布尔对象</a></p>
+<h3 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h3><figure class="highlight maxima"><table><tr><td class="code"><pre><code class="hljs maxima"><span class="hljs-built_in">let</span> decLiteral: number = <span class="hljs-number">6</span>;<br><span class="hljs-built_in">let</span> hexLiteral: number = <span class="hljs-number">0xf00d</span>;<br>// ES6 中的二进制表示法<br><span class="hljs-built_in">let</span> binaryLiteral: number = <span class="hljs-number">0b1010</span>;<br>// ES6 中的八进制表示法<br><span class="hljs-built_in">let</span> octalLiteral: number = <span class="hljs-number">0o744</span>;<br><span class="hljs-built_in">let</span> notANumber: number = NaN;<br>...<br></code></pre></td></tr></table></figure>
+
+<p><a href="https://www.typescriptlang.org/zh/play#code/DYUwLgBAJiDGAyBLMIBOBDYAuCA7ArgLYBGaEAvBAGwDcAsAFCiQAWIAHkihtnkaagoQADOwBmw4VHoMA9LIgBRAMpUIgWjlAIW6AYuUDb8YDYlQBYRgLk9AqzaNmEYolzpUATy5pMOAiTKVhxAIzDfM+SVVDU1Aa0UDE3MmcAgAe1gwTCceV34PEViAdgAWbJlLXFiwAEEAOTTUVPdBSlL0UvyYmzEbZHty6qqBIQBJXBbcNpogA">代码预览—数字</a></p>
+<h3 id="void-null-undfined"><a href="#void-null-undfined" class="headerlink" title="void \ null \ undfined"></a>void \ null \ undfined</h3><pre><code>在typescript中没有空值的概念，遇到这种情况可以采用void来标识没有返回值的函数   （划重点：没有返回值的函数）
+</code></pre>
+<figure class="highlight actionscript"><table><tr><td class="code"><pre><code class="hljs actionscript">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">alertName</span><span class="hljs-params">()</span>: void </span>&#123;<br>    alert(<span class="hljs-string">&#x27;My name is Tom&#x27;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<pre><code>声明一个void类型的变量是没有什么用处的，因为之后你只能将它赋值为null或者undfined（只在 --strictNullChecks 未指定时）：
+注意是变量，对于没有返回值的函数还是有必要的
+</code></pre>
+<blockquote>
+<p>undefined 和 null 两个空类型的设计，使用上不方便，所以 通过strictNullChecks严格校验类型，让代码更安全</p>
+</blockquote>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><code class="hljs typescript">  <span class="hljs-comment">// 两个空类型</span><br>  <span class="hljs-keyword">let</span> u: <span class="hljs-literal">undefined</span> = <span class="hljs-literal">undefined</span><br>  <span class="hljs-keyword">let</span> n: <span class="hljs-literal">null</span> = <span class="hljs-literal">null</span><br><br>  <span class="hljs-comment">// 常见区别</span><br><span class="hljs-built_in">Number</span>(<span class="hljs-literal">null</span>)            <span class="hljs-comment">// 0</span><br><span class="hljs-built_in">Number</span>(<span class="hljs-literal">undefined</span>)      <span class="hljs-comment">// NaN</span><br><br><span class="hljs-keyword">let</span> age: <span class="hljs-built_in">number</span> = <span class="hljs-literal">null</span><br><span class="hljs-built_in">console</span>.log(<span class="hljs-number">5</span> + age)      <span class="hljs-comment">//5</span><br><br>age = und...<br></code></pre></td></tr></table></figure>
+
+<p><a href="https://www.typescriptlang.org/zh/play#code/PTAEhI5QqOULy9G8fRo9QLACgA2BTALqArgLlwDsATdAMwEtD1jQBeI0y64lDbQgwnVVe0brxQoQoQBx6gQcjAXMqBqJRQA5HAFsARugBOACkGoAlKAOGjB0QAYFytVpwlyVGvuOj5AQ3nC0WUC4Dm6LpYa-DooAMYA9oQAzuEYAHSo4T6aAKygANTefo5GICkevuj8Nkz2rMgR0bHoCUmpGVnoOYYgru7IYZEx8YnJJXYs9Aw6+qKY6jjoQA">空值校验预览</a></p>
+<p>注意：<br>1.与 void 的区别是，undefined 和 null 是所有类型的子类型。也就是说 undefined 类型的变量，可以赋值给 number 类型的变量：<br>2.而 void 类型的变量不能赋值给 number 类型的变量：</p>
+<h3 id="any"><a href="#any" class="headerlink" title="any"></a>any</h3><p>  如果是一个普通类型，在赋值过程中改变类型是不被允许的：但如果是 any 类型，则允许被赋值为任意类型。在任意值上访问任何属性都是允许的：也允许调用任何方法：变量如果在声明的时候，未指定其类型，那么它会被识别为任意值类型</p>
+<h2 id="类型推论"><a href="#类型推论" class="headerlink" title="类型推论"></a>类型推论</h2><ul>
+<li>类型推论: 字面意思即使，当类型没有被明确指定的时候，那么 TypeScript 会依照类* 型推论（Type Inference）的规则推断出一个类型。</li>
+<li>如果定义的时候没有赋值，不管之后有没有赋值，都会被推断成 any 类型而完全不被类型检查。</li>
+</ul>
+<h2 id="联合类型"><a href="#联合类型" class="headerlink" title="联合类型"></a>联合类型</h2><ul>
+<li>即在定义类型时可以拥有多种类型，联合类型使用 | 分隔每个类型。</li>
+<li>当 TypeScript 不确定一个联合类型的变量到底是哪个类型的时候，我们只能访问此联合类型的所有类型里共有的属性或方法：</li>
+</ul>
+<figure class="highlight crmsh"><table><tr><td class="code"><pre><code class="hljs crmsh">function getLength(something: <span class="hljs-keyword">string</span> | <span class="hljs-keyword">number</span>): <span class="hljs-keyword">number</span> &#123;<br>    return something.length;<br>&#125;<br><br>// index.ts(<span class="hljs-number">2</span>,<span class="hljs-number">22</span>): error TS2339: <span class="hljs-keyword">Property</span><span class="hljs-title"> </span>&#x27;length&#x27; does not exist on <span class="hljs-keyword">type</span> &#x27;<span class="hljs-keyword">string</span> | <span class="hljs-keyword">number</span>&#x27;.<br>//   <span class="hljs-keyword">Property</span><span class="hljs-title"> </span>&#x27;length&#x27; does not exist on <span class="hljs-keyword">type</span> &#x27;<span class="hljs-keyword">number</span>&#x27;.<br><br></code></pre></td></tr></table></figure>
+
+<p>当访问的不是共有属性或者方法的时候，就会报错。联合类型的变量在被赋值的时候，会根据类型推论的规则推断出一个类型：</p>
+<figure class="highlight sas"><table><tr><td class="code"><pre><code class="hljs sas">let myFavoriteNumber: string | number;<br>myFavoriteNumber = <span class="hljs-string">&#x27;seven&#x27;</span>;<br>console<span class="hljs-meta">.log(</span>myFavoriteNumber.<span class="hljs-meta">length</span>); // 5<br>myFavoriteNumber = 7;<br>console<span class="hljs-meta">.log(</span>myFavoriteNumber.<span class="hljs-meta">length</span>); // 编译时报错<br><br>// <span class="hljs-meta">index</span>.ts(5,30): <span class="hljs-meta">error</span> TS2339: Property <span class="hljs-string">&#x27;length&#x27;</span> does <span class="hljs-meta">not</span> exist <span class="hljs-meta">on</span> type <span class="hljs-string">&#x27;number&#x27;</span>.<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>上例中，第二行的 myFavoriteNumber 被推断成了 string，访问它的 length 属性不会报错。而第四行的 myFavoriteNumber 被推断成了 number，访问它的 length 属性时就报错了。</p>
+</blockquote>
+<h2 id="接口-（给对象准备的自定义类型）"><a href="#接口-（给对象准备的自定义类型）" class="headerlink" title="接口  （给对象准备的自定义类型）"></a>接口  （给对象准备的自定义类型）</h2><p>实例代码：</p>
+<figure class="highlight xquery"><table><tr><td class="code"><pre><code class="hljs xquery">interface Person &#123;<br>   <span class="hljs-built_in"> name</span>:<span class="hljs-built_in"> string</span>;<br>    age:<span class="hljs-built_in"> number</span>;<br>&#125;<br><br><span class="hljs-keyword">let</span> tom: Person = &#123;<br>   <span class="hljs-built_in"> name</span>: <span class="hljs-string">&#x27;Tom&#x27;</span>,<br>    age: <span class="hljs-number">25</span><br>&#125;;<br></code></pre></td></tr></table></figure>
+<h3 id="形状得一样"><a href="#形状得一样" class="headerlink" title="形状得一样"></a>形状得一样</h3><p>赋值的时候需要保证接口的形状必须和其指定的类型一样。</p>
+<h3 id="可选属性（形状可以不一样，得加条件）"><a href="#可选属性（形状可以不一样，得加条件）" class="headerlink" title="可选属性（形状可以不一样，得加条件）"></a>可选属性（形状可以不一样，得加条件）</h3><p>当然在开发需求中也会有需要其中某一个或者某几个，不要限制的那么死板，于是就有了 <strong>可选属性</strong>，通过在“:”前添加一个“？”来表示属性的可选性，这样也可以使得限制变得宽松，形状也可以有不一致。</p>
+<p>可选属性可以实现已定义属性的有或无，但是对于未定义的属性，则产生了限制，因为它有严格的形状限制，而有时候我们希望一个接口允许有任意的属性，可以使用如下方式：</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">interface</span> Person &#123;<br>    <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>;<br>    age?: <span class="hljs-built_in">number</span>;<br>    [propName: <span class="hljs-built_in">string</span>]: <span class="hljs-built_in">any</span>;<br>&#125;<br><br><span class="hljs-keyword">let</span> tom: Person = &#123;<br>    <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Tom&#x27;</span>,<br>    <span class="hljs-attr">gender</span>: <span class="hljs-string">&#x27;male&#x27;</span><br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<h3 id="一旦定义了任意属性，那么确定属性和可选属性的类型都必须是它的类型的子集："><a href="#一旦定义了任意属性，那么确定属性和可选属性的类型都必须是它的类型的子集：" class="headerlink" title="一旦定义了任意属性，那么确定属性和可选属性的类型都必须是它的类型的子集："></a>一旦定义了任意属性，那么确定属性和可选属性的类型都必须是它的类型的子集：</h3><p>在上面的例子中，我们将任意属性的类型指定为any，则name指定的字符串类型和age指定的数字类型都是any类型的子集，所以是符合要求的。</p>
+<p>下面来测试一个不属于其子集的例子：</p>
+<figure class="highlight xquery"><table><tr><td class="code"><pre><code class="hljs xquery">interface Person &#123;<br>   <span class="hljs-built_in"> name</span>:<span class="hljs-built_in"> string</span>;<br>    age?:<span class="hljs-built_in"> number</span>;<br>    [propName:<span class="hljs-built_in"> string</span>]:<span class="hljs-built_in"> string</span>;<br>&#125;<br><br><span class="hljs-keyword">let</span> tom: Person = &#123;<br>   <span class="hljs-built_in"> name</span>: <span class="hljs-string">&#x27;Tom&#x27;</span>,<br>    age: <span class="hljs-number">25</span>,<br>    gender: <span class="hljs-string">&#x27;male&#x27;</span><br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p><a href="https://www.typescriptlang.org/zh/play#code/JYOwLgpgTgZghgYwgAgArQM4HsTIN4CwAUMqciHALYQBcyGYUoA5gNzFnJzMQD8dIAK6UARtHYkyAbQAOULDIByVWvUYsAunQZMQbYgF9ixADYQwyMFkp10UbLgC8+DmQrU6AcgAq1zwBpXUm5VACYAVkDJUh4QABNoL0o4M09DViA">非其子集*–预览</a></p>
+<h3 id="只读属性（readonly）"><a href="#只读属性（readonly）" class="headerlink" title="只读属性（readonly）"></a>只读属性（readonly）</h3><p> 在一些情况下，我们需要值是只读属性，当它被赋值一次以后，不能再对其进行赋值，此时可以采用readonly属性来指定。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs tsx">interface Person &#123;<br>    readonly id: number;<br>    name: string;<br>    age?: number;<br>    [propName: string]: any;<br>&#125;<br><br>let tom: Person = &#123;<br>    id: 89757,<br>    name: &#x27;Tom&#x27;,<br>    gender: &#x27;male&#x27;<br>&#125;;<br><br>tom.id = 9527;<br><br>// index.ts(14,5): error TS2540: Cannot assign to &#x27;id&#x27; because it is a constant or a read-only property.<br></code></pre></td></tr></table></figure>
+
+<p> 使用readonly属性的时候，需要在定义的时候即赋值，在其拥有readonly属性之后再通过对象操作的方式进行赋值也会报错。</p>
+ <figure class="highlight xquery"><table><tr><td class="code"><pre><code class="hljs xquery">interface Person &#123;<br>    readonly<span class="hljs-built_in"> id</span>:<span class="hljs-built_in"> number</span>;<br>   <span class="hljs-built_in"> name</span>:<span class="hljs-built_in"> string</span>;<br>    age?:<span class="hljs-built_in"> number</span>;<br>    [propName:<span class="hljs-built_in"> string</span>]: any;<br>&#125;<br><br><span class="hljs-keyword">let</span> tom: Person = &#123;<br>   <span class="hljs-built_in"> name</span>: <span class="hljs-string">&#x27;Tom&#x27;</span>,<br>    gender: <span class="hljs-string">&#x27;male&#x27;</span><br>&#125;;<br><br>tom<span class="hljs-built_in">.id</span> = <span class="hljs-number">89757</span>;<br><br>// index.ts(<span class="hljs-number">8</span>,<span class="hljs-number">5</span>):<span class="hljs-built_in"> error</span> TS2322: Type <span class="hljs-string">&#x27;&#123; name: string; gender: string; &#125;&#x27;</span> <span class="hljs-literal">is</span><span class="hljs-built_in"> not</span> assignable <span class="hljs-keyword">to</span> type <span class="hljs-string">&#x27;Person&#x27;</span>.<br>//   Property <span class="hljs-string">&#x27;id&#x27;</span> <span class="hljs-literal">is</span> missing <span class="hljs-keyword">in</span> type <span class="hljs-string">&#x27;&#123; name: string; gender: string; &#125;&#x27;</span>.<br>// index.ts(<span class="hljs-number">13</span>,<span class="hljs-number">5</span>):<span class="hljs-built_in"> error</span> TS254<span class="hljs-number">0</span>: Cannot assign <span class="hljs-keyword">to</span> <span class="hljs-string">&#x27;id&#x27;</span> because it <span class="hljs-literal">is</span> a constant <span class="hljs-keyword">or</span> a read-only property.<br></code></pre></td></tr></table></figure>
+
+<h2 id="数组类型"><a href="#数组类型" class="headerlink" title="数组类型"></a>数组类型</h2><p>  数组是日常开发中遇到的最多的数据结构之一，从它的基本方法的多样性也可以看出它的使用度是极高的。那么在typescript世界中对于数组类型的定义又会有哪些实用方式呢？</p>
+<h3 id="类型-方括号-表示法"><a href="#类型-方括号-表示法" class="headerlink" title="类型+方括号  表示法"></a>类型+方括号  表示法</h3><p>  数组字面量是非常普遍的数组定义方法，在typescript中则采用了  类型+方括号的组成，一方面能够非常方便得表示数组，另一方面可以限制数组内元素得类型。</p>
+  <figure class="highlight inform7"><table><tr><td class="code"><pre><code class="hljs inform7">let fibonacci: number<span class="hljs-comment">[]</span> = <span class="hljs-comment">[1, 1, 2, 3, 5]</span>;<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>1.数组的项中不允许出现其他的类型，且数组的一些方法也会根据数组在定义时候的类型加以限制。</p>
+</blockquote>
+<figure class="highlight xquery"><table><tr><td class="code"><pre><code class="hljs xquery"><span class="hljs-keyword">let</span> fibonacci:<span class="hljs-built_in"> number</span>[] = [<span class="hljs-number">1</span>, <span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>];<br><br>// Type <span class="hljs-string">&#x27;string&#x27;</span> <span class="hljs-literal">is</span><span class="hljs-built_in"> not</span> assignable <span class="hljs-keyword">to</span> type <span class="hljs-string">&#x27;number&#x27;</span>.<br><br></code></pre></td></tr></table></figure>
+<figure class="highlight xquery"><table><tr><td class="code"><pre><code class="hljs xquery"><span class="hljs-keyword">let</span> fibonacci:<span class="hljs-built_in"> number</span>[] = [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>];<br>fibonacci.push(<span class="hljs-string">&#x27;8&#x27;</span>);<br><br>// Argument <span class="hljs-keyword">of</span> type <span class="hljs-string">&#x27;&quot;8&quot;&#x27;</span> <span class="hljs-literal">is</span><span class="hljs-built_in"> not</span> assignable <span class="hljs-keyword">to</span> parameter <span class="hljs-keyword">of</span> type <span class="hljs-string">&#x27;number&#x27;</span>.<br><br></code></pre></td></tr></table></figure>
+
+<p>定义一个任意类型的数组：</p>
+<figure class="highlight prolog"><table><tr><td class="code"><pre><code class="hljs prolog">let list: any[] = [<span class="hljs-string">&#x27;xcatliu&#x27;</span>, <span class="hljs-number">25</span>, &#123; website: <span class="hljs-string">&#x27;http://xcatliu.com&#x27;</span> &#125;];<br></code></pre></td></tr></table></figure>
+<h3 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h3><p>我们也可以使用数组泛型（Array Generic） Array&lt;类型&gt; 来表示数组：</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">let</span> fibonacci: <span class="hljs-built_in">Array</span>&lt;<span class="hljs-built_in">number</span>&gt; = [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>];<br></code></pre></td></tr></table></figure>
+
+<p><a href="http://ts.xcatliu.com/basics/type-of-array.html#%E6%95%B0%E7%BB%84%E6%B3%9B%E5%9E%8B">更加复杂的数组类型表示方式</a></p>
+<h3 id="用接口表示数组"><a href="#用接口表示数组" class="headerlink" title="用接口表示数组"></a>用接口表示数组</h3>  <figure class="highlight fortran"><table><tr><td class="code"><pre><code class="hljs fortran">  <span class="hljs-keyword">interface</span> NumberArray &#123;<br>    [<span class="hljs-built_in">index</span>: <span class="hljs-keyword">number</span>]: <span class="hljs-keyword">number</span>;<br>&#125;<br>let fibonacci: NumberArray = [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>];<br></code></pre></td></tr></table></figure>
+
+<p>  结合数组的特点，首先索引值必须是数字，在上述的例子中规定了属性值也为数字，所以可以将[1,1,2,3,5]赋值给fibonacci.</p>
+<p>  与前两种比较而言，此种方法是比较复杂的，当然它的主要用处是用来表示<font color="red">类数组</font>。</p>
+<h3 id="类数组"><a href="#类数组" class="headerlink" title="类数组"></a>类数组</h3><h4 id="类数组的概念"><a href="#类数组的概念" class="headerlink" title="类数组的概念"></a>类数组的概念</h4><p>  想要理解为什么多用比较复杂的接口来定义类数组？ 首先需要了解类数组的基本概念。</p>
+<blockquote>
+<p><font color=plum>类数组不是数组，它的原型是对象</font></p>
+</blockquote>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><code class="hljs typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sum</span>(<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-keyword">let</span> args: &#123;<br>        [index: <span class="hljs-built_in">number</span>]: <span class="hljs-built_in">number</span>;<br>        length: <span class="hljs-built_in">number</span>;<br>        callee: <span class="hljs-built_in">Function</span>;<br>    &#125; = <span class="hljs-built_in">arguments</span>;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>事实上常用的类数组都有自己的接口定义，如 IArguments, NodeList, HTMLCollection 等：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sum</span>(<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-keyword">let</span> args: IArguments = <span class="hljs-built_in">arguments</span>;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>其中 IArguments 是 TypeScript 中定义好了的类型，它实际上就是：<font color=seagreen><a href="http://ts.xcatliu.com/basics/built-in-objects.html">内置对象</a></font></p>
+<figure class="highlight fortran"><table><tr><td class="code"><pre><code class="hljs fortran"><span class="hljs-keyword">interface</span> IArguments &#123;<br>    [<span class="hljs-built_in">index</span>: <span class="hljs-keyword">number</span>]: <span class="hljs-built_in">any</span>;<br>    length: <span class="hljs-keyword">number</span>;<br>    callee: <span class="hljs-function"><span class="hljs-keyword">Function</span></span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="函数的类型"><a href="#函数的类型" class="headerlink" title="函数的类型"></a>函数的类型</h2><p>前面提到过可以用void来表示没有返回值的函数类型，这一节，我们将学习到对于有返回值的函数应该怎么表示，函数作为编程语言里不可缺少的部分，能够利用其灵活性，给我们的代码开发过程中带来效率的提升。首先，需要重温一下原生JavaScript中对于<font color=seagreen>函数的声明方式</font>：函数声明（Function Declaration）和函数表达式（Function Expression）：</p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><code class="hljs ada">// 函数声明（<span class="hljs-keyword">Function</span> <span class="hljs-title">Declaration）</span><br><span class="hljs-keyword">function</span> <span class="hljs-title">sum</span>(x, y) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-type">x</span> + y;<br>&#125;<br><br>// 函数表达式（<span class="hljs-keyword">Function</span> <span class="hljs-title">Expression）</span><br>let mySum = <span class="hljs-keyword">function</span> <span class="hljs-title"></span>(x, y) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-type">x</span> + y;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p><font color=seagreen>一个函数有输入和输出，要在typescript中对其进行约束，需要把输入和输出都考虑到</font></p>
+</blockquote>
+<figure class="highlight fortran"><table><tr><td class="code"><pre><code class="hljs fortran"><span class="hljs-function"><span class="hljs-keyword">function</span></span> <span class="hljs-built_in">sum</span>(x:<span class="hljs-keyword">number</span>,y:<span class="hljs-keyword">number</span>): <span class="hljs-keyword">number</span> &#123;<br>  <span class="hljs-keyword">return</span> x+y;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：<font color=chocolate>输入多余的（或者少于要求的）参数，是不被允许的：</font></p>
+</blockquote>
+<ul>
+<li><font color=seagreen>多输入参数:</font><figure class="highlight fortran"><table><tr><td class="code"><pre><code class="hljs fortran"><span class="hljs-function"><span class="hljs-keyword">function</span></span> <span class="hljs-built_in">sum</span>(x: <span class="hljs-keyword">number</span>, y: <span class="hljs-keyword">number</span>): <span class="hljs-keyword">number</span> &#123;<br>    <span class="hljs-keyword">return</span> x + y;<br>&#125;<br><span class="hljs-built_in">sum</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>);<br><br>// <span class="hljs-built_in">index</span>.ts(<span class="hljs-number">4</span>,<span class="hljs-number">1</span>): error TS2346: Supplied parameters <span class="hljs-keyword">do</span> not match <span class="hljs-built_in">any</span> signature of <span class="hljs-keyword">call</span> <span class="hljs-keyword">target</span>.<br></code></pre></td></tr></table></figure></li>
+<li><font color=purple>少输入参数:</font><figure class="highlight fortran"><table><tr><td class="code"><pre><code class="hljs fortran"><span class="hljs-function"><span class="hljs-keyword">function</span></span> <span class="hljs-built_in">sum</span>(x: <span class="hljs-keyword">number</span>, y: <span class="hljs-keyword">number</span>): <span class="hljs-keyword">number</span> &#123;<br>    <span class="hljs-keyword">return</span> x + y;<br>&#125;<br><span class="hljs-built_in">sum</span>(<span class="hljs-number">1</span>);<br><br>// <span class="hljs-built_in">index</span>.ts(<span class="hljs-number">4</span>,<span class="hljs-number">1</span>): error TS2346: Supplied parameters <span class="hljs-keyword">do</span> not match <span class="hljs-built_in">any</span> signature of <span class="hljs-keyword">call</span> <span class="hljs-keyword">target</span>.<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="函数表达式的类型加注"><a href="#函数表达式的类型加注" class="headerlink" title="函数表达式的类型加注"></a>函数表达式的类型加注</h3><p> 函数表达式相较于函数声明式是比较复杂的，首先是因为在赋值表达式两边都有字符，实际上如果在函数表达式左侧不对类型加以约束，在编译过程是可以通过的。 为了严谨，需要在函数左侧也加以类型约束。 通过类似于ES6中的箭头函数的样式，来表示函数左侧的样式，当然其本质还是不同的，在 TypeScript 的类型定义中，=&gt; 用来表示函数的定义，左边是输入类型，需要用括号括起来，右边是输出类型。</p>
+ <figure class="highlight typescript"><table><tr><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">let</span> mySum: <span class="hljs-function">(<span class="hljs-params">x: <span class="hljs-built_in">number</span>, y: <span class="hljs-built_in">number</span></span>) =&gt;</span> <span class="hljs-built_in">number</span> = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x: <span class="hljs-built_in">number</span>, y: <span class="hljs-built_in">number</span></span>): <span class="hljs-title">number</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> x + y;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p> 当然为了代码的可读性，也可以采用接口的方式定义函数</p>
+ <figure class="highlight typescript"><table><tr><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">interface</span> SearchFunc &#123;<br>  (source: <span class="hljs-built_in">string</span>,<span class="hljs-attr">subString</span>: <span class="hljs-built_in">string</span>): <span class="hljs-built_in">boolean</span>;<br>&#125;<br><br><span class="hljs-keyword">let</span> mySrarch: SearchFunc;<br><br>mySearch = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">source: <span class="hljs-built_in">string</span>, subString: <span class="hljs-built_in">string</span></span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> source.search(subString) !== -<span class="hljs-number">1</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p><font color=tomato>难点：用接口定义函数的理解</font><br>   <strong><font color=orange>怎么理解用typescript接口定义函数</font></strong><br>  <a href="https://www.cnblogs.com/wjaaron/p/12851994.html">typescript定义函数类型</a></p>
+</blockquote>
+<blockquote>
+<p>个人理解：在定义接口的时候，因为是应用于函数的接口定义，所以左侧是函数的参数类型，通过冒号连接右侧的，实际是表示函数的类型的值，相当于用  “=&gt;” 在函数表达式中的实现方式，应该是一种约定的方式。</p>
+</blockquote>
+<p>前文提到：在没有使用可选参数的情况下，对于函数而言，在输入端多输入参数或者是少输入参数都会产生错误，在使用<strong>可选参数</strong>时，可以放松一些对于函数输入的要求，但是也有限制。</p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">function</span> buildName(firstName: string, <span class="hljs-literal">last</span>Name?: string) &#123;<br>    <span class="hljs-attribute">if</span> (<span class="hljs-literal">last</span>Name) &#123;<br>        <span class="hljs-attribute">return</span> firstName + <span class="hljs-string">&#x27; &#x27;</span> + <span class="hljs-literal">last</span>Name;<br>    &#125; <span class="hljs-section">else</span> &#123;<br>        <span class="hljs-attribute">return</span> firstName;<br>    &#125;<br>&#125;<br><span class="hljs-attribute">let</span> tomcat = buildName(<span class="hljs-string">&#x27;Tom&#x27;</span>, <span class="hljs-string">&#x27;Cat&#x27;</span>);<br><span class="hljs-attribute">let</span> tom = buildName(<span class="hljs-string">&#x27;Tom&#x27;</span>);<br></code></pre></td></tr></table></figure>
+
+
+<p><font color=#d76b26 >可选参数后面不允许再出现必需参数了：</font></p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><code class="hljs typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">buildName</span>(<span class="hljs-params">firstName?: <span class="hljs-built_in">string</span>, lastName: <span class="hljs-built_in">string</span></span>) </span>&#123;<br>    <span class="hljs-keyword">if</span> (firstName) &#123;<br>        <span class="hljs-keyword">return</span> firstName + <span class="hljs-string">&#x27; &#x27;</span> + lastName;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-keyword">return</span> lastName;<br>    &#125;<br>&#125;<br><span class="hljs-keyword">let</span> tomcat = buildName(<span class="hljs-string">&#x27;Tom&#x27;</span>, <span class="hljs-string">&#x27;Cat&#x27;</span>);<br><span class="hljs-keyword">let</span> tom = buildName(<span class="hljs-literal">undefined</span>, <span class="hljs-string">&#x27;Tom&#x27;</span>);<br><br><span class="hljs-comment">// index.ts(1,40): error TS1016: A required parameter cannot follow an optional parameter.</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="参数默认值"><a href="#参数默认值" class="headerlink" title="参数默认值"></a>参数默认值</h3><p>在ES6中允许给函数的参数设置默认值，在typescript会将具有默认值的参数识别为可选参数，</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs tsx">function buildName(firstName: string, lastName: string = &#x27;Cat&#x27;) &#123;<br>    return firstName + &#x27; &#x27; + lastName;<br>&#125;<br>let tomcat = buildName(&#x27;Tom&#x27;, &#x27;Cat&#x27;);<br>console.log(tomcat);<br>let tom = buildName(&#x27;Tom&#x27;);<br>...<br></code></pre></td></tr></table></figure>
+
+<p><a href="https://www.typescriptlang.org/zh/play?ssl=7&ssc=17&pln=1&pc=1#code/GYVwdgxgLglg9mABAIxDANgEwHIEMC2ApgBTAwBOAzlHkQFyLXkxgDmANIurtbYQ0xatEAXkQByAMK4o4gJSIA3gFgAUIg2JyhKCHJIyVGgUKIA1BMsXuvEwG41AXzXodiKHHwQZolGix8xOIAKp7inFIy8g6qEAiUcK4AdOhwrMQeXjJyMa5Q7p6+qBg4JkGh+NFqcWAJyanpmXJAA">可选参数在后</a></p>
+<p>此时就不受「<font color=purple>可选参数必须接在必需参数后面</font>」的限制了：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs tsx">function buildName(firstName: string = &#x27;Tom&#x27;, lastName: string) &#123;<br>    return firstName + &#x27; &#x27; + lastName;<br>&#125;<br>let tomcat = buildName(&#x27;Tom&#x27;, &#x27;Cat&#x27;);<br>console.log(tomcat);<br>let cat = buildName(undefined, &#x27;Cat&#x27;);<br>console.log(cat);<br></code></pre></td></tr></table></figure>
+
+<p><a href="https://www.typescriptlang.org/zh/play?ssl=7&ssc=18&pln=1&pc=1#code/GYVwdgxgLglg9mABAIxDANgEwHIEMC2ApgBTAwBOAzlHkQFyLXkxgDmiAvIgOQAqc+bgBpE6XNVqEGTFqwCUiAN4BYAFCINicoSghySMlRoFCiANQ9LFsRJMBuNQF816HYigCIuKJxRosksR8AsI8AMLe3HIOqhAIlHCuAHTocKzEHvheUNEubtm+qBg4JsTgmIRkYISYItwRUFExcWAJyanp2dFAA">可选参数在前</a></p>
+<h3 id="剩余参数"><a href="#剩余参数" class="headerlink" title="剩余参数"></a><font color=tomato>剩余参数</font></h3><p>剩余参数，rest后面不能再有其他参数了，表示除了之前的参数外的其余的所有参数。<a href="https://es6.ruanyifeng.com/#docs/function#rest-%E5%8F%82%E6%95%B0">ES6-剩余参数</a></p>
+<figure class="highlight actionscript"><table><tr><td class="code"><pre><code class="hljs actionscript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">push</span><span class="hljs-params">(array: any[], <span class="hljs-rest_arg">...items</span>: any[])</span> </span>&#123;<br>    items.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(item)</span> </span>&#123;<br>        array.push(item);<br>    &#125;);<br>&#125;<br><br>let a:any[]= [];   <span class="hljs-comment">// 在这里，a元素在被赋值为[]时，隐式的具有any[]类型.</span><br>push(a, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>);<br>console.log(a)<br></code></pre></td></tr></table></figure>
+
+<p>它定义了一个push函数，能将其参数加入到一个数组中。</p>
+<h3 id="重载"><a href="#重载" class="headerlink" title="重载"></a><a href="http://ts.xcatliu.com/basics/type-of-function.html"><font color=chocolate>重载</font></a></h3><pre><code> 对于文章中的重载不是很理解，因为JavaScript是没有重载这一概念的，
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs tsx">function reverse(x: number): number;<br>function reverse(x: string): string;<br>function reverse(x: number | string): number | string | void &#123;<br>    if (typeof x === &#x27;number&#x27;) &#123;<br>        return Number(x.to...<br></code></pre></td></tr></table></figure>
+
+<p><a href="https://www.typescriptlang.org/zh/play#code/GYVwdgxgLglg9mABAJwKYDdXIM6oBQAeAXImCALYBGWAlCWVVgNwCwAUKJLAihlroRLYoyGGADmdRMNETWHcNHhI0mHPmKkK1ZIgA+0kWMn1tWfYdniL6ODAAmiAN7tEbxDGCI8UAJ4AHVDgvAkQAXgjEAHIGHSiaZ1d3ZLQoEGQkADkzZEIAOig4AGUjCTwaPOx-ABsYKDwo+LzVfnwKgCs7MAb4mnlkgF9EVGrcDy8fAKCQ8MiomWN4xLZklNQ0jMQCSpq6noqW9XK8zrF9-vcB9gGgA">Playground Link</a></p>
+]]></content>
+      <categories>
+        <category>TypeScript</category>
+      </categories>
+      <tags>
+        <tag>TypeScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>TypeScript入门教程二</title>
     <url>/2021/09/26/TypeScript/4d8aa16bcb6b/</url>
     <content><![CDATA[<h1 id="typescript学习：第二部分"><a href="#typescript学习：第二部分" class="headerlink" title="typescript学习：第二部分"></a>typescript学习：第二部分</h1><p>  → <a href="http://wakeweb.cloud/2021/09/24/TypeScript/854698b90236/">第一部分跳转链接</a></p>
@@ -98,6 +296,35 @@
       </categories>
       <tags>
         <tag>TypeScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VUE2.X学习</title>
+    <url>/2021/04/24/uncategorized/6eb6cb2ab58d/</url>
+    <content><![CDATA[<h1 id="vue2-x教程学习"><a href="#vue2-x教程学习" class="headerlink" title="vue2.x教程学习"></a>vue2.x教程学习</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h3><p>Vue <strong>不支持</strong> IE8 及以下版本，因为 Vue 使用了 IE8 无法模拟的 ECMAScript 5 特性。但它支持所有<a href="https://caniuse.com/#feat=es5">兼容 ECMAScript 5 的浏览器</a>。</p>
+<h3 id="语义化版本控制"><a href="#语义化版本控制" class="headerlink" title="语义化版本控制"></a>语义化版本控制</h3><p>Vue 在其所有项目中公布的功能和行为都遵循<a href="https://semver.org/lang/zh-CN/">语义化版本控制</a>。对于未公布的或内部暴露的行为，其变更会描述在<a href="https://github.com/vuejs/vue/releases">发布说明</a>中。</p>
+<h3 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h3><p>最新稳定版本：2.6.12<br>每个版本的更新日志见 <a href="https://github.com/vuejs/vue/releases">GitHub</a>。</p>
+<span id="more"></span>
+<h3 id="Vue-Devtools"><a href="#Vue-Devtools" class="headerlink" title="Vue Devtools"></a>Vue Devtools</h3><ul>
+<li>在使用 Vue 时，我们推荐在你的浏览器上安装 <a href="https://github.com/vuejs/vue-devtools#vue-devtools">Vue Devtools</a>。它允许你在一个更友好的界面中审查和调试 Vue 应用。</li>
+<li> 在Chrome浏览器中可以直接到Chrome网上商店搜索下载</li>
+<li> 在edge浏览器中可以打开 <a href="https://chrome.google.com/webstore/category/extensions">Chrome 扩展商店</a>，在搜索栏搜索 <strong>vue.js devtools</strong><br>选择提供方为：<a href="https://vuejs.org/">https://vuejs.org</a> 的扩展，添加成功后，进入扩展设置页面，找到 Vue.js devtools 扩展，点击详细信息，勾选允许访问文件 URL和收集错误选项.<br><img src="https://gitee.com/mhist/hexo-image/raw/master/img/VueDevToolSet-20210424164242.png" alt="vue.js devtools"><h3 id="直接用script标签引用"><a href="#直接用script标签引用" class="headerlink" title="直接用script标签引用"></a>直接用script标签引用</h3>直接下载并用 script 标签引入，Vue会被注册为全局变量。</li>
+<li>在开发环境下不要使用压缩版本，不然会失去所有常见错误的相关警告。</li>
+<li><a href="https://cn.vuejs.org/js/vue.js">开发版本</a>包含完整的警告和调试模式</li>
+<li><a href="https://cn.vuejs.org/js/vue.min.js">压缩版本/生产版本</a>删除了警告，33.30KB min+gzip<h4 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h4>对于制作原型或学习，你可以这样使用最新版本：<figure class="highlight applescript"><table><tr><td class="code"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">script</span> src=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;</span>&gt;<span class="hljs-keyword">script</span>&gt;<br></code></pre></td></tr></table></figure>
+对于生产环境，我们推荐链接到一个明确的版本号和构建文件，以避免新版本造成的不可预期的破坏：<figure class="highlight applescript"><table><tr><td class="code"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">script</span> src=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/vue@2.6.12&quot;</span>&gt;<span class="hljs-keyword">script</span>&gt;<br></code></pre></td></tr></table></figure>
+如果你使用原生 ES Modules，这里也有一个兼容 ES Module 的构建文件：<figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;module&quot;</span>&gt;</span><span class="javascript"> <span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.esm.browser.js&#x27;</span> script&gt;</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<p>你可以在 <a href="https://cdn.jsdelivr.net/npm/vue/">cdn.jsdelivr.net/npm/vue</a> 浏览 NPM 包的源代码。</p>
+<p>Vue 也可以在 <a href="https://unpkg.com/vue@2.6.12/dist/vue.js">unpkg</a> 和 <a href="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js">cdnjs</a> 上获取 (cdnjs 的版本更新可能略滞后)。</p>
+<p>请确认了解<a href="https://cn.vuejs.org/v2/guide/installation.html#%E5%AF%B9%E4%B8%8D%E5%90%8C%E6%9E%84%E5%BB%BA%E7%89%88%E6%9C%AC%E7%9A%84%E8%A7%A3%E9%87%8A">不同构建版本</a>并在你发布的站点中使用<strong>生产环境版本</strong>，把 <code>vue.js</code> 换成 <code>vue.min.js</code>。这是一个更小的构建，可以带来比开发环境下更快的速度体验。</p>
+<h3 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h3><p>在用 Vue 构建大型应用时推荐使用 NPM 安装<a href="https://cn.vuejs.org/v2/guide/installation.html#footnote-1">[1]</a>。NPM 能很好地和诸如 <a href="https://webpack.js.org/">webpack</a> 或 <a href="http://browserify.org/">Browserify</a> 模块打包器配合使用。同时 Vue 也提供配套工具来开发<a href="https://cn.vuejs.org/v2/guide/single-file-components.html">单文件组件</a>。</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake"><span class="hljs-comment"># 最新稳定版</span><br>$ npm <span class="hljs-keyword">install</span> vue<br></code></pre></td></tr></table></figure>
+<h2 id="命令行工具-CLI"><a href="#命令行工具-CLI" class="headerlink" title="命令行工具 (CLI)"></a><a href="https://cli.vuejs.org/zh/">命令行工具 (CLI)</a></h2><p>Vue CLI 是一个基于 Vue.js 进行快速开发的完整系统，提供：</p>
+<p>通过 @vue/cli 实现的交互式的项目脚手架。<br>通过 @vue/cli + @vue/cli-service-global 实现的零配置原型开发。<br>一个运行时依赖 (@vue/cli-service)，该依赖：<br>可升级；<br>基于 webpack 构建，并带有合理的默认配置；<br>可以通过项目内的配置文件进行配置；<br>可以通过插件进行扩展。<br>一个丰富的官方插件集合，集成了前端生态中最好的工具。<br>一套完全图形化的创建和管理 Vue.js 项目的用户界面。<br>Vue CLI 致力于将 Vue 生态中的工具基础标准化。它确保了各种构建工具能够基于智能的默认配置即可平稳衔接，这样你可以专注在撰写应用上，而不必花好几天去纠结配置的问题。与此同时，它也为每个工具提供了调整配置的灵活性，无需 eject。</p>
+]]></content>
+      <tags>
+        <tag>vue</tag>
       </tags>
   </entry>
   <entry>
@@ -440,230 +667,55 @@ f89d8a5
       </tags>
   </entry>
   <entry>
-    <title>VUE2.X学习</title>
-    <url>/2021/04/24/uncategorized/6eb6cb2ab58d/</url>
-    <content><![CDATA[<h1 id="vue2-x教程学习"><a href="#vue2-x教程学习" class="headerlink" title="vue2.x教程学习"></a>vue2.x教程学习</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h3><p>Vue <strong>不支持</strong> IE8 及以下版本，因为 Vue 使用了 IE8 无法模拟的 ECMAScript 5 特性。但它支持所有<a href="https://caniuse.com/#feat=es5">兼容 ECMAScript 5 的浏览器</a>。</p>
-<h3 id="语义化版本控制"><a href="#语义化版本控制" class="headerlink" title="语义化版本控制"></a>语义化版本控制</h3><p>Vue 在其所有项目中公布的功能和行为都遵循<a href="https://semver.org/lang/zh-CN/">语义化版本控制</a>。对于未公布的或内部暴露的行为，其变更会描述在<a href="https://github.com/vuejs/vue/releases">发布说明</a>中。</p>
-<h3 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h3><p>最新稳定版本：2.6.12<br>每个版本的更新日志见 <a href="https://github.com/vuejs/vue/releases">GitHub</a>。</p>
-<span id="more"></span>
-<h3 id="Vue-Devtools"><a href="#Vue-Devtools" class="headerlink" title="Vue Devtools"></a>Vue Devtools</h3><ul>
-<li>在使用 Vue 时，我们推荐在你的浏览器上安装 <a href="https://github.com/vuejs/vue-devtools#vue-devtools">Vue Devtools</a>。它允许你在一个更友好的界面中审查和调试 Vue 应用。</li>
-<li> 在Chrome浏览器中可以直接到Chrome网上商店搜索下载</li>
-<li> 在edge浏览器中可以打开 <a href="https://chrome.google.com/webstore/category/extensions">Chrome 扩展商店</a>，在搜索栏搜索 <strong>vue.js devtools</strong><br>选择提供方为：<a href="https://vuejs.org/">https://vuejs.org</a> 的扩展，添加成功后，进入扩展设置页面，找到 Vue.js devtools 扩展，点击详细信息，勾选允许访问文件 URL和收集错误选项.<br><img src="https://gitee.com/mhist/hexo-image/raw/master/img/VueDevToolSet-20210424164242.png" alt="vue.js devtools"><h3 id="直接用script标签引用"><a href="#直接用script标签引用" class="headerlink" title="直接用script标签引用"></a>直接用script标签引用</h3>直接下载并用 script 标签引入，Vue会被注册为全局变量。</li>
-<li>在开发环境下不要使用压缩版本，不然会失去所有常见错误的相关警告。</li>
-<li><a href="https://cn.vuejs.org/js/vue.js">开发版本</a>包含完整的警告和调试模式</li>
-<li><a href="https://cn.vuejs.org/js/vue.min.js">压缩版本/生产版本</a>删除了警告，33.30KB min+gzip<h4 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h4>对于制作原型或学习，你可以这样使用最新版本：<figure class="highlight applescript"><table><tr><td class="code"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">script</span> src=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;</span>&gt;<span class="hljs-keyword">script</span>&gt;<br></code></pre></td></tr></table></figure>
-对于生产环境，我们推荐链接到一个明确的版本号和构建文件，以避免新版本造成的不可预期的破坏：<figure class="highlight applescript"><table><tr><td class="code"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">script</span> src=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/vue@2.6.12&quot;</span>&gt;<span class="hljs-keyword">script</span>&gt;<br></code></pre></td></tr></table></figure>
-如果你使用原生 ES Modules，这里也有一个兼容 ES Module 的构建文件：<figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;module&quot;</span>&gt;</span><span class="javascript"> <span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.esm.browser.js&#x27;</span> script&gt;</span><br></code></pre></td></tr></table></figure></li>
-</ul>
-<p>你可以在 <a href="https://cdn.jsdelivr.net/npm/vue/">cdn.jsdelivr.net/npm/vue</a> 浏览 NPM 包的源代码。</p>
-<p>Vue 也可以在 <a href="https://unpkg.com/vue@2.6.12/dist/vue.js">unpkg</a> 和 <a href="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js">cdnjs</a> 上获取 (cdnjs 的版本更新可能略滞后)。</p>
-<p>请确认了解<a href="https://cn.vuejs.org/v2/guide/installation.html#%E5%AF%B9%E4%B8%8D%E5%90%8C%E6%9E%84%E5%BB%BA%E7%89%88%E6%9C%AC%E7%9A%84%E8%A7%A3%E9%87%8A">不同构建版本</a>并在你发布的站点中使用<strong>生产环境版本</strong>，把 <code>vue.js</code> 换成 <code>vue.min.js</code>。这是一个更小的构建，可以带来比开发环境下更快的速度体验。</p>
-<h3 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h3><p>在用 Vue 构建大型应用时推荐使用 NPM 安装<a href="https://cn.vuejs.org/v2/guide/installation.html#footnote-1">[1]</a>。NPM 能很好地和诸如 <a href="https://webpack.js.org/">webpack</a> 或 <a href="http://browserify.org/">Browserify</a> 模块打包器配合使用。同时 Vue 也提供配套工具来开发<a href="https://cn.vuejs.org/v2/guide/single-file-components.html">单文件组件</a>。</p>
-<figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake"><span class="hljs-comment"># 最新稳定版</span><br>$ npm <span class="hljs-keyword">install</span> vue<br></code></pre></td></tr></table></figure>
-<h2 id="命令行工具-CLI"><a href="#命令行工具-CLI" class="headerlink" title="命令行工具 (CLI)"></a><a href="https://cli.vuejs.org/zh/">命令行工具 (CLI)</a></h2><p>Vue CLI 是一个基于 Vue.js 进行快速开发的完整系统，提供：</p>
-<p>通过 @vue/cli 实现的交互式的项目脚手架。<br>通过 @vue/cli + @vue/cli-service-global 实现的零配置原型开发。<br>一个运行时依赖 (@vue/cli-service)，该依赖：<br>可升级；<br>基于 webpack 构建，并带有合理的默认配置；<br>可以通过项目内的配置文件进行配置；<br>可以通过插件进行扩展。<br>一个丰富的官方插件集合，集成了前端生态中最好的工具。<br>一套完全图形化的创建和管理 Vue.js 项目的用户界面。<br>Vue CLI 致力于将 Vue 生态中的工具基础标准化。它确保了各种构建工具能够基于智能的默认配置即可平稳衔接，这样你可以专注在撰写应用上，而不必花好几天去纠结配置的问题。与此同时，它也为每个工具提供了调整配置的灵活性，无需 eject。</p>
-]]></content>
-      <tags>
-        <tag>vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>TypeScript入门教程(一)</title>
-    <url>/2021/09/24/TypeScript/854698b90236/</url>
-    <content><![CDATA[<h1 id="TypeScript学习"><a href="#TypeScript学习" class="headerlink" title="TypeScript学习"></a>TypeScript学习</h1><p>  TypeScript 的发展已经深入到前端社区的方方面面了，任何规模的项目都或多或少得到了 TypeScript 的支持。同时vue3在经过vue2之后的发展过程中采用了TypeScript进行了重构，也让使用vue作为主力开发框架的开发者们，需要学习TypeScript来适应日常的开发过程。</p>
-<p>  同时也有赖于TypeScript这门语言的优点:</p>
+    <title>关于开始搭建hexo博客这件事</title>
+    <url>/2021/04/20/hexo/5fcb7dadb6f9/</url>
+    <content><![CDATA[<h1 id="hexo个人博客搭建"><a href="#hexo个人博客搭建" class="headerlink" title="hexo个人博客搭建"></a>hexo个人博客搭建</h1><h2 id="为什么会搭建hexo博客"><a href="#为什么会搭建hexo博客" class="headerlink" title="为什么会搭建hexo博客"></a>为什么会搭建hexo博客</h2><p>  原因：<br>    1.用于前端学习记录、且便于复习，因为经过加工一次的比外来搜索的资料来说更容易让大脑快速识别与利用。<br>    2.阿里云轻量级WordPress服务器对非在校生的优惠终止，且个人网站将于2021年5月份到期，这是我的个人WordPress博客链接 <a href="http://www.codetotoro.cn/">www.codetotoro.cn</a>，同时因为服务器类型的缘故，按照提交工单时工作人员的说法，相关的数据迁移是无法进行的，除非是继续续费。<br>    3.部署方便且相关的学习教程更多，且官方的教程及相应的主题教程很全面，同时社区活跃，搭建博客的相关配置包括hexo editor都很容易找到，最重要的是部署方便，且bug很少，即使是使用外置主题，而且配置的修改采用注释/取消注释的方式进行，方便日后修改，而不用每次都需要根据官方文档再去配置，省去了很多麻烦。<br>  <span id="more"></span></p>
+<h2 id="搭建博客的相关教程"><a href="#搭建博客的相关教程" class="headerlink" title="搭建博客的相关教程"></a>搭建博客的相关教程</h2><h3 id="视频教程"><a href="#视频教程" class="headerlink" title="视频教程"></a>视频教程</h3><p>  来自哔哩哔哩up-codesheep的视频教程，讲解细致全面<br>  <a href="https://www.bilibili.com/video/BV1Yb411a7ty/?spm_id_from=333.788.recommend_more_video.0">手把手教你从0开始搭建自己的个人博客 |无坑版视频教程| hexo</a><br>  学习笔记<br>  <pre><br>  ---    #安装Nodejs<br>node -v    #查看node版本<br>npm -v    #查看npm版本<br>npm install -g cnpm --registry=<a href="http://registry.npm.taobao.org/">http://registry.npm.taobao.org</a>    #安装淘宝的cnpm 管理器<br>cnpm -v    #查看cnpm版本<br>cnpm install -g hexo-cli    #安装hexo框架<br>hexo -v    #查看hexo版本<br>mkdir blog    #创建blog目录<br>cd blog     #进入blog目录<br>sudo hexo init     #生成博客 初始化博客<br>hexo s    #启动本地博客服务<br><a href="http://localhost:4000/">http://localhost:4000/</a>    #本地访问地址<br>hexo n 我的第一篇文章 #创建新的文章<br>#返回blog目录<br>hexo clean #清理<br>hexo g #生成<br>#Github创建一个新的仓库 YourGithubName.github.io<br>#在blog目录下安装git部署插件<br>   cnpm install --save hexo-deployer-git </p>
+<hr>
+<h2 id="配置-config-yml"><a href="#配置-config-yml" class="headerlink" title="#配置_config.yml "></a>#配置_config.yml </h2><pre><code># Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+      type: git
+     repo: https://github.com/YourGithubName/YourGithubName.github.io.git
+      branch: master
+</code></pre>
+<hr>
+<p>hexo d    #部署到Github仓库里<br><a href="https://yourgithubname.github.io/">https://YourGithubName.github.io/</a>  #访问这个地址可以查看博客</p>
+<p> git clone <a href="https://github.com/litten/hexo-theme-yilia.git">https://github.com/litten/hexo-theme-yilia.git</a> themes/yilia  #下载yilia主题到本地</p>
+<p>#修改hexo根目录下的 _config.yml 文件 ： theme: yilia</p>
+<p>hexo c    #清理一下<br>hexo g    #生成<br>hexo s    #启动本地博客服务<br><a href="http://localhost:4000/">http://localhost:4000/</a>    #本地访问地址<br>hexo d    #部署到远程Github仓库<br><a href="https://yourgithubname.github.io/">https://YourGithubName.github.io/</a>  #查看博客<br>  </pre></p>
+<hr>
+<h3 id="官方文档及next主题官方文档"><a href="#官方文档及next主题官方文档" class="headerlink" title="官方文档及next主题官方文档"></a>官方文档及next主题官方文档</h3><p> 1.<a href="https://hexo.io/zh-cn/docs/">hexo文档</a><br> 2.<a href="http://theme-next.iissnan.com/getting-started.html">hexo-next主题文档</a></p>
+<h2 id="博客的后续配置"><a href="#博客的后续配置" class="headerlink" title="博客的后续配置"></a>博客的后续配置</h2><p>  博客中有很多可用于拓展的地方，暂时还有很多不太了解，但是可以满足日常的写作需求以及部署，此处用于记录对于配置方面的自己的一些理解。</p>
+<h3 id="配置-config-yml，gitee-github简单修改实现双部署"><a href="#配置-config-yml，gitee-github简单修改实现双部署" class="headerlink" title="配置_config.yml，gitee/github简单修改实现双部署"></a>配置_config.yml，gitee/github简单修改实现双部署</h3><pre><code>#配置_config.yml 
+</code></pre>
+<hr>
+<pre><code># Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+      type: git
+     repo: 
+        gitee: https://gitee.com/mhist/mhist.git
+    #https://github.com/Mhist/Mhist.github.io.git 
+    #github
+      branch: master
+</code></pre>
+<p>—–以上代码是我在实践过程中发现的一点，因为在github上是可以做到自动部署的，可是因为防火墙的原因导致访问经常失败，而gitee作为国内的github，访问速度是很快的，只是部署的时候需要手动更新，因为自动更新部署是要收费的。<br>    以上代码的使用方式是在repo中：<br>    1.部署到gitee时，按照hexo c; hexo g; hexo s; hexo d，然后到码云的位置点击更新即可。<img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210421013409-giteePagesUpdateButton.png" alt="gitee pages update button">，然后可访问域名：<a href="https://mhist.gitee.io/">https://mhist.gitee.io/</a><br>    2.部署到github时，将gitee所在行用#注释掉即可，同时取消gitee下一行的#注释，按照hexo c; hexo g; hexo s; hexo d即可。然后可访问域名：<a href="https://mhist.github.io/">https://mhist.github.io/</a></p>
+<h2 id="图床的设置"><a href="#图床的设置" class="headerlink" title="图床的设置"></a>图床的设置</h2><p>  作为使用Markdown来编辑文档的人来说，拥有一个好的图床是非常必要的。通过图床我们可以很好的管理我们的博客图片，同时能在多方正确显示。</p>
+<h3 id="图床分类"><a href="#图床分类" class="headerlink" title="图床分类"></a>图床分类</h3><p>  现在比较流行的图床有很多，包括SM.MS图床、腾讯云cos、github图床、七牛云图床、Imgur图床、阿里云COS、又拍云图床、gitee。但同时具有安全、经济、使用方便、访问高速等多种优点的解决方案还是要数基于picgo+gitee的解决方案.</p>
+<h3 id="picgo"><a href="#picgo" class="headerlink" title="picgo"></a>picgo</h3><p>  picgo是一款基于桌面端图床工具，方便我们对接本地和远程仓库，同时快速获取链接，同时支持链接的Markdown、HTML、URL、UBB、Custom等五种格式的选择，同时可以支持插件以丰富软件功能。<br>  推荐两个配置教程：</p>
 <ol>
-<li>完全兼容于JavaScript</li>
-<li>适用于任何规模</li>
+<li><a href="https://blog.csdn.net/disILLL/article/details/103962241?utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.control&dist_request_id=1332024.918.16189409573562535&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.control">配置教程1</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/128014135">配置教程2—插件</a></li>
+<li><a href="https://github.com/Molunerfinn/PicGo/releases">picgo的github链接</a></li>
+<li>picgo Windows <a href="https://pan.baidu.com/s/1y_yn9dl5aEAGHBX2c2KDPA">PicGo-Setup-2.3.0-beta.5.exe</a> 提取码：hexo</li>
 </ol>
-<p>  使得我们的开发的代码能够更加严谨和健壮！</p>
-<span id="more"></span>
-<h2 id="学习内容及教程推荐"><a href="#学习内容及教程推荐" class="headerlink" title="学习内容及教程推荐"></a>学习内容及教程推荐</h2><ol>
-<li><a href="https://ts.xcatliu.com/introduction/what-is-typescript.html">TypeScript入门教程</a>  中文文档，很容易阅读和理解，对于新手十分友好</li>
-<li><a href="https://www.typescriptlang.org/docs/handbook/intro.html">typescript中文官网–手书</a> 英文文档，阅读体验对国人不是很友好</li>
-<li><a href="https://www.tslang.cn/docs/home.html">typescript中文文档教程</a>   当前最新typescript版本为 “typescript”: “^4.3.2”,文档最新版本只更新到v3.1版本，是有滞后的。</li>
-</ol>
-<h2 id="除了实现-ECMAScript-标准之外，TypeScript-团队也推进了诸多语法提案"><a href="#除了实现-ECMAScript-标准之外，TypeScript-团队也推进了诸多语法提案" class="headerlink" title="除了实现 ECMAScript 标准之外，TypeScript 团队也推进了诸多语法提案"></a>除了实现 ECMAScript 标准之外，TypeScript 团队也推进了诸多语法提案</h2><h3 id="可选链操作符（-）"><a href="#可选链操作符（-）" class="headerlink" title="可选链操作符（?.）"></a>可选链操作符（?.）</h3><pre><code>  参考链接: https://zh.javascript.info/optional-chaining
-</code></pre>
-<h3 id="空值合并操作符"><a href="#空值合并操作符" class="headerlink" title="空值合并操作符"></a>空值合并操作符</h3><pre><code>  参考链接: https://zh.javascript.info/nullish-coalescing-operator
-</code></pre>
-<h3 id="throw表达式"><a href="#throw表达式" class="headerlink" title="throw表达式"></a>throw表达式</h3><pre><code>  throw 语句抛出一个错误。
-</code></pre>
-<p>当错误发生时， JavaScript 会停止执行并抛出错误信息。</p>
-<p>描述这种情况的技术术语是：JavaScript 将抛出一个错误。</p>
-<p>throw 语句创建自定义错误。</p>
-<p>技术术语是： 抛出异常。</p>
-<p>异常可以是 JavaScript 字符串、数字、逻辑值或对象：</p>
-<h3 id="正则匹配索引"><a href="#正则匹配索引" class="headerlink" title="正则匹配索引"></a>正则匹配索引</h3><h2 id="typescript的安装"><a href="#typescript的安装" class="headerlink" title="typescript的安装"></a>typescript的安装</h2><h3 id="使用命令行工具"><a href="#使用命令行工具" class="headerlink" title="使用命令行工具"></a>使用命令行工具</h3><figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> -g typescript<br></code></pre></td></tr></table></figure>
-<h3 id="hello-ts"><a href="#hello-ts" class="headerlink" title="hello.ts"></a>hello.ts</h3><p>  1.新建一个简单函数：hello.ts</p>
-<figure class="highlight typescript"><table><tr><td class="code"><pre><code class="hljs typescript">  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sayHello</span>(<span class="hljs-params">person: <span class="hljs-built_in">string</span></span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;hello,&#x27;</span>+ person;<br><br>&#125;<br><span class="hljs-keyword">let</span> user = <span class="hljs-string">&#x27;tom&#x27;</span>;<br><span class="hljs-built_in">console</span>.log(sayHello(user));<br></code></pre></td></tr></table></figure>
-<p>  2.安装好typescript后，在命令行终端键入以下命令： <strong>tsc hello.ts</strong></p>
-<p>  即可看到显示的hello.js文件</p>
-<p>  <img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210924160047d.png" alt="hello.ts"><br>  <img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210924160612hellojs.png" alt="hello.js"></p>
-<blockquote>
-<p>TypeScript 只会在编译时对类型进行静态检查，如果发现有错误，编译的时候就会报错。而在运行时，与普通的 JavaScript 文件一样，不会对类型进行检查。</p>
-</blockquote>
-<p>  简单来说，typescript主要是在编译过程中检查错误的存在，在没有进行其他设置的情况下，即使错误，也会继续生成相应的js文件，当然这对于使用typescript的用户来说是需要避免的，开发着需要在ts编译阶段报错时终止(ts文件→js文件)这一过程，需要进行以下<strong><strong>配置</strong></strong></p>
-<p>  可以在 tsconfig.json 中配置 noEmitOnError 即可。关于 tsconfig.json，<a href="https://segmentfault.com/a/1190000021421461?utm_source=tag-newest">参考思否教程</a>。</p>
-<h1 id="typescript基础"><a href="#typescript基础" class="headerlink" title="typescript基础"></a>typescript基础</h1><h2 id="原始数据类型"><a href="#原始数据类型" class="headerlink" title="原始数据类型"></a>原始数据类型</h2><p>   原始数据类型现今总共有：  7种 = 5种 + 2种<br>   5种： 布尔值，数值，字符串，null, undefined<br>   2种： Symbol (ES6新类型)； BigInt(ES10新类型) </p>
-<h3 id="布尔值"><a href="#布尔值" class="headerlink" title="布尔值"></a>布尔值</h3><figure class="highlight lasso"><table><tr><td class="code"><pre><code class="hljs lasso"><span class="hljs-keyword">let</span> isDone: <span class="hljs-built_in">boolean</span> = <span class="hljs-literal">false</span>;<br></code></pre></td></tr></table></figure>
-
-<p>  很明显可以正常编译,那么采用构造函数的形式呢？</p>
-<figure class="highlight lasso"><table><tr><td class="code"><pre><code class="hljs lasso"><span class="hljs-keyword">let</span> createdByNewBoolean: <span class="hljs-built_in">boolean</span> = <span class="hljs-literal">new</span> <span class="hljs-built_in">Boolean</span>(<span class="hljs-number">1</span>);<br></code></pre></td></tr></table></figure>
-
-<p><a href="https://www.typescriptlang.org/zh/play#code/DYUwLgBAxgTiCGYQBMBCBPAciA7qg9vqPAHYBcEARocSRALwQm4QFEIkAUAjAJQDcQA">代码预览—布尔值</a></p>
-<blockquote>
-<p> error TS2322: Type ‘Boolean’ is not assignable to type ‘boolean’.<br>  ‘boolean’ is a primitive, but ‘Boolean’ is a wrapper object. Prefer using ‘boolean’ when possible.</p>
-</blockquote>
-<blockquote>
-<p>Boolean 是对应布尔值的引用类型。要创建一个 Boolean 对象，就使用 Boolean 构造函数并传入<br>true 或 false</p>
-</blockquote>
-<p>即通过构造函数new Boolean(1)的结果实际是布尔值对象，而不是布尔值，所以会出现类型错误，理解原始布尔值和 Boolean 对象之间的区别非常重要，强烈建议永远不要使用后者.</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> createdByNewBoolean: <span class="hljs-built_in">Boolean</span> = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Boolean</span>(<span class="hljs-number">1</span>);<br></code></pre></td></tr></table></figure>
-
-<p><a href="https://www.typescriptlang.org/zh/play#code/DYUwLgBAxgTiCGYQBMBCBPAciA7qg9vqPAHYBcEBRCJEAvBCbpYcSQBQCMAlANxA">代码预览—布尔对象</a></p>
-<h3 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h3><figure class="highlight maxima"><table><tr><td class="code"><pre><code class="hljs maxima"><span class="hljs-built_in">let</span> decLiteral: number = <span class="hljs-number">6</span>;<br><span class="hljs-built_in">let</span> hexLiteral: number = <span class="hljs-number">0xf00d</span>;<br>// ES6 中的二进制表示法<br><span class="hljs-built_in">let</span> binaryLiteral: number = <span class="hljs-number">0b1010</span>;<br>// ES6 中的八进制表示法<br><span class="hljs-built_in">let</span> octalLiteral: number = <span class="hljs-number">0o744</span>;<br><span class="hljs-built_in">let</span> notANumber: number = NaN;<br>...<br></code></pre></td></tr></table></figure>
-
-<p><a href="https://www.typescriptlang.org/zh/play#code/DYUwLgBAJiDGAyBLMIBOBDYAuCA7ArgLYBGaEAvBAGwDcAsAFCiQAWIAHkihtnkaagoQADOwBmw4VHoMA9LIgBRAMpUIgWjlAIW6AYuUDb8YDYlQBYRgLk9AqzaNmEYolzpUATy5pMOAiTKVhxAIzDfM+SVVDU1Aa0UDE3MmcAgAe1gwTCceV34PEViAdgAWbJlLXFiwAEEAOTTUVPdBSlL0UvyYmzEbZHty6qqBIQBJXBbcNpogA">代码预览—数字</a></p>
-<h3 id="void-null-undfined"><a href="#void-null-undfined" class="headerlink" title="void \ null \ undfined"></a>void \ null \ undfined</h3><pre><code>在typescript中没有空值的概念，遇到这种情况可以采用void来标识没有返回值的函数   （划重点：没有返回值的函数）
-</code></pre>
-<figure class="highlight actionscript"><table><tr><td class="code"><pre><code class="hljs actionscript">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">alertName</span><span class="hljs-params">()</span>: void </span>&#123;<br>    alert(<span class="hljs-string">&#x27;My name is Tom&#x27;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<pre><code>声明一个void类型的变量是没有什么用处的，因为之后你只能将它赋值为null或者undfined（只在 --strictNullChecks 未指定时）：
-注意是变量，对于没有返回值的函数还是有必要的
-</code></pre>
-<blockquote>
-<p>undefined 和 null 两个空类型的设计，使用上不方便，所以 通过strictNullChecks严格校验类型，让代码更安全</p>
-</blockquote>
-<figure class="highlight typescript"><table><tr><td class="code"><pre><code class="hljs typescript">  <span class="hljs-comment">// 两个空类型</span><br>  <span class="hljs-keyword">let</span> u: <span class="hljs-literal">undefined</span> = <span class="hljs-literal">undefined</span><br>  <span class="hljs-keyword">let</span> n: <span class="hljs-literal">null</span> = <span class="hljs-literal">null</span><br><br>  <span class="hljs-comment">// 常见区别</span><br><span class="hljs-built_in">Number</span>(<span class="hljs-literal">null</span>)            <span class="hljs-comment">// 0</span><br><span class="hljs-built_in">Number</span>(<span class="hljs-literal">undefined</span>)      <span class="hljs-comment">// NaN</span><br><br><span class="hljs-keyword">let</span> age: <span class="hljs-built_in">number</span> = <span class="hljs-literal">null</span><br><span class="hljs-built_in">console</span>.log(<span class="hljs-number">5</span> + age)      <span class="hljs-comment">//5</span><br><br>age = und...<br></code></pre></td></tr></table></figure>
-
-<p><a href="https://www.typescriptlang.org/zh/play#code/PTAEhI5QqOULy9G8fRo9QLACgA2BTALqArgLlwDsATdAMwEtD1jQBeI0y64lDbQgwnVVe0brxQoQoQBx6gQcjAXMqBqJRQA5HAFsARugBOACkGoAlKAOGjB0QAYFytVpwlyVGvuOj5AQ3nC0WUC4Dm6LpYa-DooAMYA9oQAzuEYAHSo4T6aAKygANTefo5GICkevuj8Nkz2rMgR0bHoCUmpGVnoOYYgru7IYZEx8YnJJXYs9Aw6+qKY6jjoQA">空值校验预览</a></p>
-<p>注意：<br>1.与 void 的区别是，undefined 和 null 是所有类型的子类型。也就是说 undefined 类型的变量，可以赋值给 number 类型的变量：<br>2.而 void 类型的变量不能赋值给 number 类型的变量：</p>
-<h3 id="any"><a href="#any" class="headerlink" title="any"></a>any</h3><p>  如果是一个普通类型，在赋值过程中改变类型是不被允许的：但如果是 any 类型，则允许被赋值为任意类型。在任意值上访问任何属性都是允许的：也允许调用任何方法：变量如果在声明的时候，未指定其类型，那么它会被识别为任意值类型</p>
-<h2 id="类型推论"><a href="#类型推论" class="headerlink" title="类型推论"></a>类型推论</h2><ul>
-<li>类型推论: 字面意思即使，当类型没有被明确指定的时候，那么 TypeScript 会依照类* 型推论（Type Inference）的规则推断出一个类型。</li>
-<li>如果定义的时候没有赋值，不管之后有没有赋值，都会被推断成 any 类型而完全不被类型检查。</li>
-</ul>
-<h2 id="联合类型"><a href="#联合类型" class="headerlink" title="联合类型"></a>联合类型</h2><ul>
-<li>即在定义类型时可以拥有多种类型，联合类型使用 | 分隔每个类型。</li>
-<li>当 TypeScript 不确定一个联合类型的变量到底是哪个类型的时候，我们只能访问此联合类型的所有类型里共有的属性或方法：</li>
-</ul>
-<figure class="highlight crmsh"><table><tr><td class="code"><pre><code class="hljs crmsh">function getLength(something: <span class="hljs-keyword">string</span> | <span class="hljs-keyword">number</span>): <span class="hljs-keyword">number</span> &#123;<br>    return something.length;<br>&#125;<br><br>// index.ts(<span class="hljs-number">2</span>,<span class="hljs-number">22</span>): error TS2339: <span class="hljs-keyword">Property</span><span class="hljs-title"> </span>&#x27;length&#x27; does not exist on <span class="hljs-keyword">type</span> &#x27;<span class="hljs-keyword">string</span> | <span class="hljs-keyword">number</span>&#x27;.<br>//   <span class="hljs-keyword">Property</span><span class="hljs-title"> </span>&#x27;length&#x27; does not exist on <span class="hljs-keyword">type</span> &#x27;<span class="hljs-keyword">number</span>&#x27;.<br><br></code></pre></td></tr></table></figure>
-
-<p>当访问的不是共有属性或者方法的时候，就会报错。联合类型的变量在被赋值的时候，会根据类型推论的规则推断出一个类型：</p>
-<figure class="highlight sas"><table><tr><td class="code"><pre><code class="hljs sas">let myFavoriteNumber: string | number;<br>myFavoriteNumber = <span class="hljs-string">&#x27;seven&#x27;</span>;<br>console<span class="hljs-meta">.log(</span>myFavoriteNumber.<span class="hljs-meta">length</span>); // 5<br>myFavoriteNumber = 7;<br>console<span class="hljs-meta">.log(</span>myFavoriteNumber.<span class="hljs-meta">length</span>); // 编译时报错<br><br>// <span class="hljs-meta">index</span>.ts(5,30): <span class="hljs-meta">error</span> TS2339: Property <span class="hljs-string">&#x27;length&#x27;</span> does <span class="hljs-meta">not</span> exist <span class="hljs-meta">on</span> type <span class="hljs-string">&#x27;number&#x27;</span>.<br></code></pre></td></tr></table></figure>
-
-<blockquote>
-<p>上例中，第二行的 myFavoriteNumber 被推断成了 string，访问它的 length 属性不会报错。而第四行的 myFavoriteNumber 被推断成了 number，访问它的 length 属性时就报错了。</p>
-</blockquote>
-<h2 id="接口-（给对象准备的自定义类型）"><a href="#接口-（给对象准备的自定义类型）" class="headerlink" title="接口  （给对象准备的自定义类型）"></a>接口  （给对象准备的自定义类型）</h2><p>实例代码：</p>
-<figure class="highlight xquery"><table><tr><td class="code"><pre><code class="hljs xquery">interface Person &#123;<br>   <span class="hljs-built_in"> name</span>:<span class="hljs-built_in"> string</span>;<br>    age:<span class="hljs-built_in"> number</span>;<br>&#125;<br><br><span class="hljs-keyword">let</span> tom: Person = &#123;<br>   <span class="hljs-built_in"> name</span>: <span class="hljs-string">&#x27;Tom&#x27;</span>,<br>    age: <span class="hljs-number">25</span><br>&#125;;<br></code></pre></td></tr></table></figure>
-<h3 id="形状得一样"><a href="#形状得一样" class="headerlink" title="形状得一样"></a>形状得一样</h3><p>赋值的时候需要保证接口的形状必须和其指定的类型一样。</p>
-<h3 id="可选属性（形状可以不一样，得加条件）"><a href="#可选属性（形状可以不一样，得加条件）" class="headerlink" title="可选属性（形状可以不一样，得加条件）"></a>可选属性（形状可以不一样，得加条件）</h3><p>当然在开发需求中也会有需要其中某一个或者某几个，不要限制的那么死板，于是就有了 <strong>可选属性</strong>，通过在“:”前添加一个“？”来表示属性的可选性，这样也可以使得限制变得宽松，形状也可以有不一致。</p>
-<p>可选属性可以实现已定义属性的有或无，但是对于未定义的属性，则产生了限制，因为它有严格的形状限制，而有时候我们希望一个接口允许有任意的属性，可以使用如下方式：</p>
-<figure class="highlight typescript"><table><tr><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">interface</span> Person &#123;<br>    <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>;<br>    age?: <span class="hljs-built_in">number</span>;<br>    [propName: <span class="hljs-built_in">string</span>]: <span class="hljs-built_in">any</span>;<br>&#125;<br><br><span class="hljs-keyword">let</span> tom: Person = &#123;<br>    <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Tom&#x27;</span>,<br>    <span class="hljs-attr">gender</span>: <span class="hljs-string">&#x27;male&#x27;</span><br>&#125;;<br></code></pre></td></tr></table></figure>
-
-<h3 id="一旦定义了任意属性，那么确定属性和可选属性的类型都必须是它的类型的子集："><a href="#一旦定义了任意属性，那么确定属性和可选属性的类型都必须是它的类型的子集：" class="headerlink" title="一旦定义了任意属性，那么确定属性和可选属性的类型都必须是它的类型的子集："></a>一旦定义了任意属性，那么确定属性和可选属性的类型都必须是它的类型的子集：</h3><p>在上面的例子中，我们将任意属性的类型指定为any，则name指定的字符串类型和age指定的数字类型都是any类型的子集，所以是符合要求的。</p>
-<p>下面来测试一个不属于其子集的例子：</p>
-<figure class="highlight xquery"><table><tr><td class="code"><pre><code class="hljs xquery">interface Person &#123;<br>   <span class="hljs-built_in"> name</span>:<span class="hljs-built_in"> string</span>;<br>    age?:<span class="hljs-built_in"> number</span>;<br>    [propName:<span class="hljs-built_in"> string</span>]:<span class="hljs-built_in"> string</span>;<br>&#125;<br><br><span class="hljs-keyword">let</span> tom: Person = &#123;<br>   <span class="hljs-built_in"> name</span>: <span class="hljs-string">&#x27;Tom&#x27;</span>,<br>    age: <span class="hljs-number">25</span>,<br>    gender: <span class="hljs-string">&#x27;male&#x27;</span><br>&#125;;<br></code></pre></td></tr></table></figure>
-
-<p><a href="https://www.typescriptlang.org/zh/play#code/JYOwLgpgTgZghgYwgAgArQM4HsTIN4CwAUMqciHALYQBcyGYUoA5gNzFnJzMQD8dIAK6UARtHYkyAbQAOULDIByVWvUYsAunQZMQbYgF9ixADYQwyMFkp10UbLgC8+DmQrU6AcgAq1zwBpXUm5VACYAVkDJUh4QABNoL0o4M09DViA">非其子集*–预览</a></p>
-<h3 id="只读属性（readonly）"><a href="#只读属性（readonly）" class="headerlink" title="只读属性（readonly）"></a>只读属性（readonly）</h3><p> 在一些情况下，我们需要值是只读属性，当它被赋值一次以后，不能再对其进行赋值，此时可以采用readonly属性来指定。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs tsx">interface Person &#123;<br>    readonly id: number;<br>    name: string;<br>    age?: number;<br>    [propName: string]: any;<br>&#125;<br><br>let tom: Person = &#123;<br>    id: 89757,<br>    name: &#x27;Tom&#x27;,<br>    gender: &#x27;male&#x27;<br>&#125;;<br><br>tom.id = 9527;<br><br>// index.ts(14,5): error TS2540: Cannot assign to &#x27;id&#x27; because it is a constant or a read-only property.<br></code></pre></td></tr></table></figure>
-
-<p> 使用readonly属性的时候，需要在定义的时候即赋值，在其拥有readonly属性之后再通过对象操作的方式进行赋值也会报错。</p>
- <figure class="highlight xquery"><table><tr><td class="code"><pre><code class="hljs xquery">interface Person &#123;<br>    readonly<span class="hljs-built_in"> id</span>:<span class="hljs-built_in"> number</span>;<br>   <span class="hljs-built_in"> name</span>:<span class="hljs-built_in"> string</span>;<br>    age?:<span class="hljs-built_in"> number</span>;<br>    [propName:<span class="hljs-built_in"> string</span>]: any;<br>&#125;<br><br><span class="hljs-keyword">let</span> tom: Person = &#123;<br>   <span class="hljs-built_in"> name</span>: <span class="hljs-string">&#x27;Tom&#x27;</span>,<br>    gender: <span class="hljs-string">&#x27;male&#x27;</span><br>&#125;;<br><br>tom<span class="hljs-built_in">.id</span> = <span class="hljs-number">89757</span>;<br><br>// index.ts(<span class="hljs-number">8</span>,<span class="hljs-number">5</span>):<span class="hljs-built_in"> error</span> TS2322: Type <span class="hljs-string">&#x27;&#123; name: string; gender: string; &#125;&#x27;</span> <span class="hljs-literal">is</span><span class="hljs-built_in"> not</span> assignable <span class="hljs-keyword">to</span> type <span class="hljs-string">&#x27;Person&#x27;</span>.<br>//   Property <span class="hljs-string">&#x27;id&#x27;</span> <span class="hljs-literal">is</span> missing <span class="hljs-keyword">in</span> type <span class="hljs-string">&#x27;&#123; name: string; gender: string; &#125;&#x27;</span>.<br>// index.ts(<span class="hljs-number">13</span>,<span class="hljs-number">5</span>):<span class="hljs-built_in"> error</span> TS254<span class="hljs-number">0</span>: Cannot assign <span class="hljs-keyword">to</span> <span class="hljs-string">&#x27;id&#x27;</span> because it <span class="hljs-literal">is</span> a constant <span class="hljs-keyword">or</span> a read-only property.<br></code></pre></td></tr></table></figure>
-
-<h2 id="数组类型"><a href="#数组类型" class="headerlink" title="数组类型"></a>数组类型</h2><p>  数组是日常开发中遇到的最多的数据结构之一，从它的基本方法的多样性也可以看出它的使用度是极高的。那么在typescript世界中对于数组类型的定义又会有哪些实用方式呢？</p>
-<h3 id="类型-方括号-表示法"><a href="#类型-方括号-表示法" class="headerlink" title="类型+方括号  表示法"></a>类型+方括号  表示法</h3><p>  数组字面量是非常普遍的数组定义方法，在typescript中则采用了  类型+方括号的组成，一方面能够非常方便得表示数组，另一方面可以限制数组内元素得类型。</p>
-  <figure class="highlight inform7"><table><tr><td class="code"><pre><code class="hljs inform7">let fibonacci: number<span class="hljs-comment">[]</span> = <span class="hljs-comment">[1, 1, 2, 3, 5]</span>;<br></code></pre></td></tr></table></figure>
-<blockquote>
-<p>1.数组的项中不允许出现其他的类型，且数组的一些方法也会根据数组在定义时候的类型加以限制。</p>
-</blockquote>
-<figure class="highlight xquery"><table><tr><td class="code"><pre><code class="hljs xquery"><span class="hljs-keyword">let</span> fibonacci:<span class="hljs-built_in"> number</span>[] = [<span class="hljs-number">1</span>, <span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>];<br><br>// Type <span class="hljs-string">&#x27;string&#x27;</span> <span class="hljs-literal">is</span><span class="hljs-built_in"> not</span> assignable <span class="hljs-keyword">to</span> type <span class="hljs-string">&#x27;number&#x27;</span>.<br><br></code></pre></td></tr></table></figure>
-<figure class="highlight xquery"><table><tr><td class="code"><pre><code class="hljs xquery"><span class="hljs-keyword">let</span> fibonacci:<span class="hljs-built_in"> number</span>[] = [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>];<br>fibonacci.push(<span class="hljs-string">&#x27;8&#x27;</span>);<br><br>// Argument <span class="hljs-keyword">of</span> type <span class="hljs-string">&#x27;&quot;8&quot;&#x27;</span> <span class="hljs-literal">is</span><span class="hljs-built_in"> not</span> assignable <span class="hljs-keyword">to</span> parameter <span class="hljs-keyword">of</span> type <span class="hljs-string">&#x27;number&#x27;</span>.<br><br></code></pre></td></tr></table></figure>
-
-<p>定义一个任意类型的数组：</p>
-<figure class="highlight prolog"><table><tr><td class="code"><pre><code class="hljs prolog">let list: any[] = [<span class="hljs-string">&#x27;xcatliu&#x27;</span>, <span class="hljs-number">25</span>, &#123; website: <span class="hljs-string">&#x27;http://xcatliu.com&#x27;</span> &#125;];<br></code></pre></td></tr></table></figure>
-<h3 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h3><p>我们也可以使用数组泛型（Array Generic） Array&lt;类型&gt; 来表示数组：</p>
-<figure class="highlight typescript"><table><tr><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">let</span> fibonacci: <span class="hljs-built_in">Array</span>&lt;<span class="hljs-built_in">number</span>&gt; = [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>];<br></code></pre></td></tr></table></figure>
-
-<p><a href="http://ts.xcatliu.com/basics/type-of-array.html#%E6%95%B0%E7%BB%84%E6%B3%9B%E5%9E%8B">更加复杂的数组类型表示方式</a></p>
-<h3 id="用接口表示数组"><a href="#用接口表示数组" class="headerlink" title="用接口表示数组"></a>用接口表示数组</h3>  <figure class="highlight fortran"><table><tr><td class="code"><pre><code class="hljs fortran">  <span class="hljs-keyword">interface</span> NumberArray &#123;<br>    [<span class="hljs-built_in">index</span>: <span class="hljs-keyword">number</span>]: <span class="hljs-keyword">number</span>;<br>&#125;<br>let fibonacci: NumberArray = [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>];<br></code></pre></td></tr></table></figure>
-
-<p>  结合数组的特点，首先索引值必须是数字，在上述的例子中规定了属性值也为数字，所以可以将[1,1,2,3,5]赋值给fibonacci.</p>
-<p>  与前两种比较而言，此种方法是比较复杂的，当然它的主要用处是用来表示<font color="red">类数组</font>。</p>
-<h3 id="类数组"><a href="#类数组" class="headerlink" title="类数组"></a>类数组</h3><h4 id="类数组的概念"><a href="#类数组的概念" class="headerlink" title="类数组的概念"></a>类数组的概念</h4><p>  想要理解为什么多用比较复杂的接口来定义类数组？ 首先需要了解类数组的基本概念。</p>
-<blockquote>
-<p><font color=plum>类数组不是数组，它的原型是对象</font></p>
-</blockquote>
-<figure class="highlight typescript"><table><tr><td class="code"><pre><code class="hljs typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sum</span>(<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-keyword">let</span> args: &#123;<br>        [index: <span class="hljs-built_in">number</span>]: <span class="hljs-built_in">number</span>;<br>        length: <span class="hljs-built_in">number</span>;<br>        callee: <span class="hljs-built_in">Function</span>;<br>    &#125; = <span class="hljs-built_in">arguments</span>;<br>&#125;<br><br></code></pre></td></tr></table></figure>
-
-<p>事实上常用的类数组都有自己的接口定义，如 IArguments, NodeList, HTMLCollection 等：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sum</span>(<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-keyword">let</span> args: IArguments = <span class="hljs-built_in">arguments</span>;<br>&#125;<br><br></code></pre></td></tr></table></figure>
-
-<p>其中 IArguments 是 TypeScript 中定义好了的类型，它实际上就是：<font color=seagreen><a href="http://ts.xcatliu.com/basics/built-in-objects.html">内置对象</a></font></p>
-<figure class="highlight fortran"><table><tr><td class="code"><pre><code class="hljs fortran"><span class="hljs-keyword">interface</span> IArguments &#123;<br>    [<span class="hljs-built_in">index</span>: <span class="hljs-keyword">number</span>]: <span class="hljs-built_in">any</span>;<br>    length: <span class="hljs-keyword">number</span>;<br>    callee: <span class="hljs-function"><span class="hljs-keyword">Function</span></span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-<h2 id="函数的类型"><a href="#函数的类型" class="headerlink" title="函数的类型"></a>函数的类型</h2><p>前面提到过可以用void来表示没有返回值的函数类型，这一节，我们将学习到对于有返回值的函数应该怎么表示，函数作为编程语言里不可缺少的部分，能够利用其灵活性，给我们的代码开发过程中带来效率的提升。首先，需要重温一下原生JavaScript中对于<font color=seagreen>函数的声明方式</font>：函数声明（Function Declaration）和函数表达式（Function Expression）：</p>
-<figure class="highlight ada"><table><tr><td class="code"><pre><code class="hljs ada">// 函数声明（<span class="hljs-keyword">Function</span> <span class="hljs-title">Declaration）</span><br><span class="hljs-keyword">function</span> <span class="hljs-title">sum</span>(x, y) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-type">x</span> + y;<br>&#125;<br><br>// 函数表达式（<span class="hljs-keyword">Function</span> <span class="hljs-title">Expression）</span><br>let mySum = <span class="hljs-keyword">function</span> <span class="hljs-title"></span>(x, y) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-type">x</span> + y;<br>&#125;;<br></code></pre></td></tr></table></figure>
-
-<blockquote>
-<p><font color=seagreen>一个函数有输入和输出，要在typescript中对其进行约束，需要把输入和输出都考虑到</font></p>
-</blockquote>
-<figure class="highlight fortran"><table><tr><td class="code"><pre><code class="hljs fortran"><span class="hljs-function"><span class="hljs-keyword">function</span></span> <span class="hljs-built_in">sum</span>(x:<span class="hljs-keyword">number</span>,y:<span class="hljs-keyword">number</span>): <span class="hljs-keyword">number</span> &#123;<br>  <span class="hljs-keyword">return</span> x+y;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<blockquote>
-<p>注意：<font color=chocolate>输入多余的（或者少于要求的）参数，是不被允许的：</font></p>
-</blockquote>
-<ul>
-<li><font color=seagreen>多输入参数:</font><figure class="highlight fortran"><table><tr><td class="code"><pre><code class="hljs fortran"><span class="hljs-function"><span class="hljs-keyword">function</span></span> <span class="hljs-built_in">sum</span>(x: <span class="hljs-keyword">number</span>, y: <span class="hljs-keyword">number</span>): <span class="hljs-keyword">number</span> &#123;<br>    <span class="hljs-keyword">return</span> x + y;<br>&#125;<br><span class="hljs-built_in">sum</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>);<br><br>// <span class="hljs-built_in">index</span>.ts(<span class="hljs-number">4</span>,<span class="hljs-number">1</span>): error TS2346: Supplied parameters <span class="hljs-keyword">do</span> not match <span class="hljs-built_in">any</span> signature of <span class="hljs-keyword">call</span> <span class="hljs-keyword">target</span>.<br></code></pre></td></tr></table></figure></li>
-<li><font color=purple>少输入参数:</font><figure class="highlight fortran"><table><tr><td class="code"><pre><code class="hljs fortran"><span class="hljs-function"><span class="hljs-keyword">function</span></span> <span class="hljs-built_in">sum</span>(x: <span class="hljs-keyword">number</span>, y: <span class="hljs-keyword">number</span>): <span class="hljs-keyword">number</span> &#123;<br>    <span class="hljs-keyword">return</span> x + y;<br>&#125;<br><span class="hljs-built_in">sum</span>(<span class="hljs-number">1</span>);<br><br>// <span class="hljs-built_in">index</span>.ts(<span class="hljs-number">4</span>,<span class="hljs-number">1</span>): error TS2346: Supplied parameters <span class="hljs-keyword">do</span> not match <span class="hljs-built_in">any</span> signature of <span class="hljs-keyword">call</span> <span class="hljs-keyword">target</span>.<br></code></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="函数表达式的类型加注"><a href="#函数表达式的类型加注" class="headerlink" title="函数表达式的类型加注"></a>函数表达式的类型加注</h3><p> 函数表达式相较于函数声明式是比较复杂的，首先是因为在赋值表达式两边都有字符，实际上如果在函数表达式左侧不对类型加以约束，在编译过程是可以通过的。 为了严谨，需要在函数左侧也加以类型约束。 通过类似于ES6中的箭头函数的样式，来表示函数左侧的样式，当然其本质还是不同的，在 TypeScript 的类型定义中，=&gt; 用来表示函数的定义，左边是输入类型，需要用括号括起来，右边是输出类型。</p>
- <figure class="highlight typescript"><table><tr><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">let</span> mySum: <span class="hljs-function">(<span class="hljs-params">x: <span class="hljs-built_in">number</span>, y: <span class="hljs-built_in">number</span></span>) =&gt;</span> <span class="hljs-built_in">number</span> = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x: <span class="hljs-built_in">number</span>, y: <span class="hljs-built_in">number</span></span>): <span class="hljs-title">number</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> x + y;<br>&#125;;<br></code></pre></td></tr></table></figure>
-
-<p> 当然为了代码的可读性，也可以采用接口的方式定义函数</p>
- <figure class="highlight typescript"><table><tr><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">interface</span> SearchFunc &#123;<br>  (source: <span class="hljs-built_in">string</span>,<span class="hljs-attr">subString</span>: <span class="hljs-built_in">string</span>): <span class="hljs-built_in">boolean</span>;<br>&#125;<br><br><span class="hljs-keyword">let</span> mySrarch: SearchFunc;<br><br>mySearch = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">source: <span class="hljs-built_in">string</span>, subString: <span class="hljs-built_in">string</span></span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> source.search(subString) !== -<span class="hljs-number">1</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<blockquote>
-<p><font color=tomato>难点：用接口定义函数的理解</font><br>   <strong><font color=orange>怎么理解用typescript接口定义函数</font></strong><br>  <a href="https://www.cnblogs.com/wjaaron/p/12851994.html">typescript定义函数类型</a></p>
-</blockquote>
-<blockquote>
-<p>个人理解：在定义接口的时候，因为是应用于函数的接口定义，所以左侧是函数的参数类型，通过冒号连接右侧的，实际是表示函数的类型的值，相当于用  “=&gt;” 在函数表达式中的实现方式，应该是一种约定的方式。</p>
-</blockquote>
-<p>前文提到：在没有使用可选参数的情况下，对于函数而言，在输入端多输入参数或者是少输入参数都会产生错误，在使用<strong>可选参数</strong>时，可以放松一些对于函数输入的要求，但是也有限制。</p>
-<figure class="highlight nginx"><table><tr><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">function</span> buildName(firstName: string, <span class="hljs-literal">last</span>Name?: string) &#123;<br>    <span class="hljs-attribute">if</span> (<span class="hljs-literal">last</span>Name) &#123;<br>        <span class="hljs-attribute">return</span> firstName + <span class="hljs-string">&#x27; &#x27;</span> + <span class="hljs-literal">last</span>Name;<br>    &#125; <span class="hljs-section">else</span> &#123;<br>        <span class="hljs-attribute">return</span> firstName;<br>    &#125;<br>&#125;<br><span class="hljs-attribute">let</span> tomcat = buildName(<span class="hljs-string">&#x27;Tom&#x27;</span>, <span class="hljs-string">&#x27;Cat&#x27;</span>);<br><span class="hljs-attribute">let</span> tom = buildName(<span class="hljs-string">&#x27;Tom&#x27;</span>);<br></code></pre></td></tr></table></figure>
-
-
-<p><font color=#d76b26 >可选参数后面不允许再出现必需参数了：</font></p>
-<figure class="highlight typescript"><table><tr><td class="code"><pre><code class="hljs typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">buildName</span>(<span class="hljs-params">firstName?: <span class="hljs-built_in">string</span>, lastName: <span class="hljs-built_in">string</span></span>) </span>&#123;<br>    <span class="hljs-keyword">if</span> (firstName) &#123;<br>        <span class="hljs-keyword">return</span> firstName + <span class="hljs-string">&#x27; &#x27;</span> + lastName;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-keyword">return</span> lastName;<br>    &#125;<br>&#125;<br><span class="hljs-keyword">let</span> tomcat = buildName(<span class="hljs-string">&#x27;Tom&#x27;</span>, <span class="hljs-string">&#x27;Cat&#x27;</span>);<br><span class="hljs-keyword">let</span> tom = buildName(<span class="hljs-literal">undefined</span>, <span class="hljs-string">&#x27;Tom&#x27;</span>);<br><br><span class="hljs-comment">// index.ts(1,40): error TS1016: A required parameter cannot follow an optional parameter.</span><br></code></pre></td></tr></table></figure>
-
-<h3 id="参数默认值"><a href="#参数默认值" class="headerlink" title="参数默认值"></a>参数默认值</h3><p>在ES6中允许给函数的参数设置默认值，在typescript会将具有默认值的参数识别为可选参数，</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs tsx">function buildName(firstName: string, lastName: string = &#x27;Cat&#x27;) &#123;<br>    return firstName + &#x27; &#x27; + lastName;<br>&#125;<br>let tomcat = buildName(&#x27;Tom&#x27;, &#x27;Cat&#x27;);<br>console.log(tomcat);<br>let tom = buildName(&#x27;Tom&#x27;);<br>...<br></code></pre></td></tr></table></figure>
-
-<p><a href="https://www.typescriptlang.org/zh/play?ssl=7&ssc=17&pln=1&pc=1#code/GYVwdgxgLglg9mABAIxDANgEwHIEMC2ApgBTAwBOAzlHkQFyLXkxgDmANIurtbYQ0xatEAXkQByAMK4o4gJSIA3gFgAUIg2JyhKCHJIyVGgUKIA1BMsXuvEwG41AXzXodiKHHwQZolGix8xOIAKp7inFIy8g6qEAiUcK4AdOhwrMQeXjJyMa5Q7p6+qBg4JkGh+NFqcWAJyanpmXJAA">可选参数在后</a></p>
-<p>此时就不受「<font color=purple>可选参数必须接在必需参数后面</font>」的限制了：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs tsx">function buildName(firstName: string = &#x27;Tom&#x27;, lastName: string) &#123;<br>    return firstName + &#x27; &#x27; + lastName;<br>&#125;<br>let tomcat = buildName(&#x27;Tom&#x27;, &#x27;Cat&#x27;);<br>console.log(tomcat);<br>let cat = buildName(undefined, &#x27;Cat&#x27;);<br>console.log(cat);<br></code></pre></td></tr></table></figure>
-
-<p><a href="https://www.typescriptlang.org/zh/play?ssl=7&ssc=18&pln=1&pc=1#code/GYVwdgxgLglg9mABAIxDANgEwHIEMC2ApgBTAwBOAzlHkQFyLXkxgDmiAvIgOQAqc+bgBpE6XNVqEGTFqwCUiAN4BYAFCINicoSghySMlRoFCiANQ9LFsRJMBuNQF816HYigCIuKJxRosksR8AsI8AMLe3HIOqhAIlHCuAHTocKzEHvheUNEubtm+qBg4JsTgmIRkYISYItwRUFExcWAJyanp2dFAA">可选参数在前</a></p>
-<h3 id="剩余参数"><a href="#剩余参数" class="headerlink" title="剩余参数"></a><font color=tomato>剩余参数</font></h3><p>剩余参数，rest后面不能再有其他参数了，表示除了之前的参数外的其余的所有参数。<a href="https://es6.ruanyifeng.com/#docs/function#rest-%E5%8F%82%E6%95%B0">ES6-剩余参数</a></p>
-<figure class="highlight actionscript"><table><tr><td class="code"><pre><code class="hljs actionscript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">push</span><span class="hljs-params">(array: any[], <span class="hljs-rest_arg">...items</span>: any[])</span> </span>&#123;<br>    items.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(item)</span> </span>&#123;<br>        array.push(item);<br>    &#125;);<br>&#125;<br><br>let a:any[]= [];   <span class="hljs-comment">// 在这里，a元素在被赋值为[]时，隐式的具有any[]类型.</span><br>push(a, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>);<br>console.log(a)<br></code></pre></td></tr></table></figure>
-
-<p>它定义了一个push函数，能将其参数加入到一个数组中。</p>
-<h3 id="重载"><a href="#重载" class="headerlink" title="重载"></a><a href="http://ts.xcatliu.com/basics/type-of-function.html"><font color=chocolate>重载</font></a></h3><pre><code> 对于文章中的重载不是很理解，因为JavaScript是没有重载这一概念的，
-</code></pre>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs tsx">function reverse(x: number): number;<br>function reverse(x: string): string;<br>function reverse(x: number | string): number | string | void &#123;<br>    if (typeof x === &#x27;number&#x27;) &#123;<br>        return Number(x.to...<br></code></pre></td></tr></table></figure>
-
-<p><a href="https://www.typescriptlang.org/zh/play#code/GYVwdgxgLglg9mABAJwKYDdXIM6oBQAeAXImCALYBGWAlCWVVgNwCwAUKJLAihlroRLYoyGGADmdRMNETWHcNHhI0mHPmKkK1ZIgA+0kWMn1tWfYdniL6ODAAmiAN7tEbxDGCI8UAJ4AHVDgvAkQAXgjEAHIGHSiaZ1d3ZLQoEGQkADkzZEIAOig4AGUjCTwaPOx-ABsYKDwo+LzVfnwKgCs7MAb4mnlkgF9EVGrcDy8fAKCQ8MiomWN4xLZklNQ0jMQCSpq6noqW9XK8zrF9-vcB9gGgA">Playground Link</a></p>
 ]]></content>
       <categories>
-        <category>TypeScript</category>
+        <category>hexo</category>
       </categories>
       <tags>
-        <tag>TypeScript</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -746,7 +798,7 @@ function doDecrypt (pwd, onError) {
 	}
 }
 </script>
-<div id="enc_content" style="display:none">U2FsdGVkX1/KCUBuaCGp9FJe9Zf7fm+UwM0JOR/kln5ONbBMG9EBeAv82sUZHm/lsSRG1Vtw4XdpQ4hA0W04URlLaeghjdwJvLxQfDmXEGlUYKjodZQl6KTxJsNs4FfZnJvih6LHZ+Ae6VTFt7PnaClMR3Pcd+SKcTdvnFHT8u+TpFsc28Ox6SwvYTwMQ8j/LlJ7qLjTGDXKMAjH6T1MbycKn+CnpDIrKbY6+l44ss/zr56p6KjrV7fLsEg+DxGQGulZfvOV5rCt7qD3VAsm5NEJlUbzAUmBo5nr+k/pk/Ng6Unc8ewcEkBkiC0AL8FMebuDv3+i3fgNQIcb1GaTK9w3E8gaVatV19gFKdJRBQm6V8dGnOY7fcZAefFt4i3s69o0kf+Ywhw1j0D9p8MCNqqB+cScImufJFSrPpLMo6uLG9XouIgFhINiluJEZYzyOXDgRxffPHnuCYCFZlBck7ajHMfPcVdYVTFZU+o1X8lGauydY3DdsA67qCsxA6xpWNJDBS0+WahkIJgl643aGJXLVXMU7mwKhc8scthXBeImCPdM89dbtMSUSuUqBIW8yC8khHaE/6ryF5PoqnEzwDyfVKSdHXJCOE9RKMHKmisfqe8oaHiSV22+r1FoPhPNJjykzSt4CmzaeSGPx43z0RKDESvPe4IcqCjP5wmaa4EcQ7a8/0NTxLmuZNMC/CWGm+OmDhRUJdFbeRBVNiwhFCESI9ccWzoAzQLesovDPaU/GsJ6TNHJHSNPzkGbOT9ToCeIZ6/N3gywA2VOgOzeWllUu27hqP3S64tgMJiWi5ft03etD45YChAPBiqi//MWD7fhf9swZ7i5CRMi81/TByppzqsL65Q2ZaoArZsjOdjBZB377aNjdpG5mjjBKirP1bMOn+IDpmnF4mkgae27GoxQqBbfo2BFj4Q7i5TWCNGVKztCLkFfnbTCMBs8UxZQDp97SdKjtvKr1TC+ZYe1RFEmmLFYeKCn0To6kHRinVCCZfUznFnnLiF+MTIpLvs8VBhaDJf4X6cvYfsOJDdXw3ypbaXUNUvuwH90CHl43Vi9zSsPBFZZgYzgNK03Swpld4LCBNmoRkoyIqVdK6liRZ/3O35Imp5sqCW9JHc66MWsfUWcO29WAM6rOZstTPjIKhiKXsDVtu21QJsp3dqjYVfna5ZsLwS6wkagXBt/SpgC6jqhF8w28+R/o2Z98/ZMg2TKE56l3SR8ZTMh1O9/lRs9dGWB1OU2wd9Jd5S/SWmoGtNm5gUOfN5/kB0q+TU0od27QQSFFyet8TN+sCmGKqwO+2zW0OpYXGfVRd8g/cwP45AU4+zIDsntKNNmN6O8E5WdYg0nnBumOrYf+E1AbaWtXydB1g1QvZC0kNfvlYcIAM4fzNBtm97FD08pYwEBJLoHnTohXyQXLfFmc+DJbFlT70+2cE6yELk1mNT57ngMsNCtVTMOGgrUWk1hX+suwmH2/FKHmUkVGs/u0qJCf/fORoPzNADMKfAOc0eOZff9OstS1YyQLGciPiEL2KEQg5WHRbeUTIxi2i3jRv4x9R+Roq6OWGEXVaCvKzwg0ZOHUaHMFVA0Mzc/0WWTpBFf4FSBLExI97RW+lxlIAnPOd5yTAyU+AEsycx5y4qw9YaCTT8f1LPq955yMhe29v4mX4zvet7v1IYqG0SQzEc0WocFtC9qhX4sVy9v+fytkHi2U7Lt9two6FH0nHke/6SsnuUpg6zr2+ieO5I7MpdTt4O5oHureuAGKiNzHF5lysFT0nuSazqAMo2FNm7zrJVtWtXXoZBtmXdP1IINgRXIUOCanMJC2gx0tkA/VSQQS/zVvfbkRSnn3ZhhDaGoqZYx+h7tgQY2EESaZmmPrqIxRCAj2J5lUbkDEj+HlbaJfqSuzHDmaH195/LUZ2HNlYwA3H98AF+iD4DGHBi00aSQ685psXd3DJV7YSgWsk/SJvfEHh3yIwtCi2GZe0RQTm6d4Xh5Z8xtZOMFbU2buKpCQ42Z2r1cy8ELi4I8eLcz2y+cZVnFwqSWPqt93jlM+3hEhmDALSirsNDQ1U5PAKhRFQ==</div>
+<div id="enc_content" style="display:none">U2FsdGVkX1+fUm/aSthkDPh8+oziPoEKBl7CKq6NZwRuhmiKM9UPvTOHAZu2KwnFZur1POC0X6imy7i4XnYEBvi2CZHFIp5MqU2u7XuXs0boTXx9PYdORFAjQguzgtZgODFjsxdceOgkTzDD1kczfJrHus552FMX/G3PZEhEZEt0pN7MWCZwu9pJaZtDvh7OKZKVtPZsnjV9er4x/uxWzkkpwGMeAXETbwmISIwM2fTvavXVMP3mKD/Ed7mjG3pH4RSchsFsz2TxoJzZQeFOhl2CHt2BcYoJ/1hAJCAFBbWIZBxOgpd/hMPkz600NcHMLTHRxsbcuzG9ZXo+T3fTbwLcvtXsjw+fl/jBGbSs81Xo6cUPeDpKulrPiNhxGmyYVNIpfnhYvQXMR8eL37kS+nXLmq8JXQ3AmwloueDg+aprPP6wdE6FJ9IwnMPswCkjsf9heduH5PcOrUq93KYHsZmvToUXBqEvrfVFNXVxPrju/D/bYO770v/XVAKBKnlFAmg0Qpr+iCO8oIZ18N73cKtDYhLhcHQrEUafoFHLz/BB2mzuWxXp2kyAu/kVfOMeztjfNHQ8C7oVW3PlMiRf6AxbRSlR/i3EFrlIhByQ4WWSGBMuN2D3QeOd9hvcssIio0RM1kmJdq1WaEec3/NDewXBy4hV0KzLfw9Z9785UASkDd8UQvUXwQBHj21VNmFVzFD52EHbLfw9OozrytC0YZBw4O7UkMwzh4Qq//1PgWRYWOjFfIGbNkltxm9NCbvS2sDNa8lI2flC8oQ6AnKfM8G2QUc9Y7qBifuPYSmmMsD57W2GuSxuQpjpalIxDvQTgC8yTRDGhxPBABtH2z5LSkWmVZ2hInZdt7OdfzyhQF0CfEOk5LoA0UE/6GrJRF7O7NWvVI6x+ke7hOiGtxnDJCaTPTdbKAEuPVcuJBK6sSPKc3HmQEpaOi7O6s5L8PDOj1vbz5fc1BjJ9kqHuJ+ByEdU8FvvBSFtKiZ+ZkWv8CK6fKXKk1pgEiCqYB6qYjVHYwhFcFvSFNOtKutd7jEx+vXRCIKit8YdO1Rbb0AkTWFmxyHvTxc7i9Nu3Iov/uN0k19THzF4F9svCW00MctRWPwaaVdL1P7fgXBH/ZqOpjpVh0lDeERk+VLb0/ubp7DZNkpsl/oIvq1vDG6VMCNDwRKEcSc6kN95To8O+wKyaFQCCJKiYgnhCodUssjHs52GmbOn3XncS/NlvS7/75r4UpcGrBuuYriJQYFY95EC+VHjnhuNLetTkJEIan8c8N8mXfrrdPBtLAaPMpymKInZ8Qjc8oDvzTPUuFCKY9JXTSUu+RZhwBlZWpDO+JYSwQy5ko6tRs/U7qCWEFC8yaeg03rFx6vBOtQbgjbyhGJYMkBKFlTY2uDKzLaokTK3bt/Aa48Ue6WxU5/EuiNSSI4aGHe9DnXs6JY+JTdkSfgLHD43DCMHUdZyNFq0vP86bv/hay0uB+KJ3qZmT0lDe8n0DMTb8tL6lhejn4f/sPMzw064OSjuO3RHAnKzn9DnTtb7Do8TS346lvG0D6ZPupYa4bSGbzGr1zJxOCsjxfd7ppI/E121C/IrPd4+azTlj0I0tn7kT/FIn4F6EDFMoP1VH5obq4pDu6EEjn8+6j56dQqZYONvGoo+vrIn9aM2Lh6epslCsVIB9s/WVBLWRt0Iw8iNYJOWOTwdkCMDKyEVOr2ECP4guVSDkIu+gibdLcy/lnojPoSLXZZfDlBKzUPoie/g5KuiDEay30datuTH6N+a+CcO+n3odDhMDiUdC0hEA1zKndsbevacmfBl58lunLhpYeYX8asJBsbwXm6BfwOSDZ7Ai9gjUHgio3aWzKrUSlM4AMYGtfogWCOFGBnzFl2Pd7PP5Xetx6uYAjssfcM4Z3tFLJN8yPGQw+Rb8nrqDWbMBijQo6sMkxwN4GBkt1mCpjruLsedL6ff1HdyG9wbHyANGxRunTWmFSSycvDFeu+JMBu6jgvSBQB0rUFYVr17ysAvPaRdHCDQ50HcI7zA24PVFRBUZJgRUa+Gri/DRkyFmv//NiCu1PMlkxrUEw==</div>
 <div id="enc_passwd"> <input id="enc_pwd_input" type="password" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
 <script>
 var onError = function(error) {
@@ -764,6 +816,58 @@ doDecrypt(passwd, onError);
       </categories>
       <tags>
         <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>learn react</title>
+    <url>/2021/04/24/uncategorized/c98970b16c20/</url>
+    <content><![CDATA[<h1 id="react-入门"><a href="#react-入门" class="headerlink" title="react 入门"></a>react 入门</h1><h2 id="react框架基本介绍"><a href="#react框架基本介绍" class="headerlink" title="react框架基本介绍"></a>react框架基本介绍</h2><p>   <a href="https://reactjs.org/">react官方</a></p>
+<h2 id="开发环境及脚手架安装"><a href="#开发环境及脚手架安装" class="headerlink" title="开发环境及脚手架安装"></a>开发环境及脚手架安装</h2><ul>
+<li>查看node版本<figure class="highlight crmsh"><table><tr><td class="code"><pre><code class="hljs crmsh"><span class="hljs-keyword">node</span> <span class="hljs-title">-v</span><br></code></pre></td></tr></table></figure>
+v14.16.0</li>
+<li>查看npm版本<figure class="highlight crmsh"><table><tr><td class="code"><pre><code class="hljs crmsh"><span class="hljs-keyword">node</span> <span class="hljs-title">-v</span><br></code></pre></td></tr></table></figure>
+6.14.11</li>
+<li>安装脚手架<figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> -g create-react-app<br></code></pre></td></tr></table></figure>
+cmd控制台反馈如下：<pre>
+C:\Users\18827\AppData\Roaming\npm\create-react-app -> C:\Users\18827\AppData\Roaming\npm\node_modules\create-react-app\index.js</li>
+</ul>
+<p><a href="mailto:&#43;&#x63;&#x72;&#101;&#97;&#116;&#x65;&#x2d;&#114;&#x65;&#97;&#x63;&#116;&#45;&#97;&#112;&#112;&#64;&#x34;&#x2e;&#48;&#46;&#x33;">&#43;&#x63;&#x72;&#101;&#97;&#116;&#x65;&#x2d;&#114;&#x65;&#97;&#x63;&#116;&#45;&#97;&#112;&#112;&#64;&#x34;&#x2e;&#48;&#46;&#x33;</a><br>added 67 packages from 25 contributors in 22.805s<br> </pre></p>
+<h2 id="创建项目文件夹，并开启demo"><a href="#创建项目文件夹，并开启demo" class="headerlink" title="创建项目文件夹，并开启demo"></a>创建项目文件夹，并开启demo</h2><ul>
+<li><p>在电脑桌面同时按下Windows+R进入输入cmd,按enter</p>
+</li>
+<li><p>进入某个盘   例如  M:</p>
+<figure class="highlight avrasm"><table><tr><td class="code"><pre><code class="hljs avrasm"><span class="hljs-symbol">m:</span><br></code></pre></td></tr></table></figure></li>
+<li><p>创建文件夹</p>
+   <figure class="highlight arduino"><table><tr><td class="code"><pre><code class="hljs arduino">mkdir ReactDemo<br></code></pre></td></tr></table></figure></li>
+<li><p>进入文件夹  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> ReactDemo<br></code></pre></td></tr></table></figure></li>
+<li><p>创建demo01</p>
+<figure class="highlight dsconfig"><table><tr><td class="code"><pre><code class="hljs dsconfig"><span class="hljs-built_in">create-react-app</span> <span class="hljs-string">demo01</span><br></code></pre></td></tr></table></figure></li>
+<li><p>控制台反馈</p>
+<span id="more"></span>
+<figure class="highlight sql"><table><tr><td class="code"><pre><code class="hljs sql"> Microsoft Windows [版本 <span class="hljs-number">10.0</span><span class="hljs-number">.19042</span><span class="hljs-number">.928</span>]<br>(c) Microsoft Corporation。保留所有权利。<br><br>C:\Users\<span class="hljs-number">18827</span><span class="hljs-operator">&gt;</span>m:<br><br>M:\<span class="hljs-operator">&gt;</span>mkdir ReactDemo<br><br>M:\<span class="hljs-operator">&gt;</span>cd ReactDemo<br><br>M:\ReactDemo<span class="hljs-operator">&gt;</span><span class="hljs-keyword">create</span><span class="hljs-operator">-</span>react<span class="hljs-operator">-</span>app demo01<br><br>Creating a <span class="hljs-keyword">new</span> React app <span class="hljs-keyword">in</span> M:\ReactDemo\demo01.<br><br>Installing packages. This might take a couple <span class="hljs-keyword">of</span> minutes.<br>Installing react, react<span class="hljs-operator">-</span>dom, <span class="hljs-keyword">and</span> react<span class="hljs-operator">-</span>scripts <span class="hljs-keyword">with</span> cra<span class="hljs-operator">-</span>template...<br><br>yarn <span class="hljs-keyword">add</span> v1<span class="hljs-number">.22</span><span class="hljs-number">.10</span><br>[<span class="hljs-number">1</span><span class="hljs-operator">/</span><span class="hljs-number">4</span>] Resolving packages...<br>[<span class="hljs-number">2</span><span class="hljs-operator">/</span><span class="hljs-number">4</span>] Fetching packages...<br>info fsevents<span class="hljs-variable">@1</span><span class="hljs-number">.2</span><span class="hljs-number">.13</span>: The platform &quot;win32&quot; <span class="hljs-keyword">is</span> incompatible <span class="hljs-keyword">with</span> this module.<br>info &quot;fsevents@1.2.13&quot; <span class="hljs-keyword">is</span> an optional dependency <span class="hljs-keyword">and</span> failed compatibility check. Excluding it <span class="hljs-keyword">from</span> installation.<br>info fsevents<span class="hljs-variable">@2</span><span class="hljs-number">.3</span><span class="hljs-number">.2</span>: The platform &quot;win32&quot; <span class="hljs-keyword">is</span> incompatible <span class="hljs-keyword">with</span> this module.<br>info &quot;fsevents@2.3.2&quot; <span class="hljs-keyword">is</span> an optional dependency <span class="hljs-keyword">and</span> failed compatibility check. Excluding it <span class="hljs-keyword">from</span> installation.<br>[<span class="hljs-number">3</span><span class="hljs-operator">/</span><span class="hljs-number">4</span>] Linking dependencies...<br>warning &quot;react-scripts &gt; @typescript-eslint/eslint-plugin &gt; tsutils@3.20.0&quot; has unmet peer dependency &quot;typescript@&gt;=2.8.0 || &gt;= 3.2.0-dev || &gt;= 3.3.0-dev || &gt;= 3.4.0-dev || &gt;= 3.5.0-dev || &gt;= 3.6.0-dev || &gt;= 3.6.0-beta || &gt;= 3.7.0-dev || &gt;= 3.7.0-beta&quot;.<br>[<span class="hljs-number">4</span><span class="hljs-operator">/</span><span class="hljs-number">4</span>] Building fresh packages...<br>success Saved lockfile.<br>success Saved <span class="hljs-number">7</span> <span class="hljs-keyword">new</span> dependencies.<br>info Direct dependencies<br>├─ cra<span class="hljs-operator">-</span>template<span class="hljs-variable">@1</span><span class="hljs-number">.1</span><span class="hljs-number">.2</span><br>├─ react<span class="hljs-operator">-</span>dom<span class="hljs-variable">@17</span><span class="hljs-number">.0</span><span class="hljs-number">.2</span><br>├─ react<span class="hljs-operator">-</span>scripts<span class="hljs-variable">@4</span><span class="hljs-number">.0</span><span class="hljs-number">.3</span><br>└─ react<span class="hljs-variable">@17</span><span class="hljs-number">.0</span><span class="hljs-number">.2</span><br>info <span class="hljs-keyword">All</span> dependencies<br>├─ cra<span class="hljs-operator">-</span>template<span class="hljs-variable">@1</span><span class="hljs-number">.1</span><span class="hljs-number">.2</span><br>├─ immer<span class="hljs-variable">@8</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span><br>├─ react<span class="hljs-operator">-</span>dev<span class="hljs-operator">-</span>utils<span class="hljs-variable">@11</span><span class="hljs-number">.0</span><span class="hljs-number">.4</span><br>├─ react<span class="hljs-operator">-</span>dom<span class="hljs-variable">@17</span><span class="hljs-number">.0</span><span class="hljs-number">.2</span><br>├─ react<span class="hljs-operator">-</span>scripts<span class="hljs-variable">@4</span><span class="hljs-number">.0</span><span class="hljs-number">.3</span><br>├─ react<span class="hljs-variable">@17</span><span class="hljs-number">.0</span><span class="hljs-number">.2</span><br>└─ scheduler<span class="hljs-variable">@0</span><span class="hljs-number">.20</span><span class="hljs-number">.2</span><br>Done <span class="hljs-keyword">in</span> <span class="hljs-number">241.60</span>s.<br><br>Initialized a git repository.<br><br>Installing template dependencies <span class="hljs-keyword">using</span> yarnpkg...<br>yarn <span class="hljs-keyword">add</span> v1<span class="hljs-number">.22</span><span class="hljs-number">.10</span><br>[<span class="hljs-number">1</span><span class="hljs-operator">/</span><span class="hljs-number">4</span>] Resolving packages...<br>[<span class="hljs-number">2</span><span class="hljs-operator">/</span><span class="hljs-number">4</span>] Fetching packages...<br>info fsevents<span class="hljs-variable">@2</span><span class="hljs-number">.3</span><span class="hljs-number">.2</span>: The platform &quot;win32&quot; <span class="hljs-keyword">is</span> incompatible <span class="hljs-keyword">with</span> this module.<br>info &quot;fsevents@2.3.2&quot; <span class="hljs-keyword">is</span> an optional dependency <span class="hljs-keyword">and</span> failed compatibility check. Excluding it <span class="hljs-keyword">from</span> installation.<br>info fsevents<span class="hljs-variable">@1</span><span class="hljs-number">.2</span><span class="hljs-number">.13</span>: The platform &quot;win32&quot; <span class="hljs-keyword">is</span> incompatible <span class="hljs-keyword">with</span> this module.<br>info &quot;fsevents@1.2.13&quot; <span class="hljs-keyword">is</span> an optional dependency <span class="hljs-keyword">and</span> failed compatibility check. Excluding it <span class="hljs-keyword">from</span> installation.<br>[<span class="hljs-number">3</span><span class="hljs-operator">/</span><span class="hljs-number">4</span>] Linking dependencies...<br>warning &quot;react-scripts &gt; @typescript-eslint/eslint-plugin &gt; tsutils@3.20.0&quot; has unmet peer dependency &quot;typescript@&gt;=2.8.0 || &gt;= 3.2.0-dev || &gt;= 3.3.0-dev || &gt;= 3.4.0-dev || &gt;= 3.5.0-dev || &gt;= 3.6.0-dev || &gt;= 3.6.0-beta || &gt;= 3.7.0-dev || &gt;= 3.7.0-beta&quot;.<br>warning &quot; &gt; @testing-library/user-event@12.8.3&quot; has unmet peer dependency &quot;@testing-library/dom@&gt;=7.21.4&quot;.<br>[<span class="hljs-number">4</span><span class="hljs-operator">/</span><span class="hljs-number">4</span>] Building fresh packages...<br>success Saved lockfile.<br>success Saved <span class="hljs-number">17</span> <span class="hljs-keyword">new</span> dependencies.<br>info Direct dependencies<br>├─ <span class="hljs-variable">@testing</span><span class="hljs-operator">-</span>library<span class="hljs-operator">/</span>jest<span class="hljs-operator">-</span>dom<span class="hljs-variable">@5</span><span class="hljs-number">.12</span><span class="hljs-number">.0</span><br>├─ <span class="hljs-variable">@testing</span><span class="hljs-operator">-</span>library<span class="hljs-operator">/</span>react<span class="hljs-variable">@11</span><span class="hljs-number">.2</span><span class="hljs-number">.6</span><br>├─ <span class="hljs-variable">@testing</span><span class="hljs-operator">-</span>library<span class="hljs-operator">/</span><span class="hljs-keyword">user</span><span class="hljs-operator">-</span>event<span class="hljs-variable">@12</span><span class="hljs-number">.8</span><span class="hljs-number">.3</span><br>├─ react<span class="hljs-operator">-</span>dom<span class="hljs-variable">@17</span><span class="hljs-number">.0</span><span class="hljs-number">.2</span><br>├─ react<span class="hljs-variable">@17</span><span class="hljs-number">.0</span><span class="hljs-number">.2</span><br>└─ web<span class="hljs-operator">-</span>vitals<span class="hljs-variable">@1</span><span class="hljs-number">.1</span><span class="hljs-number">.1</span><br>info <span class="hljs-keyword">All</span> dependencies<br>├─ <span class="hljs-variable">@testing</span><span class="hljs-operator">-</span>library<span class="hljs-operator">/</span>dom<span class="hljs-variable">@7</span><span class="hljs-number">.30</span><span class="hljs-number">.4</span><br>├─ <span class="hljs-variable">@testing</span><span class="hljs-operator">-</span>library<span class="hljs-operator">/</span>jest<span class="hljs-operator">-</span>dom<span class="hljs-variable">@5</span><span class="hljs-number">.12</span><span class="hljs-number">.0</span><br>├─ <span class="hljs-variable">@testing</span><span class="hljs-operator">-</span>library<span class="hljs-operator">/</span>react<span class="hljs-variable">@11</span><span class="hljs-number">.2</span><span class="hljs-number">.6</span><br>├─ <span class="hljs-variable">@testing</span><span class="hljs-operator">-</span>library<span class="hljs-operator">/</span><span class="hljs-keyword">user</span><span class="hljs-operator">-</span>event<span class="hljs-variable">@12</span><span class="hljs-number">.8</span><span class="hljs-number">.3</span><br>├─ <span class="hljs-variable">@types</span><span class="hljs-operator">/</span>aria<span class="hljs-operator">-</span>query<span class="hljs-variable">@4</span><span class="hljs-number">.2</span><span class="hljs-number">.1</span><br>├─ <span class="hljs-variable">@types</span><span class="hljs-operator">/</span>jest<span class="hljs-variable">@26</span><span class="hljs-number">.0</span><span class="hljs-number">.22</span><br>├─ <span class="hljs-variable">@types</span><span class="hljs-operator">/</span>testing<span class="hljs-operator">-</span>library__jest<span class="hljs-operator">-</span>dom<span class="hljs-variable">@5</span><span class="hljs-number">.9</span><span class="hljs-number">.5</span><br>├─ css.escape<span class="hljs-variable">@1</span><span class="hljs-number">.5</span><span class="hljs-number">.1</span><br>├─ css<span class="hljs-variable">@3</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span><br>├─ dom<span class="hljs-operator">-</span>accessibility<span class="hljs-operator">-</span>api<span class="hljs-variable">@0</span><span class="hljs-number">.5</span><span class="hljs-number">.4</span><br>├─ lz<span class="hljs-operator">-</span>string<span class="hljs-variable">@1</span><span class="hljs-number">.4</span><span class="hljs-number">.4</span><br>├─ min<span class="hljs-operator">-</span>indent<span class="hljs-variable">@1</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span><br>├─ react<span class="hljs-operator">-</span>dom<span class="hljs-variable">@17</span><span class="hljs-number">.0</span><span class="hljs-number">.2</span><br>├─ react<span class="hljs-variable">@17</span><span class="hljs-number">.0</span><span class="hljs-number">.2</span><br>├─ redent<span class="hljs-variable">@3</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span><br>├─ strip<span class="hljs-operator">-</span>indent<span class="hljs-variable">@3</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span><br>└─ web<span class="hljs-operator">-</span>vitals<span class="hljs-variable">@1</span><span class="hljs-number">.1</span><span class="hljs-number">.1</span><br>Done <span class="hljs-keyword">in</span> <span class="hljs-number">22.61</span>s.<br>Removing template package <span class="hljs-keyword">using</span> yarnpkg...<br><br>yarn remove v1<span class="hljs-number">.22</span><span class="hljs-number">.10</span><br>[<span class="hljs-number">1</span><span class="hljs-operator">/</span><span class="hljs-number">2</span>] Removing <span class="hljs-keyword">module</span> cra<span class="hljs-operator">-</span>template...<br>[<span class="hljs-number">2</span><span class="hljs-operator">/</span><span class="hljs-number">2</span>] Regenerating lockfile <span class="hljs-keyword">and</span> installing missing dependencies...<br>info fsevents<span class="hljs-variable">@2</span><span class="hljs-number">.3</span><span class="hljs-number">.2</span>: The platform &quot;win32&quot; <span class="hljs-keyword">is</span> incompatible <span class="hljs-keyword">with</span> this module.<br>info &quot;fsevents@2.3.2&quot; <span class="hljs-keyword">is</span> an optional dependency <span class="hljs-keyword">and</span> failed compatibility check. Excluding it <span class="hljs-keyword">from</span> installation.<br>info fsevents<span class="hljs-variable">@1</span><span class="hljs-number">.2</span><span class="hljs-number">.13</span>: The platform &quot;win32&quot; <span class="hljs-keyword">is</span> incompatible <span class="hljs-keyword">with</span> this module.<br>info &quot;fsevents@1.2.13&quot; <span class="hljs-keyword">is</span> an optional dependency <span class="hljs-keyword">and</span> failed compatibility check. Excluding it <span class="hljs-keyword">from</span> installation.<br>warning &quot; &gt; @testing-library/user-event@12.8.3&quot; has unmet peer dependency &quot;@testing-library/dom@&gt;=7.21.4&quot;.<br>warning &quot;react-scripts &gt; @typescript-eslint/eslint-plugin &gt; tsutils@3.20.0&quot; has unmet peer dependency &quot;typescript@&gt;=2.8.0 || &gt;= 3.2.0-dev || &gt;= 3.3.0-dev || &gt;= 3.4.0-dev || &gt;= 3.5.0-dev || &gt;= 3.6.0-dev || &gt;= 3.6.0-beta || &gt;= 3.7.0-dev || &gt;= 3.7.0-beta&quot;.<br>success Uninstalled packages.<br>Done <span class="hljs-keyword">in</span> <span class="hljs-number">11.76</span>s.<br><br>Created git commit.<br><br>Success<span class="hljs-operator">!</span> Created demo01 <span class="hljs-keyword">at</span> M:\ReactDemo\demo01<br>Inside that directory, you can run several commands:<br><br>  yarn <span class="hljs-keyword">start</span><br>    Starts the development server.<br><br>  yarn build<br>    Bundles the app <span class="hljs-keyword">into</span> <span class="hljs-keyword">static</span> files <span class="hljs-keyword">for</span> production.<br><br>  yarn test<br>    Starts the test runner.<br><br>  yarn eject<br>    Removes this tool <span class="hljs-keyword">and</span> copies build dependencies, configuration files<br>    <span class="hljs-keyword">and</span> scripts <span class="hljs-keyword">into</span> the app directory. If you do this, you can’t go back<span class="hljs-operator">!</span><br><br>We suggest that you <span class="hljs-keyword">begin</span> <span class="hljs-keyword">by</span> typing:<br><br>  cd demo01<br>  yarn <span class="hljs-keyword">start</span><br><br>Happy hacking<span class="hljs-operator">!</span><br></code></pre></td></tr></table></figure>
+<h3 id="记录一下yarn相关指令"><a href="#记录一下yarn相关指令" class="headerlink" title="记录一下yarn相关指令"></a>记录一下yarn相关指令</h3><p>Inside that directory, you can run several commands:</p>
+<figure class="highlight crmsh"><table><tr><td class="code"><pre><code class="hljs crmsh">yarn <span class="hljs-literal">start</span><br></code></pre></td></tr></table></figure>
+<p>Starts the development server.</p>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">yarn build</span><br></code></pre></td></tr></table></figure>
+<p>Bundles the app into static files for production.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">yarn <span class="hljs-built_in">test</span><br></code></pre></td></tr></table></figure>
+<p>Starts the test runner.</p>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">yarn eject</span><br></code></pre></td></tr></table></figure>
+<p>Removes this tool and copies build dependencies, configuration files and scripts into the app directory. If you do this, you can’t go back!</p>
+<h2 id="按照提示指令启动项目"><a href="#按照提示指令启动项目" class="headerlink" title="按照提示指令启动项目"></a>按照提示指令启动项目</h2><figure class="highlight dos"><table><tr><td class="code"><pre><code class="hljs dos"><span class="hljs-built_in">cd</span> demo01<br>  yarn <span class="hljs-built_in">start</span><br></code></pre></td></tr></table></figure></li>
+<li><p>控制台反馈<br>Compiled successfully!</p>
+</li>
+</ul>
+<p>You can now view demo01 in the browser.</p>
+<p>  Local:            <a href="http://localhost:3000/">http://localhost:3000</a><br>  On Your Network:  <a href="http://192.168.5.23:3000/">http://192.168.5.23:3000</a></p>
+<p>Note that the development build is not optimized.<br>To create a production build, use yarn build.</p>
+<ul>
+<li>点击上述任一链接即可看到、即说明项目demo搭建成功！<br><img src="https://gitee.com/mhist/hexo-image/raw/master/img/ReactDemo-20210424120256.gif" alt="ReactDemo"></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>react</tag>
       </tags>
   </entry>
   <entry>
@@ -831,129 +935,264 @@ SELECT brand,AVG(price) FROM `product` WHERE score > 7.5 GROUP BY brand;
       </tags>
   </entry>
   <entry>
-    <title>关于开始搭建hexo博客这件事</title>
-    <url>/2021/04/20/hexo/5fcb7dadb6f9/</url>
-    <content><![CDATA[<h1 id="hexo个人博客搭建"><a href="#hexo个人博客搭建" class="headerlink" title="hexo个人博客搭建"></a>hexo个人博客搭建</h1><h2 id="为什么会搭建hexo博客"><a href="#为什么会搭建hexo博客" class="headerlink" title="为什么会搭建hexo博客"></a>为什么会搭建hexo博客</h2><p>  原因：<br>    1.用于前端学习记录、且便于复习，因为经过加工一次的比外来搜索的资料来说更容易让大脑快速识别与利用。<br>    2.阿里云轻量级WordPress服务器对非在校生的优惠终止，且个人网站将于2021年5月份到期，这是我的个人WordPress博客链接 <a href="http://www.codetotoro.cn/">www.codetotoro.cn</a>，同时因为服务器类型的缘故，按照提交工单时工作人员的说法，相关的数据迁移是无法进行的，除非是继续续费。<br>    3.部署方便且相关的学习教程更多，且官方的教程及相应的主题教程很全面，同时社区活跃，搭建博客的相关配置包括hexo editor都很容易找到，最重要的是部署方便，且bug很少，即使是使用外置主题，而且配置的修改采用注释/取消注释的方式进行，方便日后修改，而不用每次都需要根据官方文档再去配置，省去了很多麻烦。<br>  <span id="more"></span></p>
-<h2 id="搭建博客的相关教程"><a href="#搭建博客的相关教程" class="headerlink" title="搭建博客的相关教程"></a>搭建博客的相关教程</h2><h3 id="视频教程"><a href="#视频教程" class="headerlink" title="视频教程"></a>视频教程</h3><p>  来自哔哩哔哩up-codesheep的视频教程，讲解细致全面<br>  <a href="https://www.bilibili.com/video/BV1Yb411a7ty/?spm_id_from=333.788.recommend_more_video.0">手把手教你从0开始搭建自己的个人博客 |无坑版视频教程| hexo</a><br>  学习笔记<br>  <pre><br>  ---    #安装Nodejs<br>node -v    #查看node版本<br>npm -v    #查看npm版本<br>npm install -g cnpm --registry=<a href="http://registry.npm.taobao.org/">http://registry.npm.taobao.org</a>    #安装淘宝的cnpm 管理器<br>cnpm -v    #查看cnpm版本<br>cnpm install -g hexo-cli    #安装hexo框架<br>hexo -v    #查看hexo版本<br>mkdir blog    #创建blog目录<br>cd blog     #进入blog目录<br>sudo hexo init     #生成博客 初始化博客<br>hexo s    #启动本地博客服务<br><a href="http://localhost:4000/">http://localhost:4000/</a>    #本地访问地址<br>hexo n 我的第一篇文章 #创建新的文章<br>#返回blog目录<br>hexo clean #清理<br>hexo g #生成<br>#Github创建一个新的仓库 YourGithubName.github.io<br>#在blog目录下安装git部署插件<br>   cnpm install --save hexo-deployer-git </p>
-<hr>
-<h2 id="配置-config-yml"><a href="#配置-config-yml" class="headerlink" title="#配置_config.yml "></a>#配置_config.yml </h2><pre><code># Deployment
-## Docs: https://hexo.io/docs/deployment.html
-deploy:
-      type: git
-     repo: https://github.com/YourGithubName/YourGithubName.github.io.git
-      branch: master
-</code></pre>
-<hr>
-<p>hexo d    #部署到Github仓库里<br><a href="https://yourgithubname.github.io/">https://YourGithubName.github.io/</a>  #访问这个地址可以查看博客</p>
-<p> git clone <a href="https://github.com/litten/hexo-theme-yilia.git">https://github.com/litten/hexo-theme-yilia.git</a> themes/yilia  #下载yilia主题到本地</p>
-<p>#修改hexo根目录下的 _config.yml 文件 ： theme: yilia</p>
-<p>hexo c    #清理一下<br>hexo g    #生成<br>hexo s    #启动本地博客服务<br><a href="http://localhost:4000/">http://localhost:4000/</a>    #本地访问地址<br>hexo d    #部署到远程Github仓库<br><a href="https://yourgithubname.github.io/">https://YourGithubName.github.io/</a>  #查看博客<br>  </pre></p>
-<hr>
-<h3 id="官方文档及next主题官方文档"><a href="#官方文档及next主题官方文档" class="headerlink" title="官方文档及next主题官方文档"></a>官方文档及next主题官方文档</h3><p> 1.<a href="https://hexo.io/zh-cn/docs/">hexo文档</a><br> 2.<a href="http://theme-next.iissnan.com/getting-started.html">hexo-next主题文档</a></p>
-<h2 id="博客的后续配置"><a href="#博客的后续配置" class="headerlink" title="博客的后续配置"></a>博客的后续配置</h2><p>  博客中有很多可用于拓展的地方，暂时还有很多不太了解，但是可以满足日常的写作需求以及部署，此处用于记录对于配置方面的自己的一些理解。</p>
-<h3 id="配置-config-yml，gitee-github简单修改实现双部署"><a href="#配置-config-yml，gitee-github简单修改实现双部署" class="headerlink" title="配置_config.yml，gitee/github简单修改实现双部署"></a>配置_config.yml，gitee/github简单修改实现双部署</h3><pre><code>#配置_config.yml 
-</code></pre>
-<hr>
-<pre><code># Deployment
-## Docs: https://hexo.io/docs/deployment.html
-deploy:
-      type: git
-     repo: 
-        gitee: https://gitee.com/mhist/mhist.git
-    #https://github.com/Mhist/Mhist.github.io.git 
-    #github
-      branch: master
-</code></pre>
-<p>—–以上代码是我在实践过程中发现的一点，因为在github上是可以做到自动部署的，可是因为防火墙的原因导致访问经常失败，而gitee作为国内的github，访问速度是很快的，只是部署的时候需要手动更新，因为自动更新部署是要收费的。<br>    以上代码的使用方式是在repo中：<br>    1.部署到gitee时，按照hexo c; hexo g; hexo s; hexo d，然后到码云的位置点击更新即可。<img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210421013409-giteePagesUpdateButton.png" alt="gitee pages update button">，然后可访问域名：<a href="https://mhist.gitee.io/">https://mhist.gitee.io/</a><br>    2.部署到github时，将gitee所在行用#注释掉即可，同时取消gitee下一行的#注释，按照hexo c; hexo g; hexo s; hexo d即可。然后可访问域名：<a href="https://mhist.github.io/">https://mhist.github.io/</a></p>
-<h2 id="图床的设置"><a href="#图床的设置" class="headerlink" title="图床的设置"></a>图床的设置</h2><p>  作为使用Markdown来编辑文档的人来说，拥有一个好的图床是非常必要的。通过图床我们可以很好的管理我们的博客图片，同时能在多方正确显示。</p>
-<h3 id="图床分类"><a href="#图床分类" class="headerlink" title="图床分类"></a>图床分类</h3><p>  现在比较流行的图床有很多，包括SM.MS图床、腾讯云cos、github图床、七牛云图床、Imgur图床、阿里云COS、又拍云图床、gitee。但同时具有安全、经济、使用方便、访问高速等多种优点的解决方案还是要数基于picgo+gitee的解决方案.</p>
-<h3 id="picgo"><a href="#picgo" class="headerlink" title="picgo"></a>picgo</h3><p>  picgo是一款基于桌面端图床工具，方便我们对接本地和远程仓库，同时快速获取链接，同时支持链接的Markdown、HTML、URL、UBB、Custom等五种格式的选择，同时可以支持插件以丰富软件功能。<br>  推荐两个配置教程：</p>
+    <title>mysql-语句</title>
+    <url>/2021/11/12/mysql/de9d27f5d5d1/</url>
+    <content><![CDATA[<h1 id="终端操作缺陷"><a href="#终端操作缺陷" class="headerlink" title="终端操作缺陷"></a>终端操作缺陷</h1><p><a href="http://wakeweb.cloud/2021/11/12/mysql/ab03683a0789/">参考终端进行数据库操作文章</a></p>
 <ol>
-<li><a href="https://blog.csdn.net/disILLL/article/details/103962241?utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.control&dist_request_id=1332024.918.16189409573562535&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.control">配置教程1</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/128014135">配置教程2—插件</a></li>
-<li><a href="https://github.com/Molunerfinn/PicGo/releases">picgo的github链接</a></li>
-<li>picgo Windows <a href="https://pan.baidu.com/s/1y_yn9dl5aEAGHBX2c2KDPA">PicGo-Setup-2.3.0-beta.5.exe</a> 提取码：hexo</li>
+<li>语句无高亮，并且无任何提示</li>
+<li>复杂的语句分成多行，格式不美观，且输入容易出错</li>
+<li>终端查看所有的数据库和数据时不方便</li>
 </ol>
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>nginx部署</title>
-    <url>/2023/04/28/nginx/cc389d1d1416/</url>
-    <content><![CDATA[<h1 id="nginx部署"><a href="#nginx部署" class="headerlink" title="nginx部署"></a>nginx部署</h1><p>基于腾讯云服务器centos系统：</p>
-<p>云服务登录用户名：urz9g98m<br>云服务登录密码：********</p>
-<h1 id="nginx配置文件"><a href="#nginx配置文件" class="headerlink" title="nginx配置文件"></a>nginx配置文件</h1><h1 id="基于宝塔可视化面板"><a href="#基于宝塔可视化面板" class="headerlink" title="基于宝塔可视化面板"></a>基于宝塔可视化面板</h1><h2 id="1-登录云服务进入首页、进入nginx"><a href="#1-登录云服务进入首页、进入nginx" class="headerlink" title="1.登录云服务进入首页、进入nginx"></a>1.登录云服务进入首页、进入nginx</h2><p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20230428153359%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BFnginx.png" alt="宝塔面板nginx"></p>
-<h2 id="2-进行配置文件修改"><a href="#2-进行配置文件修改" class="headerlink" title="2.进行配置文件修改"></a>2.进行配置文件修改</h2><figure class="highlight nginx"><table><tr><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">user</span>  www www;<br><span class="hljs-attribute">worker_processes</span> auto;<br><span class="hljs-attribute">error_log</span>  /www/wwwlogs/nginx_error.log  <span class="hljs-literal">crit</span>;<br><span class="hljs-attribute">pid</span>        /www/server/nginx/logs/nginx.pid;<br><span class="hljs-attribute">worker_rlimit_nofile</span> <span class="hljs-number">51200</span>;<br><br><span class="hljs-section">events</span><br>    &#123;<br>        <span class="hljs-attribute">use</span> <span class="hljs-literal">epoll</span>;<br>        <span class="hljs-attribute">worker_connections</span> <span class="hljs-number">51200</span>;<br>        <span class="hljs-attribute">multi_accept</span> <span class="hljs-literal">on</span>;<br>    &#125;<br><br><span class="hljs-section">http</span><br>    &#123;<br>        <span class="hljs-attribute">include</span>       mime.types;<br>		<span class="hljs-comment">#include luawaf.conf;</span><br><br>		<span class="hljs-attribute">include</span> proxy.conf;<br><br>        <span class="hljs-attribute">default_type</span>  application/octet-stream;<br><br>        <span class="hljs-attribute">server_names_hash_bucket_size</span> <span class="hljs-number">512</span>;<br>        <span class="hljs-attribute">client_header_buffer_size</span> <span class="hljs-number">32k</span>;<br>        <span class="hljs-attribute">large_client_header_buffers</span> <span class="hljs-number">4</span> <span class="hljs-number">32k</span>;<br>        <span class="hljs-attribute">client_max_body_size</span> <span class="hljs-number">50m</span>;<br><br>        <span class="hljs-attribute">sendfile</span>   <span class="hljs-literal">on</span>;<br>        <span class="hljs-attribute">tcp_nopush</span> <span class="hljs-literal">on</span>;<br><br>        <span class="hljs-attribute">keepalive_timeout</span> <span class="hljs-number">60</span>;<br><br>        <span class="hljs-attribute">tcp_nodelay</span> <span class="hljs-literal">on</span>;<br><br>        <span class="hljs-attribute">fastcgi_connect_timeout</span> <span class="hljs-number">300</span>;<br>        <span class="hljs-attribute">fastcgi_send_timeout</span> <span class="hljs-number">300</span>;<br>        <span class="hljs-attribute">fastcgi_read_timeout</span> <span class="hljs-number">300</span>;<br>        <span class="hljs-attribute">fastcgi_buffer_size</span> <span class="hljs-number">64k</span>;<br>        <span class="hljs-attribute">fastcgi_buffers</span> <span class="hljs-number">4</span> <span class="hljs-number">64k</span>;<br>        <span class="hljs-attribute">fastcgi_busy_buffers_size</span> <span class="hljs-number">128k</span>;<br>        <span class="hljs-attribute">fastcgi_temp_file_write_size</span> <span class="hljs-number">256k</span>;<br>		<span class="hljs-attribute">fastcgi_intercept_errors</span> <span class="hljs-literal">on</span>;<br><br>        <span class="hljs-attribute">gzip</span> <span class="hljs-literal">on</span>;<br>        <span class="hljs-attribute">gzip_min_length</span>  <span class="hljs-number">1k</span>;<br>        <span class="hljs-attribute">gzip_buffers</span>     <span class="hljs-number">4</span> <span class="hljs-number">16k</span>;<br>        <span class="hljs-attribute">gzip_http_version</span> <span class="hljs-number">1</span>.<span class="hljs-number">1</span>;<br>        <span class="hljs-attribute">gzip_comp_level</span> <span class="hljs-number">2</span>;<br>        <span class="hljs-attribute">gzip_types</span>     text/plain application/javascript application/x-javascript text/javascript text/css application/xml;<br>        <span class="hljs-attribute">gzip_vary</span> <span class="hljs-literal">on</span>;<br>        <span class="hljs-attribute">gzip_proxied</span>   expired <span class="hljs-literal">no</span>-cache <span class="hljs-literal">no</span>-store private auth;<br>        <span class="hljs-attribute">gzip_disable</span>   <span class="hljs-string">&quot;MSIE [1-6]\.&quot;</span>;<br><br>        <span class="hljs-attribute">limit_conn_zone</span> $binary_remote_addr zone=perip:<span class="hljs-number">10m</span>;<br>		<span class="hljs-attribute">limit_conn_zone</span> $server_name zone=perserver:<span class="hljs-number">10m</span>;<br><br>        <span class="hljs-attribute">server_tokens</span> <span class="hljs-literal">off</span>;<br>        <span class="hljs-attribute">access_log</span> <span class="hljs-literal">off</span>;<br><br><span class="hljs-section">server</span><br>    &#123;<br>        <span class="hljs-attribute">listen</span> <span class="hljs-number">80</span>;<br>        <span class="hljs-attribute">server_name</span> localhost;<br>        <span class="hljs-attribute">index</span> index.html index.htm index.php;<br>        <span class="hljs-attribute">root</span>  /www/server/phpmyadmin;<br>            <span class="hljs-attribute">location</span> \\x7e /tmp/ &#123;<br>                <span class="hljs-attribute">return</span> <span class="hljs-number">403</span>;<br>            &#125;<br><br>        <span class="hljs-comment">#error_page   404   /404.html;</span><br>        <span class="hljs-attribute">include</span> enable-php.conf;<br>        <br>        <span class="hljs-attribute">location</span> / &#123;<br>          <span class="hljs-attribute">proxy_pass</span> http://localhost:8666;<br>        &#125;<br>        <br>        <span class="hljs-attribute">location</span> \x7e .*\.(gif|jpg|jpeg|png|bmp|swf)$<br>        &#123;<br>            <span class="hljs-attribute">expires</span>      <span class="hljs-number">30d</span>;<br>        &#125;<br><br>        <span class="hljs-attribute">location</span> <span class="hljs-regexp">~ .*\.(js|css)?$</span><br>        &#123;<br>            <span class="hljs-attribute">expires</span>      <span class="hljs-number">12h</span>;<br>        &#125;<br><br>        <span class="hljs-attribute">location</span> <span class="hljs-regexp">~ /\.</span><br>        &#123;<br>            <span class="hljs-attribute">deny</span> all;<br>        &#125;<br><br>        <span class="hljs-attribute">access_log</span>  /www/wwwlogs/access.log;<br>    &#125;<br>    <br><span class="hljs-attribute">include</span> /www/server/panel/vhost/nginx/<span class="hljs-regexp">*.conf</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h1 id="基于文件夹寻找nginx存储的文件夹命名"><a href="#基于文件夹寻找nginx存储的文件夹命名" class="headerlink" title="基于文件夹寻找nginx存储的文件夹命名"></a>基于文件夹寻找nginx存储的文件夹命名</h1><p>上述nginx配置文件中，可以包含某个文件夹所有的conf文件，所以可以根据不同的部署项目进行区分，防止一个文件过于耦合。</p>
-<p>nginx文件夹默认的存储位置为：/www/server/panel/vhost/nginx</p>
-<p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20230428154513nginx%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.png" alt="nginx配置文件"></p>
-<figure class="highlight gradle"><table><tr><td class="code"><pre><code class="hljs gradle">server &#123;<br>    listen <span class="hljs-number">82</span>;<br>    location / &#123;<br>        root <span class="hljs-regexp">/www/</span>wwwroot<span class="hljs-regexp">/element-plus/</span>doc-archive-main; # 将 <span class="hljs-regexp">/www/</span>wwwroot<span class="hljs-regexp">/element-plus/</span>doc-archive-main 替换为您部署文档静态资源的目录<br>        index index.html;<br>    &#125;<br>    <br>&#125;<br>server &#123;<br>    listen <span class="hljs-number">84</span>;<br>    location / &#123;<br>        root <span class="hljs-regexp">/www/</span>wwwroot<span class="hljs-regexp">/hexo-new/</span><span class="hljs-keyword">public</span>; # 将 <span class="hljs-regexp">/www/</span>wwwroot<span class="hljs-regexp">/hexo-new/</span><span class="hljs-keyword">public</span> 替换为您部署文档静态资源的目录<br>        index index.html;<br>    &#125;<br>    <br>&#125;<br><br><br></code></pre></td></tr></table></figure>
-
-<h2 id="松耦合的配置方式"><a href="#松耦合的配置方式" class="headerlink" title="松耦合的配置方式"></a>松耦合的配置方式</h2><p>正常情况下，应该是区分成 element-plus.conf , hexo-new.conf, 此处文件比较简单，暂时未分开。<br><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20230428155236%E6%9D%BE%E8%80%A6%E5%90%88nginx%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.png" alt="整合起来的conf文件"></p>
-<h2 id="重启nginx，项目依然可以正常运行"><a href="#重启nginx，项目依然可以正常运行" class="headerlink" title="重启nginx，项目依然可以正常运行"></a>重启nginx，项目依然可以正常运行</h2><p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20230428155838nginx%E9%83%A8%E7%BD%B2element-plus.png" alt="nginx部署element-plus"></p>
-]]></content>
-      <categories>
-        <category>nginx</category>
-      </categories>
-      <tags>
-        <tag>nginx</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>learn react</title>
-    <url>/2021/04/24/uncategorized/c98970b16c20/</url>
-    <content><![CDATA[<h1 id="react-入门"><a href="#react-入门" class="headerlink" title="react 入门"></a>react 入门</h1><h2 id="react框架基本介绍"><a href="#react框架基本介绍" class="headerlink" title="react框架基本介绍"></a>react框架基本介绍</h2><p>   <a href="https://reactjs.org/">react官方</a></p>
-<h2 id="开发环境及脚手架安装"><a href="#开发环境及脚手架安装" class="headerlink" title="开发环境及脚手架安装"></a>开发环境及脚手架安装</h2><ul>
-<li>查看node版本<figure class="highlight crmsh"><table><tr><td class="code"><pre><code class="hljs crmsh"><span class="hljs-keyword">node</span> <span class="hljs-title">-v</span><br></code></pre></td></tr></table></figure>
-v14.16.0</li>
-<li>查看npm版本<figure class="highlight crmsh"><table><tr><td class="code"><pre><code class="hljs crmsh"><span class="hljs-keyword">node</span> <span class="hljs-title">-v</span><br></code></pre></td></tr></table></figure>
-6.14.11</li>
-<li>安装脚手架<figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> -g create-react-app<br></code></pre></td></tr></table></figure>
-cmd控制台反馈如下：<pre>
-C:\Users\18827\AppData\Roaming\npm\create-react-app -> C:\Users\18827\AppData\Roaming\npm\node_modules\create-react-app\index.js</li>
-</ul>
-<p><a href="mailto:&#x2b;&#x63;&#114;&#x65;&#x61;&#x74;&#101;&#45;&#x72;&#x65;&#x61;&#99;&#x74;&#x2d;&#97;&#112;&#x70;&#64;&#52;&#x2e;&#48;&#x2e;&#51;">&#x2b;&#x63;&#114;&#x65;&#x61;&#x74;&#101;&#45;&#x72;&#x65;&#x61;&#99;&#x74;&#x2d;&#97;&#112;&#x70;&#64;&#52;&#x2e;&#48;&#x2e;&#51;</a><br>added 67 packages from 25 contributors in 22.805s<br> </pre></p>
-<h2 id="创建项目文件夹，并开启demo"><a href="#创建项目文件夹，并开启demo" class="headerlink" title="创建项目文件夹，并开启demo"></a>创建项目文件夹，并开启demo</h2><ul>
-<li><p>在电脑桌面同时按下Windows+R进入输入cmd,按enter</p>
+<h1 id="GUI工具"><a href="#GUI工具" class="headerlink" title="GUI工具"></a>GUI工具</h1><p>为了解决上述问题，可以采用以下几款：</p>
+<ol>
+<li>Navicat: 推荐使用，不过需要付费，但是又免费的试用时间，应付学习足够了。</li>
+<li>SQLYog: 一款免费的SQL工具</li>
+<li>TablePlus:常用功能都可以使用，但是会有一些限制（例如：只能开两个标签页）</li>
+</ol>
+<h1 id="mysql-语句"><a href="#mysql-语句" class="headerlink" title="mysql 语句"></a>mysql 语句</h1><p>sql(structured Query Language) —结构化查询语言</p>
+<h2 id="sql语句的常用规范"><a href="#sql语句的常用规范" class="headerlink" title="sql语句的常用规范"></a>sql语句的常用规范</h2><ol>
+<li><p>通常关键字是大写的，比如CREATE,TABLE,SHOW等等。</p>
 </li>
-<li><p>进入某个盘   例如  M:</p>
-<figure class="highlight avrasm"><table><tr><td class="code"><pre><code class="hljs avrasm"><span class="hljs-symbol">m:</span><br></code></pre></td></tr></table></figure></li>
-<li><p>创建文件夹</p>
-   <figure class="highlight arduino"><table><tr><td class="code"><pre><code class="hljs arduino">mkdir ReactDemo<br></code></pre></td></tr></table></figure></li>
-<li><p>进入文件夹  </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> ReactDemo<br></code></pre></td></tr></table></figure></li>
-<li><p>创建demo01</p>
-<figure class="highlight dsconfig"><table><tr><td class="code"><pre><code class="hljs dsconfig"><span class="hljs-built_in">create-react-app</span> <span class="hljs-string">demo01</span><br></code></pre></td></tr></table></figure></li>
-<li><p>控制台反馈</p>
-<span id="more"></span>
-<figure class="highlight sql"><table><tr><td class="code"><pre><code class="hljs sql"> Microsoft Windows [版本 <span class="hljs-number">10.0</span><span class="hljs-number">.19042</span><span class="hljs-number">.928</span>]<br>(c) Microsoft Corporation。保留所有权利。<br><br>C:\Users\<span class="hljs-number">18827</span><span class="hljs-operator">&gt;</span>m:<br><br>M:\<span class="hljs-operator">&gt;</span>mkdir ReactDemo<br><br>M:\<span class="hljs-operator">&gt;</span>cd ReactDemo<br><br>M:\ReactDemo<span class="hljs-operator">&gt;</span><span class="hljs-keyword">create</span><span class="hljs-operator">-</span>react<span class="hljs-operator">-</span>app demo01<br><br>Creating a <span class="hljs-keyword">new</span> React app <span class="hljs-keyword">in</span> M:\ReactDemo\demo01.<br><br>Installing packages. This might take a couple <span class="hljs-keyword">of</span> minutes.<br>Installing react, react<span class="hljs-operator">-</span>dom, <span class="hljs-keyword">and</span> react<span class="hljs-operator">-</span>scripts <span class="hljs-keyword">with</span> cra<span class="hljs-operator">-</span>template...<br><br>yarn <span class="hljs-keyword">add</span> v1<span class="hljs-number">.22</span><span class="hljs-number">.10</span><br>[<span class="hljs-number">1</span><span class="hljs-operator">/</span><span class="hljs-number">4</span>] Resolving packages...<br>[<span class="hljs-number">2</span><span class="hljs-operator">/</span><span class="hljs-number">4</span>] Fetching packages...<br>info fsevents<span class="hljs-variable">@1</span><span class="hljs-number">.2</span><span class="hljs-number">.13</span>: The platform &quot;win32&quot; <span class="hljs-keyword">is</span> incompatible <span class="hljs-keyword">with</span> this module.<br>info &quot;fsevents@1.2.13&quot; <span class="hljs-keyword">is</span> an optional dependency <span class="hljs-keyword">and</span> failed compatibility check. Excluding it <span class="hljs-keyword">from</span> installation.<br>info fsevents<span class="hljs-variable">@2</span><span class="hljs-number">.3</span><span class="hljs-number">.2</span>: The platform &quot;win32&quot; <span class="hljs-keyword">is</span> incompatible <span class="hljs-keyword">with</span> this module.<br>info &quot;fsevents@2.3.2&quot; <span class="hljs-keyword">is</span> an optional dependency <span class="hljs-keyword">and</span> failed compatibility check. Excluding it <span class="hljs-keyword">from</span> installation.<br>[<span class="hljs-number">3</span><span class="hljs-operator">/</span><span class="hljs-number">4</span>] Linking dependencies...<br>warning &quot;react-scripts &gt; @typescript-eslint/eslint-plugin &gt; tsutils@3.20.0&quot; has unmet peer dependency &quot;typescript@&gt;=2.8.0 || &gt;= 3.2.0-dev || &gt;= 3.3.0-dev || &gt;= 3.4.0-dev || &gt;= 3.5.0-dev || &gt;= 3.6.0-dev || &gt;= 3.6.0-beta || &gt;= 3.7.0-dev || &gt;= 3.7.0-beta&quot;.<br>[<span class="hljs-number">4</span><span class="hljs-operator">/</span><span class="hljs-number">4</span>] Building fresh packages...<br>success Saved lockfile.<br>success Saved <span class="hljs-number">7</span> <span class="hljs-keyword">new</span> dependencies.<br>info Direct dependencies<br>├─ cra<span class="hljs-operator">-</span>template<span class="hljs-variable">@1</span><span class="hljs-number">.1</span><span class="hljs-number">.2</span><br>├─ react<span class="hljs-operator">-</span>dom<span class="hljs-variable">@17</span><span class="hljs-number">.0</span><span class="hljs-number">.2</span><br>├─ react<span class="hljs-operator">-</span>scripts<span class="hljs-variable">@4</span><span class="hljs-number">.0</span><span class="hljs-number">.3</span><br>└─ react<span class="hljs-variable">@17</span><span class="hljs-number">.0</span><span class="hljs-number">.2</span><br>info <span class="hljs-keyword">All</span> dependencies<br>├─ cra<span class="hljs-operator">-</span>template<span class="hljs-variable">@1</span><span class="hljs-number">.1</span><span class="hljs-number">.2</span><br>├─ immer<span class="hljs-variable">@8</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span><br>├─ react<span class="hljs-operator">-</span>dev<span class="hljs-operator">-</span>utils<span class="hljs-variable">@11</span><span class="hljs-number">.0</span><span class="hljs-number">.4</span><br>├─ react<span class="hljs-operator">-</span>dom<span class="hljs-variable">@17</span><span class="hljs-number">.0</span><span class="hljs-number">.2</span><br>├─ react<span class="hljs-operator">-</span>scripts<span class="hljs-variable">@4</span><span class="hljs-number">.0</span><span class="hljs-number">.3</span><br>├─ react<span class="hljs-variable">@17</span><span class="hljs-number">.0</span><span class="hljs-number">.2</span><br>└─ scheduler<span class="hljs-variable">@0</span><span class="hljs-number">.20</span><span class="hljs-number">.2</span><br>Done <span class="hljs-keyword">in</span> <span class="hljs-number">241.60</span>s.<br><br>Initialized a git repository.<br><br>Installing template dependencies <span class="hljs-keyword">using</span> yarnpkg...<br>yarn <span class="hljs-keyword">add</span> v1<span class="hljs-number">.22</span><span class="hljs-number">.10</span><br>[<span class="hljs-number">1</span><span class="hljs-operator">/</span><span class="hljs-number">4</span>] Resolving packages...<br>[<span class="hljs-number">2</span><span class="hljs-operator">/</span><span class="hljs-number">4</span>] Fetching packages...<br>info fsevents<span class="hljs-variable">@2</span><span class="hljs-number">.3</span><span class="hljs-number">.2</span>: The platform &quot;win32&quot; <span class="hljs-keyword">is</span> incompatible <span class="hljs-keyword">with</span> this module.<br>info &quot;fsevents@2.3.2&quot; <span class="hljs-keyword">is</span> an optional dependency <span class="hljs-keyword">and</span> failed compatibility check. Excluding it <span class="hljs-keyword">from</span> installation.<br>info fsevents<span class="hljs-variable">@1</span><span class="hljs-number">.2</span><span class="hljs-number">.13</span>: The platform &quot;win32&quot; <span class="hljs-keyword">is</span> incompatible <span class="hljs-keyword">with</span> this module.<br>info &quot;fsevents@1.2.13&quot; <span class="hljs-keyword">is</span> an optional dependency <span class="hljs-keyword">and</span> failed compatibility check. Excluding it <span class="hljs-keyword">from</span> installation.<br>[<span class="hljs-number">3</span><span class="hljs-operator">/</span><span class="hljs-number">4</span>] Linking dependencies...<br>warning &quot;react-scripts &gt; @typescript-eslint/eslint-plugin &gt; tsutils@3.20.0&quot; has unmet peer dependency &quot;typescript@&gt;=2.8.0 || &gt;= 3.2.0-dev || &gt;= 3.3.0-dev || &gt;= 3.4.0-dev || &gt;= 3.5.0-dev || &gt;= 3.6.0-dev || &gt;= 3.6.0-beta || &gt;= 3.7.0-dev || &gt;= 3.7.0-beta&quot;.<br>warning &quot; &gt; @testing-library/user-event@12.8.3&quot; has unmet peer dependency &quot;@testing-library/dom@&gt;=7.21.4&quot;.<br>[<span class="hljs-number">4</span><span class="hljs-operator">/</span><span class="hljs-number">4</span>] Building fresh packages...<br>success Saved lockfile.<br>success Saved <span class="hljs-number">17</span> <span class="hljs-keyword">new</span> dependencies.<br>info Direct dependencies<br>├─ <span class="hljs-variable">@testing</span><span class="hljs-operator">-</span>library<span class="hljs-operator">/</span>jest<span class="hljs-operator">-</span>dom<span class="hljs-variable">@5</span><span class="hljs-number">.12</span><span class="hljs-number">.0</span><br>├─ <span class="hljs-variable">@testing</span><span class="hljs-operator">-</span>library<span class="hljs-operator">/</span>react<span class="hljs-variable">@11</span><span class="hljs-number">.2</span><span class="hljs-number">.6</span><br>├─ <span class="hljs-variable">@testing</span><span class="hljs-operator">-</span>library<span class="hljs-operator">/</span><span class="hljs-keyword">user</span><span class="hljs-operator">-</span>event<span class="hljs-variable">@12</span><span class="hljs-number">.8</span><span class="hljs-number">.3</span><br>├─ react<span class="hljs-operator">-</span>dom<span class="hljs-variable">@17</span><span class="hljs-number">.0</span><span class="hljs-number">.2</span><br>├─ react<span class="hljs-variable">@17</span><span class="hljs-number">.0</span><span class="hljs-number">.2</span><br>└─ web<span class="hljs-operator">-</span>vitals<span class="hljs-variable">@1</span><span class="hljs-number">.1</span><span class="hljs-number">.1</span><br>info <span class="hljs-keyword">All</span> dependencies<br>├─ <span class="hljs-variable">@testing</span><span class="hljs-operator">-</span>library<span class="hljs-operator">/</span>dom<span class="hljs-variable">@7</span><span class="hljs-number">.30</span><span class="hljs-number">.4</span><br>├─ <span class="hljs-variable">@testing</span><span class="hljs-operator">-</span>library<span class="hljs-operator">/</span>jest<span class="hljs-operator">-</span>dom<span class="hljs-variable">@5</span><span class="hljs-number">.12</span><span class="hljs-number">.0</span><br>├─ <span class="hljs-variable">@testing</span><span class="hljs-operator">-</span>library<span class="hljs-operator">/</span>react<span class="hljs-variable">@11</span><span class="hljs-number">.2</span><span class="hljs-number">.6</span><br>├─ <span class="hljs-variable">@testing</span><span class="hljs-operator">-</span>library<span class="hljs-operator">/</span><span class="hljs-keyword">user</span><span class="hljs-operator">-</span>event<span class="hljs-variable">@12</span><span class="hljs-number">.8</span><span class="hljs-number">.3</span><br>├─ <span class="hljs-variable">@types</span><span class="hljs-operator">/</span>aria<span class="hljs-operator">-</span>query<span class="hljs-variable">@4</span><span class="hljs-number">.2</span><span class="hljs-number">.1</span><br>├─ <span class="hljs-variable">@types</span><span class="hljs-operator">/</span>jest<span class="hljs-variable">@26</span><span class="hljs-number">.0</span><span class="hljs-number">.22</span><br>├─ <span class="hljs-variable">@types</span><span class="hljs-operator">/</span>testing<span class="hljs-operator">-</span>library__jest<span class="hljs-operator">-</span>dom<span class="hljs-variable">@5</span><span class="hljs-number">.9</span><span class="hljs-number">.5</span><br>├─ css.escape<span class="hljs-variable">@1</span><span class="hljs-number">.5</span><span class="hljs-number">.1</span><br>├─ css<span class="hljs-variable">@3</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span><br>├─ dom<span class="hljs-operator">-</span>accessibility<span class="hljs-operator">-</span>api<span class="hljs-variable">@0</span><span class="hljs-number">.5</span><span class="hljs-number">.4</span><br>├─ lz<span class="hljs-operator">-</span>string<span class="hljs-variable">@1</span><span class="hljs-number">.4</span><span class="hljs-number">.4</span><br>├─ min<span class="hljs-operator">-</span>indent<span class="hljs-variable">@1</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span><br>├─ react<span class="hljs-operator">-</span>dom<span class="hljs-variable">@17</span><span class="hljs-number">.0</span><span class="hljs-number">.2</span><br>├─ react<span class="hljs-variable">@17</span><span class="hljs-number">.0</span><span class="hljs-number">.2</span><br>├─ redent<span class="hljs-variable">@3</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span><br>├─ strip<span class="hljs-operator">-</span>indent<span class="hljs-variable">@3</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span><br>└─ web<span class="hljs-operator">-</span>vitals<span class="hljs-variable">@1</span><span class="hljs-number">.1</span><span class="hljs-number">.1</span><br>Done <span class="hljs-keyword">in</span> <span class="hljs-number">22.61</span>s.<br>Removing template package <span class="hljs-keyword">using</span> yarnpkg...<br><br>yarn remove v1<span class="hljs-number">.22</span><span class="hljs-number">.10</span><br>[<span class="hljs-number">1</span><span class="hljs-operator">/</span><span class="hljs-number">2</span>] Removing <span class="hljs-keyword">module</span> cra<span class="hljs-operator">-</span>template...<br>[<span class="hljs-number">2</span><span class="hljs-operator">/</span><span class="hljs-number">2</span>] Regenerating lockfile <span class="hljs-keyword">and</span> installing missing dependencies...<br>info fsevents<span class="hljs-variable">@2</span><span class="hljs-number">.3</span><span class="hljs-number">.2</span>: The platform &quot;win32&quot; <span class="hljs-keyword">is</span> incompatible <span class="hljs-keyword">with</span> this module.<br>info &quot;fsevents@2.3.2&quot; <span class="hljs-keyword">is</span> an optional dependency <span class="hljs-keyword">and</span> failed compatibility check. Excluding it <span class="hljs-keyword">from</span> installation.<br>info fsevents<span class="hljs-variable">@1</span><span class="hljs-number">.2</span><span class="hljs-number">.13</span>: The platform &quot;win32&quot; <span class="hljs-keyword">is</span> incompatible <span class="hljs-keyword">with</span> this module.<br>info &quot;fsevents@1.2.13&quot; <span class="hljs-keyword">is</span> an optional dependency <span class="hljs-keyword">and</span> failed compatibility check. Excluding it <span class="hljs-keyword">from</span> installation.<br>warning &quot; &gt; @testing-library/user-event@12.8.3&quot; has unmet peer dependency &quot;@testing-library/dom@&gt;=7.21.4&quot;.<br>warning &quot;react-scripts &gt; @typescript-eslint/eslint-plugin &gt; tsutils@3.20.0&quot; has unmet peer dependency &quot;typescript@&gt;=2.8.0 || &gt;= 3.2.0-dev || &gt;= 3.3.0-dev || &gt;= 3.4.0-dev || &gt;= 3.5.0-dev || &gt;= 3.6.0-dev || &gt;= 3.6.0-beta || &gt;= 3.7.0-dev || &gt;= 3.7.0-beta&quot;.<br>success Uninstalled packages.<br>Done <span class="hljs-keyword">in</span> <span class="hljs-number">11.76</span>s.<br><br>Created git commit.<br><br>Success<span class="hljs-operator">!</span> Created demo01 <span class="hljs-keyword">at</span> M:\ReactDemo\demo01<br>Inside that directory, you can run several commands:<br><br>  yarn <span class="hljs-keyword">start</span><br>    Starts the development server.<br><br>  yarn build<br>    Bundles the app <span class="hljs-keyword">into</span> <span class="hljs-keyword">static</span> files <span class="hljs-keyword">for</span> production.<br><br>  yarn test<br>    Starts the test runner.<br><br>  yarn eject<br>    Removes this tool <span class="hljs-keyword">and</span> copies build dependencies, configuration files<br>    <span class="hljs-keyword">and</span> scripts <span class="hljs-keyword">into</span> the app directory. If you do this, you can’t go back<span class="hljs-operator">!</span><br><br>We suggest that you <span class="hljs-keyword">begin</span> <span class="hljs-keyword">by</span> typing:<br><br>  cd demo01<br>  yarn <span class="hljs-keyword">start</span><br><br>Happy hacking<span class="hljs-operator">!</span><br></code></pre></td></tr></table></figure>
-<h3 id="记录一下yarn相关指令"><a href="#记录一下yarn相关指令" class="headerlink" title="记录一下yarn相关指令"></a>记录一下yarn相关指令</h3><p>Inside that directory, you can run several commands:</p>
-<figure class="highlight crmsh"><table><tr><td class="code"><pre><code class="hljs crmsh">yarn <span class="hljs-literal">start</span><br></code></pre></td></tr></table></figure>
-<p>Starts the development server.</p>
-<figure class="highlight ebnf"><table><tr><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">yarn build</span><br></code></pre></td></tr></table></figure>
-<p>Bundles the app into static files for production.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">yarn <span class="hljs-built_in">test</span><br></code></pre></td></tr></table></figure>
-<p>Starts the test runner.</p>
-<figure class="highlight ebnf"><table><tr><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">yarn eject</span><br></code></pre></td></tr></table></figure>
-<p>Removes this tool and copies build dependencies, configuration files and scripts into the app directory. If you do this, you can’t go back!</p>
-<h2 id="按照提示指令启动项目"><a href="#按照提示指令启动项目" class="headerlink" title="按照提示指令启动项目"></a>按照提示指令启动项目</h2><figure class="highlight dos"><table><tr><td class="code"><pre><code class="hljs dos"><span class="hljs-built_in">cd</span> demo01<br>  yarn <span class="hljs-built_in">start</span><br></code></pre></td></tr></table></figure></li>
-<li><p>控制台反馈<br>Compiled successfully!</p>
+<li><p>一条语句结束后，需要以“；”结尾。</p>
 </li>
-</ul>
-<p>You can now view demo01 in the browser.</p>
-<p>  Local:            <a href="http://localhost:3000/">http://localhost:3000</a><br>  On Your Network:  <a href="http://192.168.5.23:3000/">http://192.168.5.23:3000</a></p>
-<p>Note that the development build is not optimized.<br>To create a production build, use yarn build.</p>
+<li><p>如果遇到关键字作为表明或者字段名称，可以用 <code> </code> 包裹。(类似es6中的模板字符串)</p>
+</li>
+</ol>
+<h2 id="sql语句分类"><a href="#sql语句分类" class="headerlink" title="sql语句分类"></a>sql语句分类</h2><ol>
+<li>DDL (Data Definition language) —数据定义语言</li>
+</ol>
 <ul>
-<li>点击上述任一链接即可看到、即说明项目demo搭建成功！<br><img src="https://gitee.com/mhist/hexo-image/raw/master/img/ReactDemo-20210424120256.gif" alt="ReactDemo"></li>
+<li>可以通过DDL语句对数据库或者表进行： 创建，删除，修改操作.</li>
 </ul>
+<ol start="2">
+<li>DML(Data Manipulation Language): 数据操作语言</li>
+</ol>
+<ul>
+<li>可以通过DML语句对表进行： 添加、删除、修改等操作.</li>
+</ul>
+<ol start="3">
+<li>DQL(Data Query Language): 数据查询语言</li>
+</ol>
+<ul>
+<li>可以通过DQL语句对表进行查询操作.</li>
+</ul>
+<ol start="4">
+<li>DCL(Data Control Language): 数据权限语言</li>
+</ol>
+<ul>
+<li>可以通过DCL语句对表权限等操作.</li>
+</ul>
+<h3 id="DDL数据库的操作—实践"><a href="#DDL数据库的操作—实践" class="headerlink" title="DDL数据库的操作—实践"></a>DDL数据库的操作—实践</h3><pre># 查看所有的数据
+SHOW DATABASES;
+
+# 选择某一个数据
+USE bili;
+
+#查看当前正在使用的数据库
+SELECT DATABASE();
+
+# 创建一个新的数据库
+-- CREATE DATABASE douyu;
+-- CREATE DATABASE IF NOT EXISTS douyu;
+
+CREATE DATABASE IF NOT EXISTS huya DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+
+
+# 删除数据库
+DROP DATABASE IF EXISTS douyu;
+
+# 修改数据库的编码
+
+ALTER DATABASE huya CHARACTER SET = utf8 COLLATE = utf8_unicode_ci;
+</pre>
+
+<h3 id="DDL-数据表的操作—实践"><a href="#DDL-数据表的操作—实践" class="headerlink" title="DDL-数据表的操作—实践"></a>DDL-数据表的操作—实践</h3><pre># 查看数据表
+SHOW TABLES;
+
+# 查看某一个表结构
+DESC users;
+
+# 创建数据表
+CREATE TABLE IF NOT EXISTS `test` (
+  `name` VARCHAR(20),
+    age INT,
+    height DOUBLE
+    );
+    
+# 删除表
+DROP TABLE IF EXISTS `test`;
+
+
+# 查看某一个表结构
+DESC students;
+</pre>
+
+<h3 id="DML-对数据库进行增删改—实践"><a href="#DML-对数据库进行增删改—实践" class="headerlink" title="DML-对数据库进行增删改—实践"></a>DML-对数据库进行增删改—实践</h3><pre>
+# 插入数据
+INSERT INTO `user` VALUES (110, 'why', '020-123456', '2020-10-20', '2020-11-11');
+
+
+-- INSERT INTO `user` (`name`, `telPhone`,`createTime`,`updateTime`)
+--                         VALUES ('paike','000-1111112','2020-10-10','2030-10-20');
+
+# 需求： createTime和updateTime可以自动设置值
+ALTER TABLE `user` MODIFY `createTime` TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+ALTER TABLE `user` MODIFY `updateTime` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+ON UPDATE CURRENT_TIMESTAMP;
+
+ INSERT INTO `user`    (`name`, `telPhone`)
+                    VALUES ('lilei3','000-1111116');
+                    
+                    
+# 删除数据
+# 删除所有数据
+DELETE FROM `user`;
+
+# 删除符合条件的数据
+DELETE FROM `user` WHERE id = 110;
+
+# 更新数据
+# 更新所有数据
+UPDATE `user` SET `name` = 'lily',telPhone = '010-110110';
+
+# 更新符合条件的数据
+UPDATE `user` SET `name` = 'lily',telPhone = '010-110110' WHERE id = 115;
+</pre>
+
+
+<h3 id="DQL-对数据库进行查询—实践"><a href="#DQL-对数据库进行查询—实践" class="headerlink" title="DQL-对数据库进行查询—实践"></a>DQL-对数据库进行查询—实践</h3><pre>
+
+</pre>
+
+<h4 id="分页查询"><a href="#分页查询" class="headerlink" title="分页查询"></a>分页查询</h4><p>当数据库中的数据非常多时，一次性查询到所有的将结果进行显示是不现实的；</p>
+<ol>
+<li><p>在真实开发中，我们都会要求用户传入offset、limit、或者page等字段</p>
+</li>
+<li><p>它们的目的是让我们可以在数据库中进行分页查询</p>
+</li>
+<li><p>它的用法有[LIMIT{[offset, row_count | row_count OFFSET offset]}]</p>
+</li>
+</ol>
+<h2 id="sql数据类型"><a href="#sql数据类型" class="headerlink" title="sql数据类型"></a><a href="https://dev.mysql.com/doc/refman/8.0/en/data-types.html">sql数据类型</a></h2><p><a href="https://www.runoob.com/mysql/mysql-data-types.html">开发可参考—菜鸟教程—数据类型及其范围</a></p>
+<h1 id="表约束"><a href="#表约束" class="headerlink" title="表约束"></a>表约束</h1><h2 id="主键：PRIMARY-KEY"><a href="#主键：PRIMARY-KEY" class="headerlink" title="主键：PRIMARY KEY"></a>主键：PRIMARY KEY</h2><p>一张表中，我们为了区分每一条记录的唯一性，必须有一个字段是永远不会重复，并且不为空的，这个字段我们通常会把它设置为主键：</p>
+<ul>
+<li><p>主键是表中唯一的索引；</p>
+</li>
+<li><p>并且必须是NOT NULL的，如果没有设置NOT NULL,那么MySQL也会隐式的设置为NOT NULL;</p>
+</li>
+<li><p>主键也可以是多列索引，PRIMARY KEY(key_part,…),我们一般称之为联合主键</p>
+</li>
+<li><p>建议：开发中主键字段应该是和业务无关的，尽量不要使用业务字段来作为主键。</p>
+</li>
+</ul>
+<h2 id="唯一：UNIQUE"><a href="#唯一：UNIQUE" class="headerlink" title="唯一：UNIQUE"></a>唯一：UNIQUE</h2><ul>
+<li>某些字段再开发过程中，我们希望是唯一的，不回重复的，比如手机号，身份证号，这个字段我们可以使用UNIQUE来约束。</li>
+<li>使用UNIQUE约束的字段在表中必须是不同的</li>
+<li>对于所有引擎，UNIQUE索引允许NULL包含的多个值NULL.</li>
+</ul>
+<h2 id="不能为空-NOT-NULL"><a href="#不能为空-NOT-NULL" class="headerlink" title="不能为空 NOT NULL"></a>不能为空 NOT NULL</h2><ul>
+<li>某些字段我们要求用户必须插入值，不可以为空，这个时候我们可以使用NOT NULL来约束</li>
+</ul>
+<h2 id="默认值-DEFAULT"><a href="#默认值-DEFAULT" class="headerlink" title="默认值 DEFAULT"></a>默认值 DEFAULT</h2><p>某些字段我们希望在没有设置值时给予一个默认值，这个时候我们可以使用DEFAULT来完成。</p>
+<h2 id="自动递增：-AUTO-INCREMENT"><a href="#自动递增：-AUTO-INCREMENT" class="headerlink" title="自动递增： AUTO_INCREMENT"></a>自动递增： AUTO_INCREMENT</h2><p>某些字段我们希望不设置值时可以进行递增，比如用户的id,这个时候我们可以使用Auto_INCREMENT来完成。<br>一般用于数字类型的描述。</p>
+<h2 id="外键约束（用于多表关系）"><a href="#外键约束（用于多表关系）" class="headerlink" title="外键约束（用于多表关系）"></a>外键约束（用于多表关系）</h2> <pre>
+CREATE TABLE IF NOT EXISTS `brand` (
+ id INT PRIMARY KEY AUTO_INCREMENT,
+ name VARCHAR(20) NOT NULL,
+ website VARCHAR(100),
+ phoneRank INT
+);
+
+INSERT INTO `brand` (name, website, phoneRank) VALUES('华为','www.huawei.com',2);
+INSERT INTO `brand` (name, website, phoneRank) VALUES('苹果','www.apple.com',10);
+INSERT INTO `brand` (name, website, phoneRank) VALUES('小米','www.mi.com',5);
+INSERT INTO `brand` (name, website, phoneRank) VALUES('OPPO','www.oppo.com',12);
+INSERT INTO `brand` (name, website, phoneRank) VALUES('京东','www.jd.com',8);
+INSERT INTO `brand` (name, website, phoneRank) VALUES('GOOGLE','www.google.com',9);
+
+
+# 如果在一张表中需要添加一个的字段，这个字段对应另外一张表的字段，并且想要对字段有所限制的时候，可以用外键  
+ALTER table `product` add `brand_id` int;
+ALTER TABLE `product` DROP  `brand_id`;
+# 真实开发会在建表的时候就将xxx设置为外键
+
+# 手动修改brand_id为外键
+ALTER TABLE `product` ADD FOREIGN KEY(brand_id) REFERENCES brand(id);
+
+# 设置brand_id的值
+UPDATE `product` SET `brand_id` = 1 WHERE brand = '华为';
+UPDATE `product` SET `brand_id` = 1 WHERE brand = '苹果'；
+UPDATE `product` SET `brand_id` = 1 WHERE brand = '小米'；
+UPDATE `product` SET `brand_id` = 1 WHERE brand = 'oppo'；
+
+# 3. 修改和删除外键引用的id
+UPDATE `brand` SET `id` = 100 WHERE `id` = 1;
+
+
+# 4. 修改brand_id关联外键时的action
+# 4.1 获取到目前的外键的名称
+SHOW CREATE TABLE `product`;
+
+-- CREATE TABLE `product` (
+--   `id` int NOT NULL AUTO_INCREMENT,
+--   `brand` varchar(20) DEFAULT NULL,
+--   `title` varchar(100) NOT NULL,
+--   `price` double NOT NULL,
+--   `score` decimal(2,1) DEFAULT NULL,
+--   `voteCnt` int DEFAULT NULL,
+--   `url` varchar(100) DEFAULT NULL,
+--   `pid` int DEFAULT NULL,
+--   `brand_id` int DEFAULT NULL,
+--   PRIMARY KEY (`id`),
+--   KEY `brand_id` (`brand_id`),
+--   CONSTRAINT `product_ibfk_1` FOREIGN KEY (`brand_id`) REFERENCES `brand` (`id`)
+-- ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+# 4.2 根据名称将外键删除掉
+ALTER TABLE `product` DROP FOREIGN KEY product_ibfk_5;
+
+# 4.3 重新添加外键约束
+ALTER TABLE `product` ADD FOREIGN KEY (brand_id) REFERENCES brand(id)
+             ON UPDATE CASCADE
+                         ON DELETE RESTRICT;
+</pre>
+
+<h2 id="完整的数据表—实践"><a href="#完整的数据表—实践" class="headerlink" title="完整的数据表—实践"></a>完整的数据表—实践</h2><pre>
+# 创建完整数据表
+CREATE TABLE IF NOT EXISTS `users`(
+   `id` INT PRIMARY KEY AUTO_INCREMENT,
+   `name` VARCHARACTER(20) NOT NULL,
+   `age` INT DEFAULT 0,
+   `height` DECIMAL(10,2),
+     `phoneNum` VARCHAR(20) UNIQUE DEFAULT '',
+     `createTime` TIMESTAMP
+);
+
+# 修改表
+# 1.修改表的名字
+ALTER TABLE `users` RENAME TO `user`;
+
+# 2. 添加一个新的列
+ALTER TABLE `user` ADD `updateTime` TIMESTAMP;
+
+# 3. 修改字段名称
+ALTER TABLE `user` CHANGE `phoneNum` `telPhone` VARCHAR(20);
+
+# 4. 修改字段类型值
+ALTER TABLE `user` MODIFY `name` VARCHARACTER(30);
+
+
+# 5. 删除某个字段
+ALTER TABLE `user` DROP `age`;
+</pre>
+
 ]]></content>
+      <categories>
+        <category>mysql</category>
+      </categories>
       <tags>
-        <tag>react</tag>
+        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -1092,6 +1331,28 @@ Query OK, 1 row affected (0.00 sec)
       </categories>
       <tags>
         <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>nginx部署</title>
+    <url>/2023/04/28/nginx/cc389d1d1416/</url>
+    <content><![CDATA[<h1 id="nginx部署"><a href="#nginx部署" class="headerlink" title="nginx部署"></a>nginx部署</h1><p>基于腾讯云服务器centos系统：</p>
+<p>云服务登录用户名：urz9g98m<br>云服务登录密码：********</p>
+<h1 id="nginx配置文件"><a href="#nginx配置文件" class="headerlink" title="nginx配置文件"></a>nginx配置文件</h1><h1 id="基于宝塔可视化面板"><a href="#基于宝塔可视化面板" class="headerlink" title="基于宝塔可视化面板"></a>基于宝塔可视化面板</h1><h2 id="1-登录云服务进入首页、进入nginx"><a href="#1-登录云服务进入首页、进入nginx" class="headerlink" title="1.登录云服务进入首页、进入nginx"></a>1.登录云服务进入首页、进入nginx</h2><p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20230428153359%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BFnginx.png" alt="宝塔面板nginx"></p>
+<h2 id="2-进行配置文件修改"><a href="#2-进行配置文件修改" class="headerlink" title="2.进行配置文件修改"></a>2.进行配置文件修改</h2><figure class="highlight nginx"><table><tr><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">user</span>  www www;<br><span class="hljs-attribute">worker_processes</span> auto;<br><span class="hljs-attribute">error_log</span>  /www/wwwlogs/nginx_error.log  <span class="hljs-literal">crit</span>;<br><span class="hljs-attribute">pid</span>        /www/server/nginx/logs/nginx.pid;<br><span class="hljs-attribute">worker_rlimit_nofile</span> <span class="hljs-number">51200</span>;<br><br><span class="hljs-section">events</span><br>    &#123;<br>        <span class="hljs-attribute">use</span> <span class="hljs-literal">epoll</span>;<br>        <span class="hljs-attribute">worker_connections</span> <span class="hljs-number">51200</span>;<br>        <span class="hljs-attribute">multi_accept</span> <span class="hljs-literal">on</span>;<br>    &#125;<br><br><span class="hljs-section">http</span><br>    &#123;<br>        <span class="hljs-attribute">include</span>       mime.types;<br>		<span class="hljs-comment">#include luawaf.conf;</span><br><br>		<span class="hljs-attribute">include</span> proxy.conf;<br><br>        <span class="hljs-attribute">default_type</span>  application/octet-stream;<br><br>        <span class="hljs-attribute">server_names_hash_bucket_size</span> <span class="hljs-number">512</span>;<br>        <span class="hljs-attribute">client_header_buffer_size</span> <span class="hljs-number">32k</span>;<br>        <span class="hljs-attribute">large_client_header_buffers</span> <span class="hljs-number">4</span> <span class="hljs-number">32k</span>;<br>        <span class="hljs-attribute">client_max_body_size</span> <span class="hljs-number">50m</span>;<br><br>        <span class="hljs-attribute">sendfile</span>   <span class="hljs-literal">on</span>;<br>        <span class="hljs-attribute">tcp_nopush</span> <span class="hljs-literal">on</span>;<br><br>        <span class="hljs-attribute">keepalive_timeout</span> <span class="hljs-number">60</span>;<br><br>        <span class="hljs-attribute">tcp_nodelay</span> <span class="hljs-literal">on</span>;<br><br>        <span class="hljs-attribute">fastcgi_connect_timeout</span> <span class="hljs-number">300</span>;<br>        <span class="hljs-attribute">fastcgi_send_timeout</span> <span class="hljs-number">300</span>;<br>        <span class="hljs-attribute">fastcgi_read_timeout</span> <span class="hljs-number">300</span>;<br>        <span class="hljs-attribute">fastcgi_buffer_size</span> <span class="hljs-number">64k</span>;<br>        <span class="hljs-attribute">fastcgi_buffers</span> <span class="hljs-number">4</span> <span class="hljs-number">64k</span>;<br>        <span class="hljs-attribute">fastcgi_busy_buffers_size</span> <span class="hljs-number">128k</span>;<br>        <span class="hljs-attribute">fastcgi_temp_file_write_size</span> <span class="hljs-number">256k</span>;<br>		<span class="hljs-attribute">fastcgi_intercept_errors</span> <span class="hljs-literal">on</span>;<br><br>        <span class="hljs-attribute">gzip</span> <span class="hljs-literal">on</span>;<br>        <span class="hljs-attribute">gzip_min_length</span>  <span class="hljs-number">1k</span>;<br>        <span class="hljs-attribute">gzip_buffers</span>     <span class="hljs-number">4</span> <span class="hljs-number">16k</span>;<br>        <span class="hljs-attribute">gzip_http_version</span> <span class="hljs-number">1</span>.<span class="hljs-number">1</span>;<br>        <span class="hljs-attribute">gzip_comp_level</span> <span class="hljs-number">2</span>;<br>        <span class="hljs-attribute">gzip_types</span>     text/plain application/javascript application/x-javascript text/javascript text/css application/xml;<br>        <span class="hljs-attribute">gzip_vary</span> <span class="hljs-literal">on</span>;<br>        <span class="hljs-attribute">gzip_proxied</span>   expired <span class="hljs-literal">no</span>-cache <span class="hljs-literal">no</span>-store private auth;<br>        <span class="hljs-attribute">gzip_disable</span>   <span class="hljs-string">&quot;MSIE [1-6]\.&quot;</span>;<br><br>        <span class="hljs-attribute">limit_conn_zone</span> $binary_remote_addr zone=perip:<span class="hljs-number">10m</span>;<br>		<span class="hljs-attribute">limit_conn_zone</span> $server_name zone=perserver:<span class="hljs-number">10m</span>;<br><br>        <span class="hljs-attribute">server_tokens</span> <span class="hljs-literal">off</span>;<br>        <span class="hljs-attribute">access_log</span> <span class="hljs-literal">off</span>;<br><br><span class="hljs-section">server</span><br>    &#123;<br>        <span class="hljs-attribute">listen</span> <span class="hljs-number">80</span>;<br>        <span class="hljs-attribute">server_name</span> localhost;<br>        <span class="hljs-attribute">index</span> index.html index.htm index.php;<br>        <span class="hljs-attribute">root</span>  /www/server/phpmyadmin;<br>            <span class="hljs-attribute">location</span> \\x7e /tmp/ &#123;<br>                <span class="hljs-attribute">return</span> <span class="hljs-number">403</span>;<br>            &#125;<br><br>        <span class="hljs-comment">#error_page   404   /404.html;</span><br>        <span class="hljs-attribute">include</span> enable-php.conf;<br>        <br>        <span class="hljs-attribute">location</span> / &#123;<br>          <span class="hljs-attribute">proxy_pass</span> http://localhost:8666;<br>        &#125;<br>        <br>        <span class="hljs-attribute">location</span> \x7e .*\.(gif|jpg|jpeg|png|bmp|swf)$<br>        &#123;<br>            <span class="hljs-attribute">expires</span>      <span class="hljs-number">30d</span>;<br>        &#125;<br><br>        <span class="hljs-attribute">location</span> <span class="hljs-regexp">~ .*\.(js|css)?$</span><br>        &#123;<br>            <span class="hljs-attribute">expires</span>      <span class="hljs-number">12h</span>;<br>        &#125;<br><br>        <span class="hljs-attribute">location</span> <span class="hljs-regexp">~ /\.</span><br>        &#123;<br>            <span class="hljs-attribute">deny</span> all;<br>        &#125;<br><br>        <span class="hljs-attribute">access_log</span>  /www/wwwlogs/access.log;<br>    &#125;<br>    <br><span class="hljs-attribute">include</span> /www/server/panel/vhost/nginx/<span class="hljs-regexp">*.conf</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h1 id="基于文件夹寻找nginx存储的文件夹命名"><a href="#基于文件夹寻找nginx存储的文件夹命名" class="headerlink" title="基于文件夹寻找nginx存储的文件夹命名"></a>基于文件夹寻找nginx存储的文件夹命名</h1><p>上述nginx配置文件中，可以包含某个文件夹所有的conf文件，所以可以根据不同的部署项目进行区分，防止一个文件过于耦合。</p>
+<p>nginx文件夹默认的存储位置为：/www/server/panel/vhost/nginx</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20230428154513nginx%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.png" alt="nginx配置文件"></p>
+<figure class="highlight gradle"><table><tr><td class="code"><pre><code class="hljs gradle">server &#123;<br>    listen <span class="hljs-number">82</span>;<br>    location / &#123;<br>        root <span class="hljs-regexp">/www/</span>wwwroot<span class="hljs-regexp">/element-plus/</span>doc-archive-main; # 将 <span class="hljs-regexp">/www/</span>wwwroot<span class="hljs-regexp">/element-plus/</span>doc-archive-main 替换为您部署文档静态资源的目录<br>        index index.html;<br>    &#125;<br>    <br>&#125;<br>server &#123;<br>    listen <span class="hljs-number">84</span>;<br>    location / &#123;<br>        root <span class="hljs-regexp">/www/</span>wwwroot<span class="hljs-regexp">/hexo-new/</span><span class="hljs-keyword">public</span>; # 将 <span class="hljs-regexp">/www/</span>wwwroot<span class="hljs-regexp">/hexo-new/</span><span class="hljs-keyword">public</span> 替换为您部署文档静态资源的目录<br>        index index.html;<br>    &#125;<br>    <br>&#125;<br><br><br></code></pre></td></tr></table></figure>
+
+<h2 id="松耦合的配置方式"><a href="#松耦合的配置方式" class="headerlink" title="松耦合的配置方式"></a>松耦合的配置方式</h2><p>正常情况下，应该是区分成 element-plus.conf , hexo-new.conf, 此处文件比较简单，暂时未分开。<br><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20230428155236%E6%9D%BE%E8%80%A6%E5%90%88nginx%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.png" alt="整合起来的conf文件"></p>
+<h2 id="重启nginx，项目依然可以正常运行"><a href="#重启nginx，项目依然可以正常运行" class="headerlink" title="重启nginx，项目依然可以正常运行"></a>重启nginx，项目依然可以正常运行</h2><p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20230428155838nginx%E9%83%A8%E7%BD%B2element-plus.png" alt="nginx部署element-plus"></p>
+]]></content>
+      <categories>
+        <category>nginx</category>
+      </categories>
+      <tags>
+        <tag>nginx</tag>
       </tags>
   </entry>
   <entry>
@@ -1417,267 +1678,6 @@ fs.readFile(filePath, {encoding: 'utf-8'}, (err, data) => {
       </tags>
   </entry>
   <entry>
-    <title>mysql-语句</title>
-    <url>/2021/11/12/mysql/de9d27f5d5d1/</url>
-    <content><![CDATA[<h1 id="终端操作缺陷"><a href="#终端操作缺陷" class="headerlink" title="终端操作缺陷"></a>终端操作缺陷</h1><p><a href="http://wakeweb.cloud/2021/11/12/mysql/ab03683a0789/">参考终端进行数据库操作文章</a></p>
-<ol>
-<li>语句无高亮，并且无任何提示</li>
-<li>复杂的语句分成多行，格式不美观，且输入容易出错</li>
-<li>终端查看所有的数据库和数据时不方便</li>
-</ol>
-<h1 id="GUI工具"><a href="#GUI工具" class="headerlink" title="GUI工具"></a>GUI工具</h1><p>为了解决上述问题，可以采用以下几款：</p>
-<ol>
-<li>Navicat: 推荐使用，不过需要付费，但是又免费的试用时间，应付学习足够了。</li>
-<li>SQLYog: 一款免费的SQL工具</li>
-<li>TablePlus:常用功能都可以使用，但是会有一些限制（例如：只能开两个标签页）</li>
-</ol>
-<h1 id="mysql-语句"><a href="#mysql-语句" class="headerlink" title="mysql 语句"></a>mysql 语句</h1><p>sql(structured Query Language) —结构化查询语言</p>
-<h2 id="sql语句的常用规范"><a href="#sql语句的常用规范" class="headerlink" title="sql语句的常用规范"></a>sql语句的常用规范</h2><ol>
-<li><p>通常关键字是大写的，比如CREATE,TABLE,SHOW等等。</p>
-</li>
-<li><p>一条语句结束后，需要以“；”结尾。</p>
-</li>
-<li><p>如果遇到关键字作为表明或者字段名称，可以用 <code> </code> 包裹。(类似es6中的模板字符串)</p>
-</li>
-</ol>
-<h2 id="sql语句分类"><a href="#sql语句分类" class="headerlink" title="sql语句分类"></a>sql语句分类</h2><ol>
-<li>DDL (Data Definition language) —数据定义语言</li>
-</ol>
-<ul>
-<li>可以通过DDL语句对数据库或者表进行： 创建，删除，修改操作.</li>
-</ul>
-<ol start="2">
-<li>DML(Data Manipulation Language): 数据操作语言</li>
-</ol>
-<ul>
-<li>可以通过DML语句对表进行： 添加、删除、修改等操作.</li>
-</ul>
-<ol start="3">
-<li>DQL(Data Query Language): 数据查询语言</li>
-</ol>
-<ul>
-<li>可以通过DQL语句对表进行查询操作.</li>
-</ul>
-<ol start="4">
-<li>DCL(Data Control Language): 数据权限语言</li>
-</ol>
-<ul>
-<li>可以通过DCL语句对表权限等操作.</li>
-</ul>
-<h3 id="DDL数据库的操作—实践"><a href="#DDL数据库的操作—实践" class="headerlink" title="DDL数据库的操作—实践"></a>DDL数据库的操作—实践</h3><pre># 查看所有的数据
-SHOW DATABASES;
-
-# 选择某一个数据
-USE bili;
-
-#查看当前正在使用的数据库
-SELECT DATABASE();
-
-# 创建一个新的数据库
--- CREATE DATABASE douyu;
--- CREATE DATABASE IF NOT EXISTS douyu;
-
-CREATE DATABASE IF NOT EXISTS huya DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
-
-
-# 删除数据库
-DROP DATABASE IF EXISTS douyu;
-
-# 修改数据库的编码
-
-ALTER DATABASE huya CHARACTER SET = utf8 COLLATE = utf8_unicode_ci;
-</pre>
-
-<h3 id="DDL-数据表的操作—实践"><a href="#DDL-数据表的操作—实践" class="headerlink" title="DDL-数据表的操作—实践"></a>DDL-数据表的操作—实践</h3><pre># 查看数据表
-SHOW TABLES;
-
-# 查看某一个表结构
-DESC users;
-
-# 创建数据表
-CREATE TABLE IF NOT EXISTS `test` (
-  `name` VARCHAR(20),
-    age INT,
-    height DOUBLE
-    );
-    
-# 删除表
-DROP TABLE IF EXISTS `test`;
-
-
-# 查看某一个表结构
-DESC students;
-</pre>
-
-<h3 id="DML-对数据库进行增删改—实践"><a href="#DML-对数据库进行增删改—实践" class="headerlink" title="DML-对数据库进行增删改—实践"></a>DML-对数据库进行增删改—实践</h3><pre>
-# 插入数据
-INSERT INTO `user` VALUES (110, 'why', '020-123456', '2020-10-20', '2020-11-11');
-
-
--- INSERT INTO `user` (`name`, `telPhone`,`createTime`,`updateTime`)
---                         VALUES ('paike','000-1111112','2020-10-10','2030-10-20');
-
-# 需求： createTime和updateTime可以自动设置值
-ALTER TABLE `user` MODIFY `createTime` TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
-ALTER TABLE `user` MODIFY `updateTime` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-ON UPDATE CURRENT_TIMESTAMP;
-
- INSERT INTO `user`    (`name`, `telPhone`)
-                    VALUES ('lilei3','000-1111116');
-                    
-                    
-# 删除数据
-# 删除所有数据
-DELETE FROM `user`;
-
-# 删除符合条件的数据
-DELETE FROM `user` WHERE id = 110;
-
-# 更新数据
-# 更新所有数据
-UPDATE `user` SET `name` = 'lily',telPhone = '010-110110';
-
-# 更新符合条件的数据
-UPDATE `user` SET `name` = 'lily',telPhone = '010-110110' WHERE id = 115;
-</pre>
-
-
-<h3 id="DQL-对数据库进行查询—实践"><a href="#DQL-对数据库进行查询—实践" class="headerlink" title="DQL-对数据库进行查询—实践"></a>DQL-对数据库进行查询—实践</h3><pre>
-
-</pre>
-
-<h4 id="分页查询"><a href="#分页查询" class="headerlink" title="分页查询"></a>分页查询</h4><p>当数据库中的数据非常多时，一次性查询到所有的将结果进行显示是不现实的；</p>
-<ol>
-<li><p>在真实开发中，我们都会要求用户传入offset、limit、或者page等字段</p>
-</li>
-<li><p>它们的目的是让我们可以在数据库中进行分页查询</p>
-</li>
-<li><p>它的用法有[LIMIT{[offset, row_count | row_count OFFSET offset]}]</p>
-</li>
-</ol>
-<h2 id="sql数据类型"><a href="#sql数据类型" class="headerlink" title="sql数据类型"></a><a href="https://dev.mysql.com/doc/refman/8.0/en/data-types.html">sql数据类型</a></h2><p><a href="https://www.runoob.com/mysql/mysql-data-types.html">开发可参考—菜鸟教程—数据类型及其范围</a></p>
-<h1 id="表约束"><a href="#表约束" class="headerlink" title="表约束"></a>表约束</h1><h2 id="主键：PRIMARY-KEY"><a href="#主键：PRIMARY-KEY" class="headerlink" title="主键：PRIMARY KEY"></a>主键：PRIMARY KEY</h2><p>一张表中，我们为了区分每一条记录的唯一性，必须有一个字段是永远不会重复，并且不为空的，这个字段我们通常会把它设置为主键：</p>
-<ul>
-<li><p>主键是表中唯一的索引；</p>
-</li>
-<li><p>并且必须是NOT NULL的，如果没有设置NOT NULL,那么MySQL也会隐式的设置为NOT NULL;</p>
-</li>
-<li><p>主键也可以是多列索引，PRIMARY KEY(key_part,…),我们一般称之为联合主键</p>
-</li>
-<li><p>建议：开发中主键字段应该是和业务无关的，尽量不要使用业务字段来作为主键。</p>
-</li>
-</ul>
-<h2 id="唯一：UNIQUE"><a href="#唯一：UNIQUE" class="headerlink" title="唯一：UNIQUE"></a>唯一：UNIQUE</h2><ul>
-<li>某些字段再开发过程中，我们希望是唯一的，不回重复的，比如手机号，身份证号，这个字段我们可以使用UNIQUE来约束。</li>
-<li>使用UNIQUE约束的字段在表中必须是不同的</li>
-<li>对于所有引擎，UNIQUE索引允许NULL包含的多个值NULL.</li>
-</ul>
-<h2 id="不能为空-NOT-NULL"><a href="#不能为空-NOT-NULL" class="headerlink" title="不能为空 NOT NULL"></a>不能为空 NOT NULL</h2><ul>
-<li>某些字段我们要求用户必须插入值，不可以为空，这个时候我们可以使用NOT NULL来约束</li>
-</ul>
-<h2 id="默认值-DEFAULT"><a href="#默认值-DEFAULT" class="headerlink" title="默认值 DEFAULT"></a>默认值 DEFAULT</h2><p>某些字段我们希望在没有设置值时给予一个默认值，这个时候我们可以使用DEFAULT来完成。</p>
-<h2 id="自动递增：-AUTO-INCREMENT"><a href="#自动递增：-AUTO-INCREMENT" class="headerlink" title="自动递增： AUTO_INCREMENT"></a>自动递增： AUTO_INCREMENT</h2><p>某些字段我们希望不设置值时可以进行递增，比如用户的id,这个时候我们可以使用Auto_INCREMENT来完成。<br>一般用于数字类型的描述。</p>
-<h2 id="外键约束（用于多表关系）"><a href="#外键约束（用于多表关系）" class="headerlink" title="外键约束（用于多表关系）"></a>外键约束（用于多表关系）</h2> <pre>
-CREATE TABLE IF NOT EXISTS `brand` (
- id INT PRIMARY KEY AUTO_INCREMENT,
- name VARCHAR(20) NOT NULL,
- website VARCHAR(100),
- phoneRank INT
-);
-
-INSERT INTO `brand` (name, website, phoneRank) VALUES('华为','www.huawei.com',2);
-INSERT INTO `brand` (name, website, phoneRank) VALUES('苹果','www.apple.com',10);
-INSERT INTO `brand` (name, website, phoneRank) VALUES('小米','www.mi.com',5);
-INSERT INTO `brand` (name, website, phoneRank) VALUES('OPPO','www.oppo.com',12);
-INSERT INTO `brand` (name, website, phoneRank) VALUES('京东','www.jd.com',8);
-INSERT INTO `brand` (name, website, phoneRank) VALUES('GOOGLE','www.google.com',9);
-
-
-# 如果在一张表中需要添加一个的字段，这个字段对应另外一张表的字段，并且想要对字段有所限制的时候，可以用外键  
-ALTER table `product` add `brand_id` int;
-ALTER TABLE `product` DROP  `brand_id`;
-# 真实开发会在建表的时候就将xxx设置为外键
-
-# 手动修改brand_id为外键
-ALTER TABLE `product` ADD FOREIGN KEY(brand_id) REFERENCES brand(id);
-
-# 设置brand_id的值
-UPDATE `product` SET `brand_id` = 1 WHERE brand = '华为';
-UPDATE `product` SET `brand_id` = 1 WHERE brand = '苹果'；
-UPDATE `product` SET `brand_id` = 1 WHERE brand = '小米'；
-UPDATE `product` SET `brand_id` = 1 WHERE brand = 'oppo'；
-
-# 3. 修改和删除外键引用的id
-UPDATE `brand` SET `id` = 100 WHERE `id` = 1;
-
-
-# 4. 修改brand_id关联外键时的action
-# 4.1 获取到目前的外键的名称
-SHOW CREATE TABLE `product`;
-
--- CREATE TABLE `product` (
---   `id` int NOT NULL AUTO_INCREMENT,
---   `brand` varchar(20) DEFAULT NULL,
---   `title` varchar(100) NOT NULL,
---   `price` double NOT NULL,
---   `score` decimal(2,1) DEFAULT NULL,
---   `voteCnt` int DEFAULT NULL,
---   `url` varchar(100) DEFAULT NULL,
---   `pid` int DEFAULT NULL,
---   `brand_id` int DEFAULT NULL,
---   PRIMARY KEY (`id`),
---   KEY `brand_id` (`brand_id`),
---   CONSTRAINT `product_ibfk_1` FOREIGN KEY (`brand_id`) REFERENCES `brand` (`id`)
--- ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
-
-
-# 4.2 根据名称将外键删除掉
-ALTER TABLE `product` DROP FOREIGN KEY product_ibfk_5;
-
-# 4.3 重新添加外键约束
-ALTER TABLE `product` ADD FOREIGN KEY (brand_id) REFERENCES brand(id)
-             ON UPDATE CASCADE
-                         ON DELETE RESTRICT;
-</pre>
-
-<h2 id="完整的数据表—实践"><a href="#完整的数据表—实践" class="headerlink" title="完整的数据表—实践"></a>完整的数据表—实践</h2><pre>
-# 创建完整数据表
-CREATE TABLE IF NOT EXISTS `users`(
-   `id` INT PRIMARY KEY AUTO_INCREMENT,
-   `name` VARCHARACTER(20) NOT NULL,
-   `age` INT DEFAULT 0,
-   `height` DECIMAL(10,2),
-     `phoneNum` VARCHAR(20) UNIQUE DEFAULT '',
-     `createTime` TIMESTAMP
-);
-
-# 修改表
-# 1.修改表的名字
-ALTER TABLE `users` RENAME TO `user`;
-
-# 2. 添加一个新的列
-ALTER TABLE `user` ADD `updateTime` TIMESTAMP;
-
-# 3. 修改字段名称
-ALTER TABLE `user` CHANGE `phoneNum` `telPhone` VARCHAR(20);
-
-# 4. 修改字段类型值
-ALTER TABLE `user` MODIFY `name` VARCHARACTER(30);
-
-
-# 5. 删除某个字段
-ALTER TABLE `user` DROP `age`;
-</pre>
-
-]]></content>
-      <categories>
-        <category>mysql</category>
-      </categories>
-      <tags>
-        <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>uni-app实战（一）</title>
     <url>/2021/10/26/uni-app/4132b17f6755/</url>
     <content><![CDATA[<h1 id="项目的构建"><a href="#项目的构建" class="headerlink" title="项目的构建"></a>项目的构建</h1><ol>
@@ -1819,7 +1819,7 @@ See https://webpack.js.org/concepts#loaders
 <p>本质上，webpack loader 将所有类型的文件，转换为应用程序的依赖图（和最终的 bundle）可以直接引用的模块。</p>
 <h2 id="css-loader的安装"><a href="#css-loader的安装" class="headerlink" title="css-loader的安装"></a>css-loader的安装</h2><figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> css-loader -D<br></code></pre></td></tr></table></figure>
 
-<p>当前版本为：<font color=amber><a href="mailto:&#99;&#115;&#x73;&#x2d;&#108;&#x6f;&#x61;&#100;&#x65;&#114;&#64;&#x36;&#46;&#52;&#x2e;&#48;">&#99;&#115;&#x73;&#x2d;&#108;&#x6f;&#x61;&#100;&#x65;&#114;&#64;&#x36;&#46;&#52;&#x2e;&#48;</a></font></p>
+<p>当前版本为：<font color=amber><a href="mailto:&#x63;&#115;&#115;&#45;&#108;&#111;&#97;&#100;&#x65;&#x72;&#64;&#54;&#46;&#52;&#x2e;&#x30;">&#x63;&#115;&#115;&#45;&#108;&#111;&#97;&#100;&#x65;&#x72;&#64;&#54;&#46;&#52;&#x2e;&#x30;</a></font></p>
 <p>安装完css-loader后，在package.json的<font color=red>devDependencies</font>中即可看到对应的版本号，但是现在桥梁的材料准备好了，还需要将公路与桥梁进行以下安装处理，使得其可以稳固通行，也就是代码能够正常运行。要想达到目的，有以下几种方式：</p>
 <div class="tabs" id="tab"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#tab-1">配置方式 推荐</button></li><li class="tab"><button type="button" data-href="#tab-2">CLI方式（webpack5版本中不再使用）</button></li><li class="tab"><button type="button" data-href="#tab-3">内联方式</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="tab-1"><figure class="highlight yaml"><table><tr><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">module:</span> &#123;<br>   <span class="hljs-attr">rules:</span> [<br>     &#123;<br>       <span class="hljs-attr">test:</span> <span class="hljs-string">/\.css$/</span>,               <br>       <span class="hljs-attr">use:</span> [<br>         &#123; <span class="hljs-attr">loader:</span> <span class="hljs-string">&#x27;style-loader&#x27;</span> &#125;,<br>         &#123;<br>           <span class="hljs-attr">loader:</span> <span class="hljs-string">&#x27;css-loader&#x27;</span>,<br>           <span class="hljs-attr">options:</span> &#123;<br>             <span class="hljs-attr">modules:</span> <span class="hljs-literal">true</span><br>           &#125;<br>         &#125;<br>       ]<br>     &#125;<br>   ]<br> &#125;<br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-2"><figure class="highlight fortran"><table><tr><td class="code"><pre><code class="hljs fortran">webpack --<span class="hljs-keyword">module</span>-<span class="hljs-keyword">bind</span> jade-loader --<span class="hljs-keyword">module</span>-<span class="hljs-keyword">bind</span> <span class="hljs-string">&#x27;css=style-loader!css-loader&#x27;</span><br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-3"><p>通过loader名字和”!” 将css文件分隔开，当然也可以同时写多个 import “xxx-loader!css-loader../css/index.css”;</p>
 <figure class="highlight abnf"><table><tr><td class="code"><pre><code class="hljs abnf">import <span class="hljs-string">&quot;css-loader!../css/index.css&quot;</span><span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
@@ -1829,7 +1829,7 @@ See https://webpack.js.org/concepts#loaders
 <p>在前面我们已经了解到，处理css文件需要css-loader,style-loader等来处理，那么在开发过程中如果需要处理不同的文件，则需要不同的loader来实现代码功能。</p>
 <p>但是，以less文件举例子，则需要用到less工具</p>
 <figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> <span class="hljs-keyword">less</span> -D<br></code></pre></td></tr></table></figure>
-<p>当前版本：<font color=camel> <a href="mailto:&#x6c;&#101;&#115;&#x73;&#64;&#52;&#x2e;&#49;&#46;&#x32;">&#x6c;&#101;&#115;&#x73;&#64;&#52;&#x2e;&#49;&#46;&#x32;</a></font></p>
+<p>当前版本：<font color=camel> <a href="mailto:&#108;&#x65;&#x73;&#115;&#x40;&#52;&#x2e;&#x31;&#46;&#50;">&#108;&#x65;&#x73;&#115;&#x40;&#52;&#x2e;&#x31;&#46;&#50;</a></font></p>
 <p>安装完成后，可以通过npx来操作node_modules中的less，来进行处理：</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">npx less .<span class="hljs-regexp">/src/</span>css/component.less &gt; component.css<br></code></pre></td></tr></table></figure>
 <p>它可以将less文件转为正常的css文件</p>
@@ -1837,9 +1837,9 @@ See https://webpack.js.org/concepts#loaders
 
 <h1 id="less-loader"><a href="#less-loader" class="headerlink" title="less-loader"></a>less-loader</h1><p>从上面的处理过程中，我们能够体会到less工具的快捷，但是在中大型项目中，当有大量的less文件需要处理时，想要通过命令行完成less文件的转化显然是不现实的，于是可以采用less-loader来进行处理，当然<font color=seagreen>less-loader是基于less工具</font>的，所以使用less-loader时，需要保证提前安装了less工具。</p>
 <figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> <span class="hljs-keyword">less</span> -D<br></code></pre></td></tr></table></figure>
-<p>当前版本：<font color=camel> <a href="mailto:&#108;&#101;&#115;&#x73;&#x40;&#x34;&#46;&#49;&#46;&#50;">&#108;&#101;&#115;&#x73;&#x40;&#x34;&#46;&#49;&#46;&#50;</a></font></p>
+<p>当前版本：<font color=camel> <a href="mailto:&#108;&#101;&#115;&#115;&#x40;&#52;&#x2e;&#49;&#x2e;&#50;">&#108;&#101;&#115;&#115;&#x40;&#52;&#x2e;&#49;&#x2e;&#50;</a></font></p>
 <figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> <span class="hljs-keyword">less</span>-loader -D<br></code></pre></td></tr></table></figure>
-<p>当前版本： <font color=amber><a href="mailto:&#x6c;&#101;&#115;&#115;&#45;&#108;&#x6f;&#x61;&#x64;&#101;&#x72;&#x40;&#x31;&#48;&#46;&#50;&#46;&#x30;">&#x6c;&#101;&#115;&#115;&#45;&#108;&#x6f;&#x61;&#x64;&#101;&#x72;&#x40;&#x31;&#48;&#46;&#50;&#46;&#x30;</a></font></p>
+<p>当前版本： <font color=amber><a href="mailto:&#x6c;&#x65;&#115;&#x73;&#45;&#108;&#111;&#x61;&#100;&#101;&#x72;&#x40;&#x31;&#x30;&#x2e;&#x32;&#46;&#x30;">&#x6c;&#x65;&#115;&#x73;&#45;&#108;&#111;&#x61;&#100;&#101;&#x72;&#x40;&#x31;&#x30;&#x2e;&#x32;&#46;&#x30;</a></font></p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">module: &#123;<br>   <span class="hljs-regexp">//</span> rules数组里面都是rule对象<br>  rules: [<br>    &#123;<br>      test: <span class="hljs-regexp">/\.css$/</span>,    <span class="hljs-regexp">//</span> 匹配以css结尾的文件<br>      use: [<br>        <span class="hljs-regexp">//</span>  注意编写顺序  从下到上，从右往左，本质 从后往前<br>        &#123; loader: <span class="hljs-string">&#x27;style-loader&#x27;</span> &#125;,<br>        &#123;<br>          loader: <span class="hljs-string">&#x27;css-loader&#x27;</span>,<br>        &#125;<br>      ]<br>    &#125;,<br>    &#123;<br>      test: <span class="hljs-regexp">/\.less$/</span>,    <span class="hljs-regexp">//</span> 匹配以css结尾的文件<br>      use: [<br>        <span class="hljs-regexp">//</span>  注意编写顺序  从下到上，从右往左，本质 从后往前<br>        &#123; loader: <span class="hljs-string">&#x27;style-loader&#x27;</span> &#125;,<br>        &#123; loader: <span class="hljs-string">&#x27;css-loader&#x27;</span> &#125;,<br>        &#123;<br>          loader: <span class="hljs-string">&#x27;less-loader&#x27;</span>,<br>        &#125;<br>      ]<br>    &#125;<br>  ]<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h1 id="浏览器兼容性"><a href="#浏览器兼容性" class="headerlink" title="浏览器兼容性"></a>浏览器兼容性</h1><p>在开发中，我们会遇到浏览器的兼容性问题，不是指屏幕大小的变化适配，主要是针对于不同的浏览器所支持的特性之间的问题，比如CSS特性，js语法之间的兼容性，同时市面上存在着的浏览器，包括chrome、safari、IE、Edge、chrome for Android、UC Browser、QQ Browser等等，有着不同的市场占有率，是不是都需要兼容呢？</p>
@@ -1864,13 +1864,13 @@ See https://webpack.js.org/concepts#loaders
 <h2 id="使用postcss的步骤"><a href="#使用postcss的步骤" class="headerlink" title="使用postcss的步骤"></a>使用postcss的步骤</h2><p>第一步：查找postCss在构建工具中的扩展，比如webpack中的postcss-loader;<br>第二步： 选择可以添加你需要的postCss相关的插件</p>
 <p>如果是在终端直接使用，需要单独安装postcss-cli。</p>
 <figure class="highlight avrasm"><table><tr><td class="code"><pre><code class="hljs avrasm">npm i -D postcss postcss-<span class="hljs-keyword">cli</span><br></code></pre></td></tr></table></figure>
-<p><font color=chocolate>+ <a href="mailto:&#112;&#x6f;&#x73;&#116;&#x63;&#115;&#115;&#64;&#56;&#x2e;&#51;&#x2e;&#57;">&#112;&#x6f;&#x73;&#116;&#x63;&#115;&#115;&#64;&#56;&#x2e;&#51;&#x2e;&#57;</a></font><br><font color=yellowgreen>+ <a href="mailto:&#x70;&#111;&#x73;&#x74;&#x63;&#x73;&#x73;&#x2d;&#x63;&#x6c;&#105;&#x40;&#57;&#x2e;&#x30;&#46;&#49;">&#x70;&#111;&#x73;&#x74;&#x63;&#x73;&#x73;&#x2d;&#x63;&#x6c;&#105;&#x40;&#57;&#x2e;&#x30;&#46;&#49;</a></font></p>
+<p><font color=chocolate>+ <a href="mailto:&#x70;&#111;&#115;&#x74;&#99;&#x73;&#x73;&#x40;&#x38;&#46;&#51;&#x2e;&#x39;">&#x70;&#111;&#115;&#x74;&#99;&#x73;&#x73;&#x40;&#x38;&#46;&#51;&#x2e;&#x39;</a></font><br><font color=yellowgreen>+ <a href="mailto:&#x70;&#111;&#x73;&#x74;&#99;&#x73;&#x73;&#45;&#x63;&#108;&#105;&#x40;&#57;&#46;&#48;&#46;&#x31;">&#x70;&#111;&#x73;&#x74;&#99;&#x73;&#x73;&#45;&#x63;&#108;&#105;&#x40;&#57;&#46;&#48;&#46;&#x31;</a></font></p>
 <p>在css开发过程中，会写到很多属性和样式，让我们遇到不熟悉的属性的时候，不清楚需要对哪些浏览器进行适配的时候，可以到<a href="http://autoprefixer.github.io/">Autoprefixer CSS online</a>,它是一个postcss插件，可以通过它解析CSS并添加供应商前缀。</p>
 <p>自动添加前缀插件： autopreFixer</p>
 <figure class="highlight angelscript"><table><tr><td class="code"><pre><code class="hljs angelscript">npm install <span class="hljs-built_in">auto</span>prefixer -D<br></code></pre></td></tr></table></figure>
-<p>当前版本：<font color=blue><a href="mailto:&#x61;&#117;&#x74;&#111;&#112;&#114;&#x65;&#102;&#105;&#120;&#x65;&#114;&#x40;&#49;&#48;&#46;&#x33;&#46;&#x37;">&#x61;&#117;&#x74;&#111;&#112;&#114;&#x65;&#102;&#105;&#120;&#x65;&#114;&#x40;&#49;&#48;&#46;&#x33;&#46;&#x37;</a></font></p>
+<p>当前版本：<font color=blue><a href="mailto:&#97;&#117;&#116;&#x6f;&#112;&#114;&#101;&#x66;&#x69;&#x78;&#x65;&#x72;&#64;&#x31;&#x30;&#46;&#x33;&#46;&#x37;">&#97;&#117;&#116;&#x6f;&#112;&#114;&#101;&#x66;&#x69;&#x78;&#x65;&#x72;&#64;&#x31;&#x30;&#46;&#x33;&#46;&#x37;</a></font></p>
 <div class="tabs" id="tab"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#tab-1">webpack使用方式  post-cssloader</button></li><li class="tab"><button type="button" data-href="#tab-2">命令行使用方式：</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="tab-1"><figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> postcss-loader -D<br></code></pre></td></tr></table></figure>
-<p><font color=royalblue>+ <a href="mailto:&#x70;&#111;&#115;&#x74;&#99;&#x73;&#x73;&#45;&#108;&#111;&#97;&#100;&#101;&#x72;&#x40;&#x36;&#x2e;&#50;&#46;&#x30;">&#x70;&#111;&#115;&#x74;&#99;&#x73;&#x73;&#45;&#108;&#111;&#97;&#100;&#101;&#x72;&#x40;&#x36;&#x2e;&#50;&#46;&#x30;</a></font><br>它可以自动检测并通过postcss来进行css的自动化处理。</p>
+<p><font color=royalblue>+ <a href="mailto:&#112;&#x6f;&#115;&#116;&#x63;&#115;&#115;&#45;&#108;&#111;&#x61;&#x64;&#101;&#x72;&#x40;&#54;&#x2e;&#50;&#46;&#48;">&#112;&#x6f;&#115;&#116;&#x63;&#115;&#115;&#45;&#108;&#111;&#x61;&#x64;&#101;&#x72;&#x40;&#54;&#x2e;&#50;&#46;&#48;</a></font><br>它可以自动检测并通过postcss来进行css的自动化处理。</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">module: &#123;<br>     <span class="hljs-regexp">//</span> rules数组里面都是rule对象<br>    rules: [<br>      &#123;<br>        test: <span class="hljs-regexp">/\.css$/</span>,    <span class="hljs-regexp">//</span> 匹配以css结尾的文件<br>        use: [<br>          <span class="hljs-regexp">//</span>  注意编写顺序  从下到上，从右往左，本质 从后往前<br>          &#123; loader: <span class="hljs-string">&#x27;style-loader&#x27;</span> &#125;,<br>          &#123;<br>            loader: <span class="hljs-string">&#x27;css-loader&#x27;</span>,<br>          &#125;,<br>          &#123;<br>            loader: <span class="hljs-string">&#x27;postcss-loader&#x27;</span>,<br>            options: &#123;<br>              postcssOptions: &#123;<br>                plugins: [<br>                  require(<span class="hljs-string">&quot;autoprefixer&quot;</span>)<br>                ]<br>              &#125;<br>            &#125;<br>          &#125;<br>        ]<br>      &#125;<br>    ]<br>  &#125;<br><br></code></pre></td></tr></table></figure>
 <p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211019213331autoPreFixerExample.png" alt="自动加前缀实验"></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-2"><figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">npx postcss --use autoprefixer -o result.css .<span class="hljs-regexp">/src/</span>css/test.css<br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
 ]]></content>
@@ -1958,16 +1958,6 @@ See https://webpack.js.org/concepts#loaders
       </tags>
   </entry>
   <entry>
-    <title>vue+elementUI后台管理系统</title>
-    <url>/2021/04/17/uncategorized/cf07c19a06d1/</url>
-    <content><![CDATA[<h1 id="关于后台管理系统开发过程中问题的解决"><a href="#关于后台管理系统开发过程中问题的解决" class="headerlink" title="关于后台管理系统开发过程中问题的解决"></a>关于后台管理系统开发过程中问题的解决</h1><h2 id="相关环境及版本号"><a href="#相关环境及版本号" class="headerlink" title="相关环境及版本号"></a>相关环境及版本号</h2><p>node -v</p>
-<span id="more"></span>
-]]></content>
-      <tags>
-        <tag>cms</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>后台管理系统vue3TsElement-plusVite</title>
     <url>/2021/09/14/vue3/9e0f53e3c316/</url>
     <content><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>截止目前，工作中对于需要处理的项目需求已经基本完成，在没有新的需求产生之前，项目基本的模型基本固定，所以有时间进行项目的思考与新技术的学习，在实际的开发的项目中会技术知识点的熟练度问题导致经常需要参考网上的相关例子，但是根据教程解决完业务问题后，因为整理不及时，在遇到相同问题的时候就会花费更多的精力和时间，也不利于沉淀。正好，博客系统也能都正常上线使用，采用了比较简洁的hexo-next主题，虽然界面比较朴素，但是对于写技术博客来说，已经是非常适合不过了。当然也有其他的主题，比较好看，但是因为配置next主题也花了一些时间，同时在此阶段结合谷歌浏览器lighthouse插件，也解决了一些项目的性能优化问题，包括通过<a href="https://www.jsdelivr.com/">jsdelivr</a>对图片进行CDN优化，加快访问速度等，如图<img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914162406blogRateScreen.png" alt="个人博客网站评分">，同时也提出了http/1.1 http/2等的问题，可以明显的感觉到加载速度的差异，<a href="https://http2.akamai.com/demo">加载速度对比</a>,发现对于基础知识还是有许多需要学习的地方，也就是当前来说技术知识的提升比博客页面的美观更加重要一些，所以就开始先更文章了!</p>
@@ -1991,6 +1981,16 @@ See https://webpack.js.org/concepts#loaders
         <tag>TypeScript</tag>
         <tag>vue3</tag>
         <tag>vite</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vue+elementUI后台管理系统</title>
+    <url>/2021/04/17/uncategorized/cf07c19a06d1/</url>
+    <content><![CDATA[<h1 id="关于后台管理系统开发过程中问题的解决"><a href="#关于后台管理系统开发过程中问题的解决" class="headerlink" title="关于后台管理系统开发过程中问题的解决"></a>关于后台管理系统开发过程中问题的解决</h1><h2 id="相关环境及版本号"><a href="#相关环境及版本号" class="headerlink" title="相关环境及版本号"></a>相关环境及版本号</h2><p>node -v</p>
+<span id="more"></span>
+]]></content>
+      <tags>
+        <tag>cms</tag>
       </tags>
   </entry>
   <entry>
