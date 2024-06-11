@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>江东及巽`s blog</title>
+  <title>亚东`s blog</title>
   <icon>https://mhist.github.io/icon.png</icon>
-  <subtitle>真正的大师永远怀有一颗学徒的心</subtitle>
+  <subtitle>多少事，从来急；天地转，光阴迫。一万年太久，只争朝夕。</subtitle>
   <link href="https://mhist.github.io/atom.xml" rel="self"/>
   
   <link href="https://mhist.github.io/"/>
-  <updated>2024-01-21T16:09:10.883Z</updated>
+  <updated>2024-06-11T12:44:10.137Z</updated>
   <id>https://mhist.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>spring 学习 （一）</title>
+    <link href="https://mhist.github.io/2024/06/05/spring/e8190f123a53/"/>
+    <id>https://mhist.github.io/2024/06/05/spring/e8190f123a53/</id>
+    <published>2024-06-05T15:18:15.000Z</published>
+    <updated>2024-06-11T12:44:10.137Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;一、spring是什么？&quot;&gt;&lt;a href=&quot;#一、spring是什么？&quot; class=&quot;headerlink&quot; title=&quot;一、spring是什么？&quot;&gt;&lt;/a&gt;一、spring是什么？&lt;/h1&gt;&lt;p&gt; &lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="spring" scheme="https://mhist.github.io/categories/spring/"/>
+    
+    
+    <category term="spring" scheme="https://mhist.github.io/tags/spring/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
@@ -496,27 +521,6 @@ SELECT</summary>
     
     
     <category term="hexo" scheme="https://mhist.github.io/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TypeScript入门教程二</title>
-    <link href="https://mhist.github.io/2021/09/26/TypeScript/4d8aa16bcb6b/"/>
-    <id>https://mhist.github.io/2021/09/26/TypeScript/4d8aa16bcb6b/</id>
-    <published>2021-09-26T09:49:42.000Z</published>
-    <updated>2024-01-21T16:09:10.882Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;typescript学习：第二部分&quot;&gt;&lt;a href=&quot;#typescript学习：第二部分&quot; class=&quot;headerlink&quot; title=&quot;typescript学习：第二部分&quot;&gt;&lt;/a&gt;typescript学习：第二部分&lt;/h1&gt;&lt;p&gt;  → &lt;a href=&quot;http://wakeweb.cloud/2021/09/24/TypeScript/854698b90236/&quot;&gt;第一部分跳转链接&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;经过第一部分的学习，我们已经了解到了typescript的基本用法，同时对于其在代码健壮性，以及编译过程中即出现错误提示的有点有了更一步的了解，接下来，我们将进一步学习新的知识，体会typescript更加高级的用法。&lt;/p&gt;
-&lt;h2 id=&quot;类型断言&quot;&gt;&lt;a href=&quot;#类型断言&quot; class=&quot;headerlink&quot; title=&quot;类型断言&quot;&gt;&lt;/a&gt;类型断言&lt;/h2&gt;&lt;p&gt;  在学习类型断言之前，需要先了解断言的具体概念，针对node语言里面也有相关断言的概念，有以下的问题：&lt;br&gt;  &lt;font color=orange&gt;1.断言是一个广泛的概念吗？&lt;/font&gt;&lt;br&gt;  &lt;font color=seagreen&gt;2.node断言与typescript类型断言分别都是什么？&lt;/font&gt;&lt;br&gt;</summary>
-    
-    
-    
-    <category term="TypeScript" scheme="https://mhist.github.io/categories/TypeScript/"/>
-    
-    
-    <category term="TypeScript" scheme="https://mhist.github.io/tags/TypeScript/"/>
     
   </entry>
   
