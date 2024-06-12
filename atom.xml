@@ -6,7 +6,7 @@
   <link href="https://mhist.github.io/atom.xml" rel="self"/>
   
   <link href="https://mhist.github.io/"/>
-  <updated>2024-06-11T12:44:10.137Z</updated>
+  <updated>2024-06-12T17:35:04.083Z</updated>
   <id>https://mhist.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>spring 学习 （二）</title>
+    <link href="https://mhist.github.io/2024/06/13/spring/36ea81e50a30/"/>
+    <id>https://mhist.github.io/2024/06/13/spring/36ea81e50a30/</id>
+    <published>2024-06-12T17:23:15.000Z</published>
+    <updated>2024-06-12T17:35:04.083Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;yml配置文件&quot;&gt;&lt;a href=&quot;#yml配置文件&quot; class=&quot;headerlink&quot; title=&quot;yml配置文件&quot;&gt;&lt;/a&gt;yml配置文件&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;一般的配置格式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight</summary>
+        
+      
+    
+    
+    
+    <category term="spring" scheme="https://mhist.github.io/categories/spring/"/>
+    
+    
+    <category term="spring" scheme="https://mhist.github.io/tags/spring/"/>
+    
+  </entry>
   
   <entry>
     <title>spring 学习 （一）</title>
@@ -496,31 +524,6 @@ SELECT</summary>
     
     
     <category term="vue3" scheme="https://mhist.github.io/tags/vue3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo样式修改汇总</title>
-    <link href="https://mhist.github.io/2021/09/28/hexo/371af6f33ab0/"/>
-    <id>https://mhist.github.io/2021/09/28/hexo/371af6f33ab0/</id>
-    <published>2021-09-28T05:40:16.000Z</published>
-    <updated>2024-01-21T16:09:10.883Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;hexo样式汇总&quot;&gt;&lt;a href=&quot;#hexo样式汇总&quot; class=&quot;headerlink&quot; title=&quot;hexo样式汇总&quot;&gt;&lt;/a&gt;hexo样式汇总&lt;/h1&gt;&lt;h1 id=&quot;更改超链接格式（文字颜色）&quot;&gt;&lt;a href=&quot;#更改超链接格式（文字颜色）&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="hexo" scheme="https://mhist.github.io/categories/hexo/"/>
-    
-    
-    <category term="hexo" scheme="https://mhist.github.io/tags/hexo/"/>
     
   </entry>
   
