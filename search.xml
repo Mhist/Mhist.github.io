@@ -299,160 +299,6 @@
       </tags>
   </entry>
   <entry>
-    <title>VUE2.X学习</title>
-    <url>/2021/04/24/uncategorized/6eb6cb2ab58d/</url>
-    <content><![CDATA[<h1 id="vue2-x教程学习"><a href="#vue2-x教程学习" class="headerlink" title="vue2.x教程学习"></a>vue2.x教程学习</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h3><p>Vue <strong>不支持</strong> IE8 及以下版本，因为 Vue 使用了 IE8 无法模拟的 ECMAScript 5 特性。但它支持所有<a href="https://caniuse.com/#feat=es5">兼容 ECMAScript 5 的浏览器</a>。</p>
-<h3 id="语义化版本控制"><a href="#语义化版本控制" class="headerlink" title="语义化版本控制"></a>语义化版本控制</h3><p>Vue 在其所有项目中公布的功能和行为都遵循<a href="https://semver.org/lang/zh-CN/">语义化版本控制</a>。对于未公布的或内部暴露的行为，其变更会描述在<a href="https://github.com/vuejs/vue/releases">发布说明</a>中。</p>
-<h3 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h3><p>最新稳定版本：2.6.12<br>每个版本的更新日志见 <a href="https://github.com/vuejs/vue/releases">GitHub</a>。</p>
-<span id="more"></span>
-<h3 id="Vue-Devtools"><a href="#Vue-Devtools" class="headerlink" title="Vue Devtools"></a>Vue Devtools</h3><ul>
-<li>在使用 Vue 时，我们推荐在你的浏览器上安装 <a href="https://github.com/vuejs/vue-devtools#vue-devtools">Vue Devtools</a>。它允许你在一个更友好的界面中审查和调试 Vue 应用。</li>
-<li> 在Chrome浏览器中可以直接到Chrome网上商店搜索下载</li>
-<li> 在edge浏览器中可以打开 <a href="https://chrome.google.com/webstore/category/extensions">Chrome 扩展商店</a>，在搜索栏搜索 <strong>vue.js devtools</strong><br>选择提供方为：<a href="https://vuejs.org/">https://vuejs.org</a> 的扩展，添加成功后，进入扩展设置页面，找到 Vue.js devtools 扩展，点击详细信息，勾选允许访问文件 URL和收集错误选项.<br><img src="https://gitee.com/mhist/hexo-image/raw/master/img/VueDevToolSet-20210424164242.png" alt="vue.js devtools"><h3 id="直接用script标签引用"><a href="#直接用script标签引用" class="headerlink" title="直接用script标签引用"></a>直接用script标签引用</h3>直接下载并用 script 标签引入，Vue会被注册为全局变量。</li>
-<li>在开发环境下不要使用压缩版本，不然会失去所有常见错误的相关警告。</li>
-<li><a href="https://cn.vuejs.org/js/vue.js">开发版本</a>包含完整的警告和调试模式</li>
-<li><a href="https://cn.vuejs.org/js/vue.min.js">压缩版本/生产版本</a>删除了警告，33.30KB min+gzip<h4 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h4>对于制作原型或学习，你可以这样使用最新版本：<figure class="highlight applescript"><table><tr><td class="code"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">script</span> src=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;</span>&gt;<span class="hljs-keyword">script</span>&gt;<br></code></pre></td></tr></table></figure>
-对于生产环境，我们推荐链接到一个明确的版本号和构建文件，以避免新版本造成的不可预期的破坏：<figure class="highlight applescript"><table><tr><td class="code"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">script</span> src=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/vue@2.6.12&quot;</span>&gt;<span class="hljs-keyword">script</span>&gt;<br></code></pre></td></tr></table></figure>
-如果你使用原生 ES Modules，这里也有一个兼容 ES Module 的构建文件：<figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;module&quot;</span>&gt;</span><span class="javascript"> <span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.esm.browser.js&#x27;</span> script&gt;</span><br></code></pre></td></tr></table></figure></li>
-</ul>
-<p>你可以在 <a href="https://cdn.jsdelivr.net/npm/vue/">cdn.jsdelivr.net/npm/vue</a> 浏览 NPM 包的源代码。</p>
-<p>Vue 也可以在 <a href="https://unpkg.com/vue@2.6.12/dist/vue.js">unpkg</a> 和 <a href="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js">cdnjs</a> 上获取 (cdnjs 的版本更新可能略滞后)。</p>
-<p>请确认了解<a href="https://cn.vuejs.org/v2/guide/installation.html#%E5%AF%B9%E4%B8%8D%E5%90%8C%E6%9E%84%E5%BB%BA%E7%89%88%E6%9C%AC%E7%9A%84%E8%A7%A3%E9%87%8A">不同构建版本</a>并在你发布的站点中使用<strong>生产环境版本</strong>，把 <code>vue.js</code> 换成 <code>vue.min.js</code>。这是一个更小的构建，可以带来比开发环境下更快的速度体验。</p>
-<h3 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h3><p>在用 Vue 构建大型应用时推荐使用 NPM 安装<a href="https://cn.vuejs.org/v2/guide/installation.html#footnote-1">[1]</a>。NPM 能很好地和诸如 <a href="https://webpack.js.org/">webpack</a> 或 <a href="http://browserify.org/">Browserify</a> 模块打包器配合使用。同时 Vue 也提供配套工具来开发<a href="https://cn.vuejs.org/v2/guide/single-file-components.html">单文件组件</a>。</p>
-<figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake"><span class="hljs-comment"># 最新稳定版</span><br>$ npm <span class="hljs-keyword">install</span> vue<br></code></pre></td></tr></table></figure>
-<h2 id="命令行工具-CLI"><a href="#命令行工具-CLI" class="headerlink" title="命令行工具 (CLI)"></a><a href="https://cli.vuejs.org/zh/">命令行工具 (CLI)</a></h2><p>Vue CLI 是一个基于 Vue.js 进行快速开发的完整系统，提供：</p>
-<p>通过 @vue/cli 实现的交互式的项目脚手架。<br>通过 @vue/cli + @vue/cli-service-global 实现的零配置原型开发。<br>一个运行时依赖 (@vue/cli-service)，该依赖：<br>可升级；<br>基于 webpack 构建，并带有合理的默认配置；<br>可以通过项目内的配置文件进行配置；<br>可以通过插件进行扩展。<br>一个丰富的官方插件集合，集成了前端生态中最好的工具。<br>一套完全图形化的创建和管理 Vue.js 项目的用户界面。<br>Vue CLI 致力于将 Vue 生态中的工具基础标准化。它确保了各种构建工具能够基于智能的默认配置即可平稳衔接，这样你可以专注在撰写应用上，而不必花好几天去纠结配置的问题。与此同时，它也为每个工具提供了调整配置的灵活性，无需 eject。</p>
-]]></content>
-      <tags>
-        <tag>vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>富文本编辑器选型</title>
-    <url>/2022/12/20/editor/a972ef10f61a/</url>
-    <content><![CDATA[<p>一、常见的富文本编辑器</p>
-<p>种类：现有14种。</p>
-<table>
-<thead>
-<tr>
-<th>编辑器名称</th>
-<th>在线网址</th>
-<th>GITHUB</th>
-<th>开源代码协议</th>
-<th>最后更新</th>
-<th>是否符合要求</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>wangEditor</td>
-<td><a href="https://www.wangeditor.com/">https://www.wangeditor.com/</a></td>
-<td><a href="https://github.com/wangeditor-team/wangEditor">https://github.com/wangeditor-team/wangEditor</a></td>
-<td>MIT</td>
-<td>2022-11-14</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>TinyMCE</td>
-<td><a href="https://www.tiny.cloud/tinymce/">https://www.tiny.cloud/tinymce/</a></td>
-<td><a href="https://github.com/tinymce/tinymce">https://github.com/tinymce/tinymce</a></td>
-<td>MIT</td>
-<td>2022-12-19</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>百度ueditor</td>
-<td><a href="http://fex.baidu.com/ueditor/">http://fex.baidu.com/ueditor/</a></td>
-<td><a href="https://github.com/fex-team/ueditor">https://github.com/fex-team/ueditor</a></td>
-<td>MIT</td>
-<td>2022-11-9</td>
-<td>2022-11-9被作者存档</td>
-<td></td>
-</tr>
-<tr>
-<td>kindeditor</td>
-<td><a href="http://kindeditor.net/doc.php">http://kindeditor.net/doc.php</a></td>
-<td><a href="https://github.com/kindsoft/kindeditor">https://github.com/kindsoft/kindeditor</a></td>
-<td>GNU</td>
-<td>2021-6-22</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>CKEditor</td>
-<td><a href="https://ckeditor.com/">https://ckeditor.com/</a></td>
-<td><a href="https://github.com/ckeditor/ckeditor5">https://github.com/ckeditor/ckeditor5</a></td>
-<td>GNU</td>
-<td>13 hours ago</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Git stats</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td><a href="https://ckeditor.com/collaboration/demo/">https://ckeditor.com/collaboration/demo/</a></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>quill</td>
-<td><a href="https://www.kancloud.cn/liuwave/quill/1409423">https://www.kancloud.cn/liuwave/quill/1409423</a></td>
-<td><a href="https://github.com/quilljs/quill">https://github.com/quilljs/quill</a></td>
-<td>BSD 3-Clause “New” or “Revised” License</td>
-<td>2022-12-05</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>jodit</td>
-<td><a href="https://xdsoft.net/jodit/">https://xdsoft.net/jodit/</a></td>
-<td><a href="https://github.com/xdan/jodit">https://github.com/xdan/jodit</a></td>
-<td>MIT</td>
-<td>2022-12-18</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>eWebEditor</td>
-<td><a href="http://www.ewebeditor.net/">http://www.ewebeditor.net/</a></td>
-<td></td>
-<td>非开源</td>
-<td></td>
-<td></td>
-<td><a href="http://www.ewebeditor.net/demo/">http://www.ewebeditor.net/demo/</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-]]></content>
-      <categories>
-        <category>editor</category>
-      </categories>
-      <tags>
-        <tag>editor</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>git</title>
     <url>/2021/11/01/git/0e5e66b4b6b0/</url>
     <content><![CDATA[<h2 id="git是什么？"><a href="#git是什么？" class="headerlink" title="git是什么？"></a>git是什么？</h2><p> Git是一种分布式的版本控制软件， 它像是把数据看作是对小型文件系统的一系列快照。 在 Git 中，每当你提交更新或保存项目状态时，它基本上就会对当时的全部文件创建一个快照并保存这个快照的索引。 为了效率，如果文件没有修改，Git 不再重新存储该文件，而是只保留一个链接指向之前存储的文件。 Git 对待数据更像是一个 <font color=amber>快照流</font>。</p>
@@ -641,6 +487,160 @@ f89d8a5
       </tags>
   </entry>
   <entry>
+    <title>VUE2.X学习</title>
+    <url>/2021/04/24/uncategorized/6eb6cb2ab58d/</url>
+    <content><![CDATA[<h1 id="vue2-x教程学习"><a href="#vue2-x教程学习" class="headerlink" title="vue2.x教程学习"></a>vue2.x教程学习</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h3><p>Vue <strong>不支持</strong> IE8 及以下版本，因为 Vue 使用了 IE8 无法模拟的 ECMAScript 5 特性。但它支持所有<a href="https://caniuse.com/#feat=es5">兼容 ECMAScript 5 的浏览器</a>。</p>
+<h3 id="语义化版本控制"><a href="#语义化版本控制" class="headerlink" title="语义化版本控制"></a>语义化版本控制</h3><p>Vue 在其所有项目中公布的功能和行为都遵循<a href="https://semver.org/lang/zh-CN/">语义化版本控制</a>。对于未公布的或内部暴露的行为，其变更会描述在<a href="https://github.com/vuejs/vue/releases">发布说明</a>中。</p>
+<h3 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h3><p>最新稳定版本：2.6.12<br>每个版本的更新日志见 <a href="https://github.com/vuejs/vue/releases">GitHub</a>。</p>
+<span id="more"></span>
+<h3 id="Vue-Devtools"><a href="#Vue-Devtools" class="headerlink" title="Vue Devtools"></a>Vue Devtools</h3><ul>
+<li>在使用 Vue 时，我们推荐在你的浏览器上安装 <a href="https://github.com/vuejs/vue-devtools#vue-devtools">Vue Devtools</a>。它允许你在一个更友好的界面中审查和调试 Vue 应用。</li>
+<li> 在Chrome浏览器中可以直接到Chrome网上商店搜索下载</li>
+<li> 在edge浏览器中可以打开 <a href="https://chrome.google.com/webstore/category/extensions">Chrome 扩展商店</a>，在搜索栏搜索 <strong>vue.js devtools</strong><br>选择提供方为：<a href="https://vuejs.org/">https://vuejs.org</a> 的扩展，添加成功后，进入扩展设置页面，找到 Vue.js devtools 扩展，点击详细信息，勾选允许访问文件 URL和收集错误选项.<br><img src="https://gitee.com/mhist/hexo-image/raw/master/img/VueDevToolSet-20210424164242.png" alt="vue.js devtools"><h3 id="直接用script标签引用"><a href="#直接用script标签引用" class="headerlink" title="直接用script标签引用"></a>直接用script标签引用</h3>直接下载并用 script 标签引入，Vue会被注册为全局变量。</li>
+<li>在开发环境下不要使用压缩版本，不然会失去所有常见错误的相关警告。</li>
+<li><a href="https://cn.vuejs.org/js/vue.js">开发版本</a>包含完整的警告和调试模式</li>
+<li><a href="https://cn.vuejs.org/js/vue.min.js">压缩版本/生产版本</a>删除了警告，33.30KB min+gzip<h4 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h4>对于制作原型或学习，你可以这样使用最新版本：<figure class="highlight applescript"><table><tr><td class="code"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">script</span> src=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;</span>&gt;<span class="hljs-keyword">script</span>&gt;<br></code></pre></td></tr></table></figure>
+对于生产环境，我们推荐链接到一个明确的版本号和构建文件，以避免新版本造成的不可预期的破坏：<figure class="highlight applescript"><table><tr><td class="code"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">script</span> src=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/vue@2.6.12&quot;</span>&gt;<span class="hljs-keyword">script</span>&gt;<br></code></pre></td></tr></table></figure>
+如果你使用原生 ES Modules，这里也有一个兼容 ES Module 的构建文件：<figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;module&quot;</span>&gt;</span><span class="javascript"> <span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.esm.browser.js&#x27;</span> script&gt;</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<p>你可以在 <a href="https://cdn.jsdelivr.net/npm/vue/">cdn.jsdelivr.net/npm/vue</a> 浏览 NPM 包的源代码。</p>
+<p>Vue 也可以在 <a href="https://unpkg.com/vue@2.6.12/dist/vue.js">unpkg</a> 和 <a href="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js">cdnjs</a> 上获取 (cdnjs 的版本更新可能略滞后)。</p>
+<p>请确认了解<a href="https://cn.vuejs.org/v2/guide/installation.html#%E5%AF%B9%E4%B8%8D%E5%90%8C%E6%9E%84%E5%BB%BA%E7%89%88%E6%9C%AC%E7%9A%84%E8%A7%A3%E9%87%8A">不同构建版本</a>并在你发布的站点中使用<strong>生产环境版本</strong>，把 <code>vue.js</code> 换成 <code>vue.min.js</code>。这是一个更小的构建，可以带来比开发环境下更快的速度体验。</p>
+<h3 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h3><p>在用 Vue 构建大型应用时推荐使用 NPM 安装<a href="https://cn.vuejs.org/v2/guide/installation.html#footnote-1">[1]</a>。NPM 能很好地和诸如 <a href="https://webpack.js.org/">webpack</a> 或 <a href="http://browserify.org/">Browserify</a> 模块打包器配合使用。同时 Vue 也提供配套工具来开发<a href="https://cn.vuejs.org/v2/guide/single-file-components.html">单文件组件</a>。</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake"><span class="hljs-comment"># 最新稳定版</span><br>$ npm <span class="hljs-keyword">install</span> vue<br></code></pre></td></tr></table></figure>
+<h2 id="命令行工具-CLI"><a href="#命令行工具-CLI" class="headerlink" title="命令行工具 (CLI)"></a><a href="https://cli.vuejs.org/zh/">命令行工具 (CLI)</a></h2><p>Vue CLI 是一个基于 Vue.js 进行快速开发的完整系统，提供：</p>
+<p>通过 @vue/cli 实现的交互式的项目脚手架。<br>通过 @vue/cli + @vue/cli-service-global 实现的零配置原型开发。<br>一个运行时依赖 (@vue/cli-service)，该依赖：<br>可升级；<br>基于 webpack 构建，并带有合理的默认配置；<br>可以通过项目内的配置文件进行配置；<br>可以通过插件进行扩展。<br>一个丰富的官方插件集合，集成了前端生态中最好的工具。<br>一套完全图形化的创建和管理 Vue.js 项目的用户界面。<br>Vue CLI 致力于将 Vue 生态中的工具基础标准化。它确保了各种构建工具能够基于智能的默认配置即可平稳衔接，这样你可以专注在撰写应用上，而不必花好几天去纠结配置的问题。与此同时，它也为每个工具提供了调整配置的灵活性，无需 eject。</p>
+]]></content>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>富文本编辑器选型</title>
+    <url>/2022/12/20/editor/a972ef10f61a/</url>
+    <content><![CDATA[<p>一、常见的富文本编辑器</p>
+<p>种类：现有14种。</p>
+<table>
+<thead>
+<tr>
+<th>编辑器名称</th>
+<th>在线网址</th>
+<th>GITHUB</th>
+<th>开源代码协议</th>
+<th>最后更新</th>
+<th>是否符合要求</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>wangEditor</td>
+<td><a href="https://www.wangeditor.com/">https://www.wangeditor.com/</a></td>
+<td><a href="https://github.com/wangeditor-team/wangEditor">https://github.com/wangeditor-team/wangEditor</a></td>
+<td>MIT</td>
+<td>2022-11-14</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TinyMCE</td>
+<td><a href="https://www.tiny.cloud/tinymce/">https://www.tiny.cloud/tinymce/</a></td>
+<td><a href="https://github.com/tinymce/tinymce">https://github.com/tinymce/tinymce</a></td>
+<td>MIT</td>
+<td>2022-12-19</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>百度ueditor</td>
+<td><a href="http://fex.baidu.com/ueditor/">http://fex.baidu.com/ueditor/</a></td>
+<td><a href="https://github.com/fex-team/ueditor">https://github.com/fex-team/ueditor</a></td>
+<td>MIT</td>
+<td>2022-11-9</td>
+<td>2022-11-9被作者存档</td>
+<td></td>
+</tr>
+<tr>
+<td>kindeditor</td>
+<td><a href="http://kindeditor.net/doc.php">http://kindeditor.net/doc.php</a></td>
+<td><a href="https://github.com/kindsoft/kindeditor">https://github.com/kindsoft/kindeditor</a></td>
+<td>GNU</td>
+<td>2021-6-22</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CKEditor</td>
+<td><a href="https://ckeditor.com/">https://ckeditor.com/</a></td>
+<td><a href="https://github.com/ckeditor/ckeditor5">https://github.com/ckeditor/ckeditor5</a></td>
+<td>GNU</td>
+<td>13 hours ago</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Git stats</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://ckeditor.com/collaboration/demo/">https://ckeditor.com/collaboration/demo/</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>quill</td>
+<td><a href="https://www.kancloud.cn/liuwave/quill/1409423">https://www.kancloud.cn/liuwave/quill/1409423</a></td>
+<td><a href="https://github.com/quilljs/quill">https://github.com/quilljs/quill</a></td>
+<td>BSD 3-Clause “New” or “Revised” License</td>
+<td>2022-12-05</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>jodit</td>
+<td><a href="https://xdsoft.net/jodit/">https://xdsoft.net/jodit/</a></td>
+<td><a href="https://github.com/xdan/jodit">https://github.com/xdan/jodit</a></td>
+<td>MIT</td>
+<td>2022-12-18</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>eWebEditor</td>
+<td><a href="http://www.ewebeditor.net/">http://www.ewebeditor.net/</a></td>
+<td></td>
+<td>非开源</td>
+<td></td>
+<td></td>
+<td><a href="http://www.ewebeditor.net/demo/">http://www.ewebeditor.net/demo/</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>editor</category>
+      </categories>
+      <tags>
+        <tag>editor</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2024/01/22/hexo/435244c26d39/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -798,7 +798,7 @@ function doDecrypt (pwd, onError) {
 	}
 }
 </script>
-<div id="enc_content" style="display:none">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</div>
+<div id="enc_content" style="display:none">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</div>
 <div id="enc_passwd"> <input id="enc_pwd_input" type="password" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
 <script>
 var onError = function(error) {
@@ -831,7 +831,7 @@ v14.16.0</li>
 cmd控制台反馈如下：<pre>
 C:\Users\18827\AppData\Roaming\npm\create-react-app -> C:\Users\18827\AppData\Roaming\npm\node_modules\create-react-app\index.js</li>
 </ul>
-<p><a href="mailto:&#43;&#x63;&#114;&#101;&#x61;&#116;&#x65;&#x2d;&#114;&#x65;&#97;&#99;&#x74;&#x2d;&#97;&#112;&#112;&#64;&#x34;&#x2e;&#48;&#x2e;&#x33;">&#43;&#x63;&#114;&#101;&#x61;&#116;&#x65;&#x2d;&#114;&#x65;&#97;&#99;&#x74;&#x2d;&#97;&#112;&#112;&#64;&#x34;&#x2e;&#48;&#x2e;&#x33;</a><br>added 67 packages from 25 contributors in 22.805s<br> </pre></p>
+<p><a href="mailto:&#43;&#x63;&#x72;&#x65;&#x61;&#116;&#x65;&#45;&#x72;&#x65;&#97;&#x63;&#x74;&#45;&#97;&#112;&#112;&#64;&#x34;&#46;&#x30;&#x2e;&#51;">&#43;&#x63;&#x72;&#x65;&#x61;&#116;&#x65;&#45;&#x72;&#x65;&#97;&#x63;&#x74;&#45;&#97;&#112;&#112;&#64;&#x34;&#46;&#x30;&#x2e;&#51;</a><br>added 67 packages from 25 contributors in 22.805s<br> </pre></p>
 <h2 id="创建项目文件夹，并开启demo"><a href="#创建项目文件夹，并开启demo" class="headerlink" title="创建项目文件夹，并开启demo"></a>创建项目文件夹，并开启demo</h2><ul>
 <li><p>在电脑桌面同时按下Windows+R进入输入cmd,按enter</p>
 </li>
@@ -868,6 +868,50 @@ C:\Users\18827\AppData\Roaming\npm\create-react-app -> C:\Users\18827\AppData\Ro
 ]]></content>
       <tags>
         <tag>react</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>minio （一）</title>
+    <url>/2024/06/22/minio/4dbfabd1f48a/</url>
+    <content><![CDATA[<h1 id="minio"><a href="#minio" class="headerlink" title="minio"></a>minio</h1><p>minio的安装：</p>
+<p><a href="https://www.minio.org.cn/download.shtml#/linux">以Linux系统安装为例</a></p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">wget https:<span class="hljs-regexp">//</span>dl.minio.org.cn<span class="hljs-regexp">/server/mi</span>nio<span class="hljs-regexp">/release/</span>linux-amd64/minio<br>chmod +x minio<br>MINIO_ROOT_USER=admin MINIO_ROOT_PASSWORD=password .<span class="hljs-regexp">/minio server /m</span>nt/data --console-address <span class="hljs-string">&quot;:9001&quot;</span><br></code></pre></td></tr></table></figure>
+
+<div class="note warning modern"><p>其他：MINIO_ROOT_USER=mhist MINIO_ROOT_PASSWORD=mhist0129 ./minio server /mnt/data –console-address “:9001”</p>
+<p> 运行以上命令的结果：<br> <img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/WechatIMG138.jpg"></p>
+</div>
+
+
+<ul>
+<li>设置数据存放位置：/root/mhist/soft/minioFloder/data</li>
+</ul>
+<figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">MINIO_ROOT_USER=mhist MINIO_ROOT_PASSWORD=mhist0129 .<span class="hljs-regexp">/minio server /</span>root<span class="hljs-regexp">/mhist/</span>soft<span class="hljs-regexp">/minioFloder/</span>data --console-address <span class="hljs-string">&quot;:9000&quot;</span> --address <span class="hljs-string">&quot;:9001&quot;</span><br><br></code></pre></td></tr></table></figure>
+<ul>
+<li>修改公网ip</li>
+</ul>
+<p>查看是否正常启动</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">ps</span> -ef|<span class="hljs-keyword">grep</span> minio<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20240622170157.png"></p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">腾讯云端口安全组放开<br>https:<span class="hljs-regexp">//</span>console.cloud.tencent.com<span class="hljs-regexp">/lighthouse/i</span>nstance/detail?rid=<span class="hljs-number">1</span>&amp;id=lhins-qf8lj47h&amp;tab=firewall<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/minioStartSuccess.png" alt="启动成功"></p>
+<p>但是这种方式会在关闭终端的时候自动关闭、以至于无法访问、所以需要配置自动启动服务。</p>
+<p>参考链接：<a href="https://juejin.cn/post/7172092483197730823">CentOS下安装Minio、搭建Minio集群、SpringBoot整合Minio</a></p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[Unit]</span><br><span class="hljs-attr">Description</span>=Minio Service<br><br><span class="hljs-section">[Service]</span><br><span class="hljs-attr">Environment</span>=<span class="hljs-string">&quot;MINIO_ROOT_USER=mhist&quot;</span><br><span class="hljs-attr">Environment</span>=<span class="hljs-string">&quot;MINIO_ROOT_PASSWORD=mhistxxxx&quot;</span><br><span class="hljs-attr">ExecStart</span>=/home/minio/minio server /home/minio/data --console-address <span class="hljs-string">&quot;:9001&quot;</span> --address <span class="hljs-string">&quot;:9000&quot;</span><br><span class="hljs-attr">ExecReload</span>=/bin/kill -s HUP <span class="hljs-variable">$MAINPID</span><br><span class="hljs-attr">ExecStop</span>=/bin/kill -s QUIT <span class="hljs-variable">$MAINPID</span><br><span class="hljs-attr">StandardOutput</span>=/home/minio/minio.log<br><span class="hljs-attr">PrivateTmp</span>=<span class="hljs-literal">true</span><br><br><span class="hljs-section">[Install]</span><br><span class="hljs-attr">WantedBy</span>=multi-user.target<br><br></code></pre></td></tr></table></figure>
+
+
+<h3 id="开机自启"><a href="#开机自启" class="headerlink" title="开机自启"></a>开机自启</h3><figure class="highlight vala"><table><tr><td class="code"><pre><code class="hljs vala"><span class="hljs-meta"># 重新刷新</span><br>systemctl daemon-reload<br><span class="hljs-meta"># 启动</span><br>systemctl start minio.service<br><span class="hljs-meta"># 查看状态</span><br>systemctl status minio -l<br><span class="hljs-meta"># 开机自启</span><br>systemctl enable minio.service<br></code></pre></td></tr></table></figure>
+
+<h3 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h3><figure class="highlight dsconfig"><table><tr><td class="code"><pre><code class="hljs dsconfig"><span class="hljs-comment"># 启动minio</span><br><span class="hljs-string">systemctl</span> <span class="hljs-string">start</span> <span class="hljs-string">minio</span><br> <br><span class="hljs-comment">#设置开机自启动</span><br><span class="hljs-string">systemctl</span> <span class="hljs-string">enable</span> <span class="hljs-string">minio</span> <br> <br><span class="hljs-comment">#停止开机自启动</span><br><span class="hljs-string">systemctl</span> <span class="hljs-string">disable</span> <span class="hljs-string">minio</span><br> <br><span class="hljs-comment">#查看服务当前状态 </span><br><span class="hljs-string">systemctl</span> <span class="hljs-string">status</span> <span class="hljs-string">minio</span><br> <br><span class="hljs-comment">#重新启动服务</span><br><span class="hljs-string">systemctl</span> <span class="hljs-string">restart</span> <span class="hljs-string">minio</span>　  <br> <br><span class="hljs-comment">#查看所有已启动的服务 </span><br><span class="hljs-string">systemctl</span> <span class="hljs-built_in">list-units</span> <span class="hljs-built_in">--type=service</span> <br><br></code></pre></td></tr></table></figure>
+
+<h3 id="指定的后台API-（9000）-以及前端控制页面（9001）"><a href="#指定的后台API-（9000）-以及前端控制页面（9001）" class="headerlink" title="指定的后台API （9000） 以及前端控制页面（9001）"></a>指定的后台API （9000） 以及前端控制页面（9001）</h3><p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20240622220709.png" alt="启动完成、得到指定的后台API （9000） 以及前端控制页面（9001）"></p>
+]]></content>
+      <categories>
+        <category>minio</category>
+      </categories>
+      <tags>
+        <tag>minio</tag>
       </tags>
   </entry>
   <entry>
@@ -1528,6 +1572,18 @@ fs.readFile(filePath, {encoding: 'utf-8'}, (err, data) => {
       </tags>
   </entry>
   <entry>
+    <title>picgo （一）</title>
+    <url>/2024/06/22/picgo/ed3131c5123b/</url>
+    <content><![CDATA[<h1 id="插曲-macOS安装picgo报错、需要进入废纸篓"><a href="#插曲-macOS安装picgo报错、需要进入废纸篓" class="headerlink" title="插曲 macOS安装picgo报错、需要进入废纸篓"></a>插曲 macOS安装picgo报错、需要进入废纸篓</h1><p>下载链接：<a href="https://picgo-release.molunerfinn.com/2.4.0-beta.7/PicGo-2.4.0-beta.7-arm64.dmg">Picgo 2.4.0-beta.7-arm64</a></p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><code class="hljs stylus">sudo xattr -d com<span class="hljs-selector-class">.apple</span><span class="hljs-selector-class">.quarantine</span> <span class="hljs-string">&quot;/Applications/PicGo.app&quot;</span><br></code></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>picgo</category>
+      </categories>
+      <tags>
+        <tag>picgo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>npm常用命令</title>
     <url>/2023/12/18/npm/8cca0075206a/</url>
     <content><![CDATA[<h1 id="针对于-npm-install卡在sill-idealTree-buildDeps-没有反应，安装失灵"><a href="#针对于-npm-install卡在sill-idealTree-buildDeps-没有反应，安装失灵" class="headerlink" title="针对于  npm install卡在sill idealTree buildDeps 没有反应，安装失灵"></a>针对于  npm install卡在sill idealTree buildDeps 没有反应，安装失灵</h1><figure class="highlight routeros"><table><tr><td class="code"><pre><code class="hljs routeros">npm<span class="hljs-built_in"> config </span><span class="hljs-builtin-name">get</span><span class="hljs-built_in"> proxy</span><br><span class="hljs-built_in"></span>npm<span class="hljs-built_in"> config </span>rm<span class="hljs-built_in"> proxy</span><br><span class="hljs-built_in"></span>npm<span class="hljs-built_in"> config </span>rm https-proxy<br></code></pre></td></tr></table></figure>
@@ -1537,118 +1593,6 @@ fs.readFile(filePath, {encoding: 'utf-8'}, (err, data) => {
       </categories>
       <tags>
         <tag>npm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>spring 学习 （一）</title>
-    <url>/2024/06/05/spring/e8190f123a53/</url>
-    <content><![CDATA[<h1 id="一、spring是什么？"><a href="#一、spring是什么？" class="headerlink" title="一、spring是什么？"></a>一、spring是什么？</h1><p> <a href="https://spring.io/projects/spring-framework">spring是什么</a></p>
-<p>Spring 即是(Spring Framework)为现代基于Java的企业应用程序提供了一个全面的编程和配置模型-在任何类型的部署平台上。</p>
-<p>Spring的一个关键元素是应用程序级别的基础设施支持：Spring专注于企业应用程序的“管道”，以便团队可以专注于应用程序级别的业务逻辑，而无需与特定的部署环境进行不必要的联系。</p>
-<div class="note default modern"><p>我们在golang等编程语言中也曾听说过”管道”一词，它在编程领域到底是怎么的一种编程理念呢？ 按照我本身的理解应该是程序语言专注于在底层将基础功能实现、而使得程序员能够更加专注于业务领域的发展，类似于现实世界中的地下输水管道、地下电缆管道、地下光纤管道等等… </p>
-</div>
-
-<h1 id="Spring框架版本"><a href="#Spring框架版本" class="headerlink" title="Spring框架版本"></a>Spring框架版本</h1><h2 id="支持的版本"><a href="#支持的版本" class="headerlink" title="支持的版本"></a>支持的版本</h2><ul>
-<li>6.2.x 是即将推出的功能分支（2024 年 11 月）。</li>
-<li>自 2023 年 11 月起，6.1.x 为主要生产线。</li>
-<li>6.0.x 是上一个生产线，自 2022 年 11 月起上市。这一新框架一代配备了 JDK 17 和 Jakarta EE 9 基线。</li>
-<li>5.3.x 是第五代的最后一个功能分支，在 JDK 8、JDK 11、JDK 17、JDK 21 和 Java EE 8 级别提供长期支持。</li>
-<li>4.3.x 于 2020 年 12 月 31 日达到其官方 EOL（生命周期终止）。该系列中没有计划进一步的维护和安全补丁。</li>
-<li>3.2.x 于 2016 年 12 月 31 日达到其官方 EOL（使用寿命终止）。该系列中没有计划进一步的维护和安全补丁。</li>
-</ul>
-<h2 id="JDK版本范围"><a href="#JDK版本范围" class="headerlink" title="JDK版本范围"></a>JDK版本范围</h2><ul>
-<li>Spring Framework 6.2.x：JDK 17-25（预期）</li>
-<li>Spring Framework 6.1.x：JDK 17-23</li>
-<li>Spring Framework 6.0.x：JDK 17-21</li>
-<li>Spring Framework 5.3.x：JDK 8-21（截至 5.3.26）</li>
-</ul>
-<div class="note default modern"><p>假设当前所在项目jdk为11，spring boot 版本为2.7.8 则Spring的最低版本应该为5.3.x ; 且spring boot 2 的最高版本为2.7.18 </p>
-</div>
-
-<h1 id="Spring核心内容"><a href="#Spring核心内容" class="headerlink" title="Spring核心内容"></a>Spring核心内容</h1><ul>
-<li>依赖注入 (dependency injection)</li>
-</ul>
-<ul>
-<li><p>事件 (events)</p>
-</li>
-<li><p>资源 (resources)</p>
-</li>
-<li><p>i18n (国际化)</p>
-</li>
-<li><p>验证 (validation)</p>
-</li>
-<li><p>数据绑定  (data binding)</p>
-</li>
-<li><p>类型转换 (type conversion)</p>
-</li>
-<li><p>SpEL</p>
-</li>
-<li><p>AOP</p>
-</li>
-</ul>
-<h1 id="使用Spring-Initializr引导应用程序。"><a href="#使用Spring-Initializr引导应用程序。" class="headerlink" title="使用Spring Initializr引导应用程序。"></a><a href="https://start.spring.io/">使用Spring Initializr引导应用程序。</a></h1><h1 id="当前不在支持在线生成基于spring-boot2-版本"><a href="#当前不在支持在线生成基于spring-boot2-版本" class="headerlink" title="当前不在支持在线生成基于spring boot2 版本"></a>当前不在支持在线生成基于spring boot2 版本</h1><p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20240606231545.png" alt="当前不在支持在线生成基于spring boot2 版本"></p>
-<div class="note default modern"><p>Spring Boot 2.x 版本已经停止维护，这意味着官方不再提供更新或支持。这个决定是由于 Spring Boot 3.x 版本的推出，该版本带来了许多新特性和改进，以及对 Java 17 及更高版本的 Java 开发环境的支持。因此，Spring Boot 官方的 Spring Initializr 不再提供 2.x 版本的选项，转而全力维护 3.x 版本。 </p>
-</div>
-
-<h1 id="对于需要继续使用-Spring-Boot-2-x-版本的项目，可以考虑以下解决方案"><a href="#对于需要继续使用-Spring-Boot-2-x-版本的项目，可以考虑以下解决方案" class="headerlink" title="对于需要继续使用 Spring Boot 2.x 版本的项目，可以考虑以下解决方案"></a>对于需要继续使用 Spring Boot 2.x 版本的项目，可以考虑以下解决方案</h1><ul>
-<li><p>使用阿里云提供的镜像服务：你可以通过更改 IDEA 的 Server URL 为阿里云提供的镜像服务地址来创建基于 Java 8 的 Spring Boot 2.x 项目</p>
-</li>
-<li><p>手动修改版本号：你也可以直接从 Spring Initializr 创建任意 Spring Boot 和 Java 版本的 Spring Boot 项目，然后手动修改 pom.xml 或 build.gradle 中的版本配置，以匹配所需的 2.x 版本和 Java 8</p>
-</li>
-</ul>
-<h1 id="基于Spring-Initializr建立基础项目"><a href="#基于Spring-Initializr建立基础项目" class="headerlink" title="基于Spring Initializr建立基础项目"></a>基于Spring Initializr建立基础项目</h1><ol>
-<li>基础的数据库连接</li>
-</ol>
-<p>建立mysql数据库的基础排序规则一般是什么？</p>
-<p>MySQL数据库的基础排序规则通常指的是字符集（character set）和排序规则（collation）。字符集定义了数据库可以存储的字符集，而排序规则定义了字符的比较和排序方式。</p>
-<p>对于MySQL数据库，最常见的字符集是utf8mb4，它支持UTF-8编码，并且可以存储任何Unicode字符，包括表情符号。utf8mb4是utf8的扩展，因为原始的utf8只支持最多三个字节的UTF-8编码，而utf8mb4支持最多四个字节的UTF-8编码。</p>
-<p>对于排序规则，utf8mb4字符集的默认排序规则通常是utf8mb4_general_ci，这意味着它是以大小写不敏感的方式比较字符的。如果你的应用需要大小写敏感的比较，你可能需要使用utf8mb4_bin排序规则，它使用二进制比较，或者utf8mb4_unicode_ci，它提供了更好的多语言支持。</p>
-<p>在创建MySQL数据库时，你可以指定字符集和排序规则，例如：</p>
-<figure class="highlight pgsql"><table><tr><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">DATABASE</span> mydatabase<br><span class="hljs-type">CHARACTER</span> <span class="hljs-keyword">SET</span> utf8mb4<br><span class="hljs-keyword">COLLATE</span> utf8mb4_general_ci;<br><br></code></pre></td></tr></table></figure>
-
-<p>这将创建一个使用utf8mb4字符集和utf8mb4_general_ci排序规则的数据库。</p>
-<p>在选择排序规则时，你应该考虑你的应用的需求，比如是否需要大小写敏感的搜索，是否需要支持多语言等。通常，utf8mb4_general_ci是一个很好的默认选择，因为它适用于大多数情况，并且在大小写不敏感的比较上有较好的性能。如果你有特殊的需求，你可能需要选择一个不同的排序规则</p>
-<ol start="2">
-<li>错误信息处理、没有正确配置application.propertie或者yml</li>
-</ol>
-<div class="note default modern"><p>Error creating bean with name ‘dataSource’ defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method ‘dataSource’ threw exception with message: Failed to determine a suitable driver class</p>
-</div>
-
- <figure class="highlight ini"><table><tr><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">spring.datasource.url</span>=jdbc:mysql://localhost:<span class="hljs-number">3306</span>/mydatabase?useSSL=<span class="hljs-literal">false</span>&amp;serverTimezone=UTC<br><span class="hljs-attr">spring.datasource.username</span>=myuser<br><span class="hljs-attr">spring.datasource.password</span>=mypassword<br><span class="hljs-attr">spring.datasource.driver-class-name</span>=com.mysql.cj.jdbc.Driver<br></code></pre></td></tr></table></figure>
-
-<p>或者是</p>
-<figure class="highlight dts"><table><tr><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">spring:</span><br><span class="hljs-symbol">  datasource:</span><br><span class="hljs-symbol">    url:</span> jdbc:mysql:<span class="hljs-comment">//localhost:3306/mydatabase?useSSL=false&amp;serverTimezone=UTC</span><br><span class="hljs-symbol">    username:</span> myuser<br><span class="hljs-symbol">    password:</span> mypassword<br>    driver-class-name: com.mysql.cj.jdbc.Driver<br><br></code></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>controller最佳实践</li>
-</ol>
-<p>在Spring框架中，控制器的命名通常遵循以下最佳实践：</p>
-<ul>
-<li>命名规范：使用驼峰式命名法，以大写字母开头，每个单词的首字母大写。例如，UserController、OrderController、ProductViewController。</li>
-<li>明确性：控制器的名称应该清晰地反映其职责和管理的资源。如果控制器处理的是特定的域对象，通常以该对象的名称结尾，如User、Order等。</li>
-<li>复数形式：如果控制器管理的是一组资源，通常使用复数形式命名，如UsersController、OrdersController。</li>
-<li>避免冗余：如果已经在包名中包含了上下文信息，如com.example.users，则控制器名称中可以省略这部分信息，直接命名为UserController。</li>
-<li>简洁性：尽量保持控制器名称的简洁，同时确保其描述性。</li>
-<li>一致性：在整个项目中保持一致的命名规则，这有助于其他开发者快速理解代码结构和功能。<br>例如，如果你正在构建一个电商应用，你可能会有以下控制器：</li>
-</ul>
-<p>UserController：处理与用户相关的请求。<br>ProductController：处理与产品相关的请求。<br>OrderController：处理与订单相关的请求。<br>记住，这些只是建议，并不是强制规则。最重要的是在你的团队和项目中保持一致性和可读性。</p>
-<p>下次继续：</p>
-<ul>
-<li><p><a href="https://docs.spring.io/spring-framework/reference/core/beans/basics.html">https://docs.spring.io/spring-framework/reference/core/beans/basics.html</a></p>
-</li>
-<li><p><a href="https://pdai.tech/md/spring/springboot/springboot-x-interface-response.html">https://pdai.tech/md/spring/springboot/springboot-x-interface-response.html</a></p>
-</li>
-<li><p><a href="http://localhost:8888/">http://localhost:8888/</a></p>
-</li>
-<li><p><a href="http://localhost:4000/2024/06/05/spring/e8190f123a53/#%E5%9F%BA%E4%BA%8ESpring-Initializr%E5%BB%BA%E7%AB%8B%E5%9F%BA%E7%A1%80%E9%A1%B9%E7%9B%AE">http://localhost:4000/2024/06/05/spring/e8190f123a53/#%E5%9F%BA%E4%BA%8ESpring-Initializr%E5%BB%BA%E7%AB%8B%E5%9F%BA%E7%A1%80%E9%A1%B9%E7%9B%AE</a></p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>spring</category>
-      </categories>
-      <tags>
-        <tag>spring</tag>
       </tags>
   </entry>
   <entry>
@@ -1790,25 +1734,115 @@ Query OK, 1 row affected (0.00 sec)
       </tags>
   </entry>
   <entry>
-    <title>uni-app实战（一）</title>
-    <url>/2021/10/26/uni-app/4132b17f6755/</url>
-    <content><![CDATA[<h1 id="项目的构建"><a href="#项目的构建" class="headerlink" title="项目的构建"></a>项目的构建</h1><ol>
-<li>开发工具采用uni-app官方的开发工具<a href="https://www.dcloud.io/hbuilderx.html">HbuilderX</a></li>
-<li>构建项目选择基础模板</li>
-<li>引入样式库 <ul>
-<li>uni.css 官方ui库</li>
-<li>animate.css css动画库</li>
-<li>icon.css 图标库</li>
-<li>common.css 公共样式</li>
+    <title>spring 学习 （一）</title>
+    <url>/2024/06/05/spring/e8190f123a53/</url>
+    <content><![CDATA[<h1 id="一、spring是什么？"><a href="#一、spring是什么？" class="headerlink" title="一、spring是什么？"></a>一、spring是什么？</h1><p> <a href="https://spring.io/projects/spring-framework">spring是什么</a></p>
+<p>Spring 即是(Spring Framework)为现代基于Java的企业应用程序提供了一个全面的编程和配置模型-在任何类型的部署平台上。</p>
+<p>Spring的一个关键元素是应用程序级别的基础设施支持：Spring专注于企业应用程序的“管道”，以便团队可以专注于应用程序级别的业务逻辑，而无需与特定的部署环境进行不必要的联系。</p>
+<div class="note default modern"><p>我们在golang等编程语言中也曾听说过”管道”一词，它在编程领域到底是怎么的一种编程理念呢？ 按照我本身的理解应该是程序语言专注于在底层将基础功能实现、而使得程序员能够更加专注于业务领域的发展，类似于现实世界中的地下输水管道、地下电缆管道、地下光纤管道等等… </p>
+</div>
+
+<h1 id="Spring框架版本"><a href="#Spring框架版本" class="headerlink" title="Spring框架版本"></a>Spring框架版本</h1><h2 id="支持的版本"><a href="#支持的版本" class="headerlink" title="支持的版本"></a>支持的版本</h2><ul>
+<li>6.2.x 是即将推出的功能分支（2024 年 11 月）。</li>
+<li>自 2023 年 11 月起，6.1.x 为主要生产线。</li>
+<li>6.0.x 是上一个生产线，自 2022 年 11 月起上市。这一新框架一代配备了 JDK 17 和 Jakarta EE 9 基线。</li>
+<li>5.3.x 是第五代的最后一个功能分支，在 JDK 8、JDK 11、JDK 17、JDK 21 和 Java EE 8 级别提供长期支持。</li>
+<li>4.3.x 于 2020 年 12 月 31 日达到其官方 EOL（生命周期终止）。该系列中没有计划进一步的维护和安全补丁。</li>
+<li>3.2.x 于 2016 年 12 月 31 日达到其官方 EOL（使用寿命终止）。该系列中没有计划进一步的维护和安全补丁。</li>
 </ul>
+<h2 id="JDK版本范围"><a href="#JDK版本范围" class="headerlink" title="JDK版本范围"></a>JDK版本范围</h2><ul>
+<li>Spring Framework 6.2.x：JDK 17-25（预期）</li>
+<li>Spring Framework 6.1.x：JDK 17-23</li>
+<li>Spring Framework 6.0.x：JDK 17-21</li>
+<li>Spring Framework 5.3.x：JDK 8-21（截至 5.3.26）</li>
+</ul>
+<div class="note default modern"><p>假设当前所在项目jdk为11，spring boot 版本为2.7.8 则Spring的最低版本应该为5.3.x ; 且spring boot 2 的最高版本为2.7.18 </p>
+</div>
+
+<h1 id="Spring核心内容"><a href="#Spring核心内容" class="headerlink" title="Spring核心内容"></a>Spring核心内容</h1><ul>
+<li>依赖注入 (dependency injection)</li>
+</ul>
+<ul>
+<li><p>事件 (events)</p>
 </li>
+<li><p>资源 (resources)</p>
+</li>
+<li><p>i18n (国际化)</p>
+</li>
+<li><p>验证 (validation)</p>
+</li>
+<li><p>数据绑定  (data binding)</p>
+</li>
+<li><p>类型转换 (type conversion)</p>
+</li>
+<li><p>SpEL</p>
+</li>
+<li><p>AOP</p>
+</li>
+</ul>
+<h1 id="使用Spring-Initializr引导应用程序。"><a href="#使用Spring-Initializr引导应用程序。" class="headerlink" title="使用Spring Initializr引导应用程序。"></a><a href="https://start.spring.io/">使用Spring Initializr引导应用程序。</a></h1><h1 id="当前不在支持在线生成基于spring-boot2-版本"><a href="#当前不在支持在线生成基于spring-boot2-版本" class="headerlink" title="当前不在支持在线生成基于spring boot2 版本"></a>当前不在支持在线生成基于spring boot2 版本</h1><p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20240606231545.png" alt="当前不在支持在线生成基于spring boot2 版本"></p>
+<div class="note default modern"><p>Spring Boot 2.x 版本已经停止维护，这意味着官方不再提供更新或支持。这个决定是由于 Spring Boot 3.x 版本的推出，该版本带来了许多新特性和改进，以及对 Java 17 及更高版本的 Java 开发环境的支持。因此，Spring Boot 官方的 Spring Initializr 不再提供 2.x 版本的选项，转而全力维护 3.x 版本。 </p>
+</div>
+
+<h1 id="对于需要继续使用-Spring-Boot-2-x-版本的项目，可以考虑以下解决方案"><a href="#对于需要继续使用-Spring-Boot-2-x-版本的项目，可以考虑以下解决方案" class="headerlink" title="对于需要继续使用 Spring Boot 2.x 版本的项目，可以考虑以下解决方案"></a>对于需要继续使用 Spring Boot 2.x 版本的项目，可以考虑以下解决方案</h1><ul>
+<li><p>使用阿里云提供的镜像服务：你可以通过更改 IDEA 的 Server URL 为阿里云提供的镜像服务地址来创建基于 Java 8 的 Spring Boot 2.x 项目</p>
+</li>
+<li><p>手动修改版本号：你也可以直接从 Spring Initializr 创建任意 Spring Boot 和 Java 版本的 Spring Boot 项目，然后手动修改 pom.xml 或 build.gradle 中的版本配置，以匹配所需的 2.x 版本和 Java 8</p>
+</li>
+</ul>
+<h1 id="基于Spring-Initializr建立基础项目"><a href="#基于Spring-Initializr建立基础项目" class="headerlink" title="基于Spring Initializr建立基础项目"></a>基于Spring Initializr建立基础项目</h1><ol>
+<li>基础的数据库连接</li>
 </ol>
+<p>建立mysql数据库的基础排序规则一般是什么？</p>
+<p>MySQL数据库的基础排序规则通常指的是字符集（character set）和排序规则（collation）。字符集定义了数据库可以存储的字符集，而排序规则定义了字符的比较和排序方式。</p>
+<p>对于MySQL数据库，最常见的字符集是utf8mb4，它支持UTF-8编码，并且可以存储任何Unicode字符，包括表情符号。utf8mb4是utf8的扩展，因为原始的utf8只支持最多三个字节的UTF-8编码，而utf8mb4支持最多四个字节的UTF-8编码。</p>
+<p>对于排序规则，utf8mb4字符集的默认排序规则通常是utf8mb4_general_ci，这意味着它是以大小写不敏感的方式比较字符的。如果你的应用需要大小写敏感的比较，你可能需要使用utf8mb4_bin排序规则，它使用二进制比较，或者utf8mb4_unicode_ci，它提供了更好的多语言支持。</p>
+<p>在创建MySQL数据库时，你可以指定字符集和排序规则，例如：</p>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">DATABASE</span> mydatabase<br><span class="hljs-type">CHARACTER</span> <span class="hljs-keyword">SET</span> utf8mb4<br><span class="hljs-keyword">COLLATE</span> utf8mb4_general_ci;<br><br></code></pre></td></tr></table></figure>
+
+<p>这将创建一个使用utf8mb4字符集和utf8mb4_general_ci排序规则的数据库。</p>
+<p>在选择排序规则时，你应该考虑你的应用的需求，比如是否需要大小写敏感的搜索，是否需要支持多语言等。通常，utf8mb4_general_ci是一个很好的默认选择，因为它适用于大多数情况，并且在大小写不敏感的比较上有较好的性能。如果你有特殊的需求，你可能需要选择一个不同的排序规则</p>
+<ol start="2">
+<li>错误信息处理、没有正确配置application.propertie或者yml</li>
+</ol>
+<div class="note default modern"><p>Error creating bean with name ‘dataSource’ defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method ‘dataSource’ threw exception with message: Failed to determine a suitable driver class</p>
+</div>
+
+ <figure class="highlight ini"><table><tr><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">spring.datasource.url</span>=jdbc:mysql://localhost:<span class="hljs-number">3306</span>/mydatabase?useSSL=<span class="hljs-literal">false</span>&amp;serverTimezone=UTC<br><span class="hljs-attr">spring.datasource.username</span>=myuser<br><span class="hljs-attr">spring.datasource.password</span>=mypassword<br><span class="hljs-attr">spring.datasource.driver-class-name</span>=com.mysql.cj.jdbc.Driver<br></code></pre></td></tr></table></figure>
+
+<p>或者是</p>
+<figure class="highlight dts"><table><tr><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">spring:</span><br><span class="hljs-symbol">  datasource:</span><br><span class="hljs-symbol">    url:</span> jdbc:mysql:<span class="hljs-comment">//localhost:3306/mydatabase?useSSL=false&amp;serverTimezone=UTC</span><br><span class="hljs-symbol">    username:</span> myuser<br><span class="hljs-symbol">    password:</span> mypassword<br>    driver-class-name: com.mysql.cj.jdbc.Driver<br><br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>controller最佳实践</li>
+</ol>
+<p>在Spring框架中，控制器的命名通常遵循以下最佳实践：</p>
+<ul>
+<li>命名规范：使用驼峰式命名法，以大写字母开头，每个单词的首字母大写。例如，UserController、OrderController、ProductViewController。</li>
+<li>明确性：控制器的名称应该清晰地反映其职责和管理的资源。如果控制器处理的是特定的域对象，通常以该对象的名称结尾，如User、Order等。</li>
+<li>复数形式：如果控制器管理的是一组资源，通常使用复数形式命名，如UsersController、OrdersController。</li>
+<li>避免冗余：如果已经在包名中包含了上下文信息，如com.example.users，则控制器名称中可以省略这部分信息，直接命名为UserController。</li>
+<li>简洁性：尽量保持控制器名称的简洁，同时确保其描述性。</li>
+<li>一致性：在整个项目中保持一致的命名规则，这有助于其他开发者快速理解代码结构和功能。<br>例如，如果你正在构建一个电商应用，你可能会有以下控制器：</li>
+</ul>
+<p>UserController：处理与用户相关的请求。<br>ProductController：处理与产品相关的请求。<br>OrderController：处理与订单相关的请求。<br>记住，这些只是建议，并不是强制规则。最重要的是在你的团队和项目中保持一致性和可读性。</p>
+<p>下次继续：</p>
+<ul>
+<li><p><a href="https://docs.spring.io/spring-framework/reference/core/beans/basics.html">https://docs.spring.io/spring-framework/reference/core/beans/basics.html</a></p>
+</li>
+<li><p><a href="https://pdai.tech/md/spring/springboot/springboot-x-interface-response.html">https://pdai.tech/md/spring/springboot/springboot-x-interface-response.html</a></p>
+</li>
+<li><p><a href="http://localhost:8888/">http://localhost:8888/</a></p>
+</li>
+<li><p><a href="http://localhost:4000/2024/06/05/spring/e8190f123a53/#%E5%9F%BA%E4%BA%8ESpring-Initializr%E5%BB%BA%E7%AB%8B%E5%9F%BA%E7%A1%80%E9%A1%B9%E7%9B%AE">http://localhost:4000/2024/06/05/spring/e8190f123a53/#%E5%9F%BA%E4%BA%8ESpring-Initializr%E5%BB%BA%E7%AB%8B%E5%9F%BA%E7%A1%80%E9%A1%B9%E7%9B%AE</a></p>
+</li>
+</ul>
 ]]></content>
       <categories>
-        <category>uni-app</category>
+        <category>spring</category>
       </categories>
       <tags>
-        <tag>uni-app</tag>
+        <tag>spring</tag>
       </tags>
   </entry>
   <entry>
@@ -1877,6 +1911,28 @@ Query OK, 1 row affected (0.00 sec)
       </tags>
   </entry>
   <entry>
+    <title>uni-app实战（一）</title>
+    <url>/2021/10/26/uni-app/4132b17f6755/</url>
+    <content><![CDATA[<h1 id="项目的构建"><a href="#项目的构建" class="headerlink" title="项目的构建"></a>项目的构建</h1><ol>
+<li>开发工具采用uni-app官方的开发工具<a href="https://www.dcloud.io/hbuilderx.html">HbuilderX</a></li>
+<li>构建项目选择基础模板</li>
+<li>引入样式库 <ul>
+<li>uni.css 官方ui库</li>
+<li>animate.css css动画库</li>
+<li>icon.css 图标库</li>
+<li>common.css 公共样式</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>uni-app</category>
+      </categories>
+      <tags>
+        <tag>uni-app</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>vue2一些原理</title>
     <url>/2022/03/08/vue/9eb91058fc40/</url>
     <content><![CDATA[<h2 id="一、MVVM"><a href="#一、MVVM" class="headerlink" title="一、MVVM"></a>一、MVVM</h2><p>vue 中的 MVVM 模型，其本质即 M,V,VM 等组成的数据与视图模型<br><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/%20img/20220308141504.png"></p>
@@ -1918,6 +1974,18 @@ Query OK, 1 row affected (0.00 sec)
       </tags>
   </entry>
   <entry>
+    <title>vue3</title>
+    <url>/2021/10/11/vue3/583a6ec9ccd6/</url>
+    <content><![CDATA[<h1 id="vue3"><a href="#vue3" class="headerlink" title="vue3"></a>vue3</h1><p>   新一代的前端框架，基于typescript开发，具有更加优越的性能和更加安全的代码机制。</p>
+<span id="more"></span>]]></content>
+      <categories>
+        <category>vue3</category>
+      </categories>
+      <tags>
+        <tag>vue3</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>vue3 基础文档学习</title>
     <url>/2021/09/23/vue3/22ee434cee21/</url>
     <content><![CDATA[<h1 id="基础文档网址"><a href="#基础文档网址" class="headerlink" title="基础文档网址"></a>基础文档网址</h1><p><a href="https://v3.cn.vuejs.org/">vue3官方文档学习</a></p>
@@ -1930,18 +1998,6 @@ Query OK, 1 row affected (0.00 sec)
         <tag>TypeScript</tag>
         <tag>vue3</tag>
         <tag>vite</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vue3</title>
-    <url>/2021/10/11/vue3/583a6ec9ccd6/</url>
-    <content><![CDATA[<h1 id="vue3"><a href="#vue3" class="headerlink" title="vue3"></a>vue3</h1><p>   新一代的前端框架，基于typescript开发，具有更加优越的性能和更加安全的代码机制。</p>
-<span id="more"></span>]]></content>
-      <categories>
-        <category>vue3</category>
-      </categories>
-      <tags>
-        <tag>vue3</tag>
       </tags>
   </entry>
   <entry>
@@ -1996,7 +2052,7 @@ See https://webpack.js.org/concepts#loaders
 <p>本质上，webpack loader 将所有类型的文件，转换为应用程序的依赖图（和最终的 bundle）可以直接引用的模块。</p>
 <h2 id="css-loader的安装"><a href="#css-loader的安装" class="headerlink" title="css-loader的安装"></a>css-loader的安装</h2><figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> css-loader -D<br></code></pre></td></tr></table></figure>
 
-<p>当前版本为：<font color=amber><a href="mailto:&#99;&#x73;&#x73;&#45;&#108;&#111;&#x61;&#x64;&#101;&#x72;&#64;&#54;&#46;&#x34;&#x2e;&#48;">&#99;&#x73;&#x73;&#45;&#108;&#111;&#x61;&#x64;&#101;&#x72;&#64;&#54;&#46;&#x34;&#x2e;&#48;</a></font></p>
+<p>当前版本为：<font color=amber><a href="mailto:&#x63;&#115;&#115;&#45;&#108;&#x6f;&#x61;&#x64;&#101;&#x72;&#x40;&#x36;&#x2e;&#52;&#x2e;&#48;">&#x63;&#115;&#115;&#45;&#108;&#x6f;&#x61;&#x64;&#101;&#x72;&#x40;&#x36;&#x2e;&#52;&#x2e;&#48;</a></font></p>
 <p>安装完css-loader后，在package.json的<font color=red>devDependencies</font>中即可看到对应的版本号，但是现在桥梁的材料准备好了，还需要将公路与桥梁进行以下安装处理，使得其可以稳固通行，也就是代码能够正常运行。要想达到目的，有以下几种方式：</p>
 <div class="tabs" id="tab"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#tab-1">配置方式 推荐</button></li><li class="tab"><button type="button" data-href="#tab-2">CLI方式（webpack5版本中不再使用）</button></li><li class="tab"><button type="button" data-href="#tab-3">内联方式</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="tab-1"><figure class="highlight yaml"><table><tr><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">module:</span> &#123;<br>   <span class="hljs-attr">rules:</span> [<br>     &#123;<br>       <span class="hljs-attr">test:</span> <span class="hljs-string">/\.css$/</span>,               <br>       <span class="hljs-attr">use:</span> [<br>         &#123; <span class="hljs-attr">loader:</span> <span class="hljs-string">&#x27;style-loader&#x27;</span> &#125;,<br>         &#123;<br>           <span class="hljs-attr">loader:</span> <span class="hljs-string">&#x27;css-loader&#x27;</span>,<br>           <span class="hljs-attr">options:</span> &#123;<br>             <span class="hljs-attr">modules:</span> <span class="hljs-literal">true</span><br>           &#125;<br>         &#125;<br>       ]<br>     &#125;<br>   ]<br> &#125;<br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-2"><figure class="highlight fortran"><table><tr><td class="code"><pre><code class="hljs fortran">webpack --<span class="hljs-keyword">module</span>-<span class="hljs-keyword">bind</span> jade-loader --<span class="hljs-keyword">module</span>-<span class="hljs-keyword">bind</span> <span class="hljs-string">&#x27;css=style-loader!css-loader&#x27;</span><br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-3"><p>通过loader名字和”!” 将css文件分隔开，当然也可以同时写多个 import “xxx-loader!css-loader../css/index.css”;</p>
 <figure class="highlight abnf"><table><tr><td class="code"><pre><code class="hljs abnf">import <span class="hljs-string">&quot;css-loader!../css/index.css&quot;</span><span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
@@ -2006,7 +2062,7 @@ See https://webpack.js.org/concepts#loaders
 <p>在前面我们已经了解到，处理css文件需要css-loader,style-loader等来处理，那么在开发过程中如果需要处理不同的文件，则需要不同的loader来实现代码功能。</p>
 <p>但是，以less文件举例子，则需要用到less工具</p>
 <figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> <span class="hljs-keyword">less</span> -D<br></code></pre></td></tr></table></figure>
-<p>当前版本：<font color=camel> <a href="mailto:&#108;&#x65;&#115;&#115;&#64;&#52;&#x2e;&#x31;&#46;&#x32;">&#108;&#x65;&#115;&#115;&#64;&#52;&#x2e;&#x31;&#46;&#x32;</a></font></p>
+<p>当前版本：<font color=camel> <a href="mailto:&#108;&#x65;&#x73;&#x73;&#x40;&#x34;&#46;&#x31;&#46;&#x32;">&#108;&#x65;&#x73;&#x73;&#x40;&#x34;&#46;&#x31;&#46;&#x32;</a></font></p>
 <p>安装完成后，可以通过npx来操作node_modules中的less，来进行处理：</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">npx less .<span class="hljs-regexp">/src/</span>css/component.less &gt; component.css<br></code></pre></td></tr></table></figure>
 <p>它可以将less文件转为正常的css文件</p>
@@ -2014,9 +2070,9 @@ See https://webpack.js.org/concepts#loaders
 
 <h1 id="less-loader"><a href="#less-loader" class="headerlink" title="less-loader"></a>less-loader</h1><p>从上面的处理过程中，我们能够体会到less工具的快捷，但是在中大型项目中，当有大量的less文件需要处理时，想要通过命令行完成less文件的转化显然是不现实的，于是可以采用less-loader来进行处理，当然<font color=seagreen>less-loader是基于less工具</font>的，所以使用less-loader时，需要保证提前安装了less工具。</p>
 <figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> <span class="hljs-keyword">less</span> -D<br></code></pre></td></tr></table></figure>
-<p>当前版本：<font color=camel> <a href="mailto:&#108;&#101;&#115;&#115;&#64;&#x34;&#x2e;&#x31;&#46;&#50;">&#108;&#101;&#115;&#115;&#64;&#x34;&#x2e;&#x31;&#46;&#50;</a></font></p>
+<p>当前版本：<font color=camel> <a href="mailto:&#x6c;&#101;&#115;&#x73;&#64;&#x34;&#x2e;&#x31;&#x2e;&#x32;">&#x6c;&#101;&#115;&#x73;&#64;&#x34;&#x2e;&#x31;&#x2e;&#x32;</a></font></p>
 <figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> <span class="hljs-keyword">less</span>-loader -D<br></code></pre></td></tr></table></figure>
-<p>当前版本： <font color=amber><a href="mailto:&#x6c;&#x65;&#x73;&#115;&#45;&#x6c;&#x6f;&#97;&#100;&#101;&#x72;&#64;&#x31;&#48;&#46;&#50;&#x2e;&#48;">&#x6c;&#x65;&#x73;&#115;&#45;&#x6c;&#x6f;&#97;&#100;&#101;&#x72;&#64;&#x31;&#48;&#46;&#50;&#x2e;&#48;</a></font></p>
+<p>当前版本： <font color=amber><a href="mailto:&#108;&#101;&#x73;&#115;&#45;&#108;&#111;&#x61;&#x64;&#101;&#114;&#x40;&#49;&#48;&#46;&#50;&#x2e;&#x30;">&#108;&#101;&#x73;&#115;&#45;&#108;&#111;&#x61;&#x64;&#101;&#114;&#x40;&#49;&#48;&#46;&#50;&#x2e;&#x30;</a></font></p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">module: &#123;<br>   <span class="hljs-regexp">//</span> rules数组里面都是rule对象<br>  rules: [<br>    &#123;<br>      test: <span class="hljs-regexp">/\.css$/</span>,    <span class="hljs-regexp">//</span> 匹配以css结尾的文件<br>      use: [<br>        <span class="hljs-regexp">//</span>  注意编写顺序  从下到上，从右往左，本质 从后往前<br>        &#123; loader: <span class="hljs-string">&#x27;style-loader&#x27;</span> &#125;,<br>        &#123;<br>          loader: <span class="hljs-string">&#x27;css-loader&#x27;</span>,<br>        &#125;<br>      ]<br>    &#125;,<br>    &#123;<br>      test: <span class="hljs-regexp">/\.less$/</span>,    <span class="hljs-regexp">//</span> 匹配以css结尾的文件<br>      use: [<br>        <span class="hljs-regexp">//</span>  注意编写顺序  从下到上，从右往左，本质 从后往前<br>        &#123; loader: <span class="hljs-string">&#x27;style-loader&#x27;</span> &#125;,<br>        &#123; loader: <span class="hljs-string">&#x27;css-loader&#x27;</span> &#125;,<br>        &#123;<br>          loader: <span class="hljs-string">&#x27;less-loader&#x27;</span>,<br>        &#125;<br>      ]<br>    &#125;<br>  ]<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h1 id="浏览器兼容性"><a href="#浏览器兼容性" class="headerlink" title="浏览器兼容性"></a>浏览器兼容性</h1><p>在开发中，我们会遇到浏览器的兼容性问题，不是指屏幕大小的变化适配，主要是针对于不同的浏览器所支持的特性之间的问题，比如CSS特性，js语法之间的兼容性，同时市面上存在着的浏览器，包括chrome、safari、IE、Edge、chrome for Android、UC Browser、QQ Browser等等，有着不同的市场占有率，是不是都需要兼容呢？</p>
@@ -2041,13 +2097,13 @@ See https://webpack.js.org/concepts#loaders
 <h2 id="使用postcss的步骤"><a href="#使用postcss的步骤" class="headerlink" title="使用postcss的步骤"></a>使用postcss的步骤</h2><p>第一步：查找postCss在构建工具中的扩展，比如webpack中的postcss-loader;<br>第二步： 选择可以添加你需要的postCss相关的插件</p>
 <p>如果是在终端直接使用，需要单独安装postcss-cli。</p>
 <figure class="highlight avrasm"><table><tr><td class="code"><pre><code class="hljs avrasm">npm i -D postcss postcss-<span class="hljs-keyword">cli</span><br></code></pre></td></tr></table></figure>
-<p><font color=chocolate>+ <a href="mailto:&#112;&#x6f;&#115;&#116;&#x63;&#115;&#x73;&#x40;&#56;&#46;&#51;&#46;&#x39;">&#112;&#x6f;&#115;&#116;&#x63;&#115;&#x73;&#x40;&#56;&#46;&#51;&#46;&#x39;</a></font><br><font color=yellowgreen>+ <a href="mailto:&#112;&#x6f;&#x73;&#x74;&#x63;&#115;&#x73;&#45;&#x63;&#x6c;&#x69;&#64;&#x39;&#x2e;&#48;&#x2e;&#x31;">&#112;&#x6f;&#x73;&#x74;&#x63;&#115;&#x73;&#45;&#x63;&#x6c;&#x69;&#64;&#x39;&#x2e;&#48;&#x2e;&#x31;</a></font></p>
+<p><font color=chocolate>+ <a href="mailto:&#x70;&#x6f;&#115;&#116;&#99;&#115;&#115;&#64;&#56;&#x2e;&#x33;&#x2e;&#x39;">&#x70;&#x6f;&#115;&#116;&#99;&#115;&#115;&#64;&#56;&#x2e;&#x33;&#x2e;&#x39;</a></font><br><font color=yellowgreen>+ <a href="mailto:&#112;&#111;&#115;&#x74;&#99;&#x73;&#115;&#45;&#99;&#x6c;&#105;&#x40;&#57;&#46;&#48;&#x2e;&#x31;">&#112;&#111;&#115;&#x74;&#99;&#x73;&#115;&#45;&#99;&#x6c;&#105;&#x40;&#57;&#46;&#48;&#x2e;&#x31;</a></font></p>
 <p>在css开发过程中，会写到很多属性和样式，让我们遇到不熟悉的属性的时候，不清楚需要对哪些浏览器进行适配的时候，可以到<a href="http://autoprefixer.github.io/">Autoprefixer CSS online</a>,它是一个postcss插件，可以通过它解析CSS并添加供应商前缀。</p>
 <p>自动添加前缀插件： autopreFixer</p>
 <figure class="highlight angelscript"><table><tr><td class="code"><pre><code class="hljs angelscript">npm install <span class="hljs-built_in">auto</span>prefixer -D<br></code></pre></td></tr></table></figure>
-<p>当前版本：<font color=blue><a href="mailto:&#97;&#x75;&#116;&#111;&#x70;&#x72;&#101;&#x66;&#105;&#x78;&#x65;&#x72;&#x40;&#x31;&#48;&#46;&#x33;&#46;&#55;">&#97;&#x75;&#116;&#111;&#x70;&#x72;&#101;&#x66;&#105;&#x78;&#x65;&#x72;&#x40;&#x31;&#48;&#46;&#x33;&#46;&#55;</a></font></p>
+<p>当前版本：<font color=blue><a href="mailto:&#x61;&#x75;&#x74;&#x6f;&#x70;&#114;&#x65;&#102;&#x69;&#x78;&#101;&#114;&#x40;&#49;&#48;&#x2e;&#x33;&#x2e;&#55;">&#x61;&#x75;&#x74;&#x6f;&#x70;&#114;&#x65;&#102;&#x69;&#x78;&#101;&#114;&#x40;&#49;&#48;&#x2e;&#x33;&#x2e;&#55;</a></font></p>
 <div class="tabs" id="tab"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#tab-1">webpack使用方式  post-cssloader</button></li><li class="tab"><button type="button" data-href="#tab-2">命令行使用方式：</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="tab-1"><figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> postcss-loader -D<br></code></pre></td></tr></table></figure>
-<p><font color=royalblue>+ <a href="mailto:&#112;&#x6f;&#x73;&#x74;&#99;&#115;&#115;&#45;&#108;&#x6f;&#97;&#x64;&#x65;&#x72;&#64;&#54;&#46;&#50;&#x2e;&#48;">&#112;&#x6f;&#x73;&#x74;&#99;&#115;&#115;&#45;&#108;&#x6f;&#97;&#x64;&#x65;&#x72;&#64;&#54;&#46;&#50;&#x2e;&#48;</a></font><br>它可以自动检测并通过postcss来进行css的自动化处理。</p>
+<p><font color=royalblue>+ <a href="mailto:&#112;&#x6f;&#x73;&#x74;&#99;&#115;&#115;&#45;&#108;&#111;&#97;&#100;&#x65;&#114;&#64;&#54;&#x2e;&#50;&#x2e;&#x30;">&#112;&#x6f;&#x73;&#x74;&#99;&#115;&#115;&#45;&#108;&#111;&#97;&#100;&#x65;&#114;&#64;&#54;&#x2e;&#50;&#x2e;&#x30;</a></font><br>它可以自动检测并通过postcss来进行css的自动化处理。</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">module: &#123;<br>     <span class="hljs-regexp">//</span> rules数组里面都是rule对象<br>    rules: [<br>      &#123;<br>        test: <span class="hljs-regexp">/\.css$/</span>,    <span class="hljs-regexp">//</span> 匹配以css结尾的文件<br>        use: [<br>          <span class="hljs-regexp">//</span>  注意编写顺序  从下到上，从右往左，本质 从后往前<br>          &#123; loader: <span class="hljs-string">&#x27;style-loader&#x27;</span> &#125;,<br>          &#123;<br>            loader: <span class="hljs-string">&#x27;css-loader&#x27;</span>,<br>          &#125;,<br>          &#123;<br>            loader: <span class="hljs-string">&#x27;postcss-loader&#x27;</span>,<br>            options: &#123;<br>              postcssOptions: &#123;<br>                plugins: [<br>                  require(<span class="hljs-string">&quot;autoprefixer&quot;</span>)<br>                ]<br>              &#125;<br>            &#125;<br>          &#125;<br>        ]<br>      &#125;<br>    ]<br>  &#125;<br><br></code></pre></td></tr></table></figure>
 <p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211019213331autoPreFixerExample.png" alt="自动加前缀实验"></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-2"><figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">npx postcss --use autoprefixer -o result.css .<span class="hljs-regexp">/src/</span>css/test.css<br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
 ]]></content>
@@ -2135,6 +2191,16 @@ See https://webpack.js.org/concepts#loaders
       </tags>
   </entry>
   <entry>
+    <title>vue+elementUI后台管理系统</title>
+    <url>/2021/04/17/uncategorized/cf07c19a06d1/</url>
+    <content><![CDATA[<h1 id="关于后台管理系统开发过程中问题的解决"><a href="#关于后台管理系统开发过程中问题的解决" class="headerlink" title="关于后台管理系统开发过程中问题的解决"></a>关于后台管理系统开发过程中问题的解决</h1><h2 id="相关环境及版本号"><a href="#相关环境及版本号" class="headerlink" title="相关环境及版本号"></a>相关环境及版本号</h2><p>node -v</p>
+<span id="more"></span>
+]]></content>
+      <tags>
+        <tag>cms</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>后台管理系统vue3TsElement-plusVite</title>
     <url>/2021/09/14/vue3/9e0f53e3c316/</url>
     <content><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>截止目前，工作中对于需要处理的项目需求已经基本完成，在没有新的需求产生之前，项目基本的模型基本固定，所以有时间进行项目的思考与新技术的学习，在实际的开发的项目中会技术知识点的熟练度问题导致经常需要参考网上的相关例子，但是根据教程解决完业务问题后，因为整理不及时，在遇到相同问题的时候就会花费更多的精力和时间，也不利于沉淀。正好，博客系统也能都正常上线使用，采用了比较简洁的hexo-next主题，虽然界面比较朴素，但是对于写技术博客来说，已经是非常适合不过了。当然也有其他的主题，比较好看，但是因为配置next主题也花了一些时间，同时在此阶段结合谷歌浏览器lighthouse插件，也解决了一些项目的性能优化问题，包括通过<a href="https://www.jsdelivr.com/">jsdelivr</a>对图片进行CDN优化，加快访问速度等，如图<img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210914162406blogRateScreen.png" alt="个人博客网站评分">，同时也提出了http/1.1 http/2等的问题，可以明显的感觉到加载速度的差异，<a href="https://http2.akamai.com/demo">加载速度对比</a>,发现对于基础知识还是有许多需要学习的地方，也就是当前来说技术知识的提升比博客页面的美观更加重要一些，所以就开始先更文章了!</p>
@@ -2158,16 +2224,6 @@ See https://webpack.js.org/concepts#loaders
         <tag>TypeScript</tag>
         <tag>vue3</tag>
         <tag>vite</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vue+elementUI后台管理系统</title>
-    <url>/2021/04/17/uncategorized/cf07c19a06d1/</url>
-    <content><![CDATA[<h1 id="关于后台管理系统开发过程中问题的解决"><a href="#关于后台管理系统开发过程中问题的解决" class="headerlink" title="关于后台管理系统开发过程中问题的解决"></a>关于后台管理系统开发过程中问题的解决</h1><h2 id="相关环境及版本号"><a href="#相关环境及版本号" class="headerlink" title="相关环境及版本号"></a>相关环境及版本号</h2><p>node -v</p>
-<span id="more"></span>
-]]></content>
-      <tags>
-        <tag>cms</tag>
       </tags>
   </entry>
   <entry>
@@ -2341,63 +2397,6 @@ See https://webpack.js.org/concepts#loaders
       </tags>
   </entry>
   <entry>
-    <title>开发自己的脚手架工具</title>
-    <url>/2021/11/08/mhist-cli/f848dc5a8054/</url>
-    <content><![CDATA[<h1 id="入口文件和基本配置文件"><a href="#入口文件和基本配置文件" class="headerlink" title="入口文件和基本配置文件"></a>入口文件和基本配置文件</h1><p>mhist-cli<br>├── index.js<br>├── package.json</p>
-<p>可以通过命令创建package.json文件</p>
-<figure class="highlight coffeescript"><table><tr><td class="code"><pre><code class="hljs coffeescript"><span class="hljs-built_in">npm</span> init -y<br></code></pre></td></tr></table></figure>
-
-<h1 id="终端命令"><a href="#终端命令" class="headerlink" title="终端命令"></a>终端命令</h1><p>需求：在终端输入指令后，会显示你所定义的相应的类似版本号之类的内容。</p>
-<p>知识： #！ （#!是特殊的表示符，其后面跟的是解释此脚本的shell的路径，这个是告诉系统，应该调用哪个东西来运行他。）</p>
-<p>定义路径</p>
-<figure class="highlight d"><table><tr><td class="code"><pre><code class="hljs d"><span class="hljs-meta">#!/usr/bin/env node</span><br></code></pre></td></tr></table></figure>
-<p>同时在package.json中添加一个对象</p>
-<figure class="highlight 1c"><table><tr><td class="code"><pre><code class="hljs 1c"><span class="hljs-string">&quot;bin&quot;</span>: &#123;<br>   <span class="hljs-string">&quot;mhist-cli&quot;</span>: <span class="hljs-string">&quot;index.js&quot;</span><br> &#125;,<br></code></pre></td></tr></table></figure>
-<p>这时候需要使用 <font color=red>npm link</font> 命令，将环境进行链接，之后在终端输入你指定的mhist-cli就会在终端输出你需要的相应的结果，其实也就是能够直接完成  node index.js.</p>
-<p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211108182935m.png" alt="mhist-cli-001"></p>
-<h1 id="自定义终端命令"><a href="#自定义终端命令" class="headerlink" title="自定义终端命令"></a>自定义终端命令</h1><p>基于commander.js </p>
-<figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> commmander<br></code></pre></td></tr></table></figure>
-
-<h2 id="版本号"><a href="#版本号" class="headerlink" title="版本号"></a>版本号</h2><p>通常情况下，在package.json中会有项目当前的版本号，我们可以通过commander中的</p>
-<figure class="highlight pgsql"><table><tr><td class="code"><pre><code class="hljs pgsql">program.version(require(<span class="hljs-string">&#x27;./package.json&#x27;</span>).<span class="hljs-keyword">version</span>);<br></code></pre></td></tr></table></figure>
-<p>动态获取到最新的版本号，以便于在终端进行输出。</p>
-<p>在文件根目录中终端中输入 <font color=blue>脚手架名称 –version</font> 即可显示对应的版本号，例如  mhist-cli –version或者mhist-cli -V  ,其输出结果为 1.0.0    </p>
-<p>#如果希望程序响应-v选项而不是-V选项，<br>#只需使用与option方法相同的语法将自定义标志传递给version方法<br>program<br>  .version(‘0.0.1’, ‘-v, –version’)</p>
-<h2 id="开发过程中遇到的问题"><a href="#开发过程中遇到的问题" class="headerlink" title="开发过程中遇到的问题"></a>开发过程中遇到的问题</h2><h3 id="下载项目模板，需要自动化实现npm-install-通过自己的脚手架创建项目时，出现以下问题："><a href="#下载项目模板，需要自动化实现npm-install-通过自己的脚手架创建项目时，出现以下问题：" class="headerlink" title="下载项目模板，需要自动化实现npm install,通过自己的脚手架创建项目时，出现以下问题："></a>下载项目模板，需要自动化实现npm install,通过自己的脚手架创建项目时，出现以下问题：</h3><pre>
-events.js:292
-      throw er; // Unhandled 'error' event
-      ^
-
-Error: spawn npm ENOENT
-    at Process.ChildProcess._handle.onexit (internal/child_process.js:269:19)
-    at onErrorNT (internal/child_process.js:465:16)
-    at processTicksAndRejections (internal/process/task_queues.js:80:21)
-Emitted 'error' event on ChildProcess instance at:
-    at Process.ChildProcess._handle.onexit (internal/child_process.js:275:12)
-    at onErrorNT (internal/child_process.js:465:16)
-    at processTicksAndRejections (internal/process/task_queues.js:80:21) {
-  errno: -4058,
-  code: 'ENOENT',
-  syscall: 'spawn npm',
-  path: 'npm',
-  spawnargs: [ 'install' ]
-}
-</pre>
-
-<p>解决方案：<a href="https://github.com/vitejs/vite/issues/1361">issue</a></p>
-<p>按照上述issues的说法并没有解决相应的问题，在运行npm命令时需要考虑平台的问题。</p>
-<figure class="highlight delphi"><table><tr><td class="code"><pre><code class="hljs delphi"><span class="hljs-comment">// 2.执行npm install</span><br>    <span class="hljs-keyword">const</span> command = process.<span class="hljs-keyword">platform</span> === <span class="hljs-string">&#x27;win32&#x27;</span> ? <span class="hljs-string">&#x27;npm.cmd&#x27;</span>: <span class="hljs-string">&#x27;npm&#x27;</span>;<br></code></pre></td></tr></table></figure>
-
-<div class="note success modern"><p>当然在这之前，我也按照搜到的资料，设置了环境变量，然后现在成功运行之后，为了控制变量，删除了之前添加的环境变量，发现项目模板能够正确创建，同时能够自动通过npm install下载需要的依赖包。</p>
-</div>]]></content>
-      <categories>
-        <category>mhist-cli</category>
-      </categories>
-      <tags>
-        <tag>mhist-cli</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>小结-基于JavaScript高级程序设计第四版</title>
     <url>/2021/05/16/uncategorized/5fd2568d8f67/</url>
     <content><![CDATA[<h1 id="第1章-什么是-JavaScript"><a href="#第1章-什么是-JavaScript" class="headerlink" title="第1章 什么是 JavaScript"></a>第1章 什么是 JavaScript</h1><p>JavaScript 是一门用来与网页交互的脚本语言，包含以下三个组成部分。 ECMAScript：由 ECMA-262 定义并提供核心功能。 文档对象模型（DOM）：提供与网页内容交互的方法和接口。 浏览器对象模型（BOM）：提供与浏览器交互的方法和接口。 JavaScript 的这三个部分得到了五大 Web 浏览器（IE、Firefox、Chrome、Safari 和 Opera）不同程度 的支持。所有浏览器基本上对 ES5（ECMAScript 5）提供了完善的支持，而对 ES6（ECMAScript 6）和 ES7（ECMAScript 7）的支持度也在不断提升。这些浏览器对 DOM 的支持各不相同，但对 Level 3 的支 持日益趋于规范。HTML5 中收录的 BOM 会因浏览器而异，不过开发者仍然可以假定存在很大一部分 公共特性</p>
@@ -2471,6 +2470,63 @@ Emitted 'error' event on ChildProcess instance at:
       </categories>
       <tags>
         <tag>web-fun</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>开发自己的脚手架工具</title>
+    <url>/2021/11/08/mhist-cli/f848dc5a8054/</url>
+    <content><![CDATA[<h1 id="入口文件和基本配置文件"><a href="#入口文件和基本配置文件" class="headerlink" title="入口文件和基本配置文件"></a>入口文件和基本配置文件</h1><p>mhist-cli<br>├── index.js<br>├── package.json</p>
+<p>可以通过命令创建package.json文件</p>
+<figure class="highlight coffeescript"><table><tr><td class="code"><pre><code class="hljs coffeescript"><span class="hljs-built_in">npm</span> init -y<br></code></pre></td></tr></table></figure>
+
+<h1 id="终端命令"><a href="#终端命令" class="headerlink" title="终端命令"></a>终端命令</h1><p>需求：在终端输入指令后，会显示你所定义的相应的类似版本号之类的内容。</p>
+<p>知识： #！ （#!是特殊的表示符，其后面跟的是解释此脚本的shell的路径，这个是告诉系统，应该调用哪个东西来运行他。）</p>
+<p>定义路径</p>
+<figure class="highlight d"><table><tr><td class="code"><pre><code class="hljs d"><span class="hljs-meta">#!/usr/bin/env node</span><br></code></pre></td></tr></table></figure>
+<p>同时在package.json中添加一个对象</p>
+<figure class="highlight 1c"><table><tr><td class="code"><pre><code class="hljs 1c"><span class="hljs-string">&quot;bin&quot;</span>: &#123;<br>   <span class="hljs-string">&quot;mhist-cli&quot;</span>: <span class="hljs-string">&quot;index.js&quot;</span><br> &#125;,<br></code></pre></td></tr></table></figure>
+<p>这时候需要使用 <font color=red>npm link</font> 命令，将环境进行链接，之后在终端输入你指定的mhist-cli就会在终端输出你需要的相应的结果，其实也就是能够直接完成  node index.js.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211108182935m.png" alt="mhist-cli-001"></p>
+<h1 id="自定义终端命令"><a href="#自定义终端命令" class="headerlink" title="自定义终端命令"></a>自定义终端命令</h1><p>基于commander.js </p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> commmander<br></code></pre></td></tr></table></figure>
+
+<h2 id="版本号"><a href="#版本号" class="headerlink" title="版本号"></a>版本号</h2><p>通常情况下，在package.json中会有项目当前的版本号，我们可以通过commander中的</p>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><code class="hljs pgsql">program.version(require(<span class="hljs-string">&#x27;./package.json&#x27;</span>).<span class="hljs-keyword">version</span>);<br></code></pre></td></tr></table></figure>
+<p>动态获取到最新的版本号，以便于在终端进行输出。</p>
+<p>在文件根目录中终端中输入 <font color=blue>脚手架名称 –version</font> 即可显示对应的版本号，例如  mhist-cli –version或者mhist-cli -V  ,其输出结果为 1.0.0    </p>
+<p>#如果希望程序响应-v选项而不是-V选项，<br>#只需使用与option方法相同的语法将自定义标志传递给version方法<br>program<br>  .version(‘0.0.1’, ‘-v, –version’)</p>
+<h2 id="开发过程中遇到的问题"><a href="#开发过程中遇到的问题" class="headerlink" title="开发过程中遇到的问题"></a>开发过程中遇到的问题</h2><h3 id="下载项目模板，需要自动化实现npm-install-通过自己的脚手架创建项目时，出现以下问题："><a href="#下载项目模板，需要自动化实现npm-install-通过自己的脚手架创建项目时，出现以下问题：" class="headerlink" title="下载项目模板，需要自动化实现npm install,通过自己的脚手架创建项目时，出现以下问题："></a>下载项目模板，需要自动化实现npm install,通过自己的脚手架创建项目时，出现以下问题：</h3><pre>
+events.js:292
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: spawn npm ENOENT
+    at Process.ChildProcess._handle.onexit (internal/child_process.js:269:19)
+    at onErrorNT (internal/child_process.js:465:16)
+    at processTicksAndRejections (internal/process/task_queues.js:80:21)
+Emitted 'error' event on ChildProcess instance at:
+    at Process.ChildProcess._handle.onexit (internal/child_process.js:275:12)
+    at onErrorNT (internal/child_process.js:465:16)
+    at processTicksAndRejections (internal/process/task_queues.js:80:21) {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'spawn npm',
+  path: 'npm',
+  spawnargs: [ 'install' ]
+}
+</pre>
+
+<p>解决方案：<a href="https://github.com/vitejs/vite/issues/1361">issue</a></p>
+<p>按照上述issues的说法并没有解决相应的问题，在运行npm命令时需要考虑平台的问题。</p>
+<figure class="highlight delphi"><table><tr><td class="code"><pre><code class="hljs delphi"><span class="hljs-comment">// 2.执行npm install</span><br>    <span class="hljs-keyword">const</span> command = process.<span class="hljs-keyword">platform</span> === <span class="hljs-string">&#x27;win32&#x27;</span> ? <span class="hljs-string">&#x27;npm.cmd&#x27;</span>: <span class="hljs-string">&#x27;npm&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+<div class="note success modern"><p>当然在这之前，我也按照搜到的资料，设置了环境变量，然后现在成功运行之后，为了控制变量，删除了之前添加的环境变量，发现项目模板能够正确创建，同时能够自动通过npm install下载需要的依赖包。</p>
+</div>]]></content>
+      <categories>
+        <category>mhist-cli</category>
+      </categories>
+      <tags>
+        <tag>mhist-cli</tag>
       </tags>
   </entry>
 </search>

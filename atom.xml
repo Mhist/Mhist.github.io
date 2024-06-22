@@ -6,7 +6,7 @@
   <link href="https://mhist.github.io/atom.xml" rel="self"/>
   
   <link href="https://mhist.github.io/"/>
-  <updated>2024-06-13T16:24:20.572Z</updated>
+  <updated>2024-06-22T13:54:54.559Z</updated>
   <id>https://mhist.github.io/</id>
   
   <author>
@@ -15,6 +15,57 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>picgo （一）</title>
+    <link href="https://mhist.github.io/2024/06/22/picgo/ed3131c5123b/"/>
+    <id>https://mhist.github.io/2024/06/22/picgo/ed3131c5123b/</id>
+    <published>2024-06-22T13:54:33.000Z</published>
+    <updated>2024-06-22T13:54:54.559Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;插曲-macOS安装picgo报错、需要进入废纸篓&quot;&gt;&lt;a href=&quot;#插曲-macOS安装picgo报错、需要进入废纸篓&quot; class=&quot;headerlink&quot; title=&quot;插曲 macOS安装picgo报错、需要进入废纸篓&quot;&gt;&lt;/a&gt;插曲</summary>
+        
+      
+    
+    
+    
+    <category term="picgo" scheme="https://mhist.github.io/categories/picgo/"/>
+    
+    
+    <category term="picgo" scheme="https://mhist.github.io/tags/picgo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>minio （一）</title>
+    <link href="https://mhist.github.io/2024/06/22/minio/4dbfabd1f48a/"/>
+    <id>https://mhist.github.io/2024/06/22/minio/4dbfabd1f48a/</id>
+    <published>2024-06-21T18:37:33.000Z</published>
+    <updated>2024-06-22T14:13:16.092Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;minio&quot;&gt;&lt;a href=&quot;#minio&quot; class=&quot;headerlink&quot; title=&quot;minio&quot;&gt;&lt;/a&gt;minio&lt;/h1&gt;&lt;p&gt;minio的安装：&lt;/p&gt;
+&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="minio" scheme="https://mhist.github.io/categories/minio/"/>
+    
+    
+    <category term="minio" scheme="https://mhist.github.io/tags/minio/"/>
+    
+  </entry>
   
   <entry>
     <title>spring 学习 （二）</title>
@@ -480,50 +531,6 @@ SELECT</summary>
     
     
     <category term="uni-app" scheme="https://mhist.github.io/tags/uni-app/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>webpack基本配置（二）</title>
-    <link href="https://mhist.github.io/2021/10/18/webpack/eb2dff5fc128/"/>
-    <id>https://mhist.github.io/2021/10/18/webpack/eb2dff5fc128/</id>
-    <published>2021-10-18T07:42:51.000Z</published>
-    <updated>2024-01-21T16:09:10.884Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;webpack基本配置-入口、出口&quot;&gt;&lt;a href=&quot;#webpack基本配置-入口、出口&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="webpack" scheme="https://mhist.github.io/categories/webpack/"/>
-    
-    
-    <category term="webpack" scheme="https://mhist.github.io/tags/webpack/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vue3</title>
-    <link href="https://mhist.github.io/2021/10/11/vue3/583a6ec9ccd6/"/>
-    <id>https://mhist.github.io/2021/10/11/vue3/583a6ec9ccd6/</id>
-    <published>2021-10-11T05:34:42.000Z</published>
-    <updated>2024-01-21T16:09:10.884Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;vue3&quot;&gt;&lt;a href=&quot;#vue3&quot; class=&quot;headerlink&quot; title=&quot;vue3&quot;&gt;&lt;/a&gt;vue3&lt;/h1&gt;&lt;p&gt;   新一代的前端框架，基于typescript开发，具有更加优越的性能和更加安全的代码机制。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="vue3" scheme="https://mhist.github.io/categories/vue3/"/>
-    
-    
-    <category term="vue3" scheme="https://mhist.github.io/tags/vue3/"/>
     
   </entry>
   
