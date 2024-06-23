@@ -42,6 +42,460 @@
       </tags>
   </entry>
   <entry>
+    <title>TypeScript入门教程二</title>
+    <url>/2021/09/26/TypeScript/4d8aa16bcb6b/</url>
+    <content><![CDATA[<h1 id="typescript学习：第二部分"><a href="#typescript学习：第二部分" class="headerlink" title="typescript学习：第二部分"></a>typescript学习：第二部分</h1><p>  → <a href="http://wakeweb.cloud/2021/09/24/TypeScript/854698b90236/">第一部分跳转链接</a></p>
+<p>经过第一部分的学习，我们已经了解到了typescript的基本用法，同时对于其在代码健壮性，以及编译过程中即出现错误提示的有点有了更一步的了解，接下来，我们将进一步学习新的知识，体会typescript更加高级的用法。</p>
+<h2 id="类型断言"><a href="#类型断言" class="headerlink" title="类型断言"></a>类型断言</h2><p>  在学习类型断言之前，需要先了解断言的具体概念，针对node语言里面也有相关断言的概念，有以下的问题：<br>  <font color=orange>1.断言是一个广泛的概念吗？</font><br>  <font color=seagreen>2.node断言与typescript类型断言分别都是什么？</font><br>  <span id="more"></span></p>
+<p> 首先可以回答第一个问题： 是，那么第二个问题就没有必要再纠结了。</p>
+<p> <a href="https://www.runoob.com/w3cnote/c-assert.html">菜鸟教程–asserts断言的用法</a>.</p>
+<p><font color=amber> 可以这么说:断言assert 是仅在Debug 版本起作用的宏，它用于检查”不应该”发生的情况。</font></p>
+<p><font color=yellowgreen>需要注意的是，类型断言只能够「欺骗」TypeScript 编译器，无法避免运行时的错误，反而滥用类型断言可能会导致运行时错误：</font></p>
+<blockquote>
+<p>以下是使用断言的几个原则：<br>（1）使用断言捕捉不应该发生的非法情况。不要混淆非法情况与错误情况之间的区别，后者是必然存在的并且是一定要作出处理的。<br>（2）使用断言对函数的参数进行确认。<br>（3）在编写函数时，要进行反复的考查，并且自问：”我打算做哪些假定？”一旦确定了的假定，就要使用断言对假定进行检查。<br>（4）一般教科书都鼓励程序员们进行防错性的程序设计，但要记住这种编程风格会隐瞒错误。当进行防错性编程时，如果”不可能发生”的事情的确发生了，则要使用断言进行报警。</p>
+</blockquote>
+<h3 id="类型断言的用法"><a href="#类型断言的用法" class="headerlink" title="类型断言的用法"></a>类型断言的用法</h3><p>前文提到，对于断言的使用是需要慎重的。这节我们将学习断言（assert）的具体用法：<br>方法1: <font color=purple>值 as 类型</font><br>方法2: <font color=seagreen>&lt;类型&gt;值</font></p>
+<p>由于第二种方法在使用过程中可能会产生<font color=purple>歧义</font>，因为</p>
+<blockquote>
+<p>在 tsx 语法（React 的 jsx 语法的 ts 版）中必须使用前者，即 值 as 类型。形如 <Foo> 的语法在 tsx 中表示的是一个 ReactNode，在 ts 中除了表示类型断言之外，也可能是表示一个泛型。故建议大家在使用类型断言时，统一使用 值 as 类型 这样的语法，本书中也会贯彻这一思想。</p>
+</blockquote>
+<h3 id="类型断言的用途"><a href="#类型断言的用途" class="headerlink" title="类型断言的用途"></a>类型断言的用途</h3><h4 id="将一个联合类型推断为其中一个类型"><a href="#将一个联合类型推断为其中一个类型" class="headerlink" title="将一个联合类型推断为其中一个类型"></a>将一个联合类型推断为其中一个类型</h4><p>在<a href="http://wakeweb.cloud/2021/09/24/TypeScript/854698b90236/">第一部分</a>提到过，在不确定一个具有联合类型的变量具体是哪一种类型时，只能访问此联合类型的所有类型中共有的属性和方法：</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><code class="hljs php"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Cat</span> </span>&#123;<br>    name: <span class="hljs-keyword">string</span>;<br>    run(): <span class="hljs-keyword">void</span>;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Fish</span> </span>&#123;<br>    name: <span class="hljs-keyword">string</span>;<br>    swim(): <span class="hljs-keyword">void</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getName</span>(<span class="hljs-params">animal: Cat | Fish</span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> animal.name;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>而当我们确实需要在不确定类型的时候就访问其中一个类型所特有的属性或方法，比如：</p>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><code class="hljs pgsql">interface Cat &#123;<br>    <span class="hljs-type">name</span>: string;<br>    run(): <span class="hljs-type">void</span>;<br>&#125;<br>interface Fish &#123;<br>    <span class="hljs-type">name</span>: string;<br>    swim(): <span class="hljs-type">void</span>;<br>&#125;<br><br><span class="hljs-keyword">function</span> isFish(animal: Cat | Fish) &#123;<br>    <span class="hljs-keyword">if</span> (typeof animal.swim === <span class="hljs-string">&#x27;function&#x27;</span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>&#125;<br><br>// <span class="hljs-keyword">index</span>.ts:<span class="hljs-number">11</span>:<span class="hljs-number">23</span> - error TS2339: Property <span class="hljs-string">&#x27;swim&#x27;</span> does <span class="hljs-keyword">not</span> exist <span class="hljs-keyword">on</span> <span class="hljs-keyword">type</span> <span class="hljs-string">&#x27;Cat | Fish&#x27;</span>.<br>//   Property <span class="hljs-string">&#x27;swim&#x27;</span> does <span class="hljs-keyword">not</span> exist <span class="hljs-keyword">on</span> <span class="hljs-keyword">type</span> <span class="hljs-string">&#x27;Cat&#x27;</span>.<br></code></pre></td></tr></table></figure>
+<p>上面的例子中，获取 animal.swim 的时候会报错。</p>
+<p>此时可以使用类型断言，将 animal 断言成 Fish：</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">interface</span> Cat &#123;<br>    <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>;<br>    run(): <span class="hljs-built_in">void</span>;<br>&#125;<br><span class="hljs-keyword">interface</span> Fish &#123;<br>    <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>;<br>    swim(): <span class="hljs-built_in">void</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isFish</span>(<span class="hljs-params">animal: Cat | Fish</span>) </span>&#123;<br>    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> (animal <span class="hljs-keyword">as</span> Fish).swim === <span class="hljs-string">&#x27;function&#x27;</span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>需要注意的是，类型断言只能够「欺骗」TypeScript 编译器，无法避免运行时的错误，反而滥用类型断言可能会导致运行时错误：</p>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><code class="hljs pgsql">interface Cat &#123;<br>  <span class="hljs-type">name</span>: string;<br>  run(): <span class="hljs-type">void</span>;<br>&#125;<br>interface Fish &#123;<br>  <span class="hljs-type">name</span>: string;<br>  swim(): <span class="hljs-type">void</span>;<br>&#125;<br><span class="hljs-keyword">function</span> swim(animal: Cat | Fish) &#123;<br>  (animal <span class="hljs-keyword">as</span> Fish).swim();<br>&#125;<br><br>const tom: Cat = &#123;<br>  <span class="hljs-type">name</span>: <span class="hljs-string">&#x27;Tom&#x27;</span>,<br>  run() &#123; console.log(<span class="hljs-string">&#x27;run&#x27;</span>)&#125;<br>&#125;;<br>swim(tom);<br>// <span class="hljs-keyword">index</span>.ts:<span class="hljs-number">11</span>:<span class="hljs-number">23</span> - error TS2339: Property <span class="hljs-string">&#x27;swim&#x27;</span> does <span class="hljs-keyword">not</span> exist <span class="hljs-keyword">on</span> <span class="hljs-keyword">type</span> <span class="hljs-string">&#x27;Cat | Fish&#x27;</span>.<br>//   Property <span class="hljs-string">&#x27;swim&#x27;</span> does <span class="hljs-keyword">not</span> exist <span class="hljs-keyword">on</span> <span class="hljs-keyword">type</span> <span class="hljs-string">&#x27;Cat&#x27;</span>.<br></code></pre></td></tr></table></figure>
+<p><a href="https://www.typescriptlang.org/zh/play#code/JYOwLgpgTgZghgYwgAgMJzMg3gWAFDLIhwC2EAXMgM5hSgDmA3PoVAK4gAUAlJQG4B7YABNmeAL75QkWIhQAxYFQAW2FkVIVqtBmMJUA7sBI9+Q0fkl4YHBGGACQ1IybghjcADaV0mAD7IiircagTInG4enshwVIFKytwAdIbGPGJW+AiONMhgAiQ+GMgAvKGExGSUAOQAKgXVADTq7FzcWMjZIFQCnhBJngL0nNWt1dxW4mKpJvkk3IxAA">错误预览</a></p>
+<p>首先理解一下函数 siwm函数传递参数animal,然后参数调用该类型的属性和方法。不太理解的地方可以查看上方的错误预览。</p>
+<p>原因是 (animal as Fish).swim() 这段代码隐藏了 animal 可能为 Cat 的情况，将 animal 直接断言为 Fish 了，而 TypeScript 编译器信任了我们的断言，故在调用 swim() 时没有编译错误。</p>
+<p>可是 swim 函数接受的参数是 Cat | Fish，一旦传入的参数是 Cat 类型的变量，由于 Cat 上没有 swim 方法，就会导致运行时错误了。</p>
+<p>总之，使用类型断言时一定要格外小心，尽量避免断言后调用方法或引用深层属性，以减少不必要的运行时错误。</p>
+<h4 id="将一个父类断言为更加具体的子类"><a href="#将一个父类断言为更加具体的子类" class="headerlink" title="将一个父类断言为更加具体的子类"></a>将一个父类断言为更加具体的子类</h4><p>  当类之间有继承关系时，类型断言也是常见的。</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><code class="hljs scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ApiError</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Error</span> </span>&#123;<br>  code: number = <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HttpError</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Error</span> </span>&#123;<br>  statusCode: number = <span class="hljs-number">200</span>;<br>&#125;<br><br>function isApiError(error: <span class="hljs-type">Error</span>) &#123;<br>  <span class="hljs-keyword">if</span>(typeof (error as <span class="hljs-type">ApiError</span>).code === <span class="hljs-symbol">&#x27;numbe</span>r&#x27;) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>  &#125;<br><br><span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>在<font color=red>isApiError函数</font>中，它用于实现传入的错误是不是ApiError类型。</p>
+<p>有的情况下 ApiError 和 HttpError 不是一个真正的类，而只是一个 TypeScript 的接口（interface），接口是一个类型，不是一个真正的值，它在编译结果中会被删除，当然就无法使用 instanceof 来做运行时判断了：</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">interface</span> ApiError <span class="hljs-keyword">extends</span> Error &#123;<br>    <span class="hljs-attr">code</span>: <span class="hljs-built_in">number</span>;<br>&#125;<br><span class="hljs-keyword">interface</span> HttpError <span class="hljs-keyword">extends</span> Error &#123;<br>    <span class="hljs-attr">statusCode</span>: <span class="hljs-built_in">number</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isApiError</span>(<span class="hljs-params">error: <span class="hljs-built_in">Error</span></span>) </span>&#123;<br>    <span class="hljs-keyword">if</span> (error <span class="hljs-keyword">instanceof</span> ApiError) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>&#125;<br><br><span class="hljs-comment">// index.ts:9:26 - error TS2693: &#x27;ApiError&#x27; only refers to a type, but is being used as a value here.</span><br></code></pre></td></tr></table></figure>
+<p>需要学习巩固一下: <a href="https://zh.javascript.info/class-inheritance">类与继承</a>。</p>
+<h4 id="将任何一个类型断言为any类型"><a href="#将任何一个类型断言为any类型" class="headerlink" title="将任何一个类型断言为any类型"></a>将任何一个类型断言为any类型</h4><p>在 any 类型的变量上，访问任何属性都是允许的。</p>
+<p>需要注意的是，将一个变量断言为 any 可以说是解决 TypeScript 中类型问题的最后一个手段。</p>
+<p>它极有可能掩盖了真正的类型错误，所以如果不是非常确定，就不要使用 as any。</p>
+<p>上面的例子中，我们也可以通过[扩展 window 的类型（TODO）][]解决这个错误，不过如果只是临时的增加 foo 属性，as any 会更加方便。</p>
+<p>总之，一方面不能滥用 as any，另一方面也不要完全否定它的作用，我们需要在类型的严格性和开发的便利性之间掌握平衡（这也是 TypeScript 的设计理念之一），才能发挥出 TypeScript 最大的价值。</p>
+<h4 id="将-any-断言为一个具体的类型"><a href="#将-any-断言为一个具体的类型" class="headerlink" title="将 any 断言为一个具体的类型"></a>将 any 断言为一个具体的类型</h4><p>  在日常的开发中，我们不可避免的需要处理 any 类型的变量，它们可能是由于第三方库未能定义好自己的类型，也有可能是历史遗留的或其他人编写的烂代码，还可能是受到 TypeScript 类型系统的限制而无法精确定义类型的场景。</p>
+<p>遇到 any 类型的变量时，我们可以选择无视它，任由它滋生更多的 any。</p>
+<p>我们也可以选择改进它，通过类型断言及时的把 any 断言为精确的类型，亡羊补牢，使我们的代码向着高可维护性的目标发展。</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><code class="hljs typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getCacheData</span>(<span class="hljs-params">key: <span class="hljs-built_in">string</span></span>): <span class="hljs-title">any</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> (<span class="hljs-built_in">window</span> <span class="hljs-keyword">as</span> <span class="hljs-built_in">any</span>).cache[key];<br>&#125;<br><br><span class="hljs-keyword">interface</span> Cat &#123;<br>    <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>;<br>    run(): <span class="hljs-built_in">void</span>;<br>&#125;<br><br><span class="hljs-keyword">const</span> tom = getCacheData(<span class="hljs-string">&#x27;tom&#x27;</span>) <span class="hljs-keyword">as</span> Cat;<br>tom.run();<br></code></pre></td></tr></table></figure>
+<p>上面的例子，这个函数调用完后的类型为any，我们可以采用接口的方式将它断言为具体的cat类型，后续对参数的访问就会有相应的代码补全了，能够提高代码的可维护性。</p>
+<p><a href="http://ts.xcatliu.com/basics/type-assertion.html#%E5%B0%86-any-%E6%96%AD%E8%A8%80%E4%B8%BA%E4%B8%80%E4%B8%AA%E5%85%B7%E4%BD%93%E7%9A%84%E7%B1%BB%E5%9E%8B">后续参考链接：类型断言、类型转换、类型声明、泛型</a></p>
+<h2 id="泛型（generics）"><a href="#泛型（generics）" class="headerlink" title="泛型（generics）"></a>泛型（generics）</h2><p>泛型（Generics）是指在定义函数、接口或类的时候，不预先指定具体的类型，而在使用的时候再指定类型的一种特性。</p>
+]]></content>
+      <categories>
+        <category>TypeScript</category>
+      </categories>
+      <tags>
+        <tag>TypeScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VUE2.X学习</title>
+    <url>/2021/04/24/uncategorized/6eb6cb2ab58d/</url>
+    <content><![CDATA[<h1 id="vue2-x教程学习"><a href="#vue2-x教程学习" class="headerlink" title="vue2.x教程学习"></a>vue2.x教程学习</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h3><p>Vue <strong>不支持</strong> IE8 及以下版本，因为 Vue 使用了 IE8 无法模拟的 ECMAScript 5 特性。但它支持所有<a href="https://caniuse.com/#feat=es5">兼容 ECMAScript 5 的浏览器</a>。</p>
+<h3 id="语义化版本控制"><a href="#语义化版本控制" class="headerlink" title="语义化版本控制"></a>语义化版本控制</h3><p>Vue 在其所有项目中公布的功能和行为都遵循<a href="https://semver.org/lang/zh-CN/">语义化版本控制</a>。对于未公布的或内部暴露的行为，其变更会描述在<a href="https://github.com/vuejs/vue/releases">发布说明</a>中。</p>
+<h3 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h3><p>最新稳定版本：2.6.12<br>每个版本的更新日志见 <a href="https://github.com/vuejs/vue/releases">GitHub</a>。</p>
+<span id="more"></span>
+<h3 id="Vue-Devtools"><a href="#Vue-Devtools" class="headerlink" title="Vue Devtools"></a>Vue Devtools</h3><ul>
+<li>在使用 Vue 时，我们推荐在你的浏览器上安装 <a href="https://github.com/vuejs/vue-devtools#vue-devtools">Vue Devtools</a>。它允许你在一个更友好的界面中审查和调试 Vue 应用。</li>
+<li> 在Chrome浏览器中可以直接到Chrome网上商店搜索下载</li>
+<li> 在edge浏览器中可以打开 <a href="https://chrome.google.com/webstore/category/extensions">Chrome 扩展商店</a>，在搜索栏搜索 <strong>vue.js devtools</strong><br>选择提供方为：<a href="https://vuejs.org/">https://vuejs.org</a> 的扩展，添加成功后，进入扩展设置页面，找到 Vue.js devtools 扩展，点击详细信息，勾选允许访问文件 URL和收集错误选项.<br><img src="https://gitee.com/mhist/hexo-image/raw/master/img/VueDevToolSet-20210424164242.png" alt="vue.js devtools"><h3 id="直接用script标签引用"><a href="#直接用script标签引用" class="headerlink" title="直接用script标签引用"></a>直接用script标签引用</h3>直接下载并用 script 标签引入，Vue会被注册为全局变量。</li>
+<li>在开发环境下不要使用压缩版本，不然会失去所有常见错误的相关警告。</li>
+<li><a href="https://cn.vuejs.org/js/vue.js">开发版本</a>包含完整的警告和调试模式</li>
+<li><a href="https://cn.vuejs.org/js/vue.min.js">压缩版本/生产版本</a>删除了警告，33.30KB min+gzip<h4 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h4>对于制作原型或学习，你可以这样使用最新版本：<figure class="highlight applescript"><table><tr><td class="code"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">script</span> src=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;</span>&gt;<span class="hljs-keyword">script</span>&gt;<br></code></pre></td></tr></table></figure>
+对于生产环境，我们推荐链接到一个明确的版本号和构建文件，以避免新版本造成的不可预期的破坏：<figure class="highlight applescript"><table><tr><td class="code"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">script</span> src=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/vue@2.6.12&quot;</span>&gt;<span class="hljs-keyword">script</span>&gt;<br></code></pre></td></tr></table></figure>
+如果你使用原生 ES Modules，这里也有一个兼容 ES Module 的构建文件：<figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;module&quot;</span>&gt;</span><span class="javascript"> <span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.esm.browser.js&#x27;</span> script&gt;</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<p>你可以在 <a href="https://cdn.jsdelivr.net/npm/vue/">cdn.jsdelivr.net/npm/vue</a> 浏览 NPM 包的源代码。</p>
+<p>Vue 也可以在 <a href="https://unpkg.com/vue@2.6.12/dist/vue.js">unpkg</a> 和 <a href="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js">cdnjs</a> 上获取 (cdnjs 的版本更新可能略滞后)。</p>
+<p>请确认了解<a href="https://cn.vuejs.org/v2/guide/installation.html#%E5%AF%B9%E4%B8%8D%E5%90%8C%E6%9E%84%E5%BB%BA%E7%89%88%E6%9C%AC%E7%9A%84%E8%A7%A3%E9%87%8A">不同构建版本</a>并在你发布的站点中使用<strong>生产环境版本</strong>，把 <code>vue.js</code> 换成 <code>vue.min.js</code>。这是一个更小的构建，可以带来比开发环境下更快的速度体验。</p>
+<h3 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h3><p>在用 Vue 构建大型应用时推荐使用 NPM 安装<a href="https://cn.vuejs.org/v2/guide/installation.html#footnote-1">[1]</a>。NPM 能很好地和诸如 <a href="https://webpack.js.org/">webpack</a> 或 <a href="http://browserify.org/">Browserify</a> 模块打包器配合使用。同时 Vue 也提供配套工具来开发<a href="https://cn.vuejs.org/v2/guide/single-file-components.html">单文件组件</a>。</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake"><span class="hljs-comment"># 最新稳定版</span><br>$ npm <span class="hljs-keyword">install</span> vue<br></code></pre></td></tr></table></figure>
+<h2 id="命令行工具-CLI"><a href="#命令行工具-CLI" class="headerlink" title="命令行工具 (CLI)"></a><a href="https://cli.vuejs.org/zh/">命令行工具 (CLI)</a></h2><p>Vue CLI 是一个基于 Vue.js 进行快速开发的完整系统，提供：</p>
+<p>通过 @vue/cli 实现的交互式的项目脚手架。<br>通过 @vue/cli + @vue/cli-service-global 实现的零配置原型开发。<br>一个运行时依赖 (@vue/cli-service)，该依赖：<br>可升级；<br>基于 webpack 构建，并带有合理的默认配置；<br>可以通过项目内的配置文件进行配置；<br>可以通过插件进行扩展。<br>一个丰富的官方插件集合，集成了前端生态中最好的工具。<br>一套完全图形化的创建和管理 Vue.js 项目的用户界面。<br>Vue CLI 致力于将 Vue 生态中的工具基础标准化。它确保了各种构建工具能够基于智能的默认配置即可平稳衔接，这样你可以专注在撰写应用上，而不必花好几天去纠结配置的问题。与此同时，它也为每个工具提供了调整配置的灵活性，无需 eject。</p>
+]]></content>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2024/01/22/hexo/435244c26d39/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><span id="more"></span>
+
+<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于开始搭建hexo博客这件事</title>
+    <url>/2021/04/20/hexo/5fcb7dadb6f9/</url>
+    <content><![CDATA[<h1 id="hexo个人博客搭建"><a href="#hexo个人博客搭建" class="headerlink" title="hexo个人博客搭建"></a>hexo个人博客搭建</h1><h2 id="为什么会搭建hexo博客"><a href="#为什么会搭建hexo博客" class="headerlink" title="为什么会搭建hexo博客"></a>为什么会搭建hexo博客</h2><p>  原因：<br>    1.用于前端学习记录、且便于复习，因为经过加工一次的比外来搜索的资料来说更容易让大脑快速识别与利用。<br>    2.阿里云轻量级WordPress服务器对非在校生的优惠终止，且个人网站将于2021年5月份到期，这是我的个人WordPress博客链接 <a href="http://www.codetotoro.cn/">www.codetotoro.cn</a>，同时因为服务器类型的缘故，按照提交工单时工作人员的说法，相关的数据迁移是无法进行的，除非是继续续费。<br>    3.部署方便且相关的学习教程更多，且官方的教程及相应的主题教程很全面，同时社区活跃，搭建博客的相关配置包括hexo editor都很容易找到，最重要的是部署方便，且bug很少，即使是使用外置主题，而且配置的修改采用注释/取消注释的方式进行，方便日后修改，而不用每次都需要根据官方文档再去配置，省去了很多麻烦。<br>  <span id="more"></span></p>
+<h2 id="搭建博客的相关教程"><a href="#搭建博客的相关教程" class="headerlink" title="搭建博客的相关教程"></a>搭建博客的相关教程</h2><h3 id="视频教程"><a href="#视频教程" class="headerlink" title="视频教程"></a>视频教程</h3><p>  来自哔哩哔哩up-codesheep的视频教程，讲解细致全面<br>  <a href="https://www.bilibili.com/video/BV1Yb411a7ty/?spm_id_from=333.788.recommend_more_video.0">手把手教你从0开始搭建自己的个人博客 |无坑版视频教程| hexo</a><br>  学习笔记<br>  <pre><br>  ---    #安装Nodejs<br>node -v    #查看node版本<br>npm -v    #查看npm版本<br>npm install -g cnpm --registry=<a href="http://registry.npm.taobao.org/">http://registry.npm.taobao.org</a>    #安装淘宝的cnpm 管理器<br>cnpm -v    #查看cnpm版本<br>cnpm install -g hexo-cli    #安装hexo框架<br>hexo -v    #查看hexo版本<br>mkdir blog    #创建blog目录<br>cd blog     #进入blog目录<br>sudo hexo init     #生成博客 初始化博客<br>hexo s    #启动本地博客服务<br><a href="http://localhost:4000/">http://localhost:4000/</a>    #本地访问地址<br>hexo n 我的第一篇文章 #创建新的文章<br>#返回blog目录<br>hexo clean #清理<br>hexo g #生成<br>#Github创建一个新的仓库 YourGithubName.github.io<br>#在blog目录下安装git部署插件<br>   cnpm install --save hexo-deployer-git </p>
+<hr>
+<h2 id="配置-config-yml"><a href="#配置-config-yml" class="headerlink" title="#配置_config.yml "></a>#配置_config.yml </h2><pre><code># Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+      type: git
+     repo: https://github.com/YourGithubName/YourGithubName.github.io.git
+      branch: master
+</code></pre>
+<hr>
+<p>hexo d    #部署到Github仓库里<br><a href="https://yourgithubname.github.io/">https://YourGithubName.github.io/</a>  #访问这个地址可以查看博客</p>
+<p> git clone <a href="https://github.com/litten/hexo-theme-yilia.git">https://github.com/litten/hexo-theme-yilia.git</a> themes/yilia  #下载yilia主题到本地</p>
+<p>#修改hexo根目录下的 _config.yml 文件 ： theme: yilia</p>
+<p>hexo c    #清理一下<br>hexo g    #生成<br>hexo s    #启动本地博客服务<br><a href="http://localhost:4000/">http://localhost:4000/</a>    #本地访问地址<br>hexo d    #部署到远程Github仓库<br><a href="https://yourgithubname.github.io/">https://YourGithubName.github.io/</a>  #查看博客<br>  </pre></p>
+<hr>
+<h3 id="官方文档及next主题官方文档"><a href="#官方文档及next主题官方文档" class="headerlink" title="官方文档及next主题官方文档"></a>官方文档及next主题官方文档</h3><p> 1.<a href="https://hexo.io/zh-cn/docs/">hexo文档</a><br> 2.<a href="http://theme-next.iissnan.com/getting-started.html">hexo-next主题文档</a></p>
+<h2 id="博客的后续配置"><a href="#博客的后续配置" class="headerlink" title="博客的后续配置"></a>博客的后续配置</h2><p>  博客中有很多可用于拓展的地方，暂时还有很多不太了解，但是可以满足日常的写作需求以及部署，此处用于记录对于配置方面的自己的一些理解。</p>
+<h3 id="配置-config-yml，gitee-github简单修改实现双部署"><a href="#配置-config-yml，gitee-github简单修改实现双部署" class="headerlink" title="配置_config.yml，gitee/github简单修改实现双部署"></a>配置_config.yml，gitee/github简单修改实现双部署</h3><pre><code>#配置_config.yml 
+</code></pre>
+<hr>
+<pre><code># Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+      type: git
+     repo: 
+        gitee: https://gitee.com/mhist/mhist.git
+    #https://github.com/Mhist/Mhist.github.io.git 
+    #github
+      branch: master
+</code></pre>
+<p>—–以上代码是我在实践过程中发现的一点，因为在github上是可以做到自动部署的，可是因为防火墙的原因导致访问经常失败，而gitee作为国内的github，访问速度是很快的，只是部署的时候需要手动更新，因为自动更新部署是要收费的。<br>    以上代码的使用方式是在repo中：<br>    1.部署到gitee时，按照hexo c; hexo g; hexo s; hexo d，然后到码云的位置点击更新即可。<img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210421013409-giteePagesUpdateButton.png" alt="gitee pages update button">，然后可访问域名：<a href="https://mhist.gitee.io/">https://mhist.gitee.io/</a><br>    2.部署到github时，将gitee所在行用#注释掉即可，同时取消gitee下一行的#注释，按照hexo c; hexo g; hexo s; hexo d即可。然后可访问域名：<a href="https://mhist.github.io/">https://mhist.github.io/</a></p>
+<h2 id="图床的设置"><a href="#图床的设置" class="headerlink" title="图床的设置"></a>图床的设置</h2><p>  作为使用Markdown来编辑文档的人来说，拥有一个好的图床是非常必要的。通过图床我们可以很好的管理我们的博客图片，同时能在多方正确显示。</p>
+<h3 id="图床分类"><a href="#图床分类" class="headerlink" title="图床分类"></a>图床分类</h3><p>  现在比较流行的图床有很多，包括SM.MS图床、腾讯云cos、github图床、七牛云图床、Imgur图床、阿里云COS、又拍云图床、gitee。但同时具有安全、经济、使用方便、访问高速等多种优点的解决方案还是要数基于picgo+gitee的解决方案.</p>
+<h3 id="picgo"><a href="#picgo" class="headerlink" title="picgo"></a>picgo</h3><p>  picgo是一款基于桌面端图床工具，方便我们对接本地和远程仓库，同时快速获取链接，同时支持链接的Markdown、HTML、URL、UBB、Custom等五种格式的选择，同时可以支持插件以丰富软件功能。<br>  推荐两个配置教程：</p>
+<ol>
+<li><a href="https://blog.csdn.net/disILLL/article/details/103962241?utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.control&dist_request_id=1332024.918.16189409573562535&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.control">配置教程1</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/128014135">配置教程2—插件</a></li>
+<li><a href="https://github.com/Molunerfinn/PicGo/releases">picgo的github链接</a></li>
+<li>picgo Windows <a href="https://pan.baidu.com/s/1y_yn9dl5aEAGHBX2c2KDPA">PicGo-Setup-2.3.0-beta.5.exe</a> 提取码：hexo</li>
+</ol>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo样式修改汇总</title>
+    <url>/2021/09/28/hexo/371af6f33ab0/</url>
+    <content><![CDATA[<h1 id="hexo样式汇总"><a href="#hexo样式汇总" class="headerlink" title="hexo样式汇总"></a>hexo样式汇总</h1><h1 id="更改超链接格式（文字颜色）"><a href="#更改超链接格式（文字颜色）" class="headerlink" title="更改超链接格式（文字颜色）"></a>更改超链接格式（文字颜色）</h1><div class="note primary modern"><p><a href="https://vonsdite.github.io/posts/13afd8d4.html">参考链接:Von</a> </p>
+</div>
+
+<h2 id="插图编号-醒目文字"><a href="#插图编号-醒目文字" class="headerlink" title="插图编号| 醒目文字"></a>插图编号| 醒目文字</h2><figure class="highlight django"><table><tr><td class="code"><pre><code class="hljs django"><span class="xml"></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">note</span> default %&#125;</span><span class="xml"> 默认样式 </span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endnote</span> %&#125;</span><span class="xml"></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">note</span> primary %&#125;</span><span class="xml"> 主要样式 </span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endnote</span> %&#125;</span><span class="xml"></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">note</span> success %&#125;</span><span class="xml"> 成功样式 </span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endnote</span> %&#125;</span><span class="xml"></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">note</span> info %&#125;</span><span class="xml"> 信息样式 </span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endnote</span> %&#125;</span><span class="xml"></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">note</span> warning %&#125;</span><span class="xml"> 警告样式  </span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endnote</span> %&#125;</span><span class="xml"></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">note</span> danger %&#125;</span><span class="xml"> 危险样式  </span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endnote</span> %&#125;</span><span class="xml"></span><br><span class="xml"></span><br><span class="xml"></span><br></code></pre></td></tr></table></figure>
+<div class="note default modern"><p>默认样式 </p>
+</div>
+<div class="note primary modern"><p>主要样式 </p>
+</div>
+<div class="note success modern"><p>成功样式 </p>
+</div>
+<div class="note info modern"><p>信息样式 </p>
+</div>
+<div class="note warning modern"><p>警告样式  </p>
+</div>
+<div class="note danger modern"><p>危险样式  </p>
+</div>
+
+
+<h2 id="使用选项卡"><a href="#使用选项卡" class="headerlink" title="使用选项卡"></a>使用选项卡</h2><figure class="highlight django"><table><tr><td class="code"><pre><code class="hljs django"><span class="hljs-template-tag">&#123;% <span class="hljs-name">tabs</span> tab,1 %&#125;</span><span class="xml"> 名字为tab，默认在第1个选项卡，如果是-1则隐藏</span><br><span class="xml"><span class="hljs-comment">&lt;!-- tab --&gt;</span></span><br><span class="xml">**选项卡 1** </span><br><span class="xml"><span class="hljs-comment">&lt;!-- endtab --&gt;</span></span><br><span class="xml"><span class="hljs-comment">&lt;!-- tab --&gt;</span></span><br><span class="xml">**选项卡 2**</span><br><span class="xml"><span class="hljs-comment">&lt;!-- endtab --&gt;</span></span><br><span class="xml"><span class="hljs-comment">&lt;!-- tab A --&gt;</span></span><br><span class="xml">**选项卡 3** 名字为A</span><br><span class="xml"><span class="hljs-comment">&lt;!-- endtab --&gt;</span></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endtabs</span> %&#125;</span><br></code></pre></td></tr></table></figure>
+<p>效果展示：</p>
+<div class="tabs" id="tab"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#tab-1">tab 1</button></li><li class="tab"><button type="button" data-href="#tab-2">tab 2</button></li><li class="tab"><button type="button" data-href="#tab-3">A</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="tab-1"><p><strong>选项卡 1</strong> </p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-2"><p><strong>选项卡 2</strong></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-3"><p><strong>选项卡 3</strong> 名字为A</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+<h2 id="自动生成目录（hexo-toc）"><a href="#自动生成目录（hexo-toc）" class="headerlink" title="自动生成目录（hexo-toc）"></a>自动生成目录（hexo-toc）</h2><p>  主题自带的配置项，生成的目录是不能够点击到文章目录自动滑动到页面指定位置的。<br>  <figure class="highlight yaml"><table><tr><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment"># Table Of Contents in the Sidebar</span><br><span class="hljs-attr">toc:</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">false</span><br><br>  <span class="hljs-comment"># Automatically add list number to toc.</span><br>  <span class="hljs-attr">number:</span> <span class="hljs-literal">true</span><br><br>  <span class="hljs-comment"># If true, all words will placed on next lines if header width longer then sidebar width.</span><br>  <span class="hljs-attr">wrap:</span> <span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure><br>  通过hexo-toc生成的目录可以实现点击调转到指定页面位置，同时可以支持目录级别选择。</p>
+<div class="note danger modern"><p><a href="https://www.dazhuanlan.com/bassd/topics/1055823">参考链接:hexo-toc，但是此链接还是无法解决目录的生成问题</a> </p>
+</div>
+<p>所以，重点是解决hexo-next主题自带的toc目录，锚点失效的原因：</p>
+<div class="note success modern"><p><a href="https://blog.csdn.net/qq_42009500/article/details/116129303?utm_medium=distribute.pc_relevant.none-task-blog-2~default~OPENSEARCH~default-8.no_search_link&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~OPENSEARCH~default-8.no_search_link">参考链接:hexo-toc锚点失效—有效解决办法</a> </p>
+</div>
+
+<p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210928152335tocPostDetails.png" alt="目录锚点失效的原因"></p>
+<p>报错文件路径: <font color=chocolate>themes/next/source/js/post-details.js</font></p>
+<figure class="highlight reasonml"><table><tr><td class="code"><pre><code class="hljs reasonml"><span class="hljs-comment">// TOC item animation navigate &amp; prevent #item selector in adress bar.</span><br>  <span class="hljs-constructor">$(&#x27;.<span class="hljs-params">post</span>-<span class="hljs-params">toc</span> <span class="hljs-params">a</span>&#x27;)</span>.on(&#x27;click&#x27;, <span class="hljs-keyword">function</span> (e) &#123;<br>    e.prevent<span class="hljs-constructor">Default()</span>;<br>    var targetSelector = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">NexT</span>.</span></span>utils.escape<span class="hljs-constructor">Selector(<span class="hljs-params">this</span>.<span class="hljs-params">getAttribute</span>(&#x27;<span class="hljs-params">href</span>&#x27;)</span>);<br><br>    &lt;!-- 添加下面这行代码, 重新解析 URL -&gt;<br>    targetSelector = decode<span class="hljs-constructor">URI(<span class="hljs-params">this</span>.<span class="hljs-params">getAttribute</span>(&#x27;<span class="hljs-params">href</span>&#x27;)</span>)<br><br>    var offset = <span class="hljs-constructor">$(<span class="hljs-params">targetSelector</span>)</span>.offset<span class="hljs-literal">()</span>.top;<br><br>    hasVelocity ?<br>      html.velocity(&#x27;stop&#x27;).velocity(&#x27;scroll&#x27;, &#123;<br>        offset: offset  + &#x27;px&#x27;,<br>        mobileHA: <span class="hljs-literal">false</span><br>      &#125;) :<br>      <span class="hljs-constructor">$(&#x27;<span class="hljs-params">html</span>, <span class="hljs-params">body</span>&#x27;)</span>.stop<span class="hljs-literal">()</span>.animate(&#123;<br>        scrollTop: offset<br>      &#125;, <span class="hljs-number">500</span>);<br>  &#125;);<br></code></pre></td></tr></table></figure>
+<p>  经过上面的处理自动生成的目录可以正常跳转了，但是会根据页面的滑动区域自适应目录的展示，这对于需要根据目录直达指定内容的访客来说，很不方便，于是在css样式中对代码进行以下修改：  修改文件目录: <font color=camel>themes/next/source/css/_common/components/sidebar/sidebar-toc.styl</font></p>
+<p>  找到如下的代码<br>  <figure class="highlight stylus"><table><tr><td class="code"><pre><code class="hljs stylus"><span class="hljs-selector-class">.post-toc</span> <span class="hljs-selector-class">.nav</span> <span class="hljs-selector-class">.nav-child</span> &#123; <span class="hljs-attribute">display</span>: none; &#125;<br></code></pre></td></tr></table></figure><br>  修改为</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><code class="hljs stylus"><span class="hljs-selector-class">.post-toc</span> <span class="hljs-selector-class">.nav</span> <span class="hljs-selector-class">.nav-child</span> &#123; <span class="hljs-attribute">display</span>: block; &#125;<br><br></code></pre></td></tr></table></figure>
+
+
+<h2 id="next主题添加代码块一键复制功能"><a href="#next主题添加代码块一键复制功能" class="headerlink" title="next主题添加代码块一键复制功能"></a>next主题添加代码块一键复制功能</h2><div class="note success modern"><p><a href="https://blog.csdn.net/Awt_FuDongLai/article/details/107466848">参考链接:hexo-next代码块复制粘贴—成功复现</a> </p>
+</div>
+
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js面试题</title>
+    <url>/2022/02/20/js%E9%9D%A2%E8%AF%95%E9%A2%98/e6e33b6aaa60/</url>
+    <content><![CDATA[<script src=/js/crypto-js.js></script>
+<script>
+function doDecrypt (pwd, onError) {
+	console.log('in doDecrypt');
+	const txt = document.getElementById('enc_content').innerHTML;
+	let plantext;
+	try {
+		const bytes = CryptoJS.AES.decrypt(txt, pwd);
+		var plaintext = bytes.toString(CryptoJS.enc.Utf8);
+	} catch(err) {
+		if(onError) {
+			onError(err);
+		}
+		return;
+	}
+	document.getElementById('enc_content').innerHTML = plaintext;
+	document.getElementById('enc_content').style.display = 'block';
+	document.getElementById('enc_passwd').style.display = 'none';
+	if(typeof MathJax !== 'undefined') {
+		MathJax.Hub.Queue(
+			['resetEquationNumbers', MathJax.InputJax.TeX],
+			['PreProcess', MathJax.Hub],
+			['Reprocess', MathJax.Hub]
+		);
+	}
+}
+</script>
+<div id="enc_content" style="display:none">U2FsdGVkX1+7TKf51COMnVytpVMya4fBmqLT4Yj0lwVgZFU+k79l0HMZ7K/8CKt1GfoxQWMcoFLe2Xpf1WQF2gywbVLqRhfcwghfuLpAPelVjjuArPySWrmFSnERwgNqoZ45k8EvFRw7F+KRA+GDYTqa4/3Rr7WZLN6qNcw5/37z97XddMkR3U0L11kXVrhmn6RopOBbdlyV/c6UjT7rgI/6CJVBtKtWy6GZzXB4xeQx9nT4qtrgxplyWKxHJ8536SRw0jb9RkdRtGY7JuLLxXuno0iRtpY+p7q1PccOfFxABdLs0wMzhnp4hgz4ncWINET6bJbflrQABXJjFXEK1TwXA+ui2ujd05ymIdohvn4WfLrlTqZItBOTW0u8UbgMt9Ua484bmKJb2LgHyVeZEX5PC0qUDM2/pRNKqAZrDWSphk8e06FmVkUzk2w/H5pPNAzSbFjzZ/RdVQqn7C/qlmAs9phkSq1lolSfBYz1zKQ9dl7HFscLpc4wN75hsIGUPfdo+LCTgCwjjquwOffdHxj5GNNnmP9OvIbgGCWRU7lMI2lXodOrReTgIFHdF1AWcJZ5ccKPOeEVYVYq0H5OhXHoWNz3Lbq6c1QssTEyIFEMqv7VHAqDzNhUZ+UP6vIe1BZV+L4zRNKBQyCC/Ys4BwU2MCCn9E635KaBwFaUTeVb3U3MV8CSZUO97fxG/ntroOlDJPmYWJ1kFVcRuGGd5v5ycFM4bZUlEBs8v06Htx8wazL7H/izszSw97d+5Ummasela6OQ/ZiKBx4ZC5fLE5cpx9XDpjly2w1XAut/bKrZpip7D/691LD5PpfClLw/XVgQoPi7wEDPKvmvoFB3C8lob+7MkI0yFGmcZGT/U6iWhaE66f05j1EFu1mKuEXzM4gfi9rcu6R9sPvkQy8JJVoah3M4ZBJ9JhrpfB+0Ep/VCy5KiJyEN9fzXV0/z3LPBVYuo8Q517D0Ih/x67oK2/w5lIS5tcAzgoRHt15uAWEHgKhAUQn36ak/i46E0n5UGN7HLIsdINu11w8mcgzxxQCJK+3KfjdjBS7ADgaJ5TyJeRS9AcyqXYK8E81wjZOQcvCkusSmTzhskGB3/u/r/EhuyyNsEu5iZZR5jpuUyehev1sZmDYF5J8M8p6E4azhJlTNeXQyIH7eD0RKFzqqUamHYtZjz7kbSPbn2F5Q80YbZvtysihfnr60XRW8L4uDeIehxg5gaXAII9dTAcFiuOkUz70inNU477bgm0kE3eRQgTbIKRSt0eIqkyNPjnY8E3j7ixJMdun+w4Dv+nBZOLd7TCXUE0Ewzze24nAIH686Xb/7uw8Ez5mhIO/c/M1yWr17WDiU2By2azamDAamSyTkOyQrm+ky+OhAAflcuiaW/s+uJ/Cjs+YUSFESWkY3ftWhUWm73SY6gLBh2HVfUn8bCaqKGIGymALmNFLNp6typHtKDMVJ0njzzNv99ZV7XiPUURxFfLXjwSNfOevCWboRaIo6m0kaA9l2tGcomzP6WvBOObYu8Z9ncZilf6lP2mgtq+9dWj/jFYIVp9EP9Udu8oXaganzAyKxqygYbDATvW2zYnawHN3GVLb91TLipf9fB9/5aTJqHGNTCQeB1sU3Yz6rB3h7CHVYxR5w82Fr6pLDS4E9aOtYSn8j5+f1lmnj5wgplh0uZEsain1EDq000vC7VN5XnYwekveUTPIeizbrBw4nt7Q5fBmzBDahcGklK0gLJO/ObmV5N8yj5YaQoEpjXYdNsiJ8bv/QGh9tCJ8xKQ4YThdk85YzJsWXWjJmUIedUUuWpeN0Zkqjoa1DuQLtk2esQL1M4geERrUBvJ3q6jW+KZnwF26XhjJgikeyBJB79fp4J+JNT/DwftKIV6EqjaIwFMryxK17YyWXx94xwozXf/7NJ+OCeN5wkNg0s2FFdEgF2jqnvEme5yNmxOsvQcTrrfyu7jDIeKWxYX8fS5ugV0TL5VALfiFa9eSDg3Qfc0DoA+Igve0VyR+07ppFFR6OcKTMsu1upYPBCHLEQcPKXPbcieEgMvpLQsr9TPrWvADRwQz2OjKTKA==</div>
+<div id="enc_passwd"> <input id="enc_pwd_input" type="password" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
+<script>
+var onError = function(error) {
+	document.getElementById("enc_error").innerHTML = "password error!"
+};
+function decrypt() {
+var passwd = document.getElementById("enc_pwd_input").value;
+console.log(passwd);
+doDecrypt(passwd, onError);
+}
+</script>
+</div>]]></content>
+      <categories>
+        <category>js面试题</category>
+      </categories>
+      <tags>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git</title>
+    <url>/2021/11/01/git/0e5e66b4b6b0/</url>
+    <content><![CDATA[<h2 id="git是什么？"><a href="#git是什么？" class="headerlink" title="git是什么？"></a>git是什么？</h2><p> Git是一种分布式的版本控制软件， 它像是把数据看作是对小型文件系统的一系列快照。 在 Git 中，每当你提交更新或保存项目状态时，它基本上就会对当时的全部文件创建一个快照并保存这个快照的索引。 为了效率，如果文件没有修改，Git 不再重新存储该文件，而是只保留一个链接指向之前存储的文件。 Git 对待数据更像是一个 <font color=amber>快照流</font>。</p>
+<h2 id="git的特点"><a href="#git的特点" class="headerlink" title="git的特点"></a>git的特点</h2><ol>
+<li>直接记录快照，而非差异比较</li>
+<li>近乎所有操作都是本地执行</li>
+<li>Git 保证完整性 （Git 数据库中保存的信息都是以文件内容的哈希值来索引，而不是文件名。）</li>
+<li>Git 一般只添加数据</li>
+</ol>
+<div class="note default modern"><p> Git 用以计算校验和的机制叫做 SHA-1 散列（hash，哈希）。 这是一个由 40 个十六进制字符（0-9 和 a-f）组成的字符串，基于 Git 中文件的内容或目录结构计算出来。 SHA-1 哈希看起来是这样：</p>
+<figure class="highlight dns"><table><tr><td class="code"><pre><code class="hljs dns"><span class="hljs-number">24</span>b9da6552252987aa493b52f8696cd<span class="hljs-number">6d3b00373</span><br></code></pre></td></tr></table></figure></div>
+
+<h2 id="git的三种区域划分"><a href="#git的三种区域划分" class="headerlink" title="git的三种区域划分"></a>git的三种区域划分</h2><ul>
+<li><p> 已修改（modified）：表示修改了文件，但还没保存到数据库中。</p>
+</li>
+<li><p>已暂存（staged）： 表示对一个已修改文件的当前版本做了标记，使之包含在下次提交的快照中。</p>
+</li>
+<li><p>已提交（committed）：表示数据已经安全地保存在本地数据库中。</p>
+</li>
+</ul>
+<p><img src="https://git-scm.com/book/en/v2/images/areas.png" alt="git三种区域"></p>
+<h2 id="初次运行-Git-前的配置"><a href="#初次运行-Git-前的配置" class="headerlink" title="初次运行 Git 前的配置"></a>初次运行 Git 前的配置</h2><h3 id="用户信息"><a href="#用户信息" class="headerlink" title="用户信息"></a>用户信息</h3><p>安装完 Git 之后，要做的第一件事就是设置你的用户名和邮件地址。 这一点很重要，因为每一个 Git 提交都会使用这些信息，它们会写入到你的每一次提交中，不可更改：</p>
+<figure class="highlight verilog"><table><tr><td class="code"><pre><code class="hljs verilog">git <span class="hljs-keyword">config</span> --<span class="hljs-keyword">global</span> user<span class="hljs-variable">.name</span> <span class="hljs-string">&quot;John Doe&quot;</span><br>git <span class="hljs-keyword">config</span> --<span class="hljs-keyword">global</span> user<span class="hljs-variable">.email</span> johndoe@example<span class="hljs-variable">.com</span><br></code></pre></td></tr></table></figure>
+
+<div class="note default modern"><p>再次强调，如果使用了 –global 选项，那么该命令只需要运行一次，因为之后无论你在该系统上做任何事情， Git 都会使用那些信息。 当你想针对特定项目使用不同的用户名称与邮件地址时，可以在那个项目目录下运行没有 –global 选项的命令来配置。</p>
+</div>
+
+<h3 id="文本编辑器"><a href="#文本编辑器" class="headerlink" title="文本编辑器"></a>文本编辑器</h3><p>在 Windows 系统上，如果你想要使用别的文本编辑器，那么必须指定可执行文件的完整路径。 它可能随你的编辑器的打包方式而不同。</p>
+<figure class="highlight brainfuck"><table><tr><td class="code"><pre><code class="hljs brainfuck"><span class="hljs-comment">git</span> <span class="hljs-comment">config</span> --<span class="hljs-comment">global</span> <span class="hljs-comment">core</span><span class="hljs-string">.</span><span class="hljs-comment">editor</span> <span class="hljs-comment">&quot;&#x27;C:/Program</span> <span class="hljs-comment">Files/Notepad</span>++<span class="hljs-comment">/notepad</span>++<span class="hljs-string">.</span><span class="hljs-comment">exe&#x27;</span> <span class="hljs-literal">-</span><span class="hljs-comment">multiInst</span> <span class="hljs-literal">-</span><span class="hljs-comment">notabbar</span> <span class="hljs-literal">-</span><span class="hljs-comment">nosession</span> <span class="hljs-literal">-</span><span class="hljs-comment">noPlugin&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="检查配置信息"><a href="#检查配置信息" class="headerlink" title="检查配置信息"></a>检查配置信息</h3><figure class="highlight lua"><table><tr><td class="code"><pre><code class="hljs lua">git <span class="hljs-built_in">config</span> <span class="hljs-comment">--list</span><br></code></pre></td></tr></table></figure>
+<pre>
+PS C:\Users\starry\Desktop\hexo-new> git config --list
+diff.astextplain.textconv=astextplain
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+http.sslbackend=openssl
+http.sslcainfo=D:/dev/git/Git/mingw64/ssl/certs/ca-bundle.crt
+core.autocrlf=true
+core.fscache=true
+core.symlinks=false
+pull.rebase=false
+credential.helper=manager-core
+credential.https://dev.azure.com.usehttppath=true
+:...skipping...
+diff.astextplain.textconv=astextplain
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+http.sslbackend=openssl
+http.sslcainfo=D:/dev/git/Git/mingw64/ssl/certs/ca-bundle.crt    
+core.autocrlf=true
+core.fscache=true
+core.symlinks=false
+pull.rebase=false
+credential.helper=manager-core
+credential.https://dev.azure.com.usehttppath=true
+init.defaultbranch=master
+core.editor="D:\dev\vscode\Microsoft VS Code\bin\code.cmd" --wait
+user.email=18827637106@163.com
+user.name=mhist
+http.sslverify=false
+http.postbuffer=524288000
+</pre>
+
+<p>使用该命令后，你会获得如上的键值对形式的文件，当然你也可以使用命令，通过键来获得你需要得键值</p>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><code class="hljs arduino">git config &lt;key&gt;<br></code></pre></td></tr></table></figure>
+<pre>
+PS C:\Users\starry\Desktop\hexo-new> git config core.fscache
+true
+</pre>
+
+<h2 id="获取帮助和官方手册"><a href="#获取帮助和官方手册" class="headerlink" title="获取帮助和官方手册"></a>获取帮助和官方手册</h2><figure class="highlight arduino"><table><tr><td class="code"><pre><code class="hljs arduino">git help config<br></code></pre></td></tr></table></figure>
+<p>输入命令后会在浏览器打开手册，通过html文件来展示。实际在安装git软件的时候会在相应的文件夹中，博主的文件对应路径为：</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">file:<span class="hljs-regexp">//</span><span class="hljs-regexp">/D:/</span>dev<span class="hljs-regexp">/git/</span>Git<span class="hljs-regexp">/mingw64/</span>share<span class="hljs-regexp">/doc/gi</span>t-doc/git-config.html<br></code></pre></td></tr></table></figure>
+
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">效果</th>
+<th align="center">场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">git clone url</td>
+<td align="center">在本地创建相应的仓库</td>
+<td align="center">用于克隆目标链接的文件</td>
+</tr>
+<tr>
+<td align="center">git init</td>
+<td align="center">在已存在目录中初始化仓库</td>
+<td align="center">用于初始化</td>
+</tr>
+<tr>
+<td align="center">git status</td>
+<td align="center">显示文件分支和文件提交情况和工作区情况</td>
+<td align="center">用于检测当前仓库文件状态</td>
+</tr>
+<tr>
+<td align="center">git add</td>
+<td align="center">使用文件或目录的路径作为参数，目录路径下所有文件会被追踪</td>
+<td align="center">用于跟踪新文件，将文件放到暂存区</td>
+</tr>
+<tr>
+<td align="center">git diff</td>
+<td align="center">本身只显示尚未暂存的改动，而不是自上次提交以来所做的所有改动</td>
+<td align="center">用于查看已暂存和未暂存的修改</td>
+</tr>
+<tr>
+<td align="center">git commit</td>
+<td align="center">将暂存区的文件提交,可通过<font color=camel>git commit -m “添加描述信息”</font></td>
+<td align="center">用于提交更新</td>
+</tr>
+<tr>
+<td align="center">git rm</td>
+<td align="center">若文件不在暂存区 <font color=tomato>git rm 文件名 </font>；否则，使用<font color=camel>git rm -f 文件名</font></td>
+<td align="center">用于移除文件，<a href="https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E8%AE%B0%E5%BD%95%E6%AF%8F%E6%AC%A1%E6%9B%B4%E6%96%B0%E5%88%B0%E4%BB%93%E5%BA%93">其他删除细节参照链接</a></td>
+</tr>
+<tr>
+<td align="center">git mv 原文件名 新文件名</td>
+<td align="center">实质：<code>mv README.md README；git rm README.md；git add README</code></td>
+<td align="center">用于移动文件或者修改文件名</td>
+</tr>
+<tr>
+<td align="center">git log</td>
+<td align="center">在控制台输入命令后会显示以哈希值版本，作者，提交时间组成的内容</td>
+<td align="center">用于查看提交历史</td>
+</tr>
+</tbody></table>
+<div class="note default modern"><p>如果文件已被跟踪，然后再后续过程中被修改，则该跟踪文件的内容发生了变化，但还没有放到暂存区。 要暂存这次更新，需要运行 git add 命令。 这是个多功能命令：可以用它开始跟踪新文件，或者把已跟踪的文件放到暂存区，还能用于合并时把有冲突的文件标记为已解决状态等。 将这个命令理解为“精确地将内容添加到下一次提交中”</p>
+</div>
+
+<h3 id="git-log-配置"><a href="#git-log-配置" class="headerlink" title="git log 配置"></a>git log 配置</h3><p><a href="https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%9F%A5%E7%9C%8B%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2">配置例子具体链接</a></p>
+<p>例子：将提交版本的哈希值用简短形式展示</p>
+<pre>
+PS C:\Users\starry\Desktop\hexo-new\blog> git log --pretty=format:"%h"
+0f2dda8
+40f740a
+668fc87
+2b7da17
+418255c
+7601831
+f89d8a5
+</pre>
+
+<h3 id="撤销操作"><a href="#撤销操作" class="headerlink" title="撤销操作"></a>撤销操作</h3><ol>
+<li><p>它一般用于解决在开发过程中因为细微的操作导致的问题，比如在提交完成后发现有些文件忘记更新到缓存区，导致文件没有提交，而文件又不是很多，如果再次提交，会增多提交历史中的事件轴，为了解决这一问题可以使用以下命令，它会提交第二次的修改，从效果上来说，就像是旧有的提交从未存在过一样，它并不会出现在仓库的历史中。</p>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><code class="hljs pgsql">git <span class="hljs-keyword">commit</span> <span class="hljs-comment">--amend</span><br></code></pre></td></tr></table></figure></li>
+<li><p>取消暂存</p>
+<figure class="highlight sas"><table><tr><td class="code"><pre><code class="hljs sas">git <span class="hljs-meta">reset</span> HEAD &lt;<span class="hljs-meta">file</span>&gt;...<br></code></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h2><h3 id="查看远程仓库"><a href="#查看远程仓库" class="headerlink" title="查看远程仓库"></a>查看远程仓库</h3><figure class="highlight ebnf"><table><tr><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">git remote</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">git remote -v</span><br></code></pre></td></tr></table></figure>
+<h3 id="添加远程仓库"><a href="#添加远程仓库" class="headerlink" title="添加远程仓库"></a>添加远程仓库</h3><figure class="highlight vim"><table><tr><td class="code"><pre><code class="hljs vim">git remote <span class="hljs-built_in">add</span> <span class="hljs-symbol">&lt;shortname&gt;</span> <span class="hljs-symbol">&lt;url&gt;</span><br></code></pre></td></tr></table></figure>
+<h3 id="从远程仓库拉取"><a href="#从远程仓库拉取" class="headerlink" title="从远程仓库拉取"></a>从远程仓库拉取</h3><figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml">git fetch <span class="hljs-tag">&lt;<span class="hljs-name">remote</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h3 id="推送到远程仓库"><a href="#推送到远程仓库" class="headerlink" title="推送到远程仓库"></a>推送到远程仓库</h3><figure class="highlight maxima"><table><tr><td class="code"><pre><code class="hljs maxima">git <span class="hljs-built_in">push</span> <span class="hljs-built_in">origin</span> master<br></code></pre></td></tr></table></figure>
+<h3 id="查看某个远程仓库"><a href="#查看某个远程仓库" class="headerlink" title="查看某个远程仓库"></a>查看某个远程仓库</h3><figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml">git remote show <span class="hljs-tag">&lt;<span class="hljs-name">remote</span>&gt;</span> <br></code></pre></td></tr></table></figure>
+<h3 id="远程仓库的重命名"><a href="#远程仓库的重命名" class="headerlink" title="远程仓库的重命名"></a>远程仓库的重命名</h3><p>例如，想要将 pb 重命名为 paul，可以用 git remote rename 这样做：</p>
+<figure class="highlight coq"><table><tr><td class="code"><pre><code class="hljs coq">git remote <span class="hljs-built_in">rename</span> pb paul<br></code></pre></td></tr></table></figure>
+<h3 id="远程仓库的删除"><a href="#远程仓库的删除" class="headerlink" title="远程仓库的删除"></a>远程仓库的删除</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><code class="hljs routeros">git remote <span class="hljs-builtin-name">remove</span> 远程仓库名<br></code></pre></td></tr></table></figure>
+
+<h2 id="git分支与合并"><a href="#git分支与合并" class="headerlink" title="git分支与合并"></a>git分支与合并</h2><ol>
+<li><p>查看分支 </p>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">git branch</span><br></code></pre></td></tr></table></figure></li>
+<li><p>创建分支</p>
+<figure class="highlight mipsasm"><table><tr><td class="code"><pre><code class="hljs mipsasm">git <span class="hljs-keyword">branch </span>分支名称<br></code></pre></td></tr></table></figure></li>
+<li><p>切换分支</p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">git</span> checkout 分支名称<br></code></pre></td></tr></table></figure></li>
+<li><p>分支合并<br>假设现在有两个分支，分别为master和test分支，当前你在master分支上，可以使用以下命令将test分支上的内容合并到master分支上。</p>
+<figure class="highlight stata"><table><tr><td class="code"><pre><code class="hljs stata">git <span class="hljs-keyword">merge</span> <span class="hljs-keyword">test</span><br></code></pre></td></tr></table></figure></li>
+</ol>
+<p>合并冲突：</p>
+<ol start="5">
+<li>删除分支<figure class="highlight mipsasm"><table><tr><td class="code"><pre><code class="hljs mipsasm">git <span class="hljs-keyword">branch </span>-d 分支名称<br></code></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>TypeScript入门教程(一)</title>
     <url>/2021/09/24/TypeScript/854698b90236/</url>
     <content><![CDATA[<h1 id="TypeScript学习"><a href="#TypeScript学习" class="headerlink" title="TypeScript学习"></a>TypeScript学习</h1><p>  TypeScript 的发展已经深入到前端社区的方方面面了，任何规模的项目都或多或少得到了 TypeScript 的支持。同时vue3在经过vue2之后的发展过程中采用了TypeScript进行了重构，也让使用vue作为主力开发框架的开发者们，需要学习TypeScript来适应日常的开发过程。</p>
@@ -240,65 +694,6 @@
       </tags>
   </entry>
   <entry>
-    <title>TypeScript入门教程二</title>
-    <url>/2021/09/26/TypeScript/4d8aa16bcb6b/</url>
-    <content><![CDATA[<h1 id="typescript学习：第二部分"><a href="#typescript学习：第二部分" class="headerlink" title="typescript学习：第二部分"></a>typescript学习：第二部分</h1><p>  → <a href="http://wakeweb.cloud/2021/09/24/TypeScript/854698b90236/">第一部分跳转链接</a></p>
-<p>经过第一部分的学习，我们已经了解到了typescript的基本用法，同时对于其在代码健壮性，以及编译过程中即出现错误提示的有点有了更一步的了解，接下来，我们将进一步学习新的知识，体会typescript更加高级的用法。</p>
-<h2 id="类型断言"><a href="#类型断言" class="headerlink" title="类型断言"></a>类型断言</h2><p>  在学习类型断言之前，需要先了解断言的具体概念，针对node语言里面也有相关断言的概念，有以下的问题：<br>  <font color=orange>1.断言是一个广泛的概念吗？</font><br>  <font color=seagreen>2.node断言与typescript类型断言分别都是什么？</font><br>  <span id="more"></span></p>
-<p> 首先可以回答第一个问题： 是，那么第二个问题就没有必要再纠结了。</p>
-<p> <a href="https://www.runoob.com/w3cnote/c-assert.html">菜鸟教程–asserts断言的用法</a>.</p>
-<p><font color=amber> 可以这么说:断言assert 是仅在Debug 版本起作用的宏，它用于检查”不应该”发生的情况。</font></p>
-<p><font color=yellowgreen>需要注意的是，类型断言只能够「欺骗」TypeScript 编译器，无法避免运行时的错误，反而滥用类型断言可能会导致运行时错误：</font></p>
-<blockquote>
-<p>以下是使用断言的几个原则：<br>（1）使用断言捕捉不应该发生的非法情况。不要混淆非法情况与错误情况之间的区别，后者是必然存在的并且是一定要作出处理的。<br>（2）使用断言对函数的参数进行确认。<br>（3）在编写函数时，要进行反复的考查，并且自问：”我打算做哪些假定？”一旦确定了的假定，就要使用断言对假定进行检查。<br>（4）一般教科书都鼓励程序员们进行防错性的程序设计，但要记住这种编程风格会隐瞒错误。当进行防错性编程时，如果”不可能发生”的事情的确发生了，则要使用断言进行报警。</p>
-</blockquote>
-<h3 id="类型断言的用法"><a href="#类型断言的用法" class="headerlink" title="类型断言的用法"></a>类型断言的用法</h3><p>前文提到，对于断言的使用是需要慎重的。这节我们将学习断言（assert）的具体用法：<br>方法1: <font color=purple>值 as 类型</font><br>方法2: <font color=seagreen>&lt;类型&gt;值</font></p>
-<p>由于第二种方法在使用过程中可能会产生<font color=purple>歧义</font>，因为</p>
-<blockquote>
-<p>在 tsx 语法（React 的 jsx 语法的 ts 版）中必须使用前者，即 值 as 类型。形如 <Foo> 的语法在 tsx 中表示的是一个 ReactNode，在 ts 中除了表示类型断言之外，也可能是表示一个泛型。故建议大家在使用类型断言时，统一使用 值 as 类型 这样的语法，本书中也会贯彻这一思想。</p>
-</blockquote>
-<h3 id="类型断言的用途"><a href="#类型断言的用途" class="headerlink" title="类型断言的用途"></a>类型断言的用途</h3><h4 id="将一个联合类型推断为其中一个类型"><a href="#将一个联合类型推断为其中一个类型" class="headerlink" title="将一个联合类型推断为其中一个类型"></a>将一个联合类型推断为其中一个类型</h4><p>在<a href="http://wakeweb.cloud/2021/09/24/TypeScript/854698b90236/">第一部分</a>提到过，在不确定一个具有联合类型的变量具体是哪一种类型时，只能访问此联合类型的所有类型中共有的属性和方法：</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><code class="hljs php"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Cat</span> </span>&#123;<br>    name: <span class="hljs-keyword">string</span>;<br>    run(): <span class="hljs-keyword">void</span>;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Fish</span> </span>&#123;<br>    name: <span class="hljs-keyword">string</span>;<br>    swim(): <span class="hljs-keyword">void</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getName</span>(<span class="hljs-params">animal: Cat | Fish</span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> animal.name;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>而当我们确实需要在不确定类型的时候就访问其中一个类型所特有的属性或方法，比如：</p>
-<figure class="highlight pgsql"><table><tr><td class="code"><pre><code class="hljs pgsql">interface Cat &#123;<br>    <span class="hljs-type">name</span>: string;<br>    run(): <span class="hljs-type">void</span>;<br>&#125;<br>interface Fish &#123;<br>    <span class="hljs-type">name</span>: string;<br>    swim(): <span class="hljs-type">void</span>;<br>&#125;<br><br><span class="hljs-keyword">function</span> isFish(animal: Cat | Fish) &#123;<br>    <span class="hljs-keyword">if</span> (typeof animal.swim === <span class="hljs-string">&#x27;function&#x27;</span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>&#125;<br><br>// <span class="hljs-keyword">index</span>.ts:<span class="hljs-number">11</span>:<span class="hljs-number">23</span> - error TS2339: Property <span class="hljs-string">&#x27;swim&#x27;</span> does <span class="hljs-keyword">not</span> exist <span class="hljs-keyword">on</span> <span class="hljs-keyword">type</span> <span class="hljs-string">&#x27;Cat | Fish&#x27;</span>.<br>//   Property <span class="hljs-string">&#x27;swim&#x27;</span> does <span class="hljs-keyword">not</span> exist <span class="hljs-keyword">on</span> <span class="hljs-keyword">type</span> <span class="hljs-string">&#x27;Cat&#x27;</span>.<br></code></pre></td></tr></table></figure>
-<p>上面的例子中，获取 animal.swim 的时候会报错。</p>
-<p>此时可以使用类型断言，将 animal 断言成 Fish：</p>
-<figure class="highlight typescript"><table><tr><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">interface</span> Cat &#123;<br>    <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>;<br>    run(): <span class="hljs-built_in">void</span>;<br>&#125;<br><span class="hljs-keyword">interface</span> Fish &#123;<br>    <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>;<br>    swim(): <span class="hljs-built_in">void</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isFish</span>(<span class="hljs-params">animal: Cat | Fish</span>) </span>&#123;<br>    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> (animal <span class="hljs-keyword">as</span> Fish).swim === <span class="hljs-string">&#x27;function&#x27;</span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-<p>需要注意的是，类型断言只能够「欺骗」TypeScript 编译器，无法避免运行时的错误，反而滥用类型断言可能会导致运行时错误：</p>
-<figure class="highlight pgsql"><table><tr><td class="code"><pre><code class="hljs pgsql">interface Cat &#123;<br>  <span class="hljs-type">name</span>: string;<br>  run(): <span class="hljs-type">void</span>;<br>&#125;<br>interface Fish &#123;<br>  <span class="hljs-type">name</span>: string;<br>  swim(): <span class="hljs-type">void</span>;<br>&#125;<br><span class="hljs-keyword">function</span> swim(animal: Cat | Fish) &#123;<br>  (animal <span class="hljs-keyword">as</span> Fish).swim();<br>&#125;<br><br>const tom: Cat = &#123;<br>  <span class="hljs-type">name</span>: <span class="hljs-string">&#x27;Tom&#x27;</span>,<br>  run() &#123; console.log(<span class="hljs-string">&#x27;run&#x27;</span>)&#125;<br>&#125;;<br>swim(tom);<br>// <span class="hljs-keyword">index</span>.ts:<span class="hljs-number">11</span>:<span class="hljs-number">23</span> - error TS2339: Property <span class="hljs-string">&#x27;swim&#x27;</span> does <span class="hljs-keyword">not</span> exist <span class="hljs-keyword">on</span> <span class="hljs-keyword">type</span> <span class="hljs-string">&#x27;Cat | Fish&#x27;</span>.<br>//   Property <span class="hljs-string">&#x27;swim&#x27;</span> does <span class="hljs-keyword">not</span> exist <span class="hljs-keyword">on</span> <span class="hljs-keyword">type</span> <span class="hljs-string">&#x27;Cat&#x27;</span>.<br></code></pre></td></tr></table></figure>
-<p><a href="https://www.typescriptlang.org/zh/play#code/JYOwLgpgTgZghgYwgAgMJzMg3gWAFDLIhwC2EAXMgM5hSgDmA3PoVAK4gAUAlJQG4B7YABNmeAL75QkWIhQAxYFQAW2FkVIVqtBmMJUA7sBI9+Q0fkl4YHBGGACQ1IybghjcADaV0mAD7IiircagTInG4enshwVIFKytwAdIbGPGJW+AiONMhgAiQ+GMgAvKGExGSUAOQAKgXVADTq7FzcWMjZIFQCnhBJngL0nNWt1dxW4mKpJvkk3IxAA">错误预览</a></p>
-<p>首先理解一下函数 siwm函数传递参数animal,然后参数调用该类型的属性和方法。不太理解的地方可以查看上方的错误预览。</p>
-<p>原因是 (animal as Fish).swim() 这段代码隐藏了 animal 可能为 Cat 的情况，将 animal 直接断言为 Fish 了，而 TypeScript 编译器信任了我们的断言，故在调用 swim() 时没有编译错误。</p>
-<p>可是 swim 函数接受的参数是 Cat | Fish，一旦传入的参数是 Cat 类型的变量，由于 Cat 上没有 swim 方法，就会导致运行时错误了。</p>
-<p>总之，使用类型断言时一定要格外小心，尽量避免断言后调用方法或引用深层属性，以减少不必要的运行时错误。</p>
-<h4 id="将一个父类断言为更加具体的子类"><a href="#将一个父类断言为更加具体的子类" class="headerlink" title="将一个父类断言为更加具体的子类"></a>将一个父类断言为更加具体的子类</h4><p>  当类之间有继承关系时，类型断言也是常见的。</p>
-<figure class="highlight scala"><table><tr><td class="code"><pre><code class="hljs scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ApiError</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Error</span> </span>&#123;<br>  code: number = <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HttpError</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Error</span> </span>&#123;<br>  statusCode: number = <span class="hljs-number">200</span>;<br>&#125;<br><br>function isApiError(error: <span class="hljs-type">Error</span>) &#123;<br>  <span class="hljs-keyword">if</span>(typeof (error as <span class="hljs-type">ApiError</span>).code === <span class="hljs-symbol">&#x27;numbe</span>r&#x27;) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>  &#125;<br><br><span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-<p>在<font color=red>isApiError函数</font>中，它用于实现传入的错误是不是ApiError类型。</p>
-<p>有的情况下 ApiError 和 HttpError 不是一个真正的类，而只是一个 TypeScript 的接口（interface），接口是一个类型，不是一个真正的值，它在编译结果中会被删除，当然就无法使用 instanceof 来做运行时判断了：</p>
-<figure class="highlight typescript"><table><tr><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">interface</span> ApiError <span class="hljs-keyword">extends</span> Error &#123;<br>    <span class="hljs-attr">code</span>: <span class="hljs-built_in">number</span>;<br>&#125;<br><span class="hljs-keyword">interface</span> HttpError <span class="hljs-keyword">extends</span> Error &#123;<br>    <span class="hljs-attr">statusCode</span>: <span class="hljs-built_in">number</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isApiError</span>(<span class="hljs-params">error: <span class="hljs-built_in">Error</span></span>) </span>&#123;<br>    <span class="hljs-keyword">if</span> (error <span class="hljs-keyword">instanceof</span> ApiError) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>&#125;<br><br><span class="hljs-comment">// index.ts:9:26 - error TS2693: &#x27;ApiError&#x27; only refers to a type, but is being used as a value here.</span><br></code></pre></td></tr></table></figure>
-<p>需要学习巩固一下: <a href="https://zh.javascript.info/class-inheritance">类与继承</a>。</p>
-<h4 id="将任何一个类型断言为any类型"><a href="#将任何一个类型断言为any类型" class="headerlink" title="将任何一个类型断言为any类型"></a>将任何一个类型断言为any类型</h4><p>在 any 类型的变量上，访问任何属性都是允许的。</p>
-<p>需要注意的是，将一个变量断言为 any 可以说是解决 TypeScript 中类型问题的最后一个手段。</p>
-<p>它极有可能掩盖了真正的类型错误，所以如果不是非常确定，就不要使用 as any。</p>
-<p>上面的例子中，我们也可以通过[扩展 window 的类型（TODO）][]解决这个错误，不过如果只是临时的增加 foo 属性，as any 会更加方便。</p>
-<p>总之，一方面不能滥用 as any，另一方面也不要完全否定它的作用，我们需要在类型的严格性和开发的便利性之间掌握平衡（这也是 TypeScript 的设计理念之一），才能发挥出 TypeScript 最大的价值。</p>
-<h4 id="将-any-断言为一个具体的类型"><a href="#将-any-断言为一个具体的类型" class="headerlink" title="将 any 断言为一个具体的类型"></a>将 any 断言为一个具体的类型</h4><p>  在日常的开发中，我们不可避免的需要处理 any 类型的变量，它们可能是由于第三方库未能定义好自己的类型，也有可能是历史遗留的或其他人编写的烂代码，还可能是受到 TypeScript 类型系统的限制而无法精确定义类型的场景。</p>
-<p>遇到 any 类型的变量时，我们可以选择无视它，任由它滋生更多的 any。</p>
-<p>我们也可以选择改进它，通过类型断言及时的把 any 断言为精确的类型，亡羊补牢，使我们的代码向着高可维护性的目标发展。</p>
-<figure class="highlight typescript"><table><tr><td class="code"><pre><code class="hljs typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getCacheData</span>(<span class="hljs-params">key: <span class="hljs-built_in">string</span></span>): <span class="hljs-title">any</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> (<span class="hljs-built_in">window</span> <span class="hljs-keyword">as</span> <span class="hljs-built_in">any</span>).cache[key];<br>&#125;<br><br><span class="hljs-keyword">interface</span> Cat &#123;<br>    <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>;<br>    run(): <span class="hljs-built_in">void</span>;<br>&#125;<br><br><span class="hljs-keyword">const</span> tom = getCacheData(<span class="hljs-string">&#x27;tom&#x27;</span>) <span class="hljs-keyword">as</span> Cat;<br>tom.run();<br></code></pre></td></tr></table></figure>
-<p>上面的例子，这个函数调用完后的类型为any，我们可以采用接口的方式将它断言为具体的cat类型，后续对参数的访问就会有相应的代码补全了，能够提高代码的可维护性。</p>
-<p><a href="http://ts.xcatliu.com/basics/type-assertion.html#%E5%B0%86-any-%E6%96%AD%E8%A8%80%E4%B8%BA%E4%B8%80%E4%B8%AA%E5%85%B7%E4%BD%93%E7%9A%84%E7%B1%BB%E5%9E%8B">后续参考链接：类型断言、类型转换、类型声明、泛型</a></p>
-<h2 id="泛型（generics）"><a href="#泛型（generics）" class="headerlink" title="泛型（generics）"></a>泛型（generics）</h2><p>泛型（Generics）是指在定义函数、接口或类的时候，不预先指定具体的类型，而在使用的时候再指定类型的一种特性。</p>
-]]></content>
-      <categories>
-        <category>TypeScript</category>
-      </categories>
-      <tags>
-        <tag>TypeScript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>富文本编辑器选型</title>
     <url>/2022/12/20/editor/a972ef10f61a/</url>
     <content><![CDATA[<p>一、常见的富文本编辑器</p>
@@ -424,401 +819,6 @@
       </tags>
   </entry>
   <entry>
-    <title>git</title>
-    <url>/2021/11/01/git/0e5e66b4b6b0/</url>
-    <content><![CDATA[<h2 id="git是什么？"><a href="#git是什么？" class="headerlink" title="git是什么？"></a>git是什么？</h2><p> Git是一种分布式的版本控制软件， 它像是把数据看作是对小型文件系统的一系列快照。 在 Git 中，每当你提交更新或保存项目状态时，它基本上就会对当时的全部文件创建一个快照并保存这个快照的索引。 为了效率，如果文件没有修改，Git 不再重新存储该文件，而是只保留一个链接指向之前存储的文件。 Git 对待数据更像是一个 <font color=amber>快照流</font>。</p>
-<h2 id="git的特点"><a href="#git的特点" class="headerlink" title="git的特点"></a>git的特点</h2><ol>
-<li>直接记录快照，而非差异比较</li>
-<li>近乎所有操作都是本地执行</li>
-<li>Git 保证完整性 （Git 数据库中保存的信息都是以文件内容的哈希值来索引，而不是文件名。）</li>
-<li>Git 一般只添加数据</li>
-</ol>
-<div class="note default modern"><p> Git 用以计算校验和的机制叫做 SHA-1 散列（hash，哈希）。 这是一个由 40 个十六进制字符（0-9 和 a-f）组成的字符串，基于 Git 中文件的内容或目录结构计算出来。 SHA-1 哈希看起来是这样：</p>
-<figure class="highlight dns"><table><tr><td class="code"><pre><code class="hljs dns"><span class="hljs-number">24</span>b9da6552252987aa493b52f8696cd<span class="hljs-number">6d3b00373</span><br></code></pre></td></tr></table></figure></div>
-
-<h2 id="git的三种区域划分"><a href="#git的三种区域划分" class="headerlink" title="git的三种区域划分"></a>git的三种区域划分</h2><ul>
-<li><p> 已修改（modified）：表示修改了文件，但还没保存到数据库中。</p>
-</li>
-<li><p>已暂存（staged）： 表示对一个已修改文件的当前版本做了标记，使之包含在下次提交的快照中。</p>
-</li>
-<li><p>已提交（committed）：表示数据已经安全地保存在本地数据库中。</p>
-</li>
-</ul>
-<p><img src="https://git-scm.com/book/en/v2/images/areas.png" alt="git三种区域"></p>
-<h2 id="初次运行-Git-前的配置"><a href="#初次运行-Git-前的配置" class="headerlink" title="初次运行 Git 前的配置"></a>初次运行 Git 前的配置</h2><h3 id="用户信息"><a href="#用户信息" class="headerlink" title="用户信息"></a>用户信息</h3><p>安装完 Git 之后，要做的第一件事就是设置你的用户名和邮件地址。 这一点很重要，因为每一个 Git 提交都会使用这些信息，它们会写入到你的每一次提交中，不可更改：</p>
-<figure class="highlight verilog"><table><tr><td class="code"><pre><code class="hljs verilog">git <span class="hljs-keyword">config</span> --<span class="hljs-keyword">global</span> user<span class="hljs-variable">.name</span> <span class="hljs-string">&quot;John Doe&quot;</span><br>git <span class="hljs-keyword">config</span> --<span class="hljs-keyword">global</span> user<span class="hljs-variable">.email</span> johndoe@example<span class="hljs-variable">.com</span><br></code></pre></td></tr></table></figure>
-
-<div class="note default modern"><p>再次强调，如果使用了 –global 选项，那么该命令只需要运行一次，因为之后无论你在该系统上做任何事情， Git 都会使用那些信息。 当你想针对特定项目使用不同的用户名称与邮件地址时，可以在那个项目目录下运行没有 –global 选项的命令来配置。</p>
-</div>
-
-<h3 id="文本编辑器"><a href="#文本编辑器" class="headerlink" title="文本编辑器"></a>文本编辑器</h3><p>在 Windows 系统上，如果你想要使用别的文本编辑器，那么必须指定可执行文件的完整路径。 它可能随你的编辑器的打包方式而不同。</p>
-<figure class="highlight brainfuck"><table><tr><td class="code"><pre><code class="hljs brainfuck"><span class="hljs-comment">git</span> <span class="hljs-comment">config</span> --<span class="hljs-comment">global</span> <span class="hljs-comment">core</span><span class="hljs-string">.</span><span class="hljs-comment">editor</span> <span class="hljs-comment">&quot;&#x27;C:/Program</span> <span class="hljs-comment">Files/Notepad</span>++<span class="hljs-comment">/notepad</span>++<span class="hljs-string">.</span><span class="hljs-comment">exe&#x27;</span> <span class="hljs-literal">-</span><span class="hljs-comment">multiInst</span> <span class="hljs-literal">-</span><span class="hljs-comment">notabbar</span> <span class="hljs-literal">-</span><span class="hljs-comment">nosession</span> <span class="hljs-literal">-</span><span class="hljs-comment">noPlugin&quot;</span><br></code></pre></td></tr></table></figure>
-
-<h3 id="检查配置信息"><a href="#检查配置信息" class="headerlink" title="检查配置信息"></a>检查配置信息</h3><figure class="highlight lua"><table><tr><td class="code"><pre><code class="hljs lua">git <span class="hljs-built_in">config</span> <span class="hljs-comment">--list</span><br></code></pre></td></tr></table></figure>
-<pre>
-PS C:\Users\starry\Desktop\hexo-new> git config --list
-diff.astextplain.textconv=astextplain
-filter.lfs.clean=git-lfs clean -- %f
-filter.lfs.smudge=git-lfs smudge -- %f
-filter.lfs.process=git-lfs filter-process
-filter.lfs.required=true
-http.sslbackend=openssl
-http.sslcainfo=D:/dev/git/Git/mingw64/ssl/certs/ca-bundle.crt
-core.autocrlf=true
-core.fscache=true
-core.symlinks=false
-pull.rebase=false
-credential.helper=manager-core
-credential.https://dev.azure.com.usehttppath=true
-:...skipping...
-diff.astextplain.textconv=astextplain
-filter.lfs.clean=git-lfs clean -- %f
-filter.lfs.smudge=git-lfs smudge -- %f
-filter.lfs.process=git-lfs filter-process
-filter.lfs.required=true
-http.sslbackend=openssl
-http.sslcainfo=D:/dev/git/Git/mingw64/ssl/certs/ca-bundle.crt    
-core.autocrlf=true
-core.fscache=true
-core.symlinks=false
-pull.rebase=false
-credential.helper=manager-core
-credential.https://dev.azure.com.usehttppath=true
-init.defaultbranch=master
-core.editor="D:\dev\vscode\Microsoft VS Code\bin\code.cmd" --wait
-user.email=18827637106@163.com
-user.name=mhist
-http.sslverify=false
-http.postbuffer=524288000
-</pre>
-
-<p>使用该命令后，你会获得如上的键值对形式的文件，当然你也可以使用命令，通过键来获得你需要得键值</p>
-<figure class="highlight arduino"><table><tr><td class="code"><pre><code class="hljs arduino">git config &lt;key&gt;<br></code></pre></td></tr></table></figure>
-<pre>
-PS C:\Users\starry\Desktop\hexo-new> git config core.fscache
-true
-</pre>
-
-<h2 id="获取帮助和官方手册"><a href="#获取帮助和官方手册" class="headerlink" title="获取帮助和官方手册"></a>获取帮助和官方手册</h2><figure class="highlight arduino"><table><tr><td class="code"><pre><code class="hljs arduino">git help config<br></code></pre></td></tr></table></figure>
-<p>输入命令后会在浏览器打开手册，通过html文件来展示。实际在安装git软件的时候会在相应的文件夹中，博主的文件对应路径为：</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">file:<span class="hljs-regexp">//</span><span class="hljs-regexp">/D:/</span>dev<span class="hljs-regexp">/git/</span>Git<span class="hljs-regexp">/mingw64/</span>share<span class="hljs-regexp">/doc/gi</span>t-doc/git-config.html<br></code></pre></td></tr></table></figure>
-
-<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><table>
-<thead>
-<tr>
-<th align="center">命令</th>
-<th align="center">效果</th>
-<th align="center">场景</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">git clone url</td>
-<td align="center">在本地创建相应的仓库</td>
-<td align="center">用于克隆目标链接的文件</td>
-</tr>
-<tr>
-<td align="center">git init</td>
-<td align="center">在已存在目录中初始化仓库</td>
-<td align="center">用于初始化</td>
-</tr>
-<tr>
-<td align="center">git status</td>
-<td align="center">显示文件分支和文件提交情况和工作区情况</td>
-<td align="center">用于检测当前仓库文件状态</td>
-</tr>
-<tr>
-<td align="center">git add</td>
-<td align="center">使用文件或目录的路径作为参数，目录路径下所有文件会被追踪</td>
-<td align="center">用于跟踪新文件，将文件放到暂存区</td>
-</tr>
-<tr>
-<td align="center">git diff</td>
-<td align="center">本身只显示尚未暂存的改动，而不是自上次提交以来所做的所有改动</td>
-<td align="center">用于查看已暂存和未暂存的修改</td>
-</tr>
-<tr>
-<td align="center">git commit</td>
-<td align="center">将暂存区的文件提交,可通过<font color=camel>git commit -m “添加描述信息”</font></td>
-<td align="center">用于提交更新</td>
-</tr>
-<tr>
-<td align="center">git rm</td>
-<td align="center">若文件不在暂存区 <font color=tomato>git rm 文件名 </font>；否则，使用<font color=camel>git rm -f 文件名</font></td>
-<td align="center">用于移除文件，<a href="https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E8%AE%B0%E5%BD%95%E6%AF%8F%E6%AC%A1%E6%9B%B4%E6%96%B0%E5%88%B0%E4%BB%93%E5%BA%93">其他删除细节参照链接</a></td>
-</tr>
-<tr>
-<td align="center">git mv 原文件名 新文件名</td>
-<td align="center">实质：<code>mv README.md README；git rm README.md；git add README</code></td>
-<td align="center">用于移动文件或者修改文件名</td>
-</tr>
-<tr>
-<td align="center">git log</td>
-<td align="center">在控制台输入命令后会显示以哈希值版本，作者，提交时间组成的内容</td>
-<td align="center">用于查看提交历史</td>
-</tr>
-</tbody></table>
-<div class="note default modern"><p>如果文件已被跟踪，然后再后续过程中被修改，则该跟踪文件的内容发生了变化，但还没有放到暂存区。 要暂存这次更新，需要运行 git add 命令。 这是个多功能命令：可以用它开始跟踪新文件，或者把已跟踪的文件放到暂存区，还能用于合并时把有冲突的文件标记为已解决状态等。 将这个命令理解为“精确地将内容添加到下一次提交中”</p>
-</div>
-
-<h3 id="git-log-配置"><a href="#git-log-配置" class="headerlink" title="git log 配置"></a>git log 配置</h3><p><a href="https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%9F%A5%E7%9C%8B%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2">配置例子具体链接</a></p>
-<p>例子：将提交版本的哈希值用简短形式展示</p>
-<pre>
-PS C:\Users\starry\Desktop\hexo-new\blog> git log --pretty=format:"%h"
-0f2dda8
-40f740a
-668fc87
-2b7da17
-418255c
-7601831
-f89d8a5
-</pre>
-
-<h3 id="撤销操作"><a href="#撤销操作" class="headerlink" title="撤销操作"></a>撤销操作</h3><ol>
-<li><p>它一般用于解决在开发过程中因为细微的操作导致的问题，比如在提交完成后发现有些文件忘记更新到缓存区，导致文件没有提交，而文件又不是很多，如果再次提交，会增多提交历史中的事件轴，为了解决这一问题可以使用以下命令，它会提交第二次的修改，从效果上来说，就像是旧有的提交从未存在过一样，它并不会出现在仓库的历史中。</p>
-<figure class="highlight pgsql"><table><tr><td class="code"><pre><code class="hljs pgsql">git <span class="hljs-keyword">commit</span> <span class="hljs-comment">--amend</span><br></code></pre></td></tr></table></figure></li>
-<li><p>取消暂存</p>
-<figure class="highlight sas"><table><tr><td class="code"><pre><code class="hljs sas">git <span class="hljs-meta">reset</span> HEAD &lt;<span class="hljs-meta">file</span>&gt;...<br></code></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h2><h3 id="查看远程仓库"><a href="#查看远程仓库" class="headerlink" title="查看远程仓库"></a>查看远程仓库</h3><figure class="highlight ebnf"><table><tr><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">git remote</span><br></code></pre></td></tr></table></figure>
-<figure class="highlight ebnf"><table><tr><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">git remote -v</span><br></code></pre></td></tr></table></figure>
-<h3 id="添加远程仓库"><a href="#添加远程仓库" class="headerlink" title="添加远程仓库"></a>添加远程仓库</h3><figure class="highlight vim"><table><tr><td class="code"><pre><code class="hljs vim">git remote <span class="hljs-built_in">add</span> <span class="hljs-symbol">&lt;shortname&gt;</span> <span class="hljs-symbol">&lt;url&gt;</span><br></code></pre></td></tr></table></figure>
-<h3 id="从远程仓库拉取"><a href="#从远程仓库拉取" class="headerlink" title="从远程仓库拉取"></a>从远程仓库拉取</h3><figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml">git fetch <span class="hljs-tag">&lt;<span class="hljs-name">remote</span>&gt;</span><br></code></pre></td></tr></table></figure>
-<h3 id="推送到远程仓库"><a href="#推送到远程仓库" class="headerlink" title="推送到远程仓库"></a>推送到远程仓库</h3><figure class="highlight maxima"><table><tr><td class="code"><pre><code class="hljs maxima">git <span class="hljs-built_in">push</span> <span class="hljs-built_in">origin</span> master<br></code></pre></td></tr></table></figure>
-<h3 id="查看某个远程仓库"><a href="#查看某个远程仓库" class="headerlink" title="查看某个远程仓库"></a>查看某个远程仓库</h3><figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml">git remote show <span class="hljs-tag">&lt;<span class="hljs-name">remote</span>&gt;</span> <br></code></pre></td></tr></table></figure>
-<h3 id="远程仓库的重命名"><a href="#远程仓库的重命名" class="headerlink" title="远程仓库的重命名"></a>远程仓库的重命名</h3><p>例如，想要将 pb 重命名为 paul，可以用 git remote rename 这样做：</p>
-<figure class="highlight coq"><table><tr><td class="code"><pre><code class="hljs coq">git remote <span class="hljs-built_in">rename</span> pb paul<br></code></pre></td></tr></table></figure>
-<h3 id="远程仓库的删除"><a href="#远程仓库的删除" class="headerlink" title="远程仓库的删除"></a>远程仓库的删除</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><code class="hljs routeros">git remote <span class="hljs-builtin-name">remove</span> 远程仓库名<br></code></pre></td></tr></table></figure>
-
-<h2 id="git分支与合并"><a href="#git分支与合并" class="headerlink" title="git分支与合并"></a>git分支与合并</h2><ol>
-<li><p>查看分支 </p>
-<figure class="highlight ebnf"><table><tr><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">git branch</span><br></code></pre></td></tr></table></figure></li>
-<li><p>创建分支</p>
-<figure class="highlight mipsasm"><table><tr><td class="code"><pre><code class="hljs mipsasm">git <span class="hljs-keyword">branch </span>分支名称<br></code></pre></td></tr></table></figure></li>
-<li><p>切换分支</p>
-<figure class="highlight nginx"><table><tr><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">git</span> checkout 分支名称<br></code></pre></td></tr></table></figure></li>
-<li><p>分支合并<br>假设现在有两个分支，分别为master和test分支，当前你在master分支上，可以使用以下命令将test分支上的内容合并到master分支上。</p>
-<figure class="highlight stata"><table><tr><td class="code"><pre><code class="hljs stata">git <span class="hljs-keyword">merge</span> <span class="hljs-keyword">test</span><br></code></pre></td></tr></table></figure></li>
-</ol>
-<p>合并冲突：</p>
-<ol start="5">
-<li>删除分支<figure class="highlight mipsasm"><table><tr><td class="code"><pre><code class="hljs mipsasm">git <span class="hljs-keyword">branch </span>-d 分支名称<br></code></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>git</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>VUE2.X学习</title>
-    <url>/2021/04/24/uncategorized/6eb6cb2ab58d/</url>
-    <content><![CDATA[<h1 id="vue2-x教程学习"><a href="#vue2-x教程学习" class="headerlink" title="vue2.x教程学习"></a>vue2.x教程学习</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h3><p>Vue <strong>不支持</strong> IE8 及以下版本，因为 Vue 使用了 IE8 无法模拟的 ECMAScript 5 特性。但它支持所有<a href="https://caniuse.com/#feat=es5">兼容 ECMAScript 5 的浏览器</a>。</p>
-<h3 id="语义化版本控制"><a href="#语义化版本控制" class="headerlink" title="语义化版本控制"></a>语义化版本控制</h3><p>Vue 在其所有项目中公布的功能和行为都遵循<a href="https://semver.org/lang/zh-CN/">语义化版本控制</a>。对于未公布的或内部暴露的行为，其变更会描述在<a href="https://github.com/vuejs/vue/releases">发布说明</a>中。</p>
-<h3 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h3><p>最新稳定版本：2.6.12<br>每个版本的更新日志见 <a href="https://github.com/vuejs/vue/releases">GitHub</a>。</p>
-<span id="more"></span>
-<h3 id="Vue-Devtools"><a href="#Vue-Devtools" class="headerlink" title="Vue Devtools"></a>Vue Devtools</h3><ul>
-<li>在使用 Vue 时，我们推荐在你的浏览器上安装 <a href="https://github.com/vuejs/vue-devtools#vue-devtools">Vue Devtools</a>。它允许你在一个更友好的界面中审查和调试 Vue 应用。</li>
-<li> 在Chrome浏览器中可以直接到Chrome网上商店搜索下载</li>
-<li> 在edge浏览器中可以打开 <a href="https://chrome.google.com/webstore/category/extensions">Chrome 扩展商店</a>，在搜索栏搜索 <strong>vue.js devtools</strong><br>选择提供方为：<a href="https://vuejs.org/">https://vuejs.org</a> 的扩展，添加成功后，进入扩展设置页面，找到 Vue.js devtools 扩展，点击详细信息，勾选允许访问文件 URL和收集错误选项.<br><img src="https://gitee.com/mhist/hexo-image/raw/master/img/VueDevToolSet-20210424164242.png" alt="vue.js devtools"><h3 id="直接用script标签引用"><a href="#直接用script标签引用" class="headerlink" title="直接用script标签引用"></a>直接用script标签引用</h3>直接下载并用 script 标签引入，Vue会被注册为全局变量。</li>
-<li>在开发环境下不要使用压缩版本，不然会失去所有常见错误的相关警告。</li>
-<li><a href="https://cn.vuejs.org/js/vue.js">开发版本</a>包含完整的警告和调试模式</li>
-<li><a href="https://cn.vuejs.org/js/vue.min.js">压缩版本/生产版本</a>删除了警告，33.30KB min+gzip<h4 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h4>对于制作原型或学习，你可以这样使用最新版本：<figure class="highlight applescript"><table><tr><td class="code"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">script</span> src=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;</span>&gt;<span class="hljs-keyword">script</span>&gt;<br></code></pre></td></tr></table></figure>
-对于生产环境，我们推荐链接到一个明确的版本号和构建文件，以避免新版本造成的不可预期的破坏：<figure class="highlight applescript"><table><tr><td class="code"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">script</span> src=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/vue@2.6.12&quot;</span>&gt;<span class="hljs-keyword">script</span>&gt;<br></code></pre></td></tr></table></figure>
-如果你使用原生 ES Modules，这里也有一个兼容 ES Module 的构建文件：<figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;module&quot;</span>&gt;</span><span class="javascript"> <span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.esm.browser.js&#x27;</span> script&gt;</span><br></code></pre></td></tr></table></figure></li>
-</ul>
-<p>你可以在 <a href="https://cdn.jsdelivr.net/npm/vue/">cdn.jsdelivr.net/npm/vue</a> 浏览 NPM 包的源代码。</p>
-<p>Vue 也可以在 <a href="https://unpkg.com/vue@2.6.12/dist/vue.js">unpkg</a> 和 <a href="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js">cdnjs</a> 上获取 (cdnjs 的版本更新可能略滞后)。</p>
-<p>请确认了解<a href="https://cn.vuejs.org/v2/guide/installation.html#%E5%AF%B9%E4%B8%8D%E5%90%8C%E6%9E%84%E5%BB%BA%E7%89%88%E6%9C%AC%E7%9A%84%E8%A7%A3%E9%87%8A">不同构建版本</a>并在你发布的站点中使用<strong>生产环境版本</strong>，把 <code>vue.js</code> 换成 <code>vue.min.js</code>。这是一个更小的构建，可以带来比开发环境下更快的速度体验。</p>
-<h3 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h3><p>在用 Vue 构建大型应用时推荐使用 NPM 安装<a href="https://cn.vuejs.org/v2/guide/installation.html#footnote-1">[1]</a>。NPM 能很好地和诸如 <a href="https://webpack.js.org/">webpack</a> 或 <a href="http://browserify.org/">Browserify</a> 模块打包器配合使用。同时 Vue 也提供配套工具来开发<a href="https://cn.vuejs.org/v2/guide/single-file-components.html">单文件组件</a>。</p>
-<figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake"><span class="hljs-comment"># 最新稳定版</span><br>$ npm <span class="hljs-keyword">install</span> vue<br></code></pre></td></tr></table></figure>
-<h2 id="命令行工具-CLI"><a href="#命令行工具-CLI" class="headerlink" title="命令行工具 (CLI)"></a><a href="https://cli.vuejs.org/zh/">命令行工具 (CLI)</a></h2><p>Vue CLI 是一个基于 Vue.js 进行快速开发的完整系统，提供：</p>
-<p>通过 @vue/cli 实现的交互式的项目脚手架。<br>通过 @vue/cli + @vue/cli-service-global 实现的零配置原型开发。<br>一个运行时依赖 (@vue/cli-service)，该依赖：<br>可升级；<br>基于 webpack 构建，并带有合理的默认配置；<br>可以通过项目内的配置文件进行配置；<br>可以通过插件进行扩展。<br>一个丰富的官方插件集合，集成了前端生态中最好的工具。<br>一套完全图形化的创建和管理 Vue.js 项目的用户界面。<br>Vue CLI 致力于将 Vue 生态中的工具基础标准化。它确保了各种构建工具能够基于智能的默认配置即可平稳衔接，这样你可以专注在撰写应用上，而不必花好几天去纠结配置的问题。与此同时，它也为每个工具提供了调整配置的灵活性，无需 eject。</p>
-]]></content>
-      <tags>
-        <tag>vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2024/01/22/hexo/435244c26d39/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><span id="more"></span>
-
-<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>关于开始搭建hexo博客这件事</title>
-    <url>/2021/04/20/hexo/5fcb7dadb6f9/</url>
-    <content><![CDATA[<h1 id="hexo个人博客搭建"><a href="#hexo个人博客搭建" class="headerlink" title="hexo个人博客搭建"></a>hexo个人博客搭建</h1><h2 id="为什么会搭建hexo博客"><a href="#为什么会搭建hexo博客" class="headerlink" title="为什么会搭建hexo博客"></a>为什么会搭建hexo博客</h2><p>  原因：<br>    1.用于前端学习记录、且便于复习，因为经过加工一次的比外来搜索的资料来说更容易让大脑快速识别与利用。<br>    2.阿里云轻量级WordPress服务器对非在校生的优惠终止，且个人网站将于2021年5月份到期，这是我的个人WordPress博客链接 <a href="http://www.codetotoro.cn/">www.codetotoro.cn</a>，同时因为服务器类型的缘故，按照提交工单时工作人员的说法，相关的数据迁移是无法进行的，除非是继续续费。<br>    3.部署方便且相关的学习教程更多，且官方的教程及相应的主题教程很全面，同时社区活跃，搭建博客的相关配置包括hexo editor都很容易找到，最重要的是部署方便，且bug很少，即使是使用外置主题，而且配置的修改采用注释/取消注释的方式进行，方便日后修改，而不用每次都需要根据官方文档再去配置，省去了很多麻烦。<br>  <span id="more"></span></p>
-<h2 id="搭建博客的相关教程"><a href="#搭建博客的相关教程" class="headerlink" title="搭建博客的相关教程"></a>搭建博客的相关教程</h2><h3 id="视频教程"><a href="#视频教程" class="headerlink" title="视频教程"></a>视频教程</h3><p>  来自哔哩哔哩up-codesheep的视频教程，讲解细致全面<br>  <a href="https://www.bilibili.com/video/BV1Yb411a7ty/?spm_id_from=333.788.recommend_more_video.0">手把手教你从0开始搭建自己的个人博客 |无坑版视频教程| hexo</a><br>  学习笔记<br>  <pre><br>  ---    #安装Nodejs<br>node -v    #查看node版本<br>npm -v    #查看npm版本<br>npm install -g cnpm --registry=<a href="http://registry.npm.taobao.org/">http://registry.npm.taobao.org</a>    #安装淘宝的cnpm 管理器<br>cnpm -v    #查看cnpm版本<br>cnpm install -g hexo-cli    #安装hexo框架<br>hexo -v    #查看hexo版本<br>mkdir blog    #创建blog目录<br>cd blog     #进入blog目录<br>sudo hexo init     #生成博客 初始化博客<br>hexo s    #启动本地博客服务<br><a href="http://localhost:4000/">http://localhost:4000/</a>    #本地访问地址<br>hexo n 我的第一篇文章 #创建新的文章<br>#返回blog目录<br>hexo clean #清理<br>hexo g #生成<br>#Github创建一个新的仓库 YourGithubName.github.io<br>#在blog目录下安装git部署插件<br>   cnpm install --save hexo-deployer-git </p>
-<hr>
-<h2 id="配置-config-yml"><a href="#配置-config-yml" class="headerlink" title="#配置_config.yml "></a>#配置_config.yml </h2><pre><code># Deployment
-## Docs: https://hexo.io/docs/deployment.html
-deploy:
-      type: git
-     repo: https://github.com/YourGithubName/YourGithubName.github.io.git
-      branch: master
-</code></pre>
-<hr>
-<p>hexo d    #部署到Github仓库里<br><a href="https://yourgithubname.github.io/">https://YourGithubName.github.io/</a>  #访问这个地址可以查看博客</p>
-<p> git clone <a href="https://github.com/litten/hexo-theme-yilia.git">https://github.com/litten/hexo-theme-yilia.git</a> themes/yilia  #下载yilia主题到本地</p>
-<p>#修改hexo根目录下的 _config.yml 文件 ： theme: yilia</p>
-<p>hexo c    #清理一下<br>hexo g    #生成<br>hexo s    #启动本地博客服务<br><a href="http://localhost:4000/">http://localhost:4000/</a>    #本地访问地址<br>hexo d    #部署到远程Github仓库<br><a href="https://yourgithubname.github.io/">https://YourGithubName.github.io/</a>  #查看博客<br>  </pre></p>
-<hr>
-<h3 id="官方文档及next主题官方文档"><a href="#官方文档及next主题官方文档" class="headerlink" title="官方文档及next主题官方文档"></a>官方文档及next主题官方文档</h3><p> 1.<a href="https://hexo.io/zh-cn/docs/">hexo文档</a><br> 2.<a href="http://theme-next.iissnan.com/getting-started.html">hexo-next主题文档</a></p>
-<h2 id="博客的后续配置"><a href="#博客的后续配置" class="headerlink" title="博客的后续配置"></a>博客的后续配置</h2><p>  博客中有很多可用于拓展的地方，暂时还有很多不太了解，但是可以满足日常的写作需求以及部署，此处用于记录对于配置方面的自己的一些理解。</p>
-<h3 id="配置-config-yml，gitee-github简单修改实现双部署"><a href="#配置-config-yml，gitee-github简单修改实现双部署" class="headerlink" title="配置_config.yml，gitee/github简单修改实现双部署"></a>配置_config.yml，gitee/github简单修改实现双部署</h3><pre><code>#配置_config.yml 
-</code></pre>
-<hr>
-<pre><code># Deployment
-## Docs: https://hexo.io/docs/deployment.html
-deploy:
-      type: git
-     repo: 
-        gitee: https://gitee.com/mhist/mhist.git
-    #https://github.com/Mhist/Mhist.github.io.git 
-    #github
-      branch: master
-</code></pre>
-<p>—–以上代码是我在实践过程中发现的一点，因为在github上是可以做到自动部署的，可是因为防火墙的原因导致访问经常失败，而gitee作为国内的github，访问速度是很快的，只是部署的时候需要手动更新，因为自动更新部署是要收费的。<br>    以上代码的使用方式是在repo中：<br>    1.部署到gitee时，按照hexo c; hexo g; hexo s; hexo d，然后到码云的位置点击更新即可。<img src="https://gitee.com/mhist/hexo-image/raw/master/img/20210421013409-giteePagesUpdateButton.png" alt="gitee pages update button">，然后可访问域名：<a href="https://mhist.gitee.io/">https://mhist.gitee.io/</a><br>    2.部署到github时，将gitee所在行用#注释掉即可，同时取消gitee下一行的#注释，按照hexo c; hexo g; hexo s; hexo d即可。然后可访问域名：<a href="https://mhist.github.io/">https://mhist.github.io/</a></p>
-<h2 id="图床的设置"><a href="#图床的设置" class="headerlink" title="图床的设置"></a>图床的设置</h2><p>  作为使用Markdown来编辑文档的人来说，拥有一个好的图床是非常必要的。通过图床我们可以很好的管理我们的博客图片，同时能在多方正确显示。</p>
-<h3 id="图床分类"><a href="#图床分类" class="headerlink" title="图床分类"></a>图床分类</h3><p>  现在比较流行的图床有很多，包括SM.MS图床、腾讯云cos、github图床、七牛云图床、Imgur图床、阿里云COS、又拍云图床、gitee。但同时具有安全、经济、使用方便、访问高速等多种优点的解决方案还是要数基于picgo+gitee的解决方案.</p>
-<h3 id="picgo"><a href="#picgo" class="headerlink" title="picgo"></a>picgo</h3><p>  picgo是一款基于桌面端图床工具，方便我们对接本地和远程仓库，同时快速获取链接，同时支持链接的Markdown、HTML、URL、UBB、Custom等五种格式的选择，同时可以支持插件以丰富软件功能。<br>  推荐两个配置教程：</p>
-<ol>
-<li><a href="https://blog.csdn.net/disILLL/article/details/103962241?utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.control&dist_request_id=1332024.918.16189409573562535&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.control">配置教程1</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/128014135">配置教程2—插件</a></li>
-<li><a href="https://github.com/Molunerfinn/PicGo/releases">picgo的github链接</a></li>
-<li>picgo Windows <a href="https://pan.baidu.com/s/1y_yn9dl5aEAGHBX2c2KDPA">PicGo-Setup-2.3.0-beta.5.exe</a> 提取码：hexo</li>
-</ol>
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo样式修改汇总</title>
-    <url>/2021/09/28/hexo/371af6f33ab0/</url>
-    <content><![CDATA[<h1 id="hexo样式汇总"><a href="#hexo样式汇总" class="headerlink" title="hexo样式汇总"></a>hexo样式汇总</h1><h1 id="更改超链接格式（文字颜色）"><a href="#更改超链接格式（文字颜色）" class="headerlink" title="更改超链接格式（文字颜色）"></a>更改超链接格式（文字颜色）</h1><div class="note primary modern"><p><a href="https://vonsdite.github.io/posts/13afd8d4.html">参考链接:Von</a> </p>
-</div>
-
-<h2 id="插图编号-醒目文字"><a href="#插图编号-醒目文字" class="headerlink" title="插图编号| 醒目文字"></a>插图编号| 醒目文字</h2><figure class="highlight django"><table><tr><td class="code"><pre><code class="hljs django"><span class="xml"></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">note</span> default %&#125;</span><span class="xml"> 默认样式 </span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endnote</span> %&#125;</span><span class="xml"></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">note</span> primary %&#125;</span><span class="xml"> 主要样式 </span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endnote</span> %&#125;</span><span class="xml"></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">note</span> success %&#125;</span><span class="xml"> 成功样式 </span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endnote</span> %&#125;</span><span class="xml"></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">note</span> info %&#125;</span><span class="xml"> 信息样式 </span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endnote</span> %&#125;</span><span class="xml"></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">note</span> warning %&#125;</span><span class="xml"> 警告样式  </span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endnote</span> %&#125;</span><span class="xml"></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">note</span> danger %&#125;</span><span class="xml"> 危险样式  </span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endnote</span> %&#125;</span><span class="xml"></span><br><span class="xml"></span><br><span class="xml"></span><br></code></pre></td></tr></table></figure>
-<div class="note default modern"><p>默认样式 </p>
-</div>
-<div class="note primary modern"><p>主要样式 </p>
-</div>
-<div class="note success modern"><p>成功样式 </p>
-</div>
-<div class="note info modern"><p>信息样式 </p>
-</div>
-<div class="note warning modern"><p>警告样式  </p>
-</div>
-<div class="note danger modern"><p>危险样式  </p>
-</div>
-
-
-<h2 id="使用选项卡"><a href="#使用选项卡" class="headerlink" title="使用选项卡"></a>使用选项卡</h2><figure class="highlight django"><table><tr><td class="code"><pre><code class="hljs django"><span class="hljs-template-tag">&#123;% <span class="hljs-name">tabs</span> tab,1 %&#125;</span><span class="xml"> 名字为tab，默认在第1个选项卡，如果是-1则隐藏</span><br><span class="xml"><span class="hljs-comment">&lt;!-- tab --&gt;</span></span><br><span class="xml">**选项卡 1** </span><br><span class="xml"><span class="hljs-comment">&lt;!-- endtab --&gt;</span></span><br><span class="xml"><span class="hljs-comment">&lt;!-- tab --&gt;</span></span><br><span class="xml">**选项卡 2**</span><br><span class="xml"><span class="hljs-comment">&lt;!-- endtab --&gt;</span></span><br><span class="xml"><span class="hljs-comment">&lt;!-- tab A --&gt;</span></span><br><span class="xml">**选项卡 3** 名字为A</span><br><span class="xml"><span class="hljs-comment">&lt;!-- endtab --&gt;</span></span><br><span class="xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name">endtabs</span> %&#125;</span><br></code></pre></td></tr></table></figure>
-<p>效果展示：</p>
-<div class="tabs" id="tab"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#tab-1">tab 1</button></li><li class="tab"><button type="button" data-href="#tab-2">tab 2</button></li><li class="tab"><button type="button" data-href="#tab-3">A</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="tab-1"><p><strong>选项卡 1</strong> </p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-2"><p><strong>选项卡 2</strong></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-3"><p><strong>选项卡 3</strong> 名字为A</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
-<h2 id="自动生成目录（hexo-toc）"><a href="#自动生成目录（hexo-toc）" class="headerlink" title="自动生成目录（hexo-toc）"></a>自动生成目录（hexo-toc）</h2><p>  主题自带的配置项，生成的目录是不能够点击到文章目录自动滑动到页面指定位置的。<br>  <figure class="highlight yaml"><table><tr><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment"># Table Of Contents in the Sidebar</span><br><span class="hljs-attr">toc:</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">false</span><br><br>  <span class="hljs-comment"># Automatically add list number to toc.</span><br>  <span class="hljs-attr">number:</span> <span class="hljs-literal">true</span><br><br>  <span class="hljs-comment"># If true, all words will placed on next lines if header width longer then sidebar width.</span><br>  <span class="hljs-attr">wrap:</span> <span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure><br>  通过hexo-toc生成的目录可以实现点击调转到指定页面位置，同时可以支持目录级别选择。</p>
-<div class="note danger modern"><p><a href="https://www.dazhuanlan.com/bassd/topics/1055823">参考链接:hexo-toc，但是此链接还是无法解决目录的生成问题</a> </p>
-</div>
-<p>所以，重点是解决hexo-next主题自带的toc目录，锚点失效的原因：</p>
-<div class="note success modern"><p><a href="https://blog.csdn.net/qq_42009500/article/details/116129303?utm_medium=distribute.pc_relevant.none-task-blog-2~default~OPENSEARCH~default-8.no_search_link&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~OPENSEARCH~default-8.no_search_link">参考链接:hexo-toc锚点失效—有效解决办法</a> </p>
-</div>
-
-<p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20210928152335tocPostDetails.png" alt="目录锚点失效的原因"></p>
-<p>报错文件路径: <font color=chocolate>themes/next/source/js/post-details.js</font></p>
-<figure class="highlight reasonml"><table><tr><td class="code"><pre><code class="hljs reasonml"><span class="hljs-comment">// TOC item animation navigate &amp; prevent #item selector in adress bar.</span><br>  <span class="hljs-constructor">$(&#x27;.<span class="hljs-params">post</span>-<span class="hljs-params">toc</span> <span class="hljs-params">a</span>&#x27;)</span>.on(&#x27;click&#x27;, <span class="hljs-keyword">function</span> (e) &#123;<br>    e.prevent<span class="hljs-constructor">Default()</span>;<br>    var targetSelector = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">NexT</span>.</span></span>utils.escape<span class="hljs-constructor">Selector(<span class="hljs-params">this</span>.<span class="hljs-params">getAttribute</span>(&#x27;<span class="hljs-params">href</span>&#x27;)</span>);<br><br>    &lt;!-- 添加下面这行代码, 重新解析 URL -&gt;<br>    targetSelector = decode<span class="hljs-constructor">URI(<span class="hljs-params">this</span>.<span class="hljs-params">getAttribute</span>(&#x27;<span class="hljs-params">href</span>&#x27;)</span>)<br><br>    var offset = <span class="hljs-constructor">$(<span class="hljs-params">targetSelector</span>)</span>.offset<span class="hljs-literal">()</span>.top;<br><br>    hasVelocity ?<br>      html.velocity(&#x27;stop&#x27;).velocity(&#x27;scroll&#x27;, &#123;<br>        offset: offset  + &#x27;px&#x27;,<br>        mobileHA: <span class="hljs-literal">false</span><br>      &#125;) :<br>      <span class="hljs-constructor">$(&#x27;<span class="hljs-params">html</span>, <span class="hljs-params">body</span>&#x27;)</span>.stop<span class="hljs-literal">()</span>.animate(&#123;<br>        scrollTop: offset<br>      &#125;, <span class="hljs-number">500</span>);<br>  &#125;);<br></code></pre></td></tr></table></figure>
-<p>  经过上面的处理自动生成的目录可以正常跳转了，但是会根据页面的滑动区域自适应目录的展示，这对于需要根据目录直达指定内容的访客来说，很不方便，于是在css样式中对代码进行以下修改：  修改文件目录: <font color=camel>themes/next/source/css/_common/components/sidebar/sidebar-toc.styl</font></p>
-<p>  找到如下的代码<br>  <figure class="highlight stylus"><table><tr><td class="code"><pre><code class="hljs stylus"><span class="hljs-selector-class">.post-toc</span> <span class="hljs-selector-class">.nav</span> <span class="hljs-selector-class">.nav-child</span> &#123; <span class="hljs-attribute">display</span>: none; &#125;<br></code></pre></td></tr></table></figure><br>  修改为</p>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><code class="hljs stylus"><span class="hljs-selector-class">.post-toc</span> <span class="hljs-selector-class">.nav</span> <span class="hljs-selector-class">.nav-child</span> &#123; <span class="hljs-attribute">display</span>: block; &#125;<br><br></code></pre></td></tr></table></figure>
-
-
-<h2 id="next主题添加代码块一键复制功能"><a href="#next主题添加代码块一键复制功能" class="headerlink" title="next主题添加代码块一键复制功能"></a>next主题添加代码块一键复制功能</h2><div class="note success modern"><p><a href="https://blog.csdn.net/Awt_FuDongLai/article/details/107466848">参考链接:hexo-next代码块复制粘贴—成功复现</a> </p>
-</div>
-
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>js面试题</title>
-    <url>/2022/02/20/js%E9%9D%A2%E8%AF%95%E9%A2%98/e6e33b6aaa60/</url>
-    <content><![CDATA[<script src=/js/crypto-js.js></script>
-<script>
-function doDecrypt (pwd, onError) {
-	console.log('in doDecrypt');
-	const txt = document.getElementById('enc_content').innerHTML;
-	let plantext;
-	try {
-		const bytes = CryptoJS.AES.decrypt(txt, pwd);
-		var plaintext = bytes.toString(CryptoJS.enc.Utf8);
-	} catch(err) {
-		if(onError) {
-			onError(err);
-		}
-		return;
-	}
-	document.getElementById('enc_content').innerHTML = plaintext;
-	document.getElementById('enc_content').style.display = 'block';
-	document.getElementById('enc_passwd').style.display = 'none';
-	if(typeof MathJax !== 'undefined') {
-		MathJax.Hub.Queue(
-			['resetEquationNumbers', MathJax.InputJax.TeX],
-			['PreProcess', MathJax.Hub],
-			['Reprocess', MathJax.Hub]
-		);
-	}
-}
-</script>
-<div id="enc_content" style="display:none">U2FsdGVkX19ua2sLYlq0pZQRfMZ82OXlvd2JoJkbfMsCkPzoWcUBP8ylK8amq1g/VfYJyv+PUgUyFEwMsz6sZiG0bGsULD1Rv2mN+sUfBG/xrbj118QVkLFotOppUcfhfvBSqNGLIoHeLejhE/Ef0otAS4vOug0PGK840xt8t34d9L0Dc/nJ0HIARKNOFWpsOFKQ66Pprd5ErEG76vXDM4lVWEL8q3PtPohXy9cvh3Q3KPWfyzsDgJI4J6hexvOq+pp4ESzPWZESE17GAHz/7ay55QSqMV9yKSV5RYJ6ciXqSLdoKGYHjyQ0CfaCE5BWOhkrUaNdRLHPJMTihfA5740bhliT+aURciorwa965XTkx0KRN+6RbR94FF6GDH1UX4gVfNSrt56JdxcGaZUafc8x7Ltqi46WWe/y1dk1CT+GjQvjxQDSZsyPpWfg2/Tm8NJBWAl2hmvQdPJqqFTrxBcHFZl3R1vSuke2ijCYoefrdFy5D/pK3lChXBU8zdsn/12mKur6XxMBLAcLnI6/ULXxtVT0af5m2e1XWz8ypIPA8kqgjWk8uLK9l0h8j8KtP41R4WZH06D1ugR/z6xwaIrNTdMlDgtvhjEFvt5qSsxkS4IfTlomhby/ZqcGGqEvzr2jfoXtpjuX0xWDlG9nG5YTzV1XoShBM8HhEod/fBx6UZhjPhf/laANQGWJVWT1LaMRzjPg7YxjbyLNIaFejH1B18t6Rmnd1x8El8BIFLBsCc9ms5Q0U99ReIEsB4910c2/UMNGYYPh3LYoakQi3utHIxdXpLKIgUXbsY9ZotKaQf56o2EiI90tjhdLjta4WM7mVy0QCJNVEnRtaQ3IESOyOyWQBvHWXwBvlT2XNVmVSaq9z+9HTKW5T9KypLjxiIS4UlapANjWBWsz8AcTk9lD1Eag0fucl7TxEb2gpKrbIRi6MWuO4+slghYf4wjBNZRMuS6OQF5pCYtFR3Wh5Pvchvm57jyMDAxn1B9roIoVpLl5tItAc/CBJrBk3OdAaZYFlJCZb+ID/bQNGAUdqHTbICWJ2wWLiOxHdo0DzW7oQL0IxMrATlQL91iWAW2g3CowCwvUH74oa7IJKhLAma5ZbXmlLxYLr39h6F4XXVwqta6Hg/iIPdZe48pStLHu3RD5oWNiD2KkVPYHCgFV3OmJV8mge3CfH4bq8c9uCtxoKlqH+KA+0V+7nLdu4LKxDNTB6RXiWe4Y2L0dUsar/Tx03zKFO5ltntbG55CgjCilUJUJ4Y3ziVnoYs3DdVxHuDHbCZSnsEpjZIYjB7nqeBwFu7+Gl/594TbkWKl8r8Ejt+y9M9gszrkK413DWmZ6MYbp/W7pJbiavi9qEprKs6J6nWloFk+RWIA2VWOJKLQUZbpIh15tlUQ+sd1ffLxzrHnPaJiRx0maYAdL6ejn7u9vSMIkvQ23I/4y1vZJMJAPGXGUE3w75xdXBe9qmbZ/LguZKl74RRQHiL7DJeF7nkZQ1lqJLEUssP5fA8lDwysQukJxjlDxHHEWdlzjzmyd6ocAXypxBvMEJtsifcuJ/VnzdxL8LaR0SyEHdSfZRD0WXsIzBJfrpeKc9sh942WFnMLOghOI0LjEjBHapx4J2e6ze/GjaO9ZFXGLLerpnFfw6P4jFOmBtpRjqVsndj65HKWZ+IuvIT5hl73LzyrcFYFSMeWPkUwN0O0vekleydidBTz4sBYKGCvKv2RMFzdz6Lcz8wePdjTYB9c69nuhxhkDxXxy0qsOMvC2M62QRkhU/aJQcWWU0NmuMLUrKy6aZ9R6ScAxP5K0LvS/49Xr2X3IpJbGRn7I+Gke8ol5CQ5qIedpx9Smj16M+onxUZoE0BG/cTh7q9dXXwz3ICW/2axnCHqTkkTa+01X7FCyBy84RsE1ZCups+o4AyUThB9Ozx6K5UOuktjodG3w4ow7oBni/lmdnhSofIfiE3weEyhwUtTSzfgeG7lJNUfSQ7fWBoWRG6RTaMqqjFOrl2nS0ZwuTYYHIYoTvtBPPQrTSz0xYSi8wfTIjw5zvDO5jkUDhpJ8t8wBdffaGEkK8YjacA==</div>
-<div id="enc_passwd"> <input id="enc_pwd_input" type="password" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
-<script>
-var onError = function(error) {
-	document.getElementById("enc_error").innerHTML = "password error!"
-};
-function decrypt() {
-var passwd = document.getElementById("enc_pwd_input").value;
-console.log(passwd);
-doDecrypt(passwd, onError);
-}
-</script>
-</div>]]></content>
-      <categories>
-        <category>js面试题</category>
-      </categories>
-      <tags>
-        <tag>面试</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>learn react</title>
     <url>/2021/04/24/uncategorized/c98970b16c20/</url>
     <content><![CDATA[<h1 id="react-入门"><a href="#react-入门" class="headerlink" title="react 入门"></a>react 入门</h1><h2 id="react框架基本介绍"><a href="#react框架基本介绍" class="headerlink" title="react框架基本介绍"></a>react框架基本介绍</h2><p>   <a href="https://reactjs.org/">react官方</a></p>
@@ -831,7 +831,7 @@ v14.16.0</li>
 cmd控制台反馈如下：<pre>
 C:\Users\18827\AppData\Roaming\npm\create-react-app -> C:\Users\18827\AppData\Roaming\npm\node_modules\create-react-app\index.js</li>
 </ul>
-<p><a href="mailto:&#x2b;&#99;&#114;&#x65;&#x61;&#116;&#x65;&#x2d;&#114;&#101;&#97;&#99;&#116;&#x2d;&#97;&#x70;&#112;&#64;&#52;&#46;&#x30;&#46;&#x33;">&#x2b;&#99;&#114;&#x65;&#x61;&#116;&#x65;&#x2d;&#114;&#101;&#97;&#99;&#116;&#x2d;&#97;&#x70;&#112;&#64;&#52;&#46;&#x30;&#46;&#x33;</a><br>added 67 packages from 25 contributors in 22.805s<br> </pre></p>
+<p><a href="mailto:&#43;&#99;&#x72;&#x65;&#97;&#x74;&#x65;&#x2d;&#x72;&#101;&#x61;&#x63;&#x74;&#45;&#x61;&#112;&#112;&#64;&#x34;&#x2e;&#48;&#46;&#x33;">&#43;&#99;&#x72;&#x65;&#97;&#x74;&#x65;&#x2d;&#x72;&#101;&#x61;&#x63;&#x74;&#45;&#x61;&#112;&#112;&#64;&#x34;&#x2e;&#48;&#46;&#x33;</a><br>added 67 packages from 25 contributors in 22.805s<br> </pre></p>
 <h2 id="创建项目文件夹，并开启demo"><a href="#创建项目文件夹，并开启demo" class="headerlink" title="创建项目文件夹，并开启demo"></a>创建项目文件夹，并开启demo</h2><ul>
 <li><p>在电脑桌面同时按下Windows+R进入输入cmd,按enter</p>
 </li>
@@ -1736,6 +1736,93 @@ fs.readFile(filePath, {encoding: 'utf-8'}, (err, data) => {
       </tags>
   </entry>
   <entry>
+    <title>uni-app实战（一）</title>
+    <url>/2021/10/26/uni-app/4132b17f6755/</url>
+    <content><![CDATA[<h1 id="项目的构建"><a href="#项目的构建" class="headerlink" title="项目的构建"></a>项目的构建</h1><ol>
+<li>开发工具采用uni-app官方的开发工具<a href="https://www.dcloud.io/hbuilderx.html">HbuilderX</a></li>
+<li>构建项目选择基础模板</li>
+<li>引入样式库 <ul>
+<li>uni.css 官方ui库</li>
+<li>animate.css css动画库</li>
+<li>icon.css 图标库</li>
+<li>common.css 公共样式</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>uni-app</category>
+      </categories>
+      <tags>
+        <tag>uni-app</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>spring 学习 （二）</title>
+    <url>/2024/06/13/spring/36ea81e50a30/</url>
+    <content><![CDATA[<h1 id="yml配置文件"><a href="#yml配置文件" class="headerlink" title="yml配置文件"></a>yml配置文件</h1><ul>
+<li>一般的配置格式</li>
+</ul>
+<figure class="highlight dts"><table><tr><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">spring:</span><br><span class="hljs-symbol">  application:</span><br><span class="hljs-symbol">    name:</span> studyJava<br><span class="hljs-symbol">    user:</span> jyd<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>使用方式</li>
+</ul>
+<ol>
+<li><p>@Value(“${spring.application.name}”)</p>
+</li>
+<li><p>@ConfigurationProperties(prefix=”spring”)</p>
+</li>
+</ol>
+<figure class="highlight less"><table><tr><td class="code"><pre><code class="hljs less"><span class="hljs-variable">@ConfigurationProperties</span>(prefix=<span class="hljs-string">&quot;spring&quot;</span>)<br><span class="hljs-variable">@Component</span><br>public class EmailProperties &#123;<br>  <span class="hljs-variable">@Value</span>(<span class="hljs-string">&quot;$&#123;spring.application.user&#125;&quot;</span>)<br>  public String user;<br>  <span class="hljs-selector-tag">public</span> <span class="hljs-selector-tag">String</span> <span class="hljs-selector-tag">code</span>;<br>  <span class="hljs-selector-tag">public</span> <span class="hljs-selector-tag">String</span> <span class="hljs-selector-tag">host</span>;<br>  <span class="hljs-selector-tag">private</span> <span class="hljs-selector-tag">boolean</span> <span class="hljs-selector-tag">auth</span><br><br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<div class="note default modern"><p>@Component一般用在什么地方呢？ </p>
+</div>
+
+<p>在Spring Boot中，@Component注释可以用来自动配置类。自动配置是通过Spring Boot的启动类上标注的@EnableAutoConfiguration或@SpringBootApplication（后者包含了@EnableAutoConfiguration）来实现的。</p>
+<p>以下是一个简单的示例，展示如何使用@Component来自动配置一个简单的服务类。</p>
+<p>首先，假设我们有一个服务类，它提供了一个简单的功能：</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">import</span> org.springframework.stereotype.Component;<br><br><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyAutoConfiguredService</span> </span>&#123;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">String</span> <span class="hljs-function"><span class="hljs-title">sayHello</span>(<span class="hljs-params"><span class="hljs-built_in">String</span> name</span>)</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Hello, &quot;</span> + name + <span class="hljs-string">&quot;!&quot;</span>;<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>@SpringBootApplication是一个方便的注解，它包含了@EnableAutoConfiguration，这意味着Spring Boot将尝试自动配置项目。自动配置发生的过程是：</p>
+<p>Spring Boot会扫描classpath下的所有@Component、@Service、@Repository等注解的类。<br>它会在启动时查找所有符合条件的类，并将它们注册为Spring组件。<br>如果MyAutoConfiguredService类中有任何依赖未被满足，Spring Boot会尝试根据类路径下的jar包、配置文件等来猜测并自动配置这些依赖。</p>
+<h1 id="整合mybatis"><a href="#整合mybatis" class="headerlink" title="整合mybatis"></a>整合mybatis</h1><h2 id="1-导入依赖"><a href="#1-导入依赖" class="headerlink" title="1.导入依赖"></a>1.导入依赖</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs <dependency>"> &lt;groupId&gt;com.mysql&lt;/groupId&gt;<br> &lt;artifactId&gt;mysql-connector-j&lt;/artifactId&gt;<br>&lt;/dependency&gt;<br>&lt;dependency&gt;<br> &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;<br> &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;<br> &lt;version&gt;3.0.1&lt;/version&gt;<br>&lt;/dependency&gt;<br></code></pre></td></tr></table></figure>
+
+<h2 id="2-配置文件"><a href="#2-配置文件" class="headerlink" title="2.配置文件"></a>2.配置文件</h2><figure class="highlight dts"><table><tr><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">spring:</span><br><span class="hljs-symbol">  application:</span><br><span class="hljs-symbol">    name:</span> studyJava<br><span class="hljs-symbol">  datasource:</span><br><span class="hljs-symbol">    url:</span> jdbc:mysql:<span class="hljs-comment">//localhost:3306/studyJava?useSSL=false&amp;serverTimezone=UTC</span><br><span class="hljs-symbol">    username:</span> root<br><span class="hljs-symbol">    password:</span> xxxxxx<br>    driver-class-name: com.mysql.cj.jdbc.Driver<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="3-书写实体类"><a href="#3-书写实体类" class="headerlink" title="3.书写实体类"></a>3.书写实体类</h2><p>@Data 是 Lombok 库提供的一个注解，它用于自动生成 getters、setters、equals、canEqual、hashCode、toString 方法。当你在 Lombok 版本为 1.18.12 或更高版本时使用 @Data，它还会包含无参构造方法（如果不存在的话）和一个全参构造方法。</p>
+<p>无参构造方法是一个没有参数的构造器，它用于创建对象实例。<br>全参构造方法是一个带有所有属性作为参数的构造器，它允许你在创建对象时提供所有属性的值。<br>在 Lombok 版本 1.18.12 之前，@Data 注解只生成 getters 和 setters，不包括构造方法。如果你的 Lombok 版本低于 1.18.12，那么你需要手动添加构造方法。</p>
+<p>从 Lombok 1.18.13 开始，@Data 注解默认包括一个无参构造方法，即使你的类中已经有其他的构造方法。如果你想保留现有的构造方法，你可以使用 @Data 注解的 init 属性，如下所示：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Data(init = false)</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyClass</span> </span>&#123;<br>    <span class="hljs-comment">// ...</span><br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.projectlombok<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>lombok<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.18.32<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">optional</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">optional</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>文件路径为：com/mhist/studyJava/pojo/User.java<figure class="highlight fortran"><table><tr><td class="code"><pre><code class="hljs fortran"><br><br>package com.mhist.studyJava.pojo;<br><br><span class="hljs-keyword">import</span> lombok.<span class="hljs-keyword">Data</span>;<br><br>@<span class="hljs-keyword">Data</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> User &#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">Integer</span> id;<br>    <span class="hljs-keyword">private</span> String <span class="hljs-keyword">name</span>;<br>    <span class="hljs-keyword">private</span> Short age;<br>    <span class="hljs-keyword">private</span> Short gender;<br>    <span class="hljs-keyword">private</span> String phone;<br>&#125;<br><br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="4-创建mapper"><a href="#4-创建mapper" class="headerlink" title="4. 创建mapper"></a>4. 创建mapper</h2><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.mhist.studyJava.mapper;<br><br><span class="hljs-keyword">import</span> com.mhist.studyJava.pojo.User;<br><span class="hljs-keyword">import</span> org.apache.ibatis.annotations.Mapper;<br><span class="hljs-keyword">import</span> org.apache.ibatis.annotations.Select;<br><br><span class="hljs-keyword">import</span> java.util.List;<br><br><span class="hljs-meta">@Mapper</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">UserMapper</span> </span>&#123;<br>    <span class="hljs-meta">@Select(&quot;select * from user where  id = #&#123;id&#125;&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> User <span class="hljs-title">findById</span><span class="hljs-params">(Integer id)</span></span>;<br><br>    <span class="hljs-meta">@Select(&quot;select * from user&quot;)</span><br>    <span class="hljs-function">List&lt;User&gt; <span class="hljs-title">findAll</span><span class="hljs-params">()</span></span>;<br>&#125;<br><br><br><br></code></pre></td></tr></table></figure>
+<h2 id="5-service"><a href="#5-service" class="headerlink" title="5. service"></a>5. service</h2><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.mhist.studyJava.service;<br><br><span class="hljs-keyword">import</span> com.mhist.studyJava.pojo.User;<br><br><span class="hljs-keyword">import</span> java.util.List;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">UserService</span> </span>&#123;<br><br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> id</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span></span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function">User <span class="hljs-title">findById</span><span class="hljs-params">(Integer id)</span></span>;<br><br>    <span class="hljs-function">List&lt;User&gt; <span class="hljs-title">findAll</span><span class="hljs-params">()</span></span>;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+
+<h2 id="6-serviceImpl"><a href="#6-serviceImpl" class="headerlink" title="6.serviceImpl"></a>6.serviceImpl</h2><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.mhist.studyJava.service.impl;<br><br><span class="hljs-keyword">import</span> com.mhist.studyJava.mapper.UserMapper;<br><span class="hljs-keyword">import</span> com.mhist.studyJava.pojo.User;<br><span class="hljs-keyword">import</span> com.mhist.studyJava.service.UserService;<br><span class="hljs-keyword">import</span> org.springframework.beans.factory.annotation.Autowired;<br><span class="hljs-keyword">import</span> org.springframework.stereotype.Service;<br><br><span class="hljs-keyword">import</span> java.util.List;<br><br><span class="hljs-meta">@Service</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">UserService</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> UserMapper userMapper;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">UserServiceImpl</span><span class="hljs-params">(UserMapper userMapper)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.userMapper = userMapper;<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> id</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span></span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> User <span class="hljs-title">findById</span><span class="hljs-params">(Integer id)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> userMapper.findById(id);<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;User&gt; <span class="hljs-title">findAll</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> userMapper.findAll();<br>    &#125;<br>&#125;<br><br><br></code></pre></td></tr></table></figure>
+
+
+<h2 id="7-controller"><a href="#7-controller" class="headerlink" title="7.controller"></a>7.controller</h2><figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">package</span> com.mhist.studyJava.controller;<br><span class="hljs-keyword">import</span> com.mhist.studyJava.pojo.User;<br><span class="hljs-keyword">import</span> com.mhist.studyJava.service.UserService;<br><span class="hljs-keyword">import</span> org.springframework.beans.factory.<span class="hljs-keyword">annotation</span>.Autowired;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.<span class="hljs-keyword">annotation</span>.GetMapping;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.<span class="hljs-keyword">annotation</span>.RestController;<br><br><span class="hljs-keyword">import</span> java.util.List;<br><br><span class="hljs-meta">@RestController</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserController</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> UserService userService;<br><br>    <span class="hljs-keyword">public</span> UserController(UserService userService) &#123;<br>        <span class="hljs-keyword">this</span>.userService = userService;<br>    &#125;<br><br>    <span class="hljs-meta">@GetMapping(<span class="hljs-meta-string">&quot;/findById&quot;</span>)</span><br>    <span class="hljs-keyword">public</span> User findById(Integer id) &#123;<br>        <span class="hljs-keyword">return</span> userService.findById(id);<br>    &#125;<br><br>    <span class="hljs-meta">@GetMapping(<span class="hljs-meta-string">&quot;/findAll&quot;</span>)</span><br>    <span class="hljs-keyword">public</span> List&lt;User&gt; findAll() &#123;<br>        <span class="hljs-keyword">return</span> userService.findAll();<br>    &#125;<br><br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<div class="note warning modern"><p> 由于jdk17环境下不推荐使用@Autowired ,所以在controller中导入service、以及在service实现类中导入mapper的时候、需要使用有参构造</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">private</span> UserService userService;<br><br>  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-title">UserController</span>(<span class="hljs-params">UserService userService</span>)</span> &#123;<br>      <span class="hljs-built_in">this</span>.userService = userService;<br>  &#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight typescript"><table><tr><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">private</span> UserMapper userMapper;<br><br><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-title">UserServiceImpl</span>(<span class="hljs-params">UserMapper userMapper</span>)</span> &#123;<br>    <span class="hljs-built_in">this</span>.userMapper = userMapper;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+</div>]]></content>
+      <categories>
+        <category>spring</category>
+      </categories>
+      <tags>
+        <tag>spring</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>spring 学习 （一）</title>
     <url>/2024/06/05/spring/e8190f123a53/</url>
     <content><![CDATA[<h1 id="一、spring是什么？"><a href="#一、spring是什么？" class="headerlink" title="一、spring是什么？"></a>一、spring是什么？</h1><p> <a href="https://spring.io/projects/spring-framework">spring是什么</a></p>
@@ -1845,93 +1932,6 @@ fs.readFile(filePath, {encoding: 'utf-8'}, (err, data) => {
       </categories>
       <tags>
         <tag>spring</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>spring 学习 （二）</title>
-    <url>/2024/06/13/spring/36ea81e50a30/</url>
-    <content><![CDATA[<h1 id="yml配置文件"><a href="#yml配置文件" class="headerlink" title="yml配置文件"></a>yml配置文件</h1><ul>
-<li>一般的配置格式</li>
-</ul>
-<figure class="highlight dts"><table><tr><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">spring:</span><br><span class="hljs-symbol">  application:</span><br><span class="hljs-symbol">    name:</span> studyJava<br><span class="hljs-symbol">    user:</span> jyd<br></code></pre></td></tr></table></figure>
-
-<ul>
-<li>使用方式</li>
-</ul>
-<ol>
-<li><p>@Value(“${spring.application.name}”)</p>
-</li>
-<li><p>@ConfigurationProperties(prefix=”spring”)</p>
-</li>
-</ol>
-<figure class="highlight less"><table><tr><td class="code"><pre><code class="hljs less"><span class="hljs-variable">@ConfigurationProperties</span>(prefix=<span class="hljs-string">&quot;spring&quot;</span>)<br><span class="hljs-variable">@Component</span><br>public class EmailProperties &#123;<br>  <span class="hljs-variable">@Value</span>(<span class="hljs-string">&quot;$&#123;spring.application.user&#125;&quot;</span>)<br>  public String user;<br>  <span class="hljs-selector-tag">public</span> <span class="hljs-selector-tag">String</span> <span class="hljs-selector-tag">code</span>;<br>  <span class="hljs-selector-tag">public</span> <span class="hljs-selector-tag">String</span> <span class="hljs-selector-tag">host</span>;<br>  <span class="hljs-selector-tag">private</span> <span class="hljs-selector-tag">boolean</span> <span class="hljs-selector-tag">auth</span><br><br>&#125;<br><br></code></pre></td></tr></table></figure>
-
-<div class="note default modern"><p>@Component一般用在什么地方呢？ </p>
-</div>
-
-<p>在Spring Boot中，@Component注释可以用来自动配置类。自动配置是通过Spring Boot的启动类上标注的@EnableAutoConfiguration或@SpringBootApplication（后者包含了@EnableAutoConfiguration）来实现的。</p>
-<p>以下是一个简单的示例，展示如何使用@Component来自动配置一个简单的服务类。</p>
-<p>首先，假设我们有一个服务类，它提供了一个简单的功能：</p>
-<figure class="highlight typescript"><table><tr><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">import</span> org.springframework.stereotype.Component;<br><br><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyAutoConfiguredService</span> </span>&#123;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">String</span> <span class="hljs-function"><span class="hljs-title">sayHello</span>(<span class="hljs-params"><span class="hljs-built_in">String</span> name</span>)</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Hello, &quot;</span> + name + <span class="hljs-string">&quot;!&quot;</span>;<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
-
-<p>@SpringBootApplication是一个方便的注解，它包含了@EnableAutoConfiguration，这意味着Spring Boot将尝试自动配置项目。自动配置发生的过程是：</p>
-<p>Spring Boot会扫描classpath下的所有@Component、@Service、@Repository等注解的类。<br>它会在启动时查找所有符合条件的类，并将它们注册为Spring组件。<br>如果MyAutoConfiguredService类中有任何依赖未被满足，Spring Boot会尝试根据类路径下的jar包、配置文件等来猜测并自动配置这些依赖。</p>
-<h1 id="整合mybatis"><a href="#整合mybatis" class="headerlink" title="整合mybatis"></a>整合mybatis</h1><h2 id="1-导入依赖"><a href="#1-导入依赖" class="headerlink" title="1.导入依赖"></a>1.导入依赖</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs <dependency>"> &lt;groupId&gt;com.mysql&lt;/groupId&gt;<br> &lt;artifactId&gt;mysql-connector-j&lt;/artifactId&gt;<br>&lt;/dependency&gt;<br>&lt;dependency&gt;<br> &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;<br> &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;<br> &lt;version&gt;3.0.1&lt;/version&gt;<br>&lt;/dependency&gt;<br></code></pre></td></tr></table></figure>
-
-<h2 id="2-配置文件"><a href="#2-配置文件" class="headerlink" title="2.配置文件"></a>2.配置文件</h2><figure class="highlight dts"><table><tr><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">spring:</span><br><span class="hljs-symbol">  application:</span><br><span class="hljs-symbol">    name:</span> studyJava<br><span class="hljs-symbol">  datasource:</span><br><span class="hljs-symbol">    url:</span> jdbc:mysql:<span class="hljs-comment">//localhost:3306/studyJava?useSSL=false&amp;serverTimezone=UTC</span><br><span class="hljs-symbol">    username:</span> root<br><span class="hljs-symbol">    password:</span> xxxxxx<br>    driver-class-name: com.mysql.cj.jdbc.Driver<br><br></code></pre></td></tr></table></figure>
-
-<h2 id="3-书写实体类"><a href="#3-书写实体类" class="headerlink" title="3.书写实体类"></a>3.书写实体类</h2><p>@Data 是 Lombok 库提供的一个注解，它用于自动生成 getters、setters、equals、canEqual、hashCode、toString 方法。当你在 Lombok 版本为 1.18.12 或更高版本时使用 @Data，它还会包含无参构造方法（如果不存在的话）和一个全参构造方法。</p>
-<p>无参构造方法是一个没有参数的构造器，它用于创建对象实例。<br>全参构造方法是一个带有所有属性作为参数的构造器，它允许你在创建对象时提供所有属性的值。<br>在 Lombok 版本 1.18.12 之前，@Data 注解只生成 getters 和 setters，不包括构造方法。如果你的 Lombok 版本低于 1.18.12，那么你需要手动添加构造方法。</p>
-<p>从 Lombok 1.18.13 开始，@Data 注解默认包括一个无参构造方法，即使你的类中已经有其他的构造方法。如果你想保留现有的构造方法，你可以使用 @Data 注解的 init 属性，如下所示：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Data(init = false)</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyClass</span> </span>&#123;<br>    <span class="hljs-comment">// ...</span><br>&#125;<br><br></code></pre></td></tr></table></figure>
-
-<figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.projectlombok<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>lombok<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.18.32<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">optional</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">optional</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br></code></pre></td></tr></table></figure>
-
-<ul>
-<li>文件路径为：com/mhist/studyJava/pojo/User.java<figure class="highlight fortran"><table><tr><td class="code"><pre><code class="hljs fortran"><br><br>package com.mhist.studyJava.pojo;<br><br><span class="hljs-keyword">import</span> lombok.<span class="hljs-keyword">Data</span>;<br><br>@<span class="hljs-keyword">Data</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> User &#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">Integer</span> id;<br>    <span class="hljs-keyword">private</span> String <span class="hljs-keyword">name</span>;<br>    <span class="hljs-keyword">private</span> Short age;<br>    <span class="hljs-keyword">private</span> Short gender;<br>    <span class="hljs-keyword">private</span> String phone;<br>&#125;<br><br></code></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="4-创建mapper"><a href="#4-创建mapper" class="headerlink" title="4. 创建mapper"></a>4. 创建mapper</h2><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.mhist.studyJava.mapper;<br><br><span class="hljs-keyword">import</span> com.mhist.studyJava.pojo.User;<br><span class="hljs-keyword">import</span> org.apache.ibatis.annotations.Mapper;<br><span class="hljs-keyword">import</span> org.apache.ibatis.annotations.Select;<br><br><span class="hljs-keyword">import</span> java.util.List;<br><br><span class="hljs-meta">@Mapper</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">UserMapper</span> </span>&#123;<br>    <span class="hljs-meta">@Select(&quot;select * from user where  id = #&#123;id&#125;&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> User <span class="hljs-title">findById</span><span class="hljs-params">(Integer id)</span></span>;<br><br>    <span class="hljs-meta">@Select(&quot;select * from user&quot;)</span><br>    <span class="hljs-function">List&lt;User&gt; <span class="hljs-title">findAll</span><span class="hljs-params">()</span></span>;<br>&#125;<br><br><br><br></code></pre></td></tr></table></figure>
-<h2 id="5-service"><a href="#5-service" class="headerlink" title="5. service"></a>5. service</h2><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.mhist.studyJava.service;<br><br><span class="hljs-keyword">import</span> com.mhist.studyJava.pojo.User;<br><br><span class="hljs-keyword">import</span> java.util.List;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">UserService</span> </span>&#123;<br><br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> id</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span></span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function">User <span class="hljs-title">findById</span><span class="hljs-params">(Integer id)</span></span>;<br><br>    <span class="hljs-function">List&lt;User&gt; <span class="hljs-title">findAll</span><span class="hljs-params">()</span></span>;<br>&#125;<br><br></code></pre></td></tr></table></figure>
-
-
-<h2 id="6-serviceImpl"><a href="#6-serviceImpl" class="headerlink" title="6.serviceImpl"></a>6.serviceImpl</h2><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.mhist.studyJava.service.impl;<br><br><span class="hljs-keyword">import</span> com.mhist.studyJava.mapper.UserMapper;<br><span class="hljs-keyword">import</span> com.mhist.studyJava.pojo.User;<br><span class="hljs-keyword">import</span> com.mhist.studyJava.service.UserService;<br><span class="hljs-keyword">import</span> org.springframework.beans.factory.annotation.Autowired;<br><span class="hljs-keyword">import</span> org.springframework.stereotype.Service;<br><br><span class="hljs-keyword">import</span> java.util.List;<br><br><span class="hljs-meta">@Service</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">UserService</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> UserMapper userMapper;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">UserServiceImpl</span><span class="hljs-params">(UserMapper userMapper)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.userMapper = userMapper;<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> id</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span></span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> User <span class="hljs-title">findById</span><span class="hljs-params">(Integer id)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> userMapper.findById(id);<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;User&gt; <span class="hljs-title">findAll</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> userMapper.findAll();<br>    &#125;<br>&#125;<br><br><br></code></pre></td></tr></table></figure>
-
-
-<h2 id="7-controller"><a href="#7-controller" class="headerlink" title="7.controller"></a>7.controller</h2><figure class="highlight kotlin"><table><tr><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">package</span> com.mhist.studyJava.controller;<br><span class="hljs-keyword">import</span> com.mhist.studyJava.pojo.User;<br><span class="hljs-keyword">import</span> com.mhist.studyJava.service.UserService;<br><span class="hljs-keyword">import</span> org.springframework.beans.factory.<span class="hljs-keyword">annotation</span>.Autowired;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.<span class="hljs-keyword">annotation</span>.GetMapping;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.<span class="hljs-keyword">annotation</span>.RestController;<br><br><span class="hljs-keyword">import</span> java.util.List;<br><br><span class="hljs-meta">@RestController</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserController</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> UserService userService;<br><br>    <span class="hljs-keyword">public</span> UserController(UserService userService) &#123;<br>        <span class="hljs-keyword">this</span>.userService = userService;<br>    &#125;<br><br>    <span class="hljs-meta">@GetMapping(<span class="hljs-meta-string">&quot;/findById&quot;</span>)</span><br>    <span class="hljs-keyword">public</span> User findById(Integer id) &#123;<br>        <span class="hljs-keyword">return</span> userService.findById(id);<br>    &#125;<br><br>    <span class="hljs-meta">@GetMapping(<span class="hljs-meta-string">&quot;/findAll&quot;</span>)</span><br>    <span class="hljs-keyword">public</span> List&lt;User&gt; findAll() &#123;<br>        <span class="hljs-keyword">return</span> userService.findAll();<br>    &#125;<br><br>&#125;<br><br></code></pre></td></tr></table></figure>
-
-<div class="note warning modern"><p> 由于jdk17环境下不推荐使用@Autowired ,所以在controller中导入service、以及在service实现类中导入mapper的时候、需要使用有参构造</p>
-<figure class="highlight typescript"><table><tr><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">private</span> UserService userService;<br><br>  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-title">UserController</span>(<span class="hljs-params">UserService userService</span>)</span> &#123;<br>      <span class="hljs-built_in">this</span>.userService = userService;<br>  &#125;<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight typescript"><table><tr><td class="code"><pre><code class="hljs typescript"><span class="hljs-keyword">private</span> UserMapper userMapper;<br><br><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-title">UserServiceImpl</span>(<span class="hljs-params">UserMapper userMapper</span>)</span> &#123;<br>    <span class="hljs-built_in">this</span>.userMapper = userMapper;<br>&#125;<br><br></code></pre></td></tr></table></figure>
-
-</div>]]></content>
-      <categories>
-        <category>spring</category>
-      </categories>
-      <tags>
-        <tag>spring</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>uni-app实战（一）</title>
-    <url>/2021/10/26/uni-app/4132b17f6755/</url>
-    <content><![CDATA[<h1 id="项目的构建"><a href="#项目的构建" class="headerlink" title="项目的构建"></a>项目的构建</h1><ol>
-<li>开发工具采用uni-app官方的开发工具<a href="https://www.dcloud.io/hbuilderx.html">HbuilderX</a></li>
-<li>构建项目选择基础模板</li>
-<li>引入样式库 <ul>
-<li>uni.css 官方ui库</li>
-<li>animate.css css动画库</li>
-<li>icon.css 图标库</li>
-<li>common.css 公共样式</li>
-</ul>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>uni-app</category>
-      </categories>
-      <tags>
-        <tag>uni-app</tag>
       </tags>
   </entry>
   <entry>
@@ -2054,7 +2054,7 @@ See https://webpack.js.org/concepts#loaders
 <p>本质上，webpack loader 将所有类型的文件，转换为应用程序的依赖图（和最终的 bundle）可以直接引用的模块。</p>
 <h2 id="css-loader的安装"><a href="#css-loader的安装" class="headerlink" title="css-loader的安装"></a>css-loader的安装</h2><figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> css-loader -D<br></code></pre></td></tr></table></figure>
 
-<p>当前版本为：<font color=amber><a href="mailto:&#x63;&#115;&#115;&#45;&#x6c;&#x6f;&#x61;&#100;&#101;&#114;&#x40;&#x36;&#46;&#x34;&#46;&#48;">&#x63;&#115;&#115;&#45;&#x6c;&#x6f;&#x61;&#100;&#101;&#114;&#x40;&#x36;&#46;&#x34;&#46;&#48;</a></font></p>
+<p>当前版本为：<font color=amber><a href="mailto:&#x63;&#115;&#115;&#45;&#x6c;&#111;&#97;&#x64;&#x65;&#x72;&#64;&#54;&#x2e;&#x34;&#x2e;&#48;">&#x63;&#115;&#115;&#45;&#x6c;&#111;&#97;&#x64;&#x65;&#x72;&#64;&#54;&#x2e;&#x34;&#x2e;&#48;</a></font></p>
 <p>安装完css-loader后，在package.json的<font color=red>devDependencies</font>中即可看到对应的版本号，但是现在桥梁的材料准备好了，还需要将公路与桥梁进行以下安装处理，使得其可以稳固通行，也就是代码能够正常运行。要想达到目的，有以下几种方式：</p>
 <div class="tabs" id="tab"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#tab-1">配置方式 推荐</button></li><li class="tab"><button type="button" data-href="#tab-2">CLI方式（webpack5版本中不再使用）</button></li><li class="tab"><button type="button" data-href="#tab-3">内联方式</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="tab-1"><figure class="highlight yaml"><table><tr><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">module:</span> &#123;<br>   <span class="hljs-attr">rules:</span> [<br>     &#123;<br>       <span class="hljs-attr">test:</span> <span class="hljs-string">/\.css$/</span>,               <br>       <span class="hljs-attr">use:</span> [<br>         &#123; <span class="hljs-attr">loader:</span> <span class="hljs-string">&#x27;style-loader&#x27;</span> &#125;,<br>         &#123;<br>           <span class="hljs-attr">loader:</span> <span class="hljs-string">&#x27;css-loader&#x27;</span>,<br>           <span class="hljs-attr">options:</span> &#123;<br>             <span class="hljs-attr">modules:</span> <span class="hljs-literal">true</span><br>           &#125;<br>         &#125;<br>       ]<br>     &#125;<br>   ]<br> &#125;<br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-2"><figure class="highlight fortran"><table><tr><td class="code"><pre><code class="hljs fortran">webpack --<span class="hljs-keyword">module</span>-<span class="hljs-keyword">bind</span> jade-loader --<span class="hljs-keyword">module</span>-<span class="hljs-keyword">bind</span> <span class="hljs-string">&#x27;css=style-loader!css-loader&#x27;</span><br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-3"><p>通过loader名字和”!” 将css文件分隔开，当然也可以同时写多个 import “xxx-loader!css-loader../css/index.css”;</p>
 <figure class="highlight abnf"><table><tr><td class="code"><pre><code class="hljs abnf">import <span class="hljs-string">&quot;css-loader!../css/index.css&quot;</span><span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
@@ -2064,7 +2064,7 @@ See https://webpack.js.org/concepts#loaders
 <p>在前面我们已经了解到，处理css文件需要css-loader,style-loader等来处理，那么在开发过程中如果需要处理不同的文件，则需要不同的loader来实现代码功能。</p>
 <p>但是，以less文件举例子，则需要用到less工具</p>
 <figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> <span class="hljs-keyword">less</span> -D<br></code></pre></td></tr></table></figure>
-<p>当前版本：<font color=camel> <a href="mailto:&#108;&#x65;&#x73;&#x73;&#64;&#x34;&#46;&#x31;&#46;&#50;">&#108;&#x65;&#x73;&#x73;&#64;&#x34;&#46;&#x31;&#46;&#50;</a></font></p>
+<p>当前版本：<font color=camel> <a href="mailto:&#108;&#x65;&#x73;&#x73;&#x40;&#52;&#46;&#49;&#46;&#x32;">&#108;&#x65;&#x73;&#x73;&#x40;&#52;&#46;&#49;&#46;&#x32;</a></font></p>
 <p>安装完成后，可以通过npx来操作node_modules中的less，来进行处理：</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">npx less .<span class="hljs-regexp">/src/</span>css/component.less &gt; component.css<br></code></pre></td></tr></table></figure>
 <p>它可以将less文件转为正常的css文件</p>
@@ -2072,9 +2072,9 @@ See https://webpack.js.org/concepts#loaders
 
 <h1 id="less-loader"><a href="#less-loader" class="headerlink" title="less-loader"></a>less-loader</h1><p>从上面的处理过程中，我们能够体会到less工具的快捷，但是在中大型项目中，当有大量的less文件需要处理时，想要通过命令行完成less文件的转化显然是不现实的，于是可以采用less-loader来进行处理，当然<font color=seagreen>less-loader是基于less工具</font>的，所以使用less-loader时，需要保证提前安装了less工具。</p>
 <figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> <span class="hljs-keyword">less</span> -D<br></code></pre></td></tr></table></figure>
-<p>当前版本：<font color=camel> <a href="mailto:&#108;&#101;&#x73;&#x73;&#x40;&#x34;&#x2e;&#49;&#x2e;&#50;">&#108;&#101;&#x73;&#x73;&#x40;&#x34;&#x2e;&#49;&#x2e;&#50;</a></font></p>
+<p>当前版本：<font color=camel> <a href="mailto:&#x6c;&#x65;&#x73;&#115;&#x40;&#x34;&#46;&#49;&#x2e;&#50;">&#x6c;&#x65;&#x73;&#115;&#x40;&#x34;&#46;&#49;&#x2e;&#50;</a></font></p>
 <figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> <span class="hljs-keyword">less</span>-loader -D<br></code></pre></td></tr></table></figure>
-<p>当前版本： <font color=amber><a href="mailto:&#108;&#x65;&#115;&#x73;&#x2d;&#x6c;&#111;&#x61;&#100;&#101;&#114;&#x40;&#x31;&#48;&#46;&#x32;&#46;&#48;">&#108;&#x65;&#115;&#x73;&#x2d;&#x6c;&#111;&#x61;&#100;&#101;&#114;&#x40;&#x31;&#48;&#46;&#x32;&#46;&#48;</a></font></p>
+<p>当前版本： <font color=amber><a href="mailto:&#x6c;&#101;&#x73;&#115;&#45;&#x6c;&#111;&#x61;&#x64;&#101;&#114;&#64;&#49;&#x30;&#46;&#x32;&#46;&#x30;">&#x6c;&#101;&#x73;&#115;&#45;&#x6c;&#111;&#x61;&#x64;&#101;&#114;&#64;&#49;&#x30;&#46;&#x32;&#46;&#x30;</a></font></p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">module: &#123;<br>   <span class="hljs-regexp">//</span> rules数组里面都是rule对象<br>  rules: [<br>    &#123;<br>      test: <span class="hljs-regexp">/\.css$/</span>,    <span class="hljs-regexp">//</span> 匹配以css结尾的文件<br>      use: [<br>        <span class="hljs-regexp">//</span>  注意编写顺序  从下到上，从右往左，本质 从后往前<br>        &#123; loader: <span class="hljs-string">&#x27;style-loader&#x27;</span> &#125;,<br>        &#123;<br>          loader: <span class="hljs-string">&#x27;css-loader&#x27;</span>,<br>        &#125;<br>      ]<br>    &#125;,<br>    &#123;<br>      test: <span class="hljs-regexp">/\.less$/</span>,    <span class="hljs-regexp">//</span> 匹配以css结尾的文件<br>      use: [<br>        <span class="hljs-regexp">//</span>  注意编写顺序  从下到上，从右往左，本质 从后往前<br>        &#123; loader: <span class="hljs-string">&#x27;style-loader&#x27;</span> &#125;,<br>        &#123; loader: <span class="hljs-string">&#x27;css-loader&#x27;</span> &#125;,<br>        &#123;<br>          loader: <span class="hljs-string">&#x27;less-loader&#x27;</span>,<br>        &#125;<br>      ]<br>    &#125;<br>  ]<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h1 id="浏览器兼容性"><a href="#浏览器兼容性" class="headerlink" title="浏览器兼容性"></a>浏览器兼容性</h1><p>在开发中，我们会遇到浏览器的兼容性问题，不是指屏幕大小的变化适配，主要是针对于不同的浏览器所支持的特性之间的问题，比如CSS特性，js语法之间的兼容性，同时市面上存在着的浏览器，包括chrome、safari、IE、Edge、chrome for Android、UC Browser、QQ Browser等等，有着不同的市场占有率，是不是都需要兼容呢？</p>
@@ -2099,91 +2099,15 @@ See https://webpack.js.org/concepts#loaders
 <h2 id="使用postcss的步骤"><a href="#使用postcss的步骤" class="headerlink" title="使用postcss的步骤"></a>使用postcss的步骤</h2><p>第一步：查找postCss在构建工具中的扩展，比如webpack中的postcss-loader;<br>第二步： 选择可以添加你需要的postCss相关的插件</p>
 <p>如果是在终端直接使用，需要单独安装postcss-cli。</p>
 <figure class="highlight avrasm"><table><tr><td class="code"><pre><code class="hljs avrasm">npm i -D postcss postcss-<span class="hljs-keyword">cli</span><br></code></pre></td></tr></table></figure>
-<p><font color=chocolate>+ <a href="mailto:&#112;&#111;&#x73;&#x74;&#x63;&#115;&#x73;&#x40;&#56;&#46;&#51;&#46;&#57;">&#112;&#111;&#x73;&#x74;&#x63;&#115;&#x73;&#x40;&#56;&#46;&#51;&#46;&#57;</a></font><br><font color=yellowgreen>+ <a href="mailto:&#x70;&#111;&#115;&#116;&#x63;&#115;&#x73;&#x2d;&#99;&#x6c;&#105;&#x40;&#x39;&#46;&#48;&#x2e;&#49;">&#x70;&#111;&#115;&#116;&#x63;&#115;&#x73;&#x2d;&#99;&#x6c;&#105;&#x40;&#x39;&#46;&#48;&#x2e;&#49;</a></font></p>
+<p><font color=chocolate>+ <a href="mailto:&#x70;&#x6f;&#115;&#116;&#x63;&#115;&#115;&#x40;&#56;&#46;&#51;&#x2e;&#x39;">&#x70;&#x6f;&#115;&#116;&#x63;&#115;&#115;&#x40;&#56;&#46;&#51;&#x2e;&#x39;</a></font><br><font color=yellowgreen>+ <a href="mailto:&#x70;&#x6f;&#x73;&#116;&#99;&#x73;&#x73;&#x2d;&#99;&#x6c;&#105;&#x40;&#57;&#x2e;&#48;&#x2e;&#x31;">&#x70;&#x6f;&#x73;&#116;&#99;&#x73;&#x73;&#x2d;&#99;&#x6c;&#105;&#x40;&#57;&#x2e;&#48;&#x2e;&#x31;</a></font></p>
 <p>在css开发过程中，会写到很多属性和样式，让我们遇到不熟悉的属性的时候，不清楚需要对哪些浏览器进行适配的时候，可以到<a href="http://autoprefixer.github.io/">Autoprefixer CSS online</a>,它是一个postcss插件，可以通过它解析CSS并添加供应商前缀。</p>
 <p>自动添加前缀插件： autopreFixer</p>
 <figure class="highlight angelscript"><table><tr><td class="code"><pre><code class="hljs angelscript">npm install <span class="hljs-built_in">auto</span>prefixer -D<br></code></pre></td></tr></table></figure>
-<p>当前版本：<font color=blue><a href="mailto:&#x61;&#117;&#116;&#111;&#112;&#x72;&#101;&#x66;&#105;&#120;&#101;&#x72;&#64;&#49;&#x30;&#46;&#x33;&#x2e;&#55;">&#x61;&#117;&#116;&#111;&#112;&#x72;&#101;&#x66;&#105;&#120;&#101;&#x72;&#64;&#49;&#x30;&#46;&#x33;&#x2e;&#55;</a></font></p>
+<p>当前版本：<font color=blue><a href="mailto:&#x61;&#x75;&#x74;&#x6f;&#112;&#114;&#x65;&#x66;&#x69;&#120;&#101;&#x72;&#64;&#49;&#x30;&#46;&#51;&#x2e;&#55;">&#x61;&#x75;&#x74;&#x6f;&#112;&#114;&#x65;&#x66;&#x69;&#120;&#101;&#x72;&#64;&#49;&#x30;&#46;&#51;&#x2e;&#55;</a></font></p>
 <div class="tabs" id="tab"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#tab-1">webpack使用方式  post-cssloader</button></li><li class="tab"><button type="button" data-href="#tab-2">命令行使用方式：</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="tab-1"><figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> postcss-loader -D<br></code></pre></td></tr></table></figure>
-<p><font color=royalblue>+ <a href="mailto:&#112;&#x6f;&#115;&#x74;&#99;&#115;&#115;&#x2d;&#108;&#x6f;&#x61;&#100;&#x65;&#114;&#x40;&#54;&#x2e;&#50;&#x2e;&#48;">&#112;&#x6f;&#115;&#x74;&#99;&#115;&#115;&#x2d;&#108;&#x6f;&#x61;&#100;&#x65;&#114;&#x40;&#54;&#x2e;&#50;&#x2e;&#48;</a></font><br>它可以自动检测并通过postcss来进行css的自动化处理。</p>
+<p><font color=royalblue>+ <a href="mailto:&#112;&#111;&#x73;&#x74;&#99;&#x73;&#115;&#x2d;&#x6c;&#111;&#x61;&#100;&#101;&#x72;&#x40;&#54;&#46;&#x32;&#46;&#48;">&#112;&#111;&#x73;&#x74;&#99;&#x73;&#115;&#x2d;&#x6c;&#111;&#x61;&#100;&#101;&#x72;&#x40;&#54;&#46;&#x32;&#46;&#48;</a></font><br>它可以自动检测并通过postcss来进行css的自动化处理。</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">module: &#123;<br>     <span class="hljs-regexp">//</span> rules数组里面都是rule对象<br>    rules: [<br>      &#123;<br>        test: <span class="hljs-regexp">/\.css$/</span>,    <span class="hljs-regexp">//</span> 匹配以css结尾的文件<br>        use: [<br>          <span class="hljs-regexp">//</span>  注意编写顺序  从下到上，从右往左，本质 从后往前<br>          &#123; loader: <span class="hljs-string">&#x27;style-loader&#x27;</span> &#125;,<br>          &#123;<br>            loader: <span class="hljs-string">&#x27;css-loader&#x27;</span>,<br>          &#125;,<br>          &#123;<br>            loader: <span class="hljs-string">&#x27;postcss-loader&#x27;</span>,<br>            options: &#123;<br>              postcssOptions: &#123;<br>                plugins: [<br>                  require(<span class="hljs-string">&quot;autoprefixer&quot;</span>)<br>                ]<br>              &#125;<br>            &#125;<br>          &#125;<br>        ]<br>      &#125;<br>    ]<br>  &#125;<br><br></code></pre></td></tr></table></figure>
 <p><img src="https://cdn.jsdelivr.net/gh/mhist/hexoImage@main/img/20211019213331autoPreFixerExample.png" alt="自动加前缀实验"></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-2"><figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">npx postcss --use autoprefixer -o result.css .<span class="hljs-regexp">/src/</span>css/test.css<br></code></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
-]]></content>
-      <categories>
-        <category>webpack</category>
-      </categories>
-      <tags>
-        <tag>webpack</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>webpack（一）</title>
-    <url>/2021/04/28/webpack/a052f112cdb6/</url>
-    <content><![CDATA[<h1 id="网络问题影响提交"><a href="#网络问题影响提交" class="headerlink" title="网络问题影响提交"></a>网络问题影响提交</h1><p>问题1：fatal: unable to access ‘<a href="https://github.com/Mhist/Mhist.github.io.git/&#39;">https://github.com/Mhist/Mhist.github.io.git/&#39;</a>: OpenSSL SSL_read: Connection was reset, errno 10054</p>
-<figure class="highlight tcl"><table><tr><td class="code"><pre><code class="hljs tcl">git config --<span class="hljs-keyword">global</span> <span class="hljs-keyword">http</span>.sslVerify <span class="hljs-string">&quot;false&quot;</span><br></code></pre></td></tr></table></figure>
-<p>问题2 ：Failed to connect to github.com port 443: Timed out</p>
-<figure class="highlight tcl"><table><tr><td class="code"><pre><code class="hljs tcl">git config --<span class="hljs-keyword">global</span> --<span class="hljs-keyword">unset</span> <span class="hljs-keyword">http</span>.proxy<br></code></pre></td></tr></table></figure>
-
-<h1 id="前言—带着问题学习webpack"><a href="#前言—带着问题学习webpack" class="headerlink" title="前言—带着问题学习webpack"></a>前言—带着问题学习webpack</h1><ul>
-<li>1.什么是webpack?</li>
-<li>2.为什么要学习webpack?</li>
-<li>3.webpack有哪些基本概念，应该怎么高效学习webpack?</li>
-</ul>
-<h1 id="webpack基本概念"><a href="#webpack基本概念" class="headerlink" title="webpack基本概念"></a>webpack基本概念</h1><ul>
-<li><a href="https://www.webpackjs.com/">webpack中文官网</a></li>
-<li><a href="https://createapp.dev/webpack/no-library">webpack在线配置</a></li>
-</ul>
-<p>  在官网中，给出了webpack的基本解释，也就是网页的打包工具。它能够将项目的文件资源、图片、样式、脚本等通过 webpack 递归地构建一个依赖关系图(dependency graph)，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 bundle（包）。</p>
-<h1 id="学习webpack有什么作用"><a href="#学习webpack有什么作用" class="headerlink" title="学习webpack有什么作用"></a>学习webpack有什么作用</h1><ol>
-<li>给某些目录结构起别名</li>
-<li>让项目支持sass、less等预处理器</li>
-<li>添加配置让项目支持TypeScript</li>
-<li>安装性能分析工具</li>
-<li>使用Gzip压缩代码</li>
-<li>引用cdn的资源</li>
-<li>公共代码的抽取</li>
-<li>编写定制化的loader和plugin</li>
-<li>其他定制化配置，使得模块化开发和高级特性在低级浏览器也能正常显示</li>
-</ol>
-<h1 id="webpack的安装"><a href="#webpack的安装" class="headerlink" title="webpack的安装"></a>webpack的安装</h1><p>最新版本为：<img src="https://img.shields.io/npm/v/webpack.svg?label=webpack&style=flat-square&maxAge=3600" alt="webpack最新版本"></p>
-<ul>
-<li>依赖node环境，最低的node版本要求 <strong>v10.13.0</strong></li>
-<li>博主当前node版本：v14.16.1 </li>
-<li><a href="https://nodejs.org/en/">node官网及版本，最新稳定版本 v14.18.1</a></li>
-</ul>
-<hr>
-<h2 id="安装方式"><a href="#安装方式" class="headerlink" title="安装方式"></a>安装方式</h2><p>1.本地安装（推荐）</p>
-<ul>
-<li>对于大多数项目，我们建议本地安装。这可以使我们在引入破坏式变更(breaking change)的依赖时，更容易分别升级项目。通常，webpack 通过运行一个或多个 npm scripts，会在本地 node_modules 目录中查找安装的 webpack：</li>
-<li>方式1<figure class="highlight 1c"><table><tr><td class="code"><pre><code class="hljs 1c"><span class="hljs-string">&quot;scripts&quot;</span>: &#123;<br>    <span class="hljs-string">&quot;start&quot;</span>: <span class="hljs-string">&quot;webpack --config webpack.config.js&quot;</span><br>&#125;<br></code></pre></td></tr></table></figure></li>
-<li>方式2<figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">.<span class="hljs-regexp">/node_modules/</span>.bin/webpack <br></code></pre></td></tr></table></figure></li>
-<li>方式3<br>或者使用npx,它可以直接访问node_modules中的命令<figure class="highlight ebnf"><table><tr><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">npx webpack</span><br></code></pre></td></tr></table></figure></li>
-</ul>
-<p>当你在本地安装 webpack 后，你能够从 node_modules/.bin/webpack 访问它的 bin 版本。</p>
-<ul>
-<li>安装最新版本<figure class="highlight q"><table><tr><td class="code"><pre><code class="hljs q">npm install --<span class="hljs-built_in">save</span>-<span class="hljs-built_in">dev</span> webpack<br></code></pre></td></tr></table></figure></li>
-<li>安装指定版本<figure class="highlight angelscript"><table><tr><td class="code"><pre><code class="hljs angelscript">npm install --save-dev <span class="hljs-symbol">webpack@<span class="hljs-keyword">&lt;version&gt;</span></span><br></code></pre></td></tr></table></figure></li>
-</ul>
-<p>2.全局安装(不推荐)</p>
-<figure class="highlight coffeescript"><table><tr><td class="code"><pre><code class="hljs coffeescript"><span class="hljs-built_in">npm</span> install --<span class="hljs-built_in">global</span> webpack<br></code></pre></td></tr></table></figure>
-
-<ul>
-<li>原因是：这会将项目中的webpack的版本锁定为全局安装时的版本，当因为开发时段和开发需求的不同而导致项目中依赖不同版本的webpack来构建时，可能会造成构建失败。</li>
-</ul>
-<h2 id="WEBPACK-CLI"><a href="#WEBPACK-CLI" class="headerlink" title="WEBPACK-CLI"></a>WEBPACK-CLI</h2><p> 对于webpack4可能需要安装webpack-cli,提供一下命令：</p>
-<ul>
-<li>全局安装</li>
-</ul>
-<figure class="highlight avrasm"><table><tr><td class="code"><pre><code class="hljs avrasm">npm install webpack-<span class="hljs-keyword">cli</span> -g<br></code></pre></td></tr></table></figure>
-
-<ul>
-<li>本地安装</li>
-</ul>
-<figure class="highlight avrasm"><table><tr><td class="code"><pre><code class="hljs avrasm">npm install webpack-<span class="hljs-keyword">cli</span> -D<br></code></pre></td></tr></table></figure>
-
-
-
-
 ]]></content>
       <categories>
         <category>webpack</category>
@@ -2396,6 +2320,82 @@ See https://webpack.js.org/concepts#loaders
 ]]></content>
       <tags>
         <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>webpack（一）</title>
+    <url>/2021/04/28/webpack/a052f112cdb6/</url>
+    <content><![CDATA[<h1 id="网络问题影响提交"><a href="#网络问题影响提交" class="headerlink" title="网络问题影响提交"></a>网络问题影响提交</h1><p>问题1：fatal: unable to access ‘<a href="https://github.com/Mhist/Mhist.github.io.git/&#39;">https://github.com/Mhist/Mhist.github.io.git/&#39;</a>: OpenSSL SSL_read: Connection was reset, errno 10054</p>
+<figure class="highlight tcl"><table><tr><td class="code"><pre><code class="hljs tcl">git config --<span class="hljs-keyword">global</span> <span class="hljs-keyword">http</span>.sslVerify <span class="hljs-string">&quot;false&quot;</span><br></code></pre></td></tr></table></figure>
+<p>问题2 ：Failed to connect to github.com port 443: Timed out</p>
+<figure class="highlight tcl"><table><tr><td class="code"><pre><code class="hljs tcl">git config --<span class="hljs-keyword">global</span> --<span class="hljs-keyword">unset</span> <span class="hljs-keyword">http</span>.proxy<br></code></pre></td></tr></table></figure>
+
+<h1 id="前言—带着问题学习webpack"><a href="#前言—带着问题学习webpack" class="headerlink" title="前言—带着问题学习webpack"></a>前言—带着问题学习webpack</h1><ul>
+<li>1.什么是webpack?</li>
+<li>2.为什么要学习webpack?</li>
+<li>3.webpack有哪些基本概念，应该怎么高效学习webpack?</li>
+</ul>
+<h1 id="webpack基本概念"><a href="#webpack基本概念" class="headerlink" title="webpack基本概念"></a>webpack基本概念</h1><ul>
+<li><a href="https://www.webpackjs.com/">webpack中文官网</a></li>
+<li><a href="https://createapp.dev/webpack/no-library">webpack在线配置</a></li>
+</ul>
+<p>  在官网中，给出了webpack的基本解释，也就是网页的打包工具。它能够将项目的文件资源、图片、样式、脚本等通过 webpack 递归地构建一个依赖关系图(dependency graph)，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 bundle（包）。</p>
+<h1 id="学习webpack有什么作用"><a href="#学习webpack有什么作用" class="headerlink" title="学习webpack有什么作用"></a>学习webpack有什么作用</h1><ol>
+<li>给某些目录结构起别名</li>
+<li>让项目支持sass、less等预处理器</li>
+<li>添加配置让项目支持TypeScript</li>
+<li>安装性能分析工具</li>
+<li>使用Gzip压缩代码</li>
+<li>引用cdn的资源</li>
+<li>公共代码的抽取</li>
+<li>编写定制化的loader和plugin</li>
+<li>其他定制化配置，使得模块化开发和高级特性在低级浏览器也能正常显示</li>
+</ol>
+<h1 id="webpack的安装"><a href="#webpack的安装" class="headerlink" title="webpack的安装"></a>webpack的安装</h1><p>最新版本为：<img src="https://img.shields.io/npm/v/webpack.svg?label=webpack&style=flat-square&maxAge=3600" alt="webpack最新版本"></p>
+<ul>
+<li>依赖node环境，最低的node版本要求 <strong>v10.13.0</strong></li>
+<li>博主当前node版本：v14.16.1 </li>
+<li><a href="https://nodejs.org/en/">node官网及版本，最新稳定版本 v14.18.1</a></li>
+</ul>
+<hr>
+<h2 id="安装方式"><a href="#安装方式" class="headerlink" title="安装方式"></a>安装方式</h2><p>1.本地安装（推荐）</p>
+<ul>
+<li>对于大多数项目，我们建议本地安装。这可以使我们在引入破坏式变更(breaking change)的依赖时，更容易分别升级项目。通常，webpack 通过运行一个或多个 npm scripts，会在本地 node_modules 目录中查找安装的 webpack：</li>
+<li>方式1<figure class="highlight 1c"><table><tr><td class="code"><pre><code class="hljs 1c"><span class="hljs-string">&quot;scripts&quot;</span>: &#123;<br>    <span class="hljs-string">&quot;start&quot;</span>: <span class="hljs-string">&quot;webpack --config webpack.config.js&quot;</span><br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li>方式2<figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">.<span class="hljs-regexp">/node_modules/</span>.bin/webpack <br></code></pre></td></tr></table></figure></li>
+<li>方式3<br>或者使用npx,它可以直接访问node_modules中的命令<figure class="highlight ebnf"><table><tr><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">npx webpack</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<p>当你在本地安装 webpack 后，你能够从 node_modules/.bin/webpack 访问它的 bin 版本。</p>
+<ul>
+<li>安装最新版本<figure class="highlight q"><table><tr><td class="code"><pre><code class="hljs q">npm install --<span class="hljs-built_in">save</span>-<span class="hljs-built_in">dev</span> webpack<br></code></pre></td></tr></table></figure></li>
+<li>安装指定版本<figure class="highlight angelscript"><table><tr><td class="code"><pre><code class="hljs angelscript">npm install --save-dev <span class="hljs-symbol">webpack@<span class="hljs-keyword">&lt;version&gt;</span></span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<p>2.全局安装(不推荐)</p>
+<figure class="highlight coffeescript"><table><tr><td class="code"><pre><code class="hljs coffeescript"><span class="hljs-built_in">npm</span> install --<span class="hljs-built_in">global</span> webpack<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>原因是：这会将项目中的webpack的版本锁定为全局安装时的版本，当因为开发时段和开发需求的不同而导致项目中依赖不同版本的webpack来构建时，可能会造成构建失败。</li>
+</ul>
+<h2 id="WEBPACK-CLI"><a href="#WEBPACK-CLI" class="headerlink" title="WEBPACK-CLI"></a>WEBPACK-CLI</h2><p> 对于webpack4可能需要安装webpack-cli,提供一下命令：</p>
+<ul>
+<li>全局安装</li>
+</ul>
+<figure class="highlight avrasm"><table><tr><td class="code"><pre><code class="hljs avrasm">npm install webpack-<span class="hljs-keyword">cli</span> -g<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>本地安装</li>
+</ul>
+<figure class="highlight avrasm"><table><tr><td class="code"><pre><code class="hljs avrasm">npm install webpack-<span class="hljs-keyword">cli</span> -D<br></code></pre></td></tr></table></figure>
+
+
+
+
+]]></content>
+      <categories>
+        <category>webpack</category>
+      </categories>
+      <tags>
+        <tag>webpack</tag>
       </tags>
   </entry>
   <entry>
