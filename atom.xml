@@ -6,7 +6,7 @@
   <link href="https://mhist.github.io/atom.xml" rel="self"/>
   
   <link href="https://mhist.github.io/"/>
-  <updated>2024-06-22T13:54:54.559Z</updated>
+  <updated>2024-06-23T16:18:00.485Z</updated>
   <id>https://mhist.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo （mixed-content）</title>
+    <link href="https://mhist.github.io/2024/06/24/hexo/006b45bc9237/"/>
+    <id>https://mhist.github.io/2024/06/24/hexo/006b45bc9237/</id>
+    <published>2024-06-23T16:02:33.000Z</published>
+    <updated>2024-06-23T16:18:00.485Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;遇到mixed-content&quot;&gt;&lt;a href=&quot;#遇到mixed-content&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="hexo" scheme="https://mhist.github.io/categories/hexo/"/>
+    
+    
+    <category term="hexo" scheme="https://mhist.github.io/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>picgo （一）</title>
@@ -505,32 +530,6 @@ SELECT</summary>
     
     
     <category term="git" scheme="https://mhist.github.io/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>uni-app实战（一）</title>
-    <link href="https://mhist.github.io/2021/10/26/uni-app/4132b17f6755/"/>
-    <id>https://mhist.github.io/2021/10/26/uni-app/4132b17f6755/</id>
-    <published>2021-10-26T05:59:33.000Z</published>
-    <updated>2024-01-21T16:09:10.884Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;项目的构建&quot;&gt;&lt;a href=&quot;#项目的构建&quot; class=&quot;headerlink&quot; title=&quot;项目的构建&quot;&gt;&lt;/a&gt;项目的构建&lt;/h1&gt;&lt;ol&gt;
-&lt;li&gt;开发工具采用uni-app官方的开发工具&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="uni-app" scheme="https://mhist.github.io/categories/uni-app/"/>
-    
-    
-    <category term="uni-app" scheme="https://mhist.github.io/tags/uni-app/"/>
     
   </entry>
   
