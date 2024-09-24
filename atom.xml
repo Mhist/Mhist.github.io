@@ -6,7 +6,7 @@
   <link href="https://mhist.github.io/atom.xml" rel="self"/>
   
   <link href="https://mhist.github.io/"/>
-  <updated>2024-06-23T18:05:44.692Z</updated>
+  <updated>2024-09-24T14:09:38.091Z</updated>
   <id>https://mhist.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>为项目收集图标</title>
+    <link href="https://mhist.github.io/2024/09/03/uncategorized/04a5cd962871/"/>
+    <id>https://mhist.github.io/2024/09/03/uncategorized/04a5cd962871/</id>
+    <published>2024-09-03T02:06:20.000Z</published>
+    <updated>2024-09-24T14:09:38.091Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;为项目收集图标&quot;&gt;&lt;a href=&quot;#为项目收集图标&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="icon" scheme="https://mhist.github.io/tags/icon/"/>
+    
+  </entry>
   
   <entry>
     <title>hexo （mixed-content）</title>
@@ -255,7 +278,7 @@
     <link href="https://mhist.github.io/2022/12/07/cesium/da39cf3f3db8/"/>
     <id>https://mhist.github.io/2022/12/07/cesium/da39cf3f3db8/</id>
     <published>2022-12-07T02:44:13.000Z</published>
-    <updated>2024-01-21T16:09:10.882Z</updated>
+    <updated>2024-09-24T14:18:30.142Z</updated>
     
     
       
@@ -505,31 +528,6 @@ SELECT</summary>
     
     
     <category term="node" scheme="https://mhist.github.io/tags/node/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>git</title>
-    <link href="https://mhist.github.io/2021/11/01/git/0e5e66b4b6b0/"/>
-    <id>https://mhist.github.io/2021/11/01/git/0e5e66b4b6b0/</id>
-    <published>2021-11-01T03:33:19.000Z</published>
-    <updated>2024-01-21T16:09:10.883Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;git是什么？&quot;&gt;&lt;a href=&quot;#git是什么？&quot; class=&quot;headerlink&quot; title=&quot;git是什么？&quot;&gt;&lt;/a&gt;git是什么？&lt;/h2&gt;&lt;p&gt; Git是一种分布式的版本控制软件， 它像是把数据看作是对小型文件系统的一系列快照。 在 Git</summary>
-        
-      
-    
-    
-    
-    <category term="git" scheme="https://mhist.github.io/categories/git/"/>
-    
-    
-    <category term="git" scheme="https://mhist.github.io/tags/git/"/>
     
   </entry>
   

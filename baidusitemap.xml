@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://mhist.github.io/2022/12/07/cesium/da39cf3f3db8/</loc>
+    <lastmod>2024-09-24</lastmod>
+  </url>
+  <url>
+    <loc>https://mhist.github.io/2024/09/03/uncategorized/04a5cd962871/</loc>
+    <lastmod>2024-09-24</lastmod>
+  </url>
+  <url>
     <loc>https://mhist.github.io/2024/06/22/minio/4dbfabd1f48a/</loc>
     <lastmod>2024-06-24</lastmod>
   </url>
@@ -65,11 +73,19 @@
     <lastmod>2024-01-21</lastmod>
   </url>
   <url>
+    <loc>https://mhist.github.io/2022/03/08/vue/9eb91058fc40/</loc>
+    <lastmod>2024-01-21</lastmod>
+  </url>
+  <url>
     <loc>https://mhist.github.io/2021/10/11/vue3/583a6ec9ccd6/</loc>
     <lastmod>2024-01-21</lastmod>
   </url>
   <url>
     <loc>https://mhist.github.io/2021/09/23/vue3/22ee434cee21/</loc>
+    <lastmod>2024-01-21</lastmod>
+  </url>
+  <url>
+    <loc>https://mhist.github.io/2021/10/18/webpack/eb2dff5fc128/</loc>
     <lastmod>2024-01-21</lastmod>
   </url>
   <url>
@@ -81,27 +97,11 @@
     <lastmod>2024-01-21</lastmod>
   </url>
   <url>
-    <loc>https://mhist.github.io/2021/10/18/webpack/eb2dff5fc128/</loc>
-    <lastmod>2024-01-21</lastmod>
-  </url>
-  <url>
-    <loc>https://mhist.github.io/2022/03/08/vue/9eb91058fc40/</loc>
-    <lastmod>2024-01-21</lastmod>
-  </url>
-  <url>
-    <loc>https://mhist.github.io/2022/12/20/editor/a972ef10f61a/</loc>
-    <lastmod>2024-01-21</lastmod>
-  </url>
-  <url>
     <loc>https://mhist.github.io/2024/01/22/hexo/435244c26d39/</loc>
     <lastmod>2024-01-21</lastmod>
   </url>
   <url>
     <loc>https://mhist.github.io/2021/11/01/git/0e5e66b4b6b0/</loc>
-    <lastmod>2024-01-21</lastmod>
-  </url>
-  <url>
-    <loc>https://mhist.github.io/2022/02/20/js%E9%9D%A2%E8%AF%95%E9%A2%98/e6e33b6aaa60/</loc>
     <lastmod>2024-01-21</lastmod>
   </url>
   <url>
@@ -121,19 +121,23 @@
     <lastmod>2024-01-21</lastmod>
   </url>
   <url>
+    <loc>https://mhist.github.io/2022/02/20/js%E9%9D%A2%E8%AF%95%E9%A2%98/e6e33b6aaa60/</loc>
+    <lastmod>2024-01-21</lastmod>
+  </url>
+  <url>
     <loc>https://mhist.github.io/2021/11/12/mysql/ab03683a0789/</loc>
     <lastmod>2024-01-21</lastmod>
   </url>
   <url>
-    <loc>https://mhist.github.io/2022/12/07/cesium/da39cf3f3db8/</loc>
-    <lastmod>2024-01-21</lastmod>
-  </url>
-  <url>
-    <loc>https://mhist.github.io/2021/09/26/TypeScript/4d8aa16bcb6b/</loc>
+    <loc>https://mhist.github.io/2022/12/20/editor/a972ef10f61a/</loc>
     <lastmod>2024-01-21</lastmod>
   </url>
   <url>
     <loc>https://mhist.github.io/2021/09/24/TypeScript/854698b90236/</loc>
+    <lastmod>2024-01-21</lastmod>
+  </url>
+  <url>
+    <loc>https://mhist.github.io/2021/09/26/TypeScript/4d8aa16bcb6b/</loc>
     <lastmod>2024-01-21</lastmod>
   </url>
   <url>
